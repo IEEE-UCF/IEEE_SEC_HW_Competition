@@ -1,0 +1,28 @@
+[0.037s] Invoking command in '/home/adenm/sec_test_dev_ws/build/sec_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/eloquent /home/adenm/.local/bin/cmake --build /home/adenm/sec_test_dev_ws/build/sec_description -- -j8 -l8
+[0.080s] Invoked command in '/home/adenm/sec_test_dev_ws/build/sec_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/eloquent /home/adenm/.local/bin/cmake --build /home/adenm/sec_test_dev_ws/build/sec_description -- -j8 -l8
+[0.153s] Invoking command in '/home/adenm/sec_test_dev_ws/build/sec_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/eloquent /home/adenm/.local/bin/cmake --install /home/adenm/sec_test_dev_ws/build/sec_description
+[0.175s] -- Install configuration: ""
+[0.176s] -- Execute custom install script
+[0.176s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/description/gazebo_control.xacro
+[0.177s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/description/inertial_macros.xacro
+[0.177s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/description/robot_core.xacro
+[0.178s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/description/sec_description.urdf.xacro
+[0.178s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/launch/display.launch.py
+[0.179s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/launch/launch_sim.launch.py
+[0.180s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/launch/rsp.launch.py
+[0.181s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/ament_index/resource_index/package_run_dependencies/sec_description
+[0.187s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/ament_index/resource_index/parent_prefix_path/sec_description
+[0.187s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/environment/ament_prefix_path.sh
+[0.187s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/environment/ament_prefix_path.dsv
+[0.188s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/environment/path.sh
+[0.188s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/environment/path.dsv
+[0.188s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/local_setup.bash
+[0.188s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/local_setup.sh
+[0.188s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/local_setup.zsh
+[0.188s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/local_setup.dsv
+[0.189s] -- Symlinking: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/package.dsv
+[0.192s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/ament_index/resource_index/packages/sec_description
+[0.193s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/cmake/sec_descriptionConfig.cmake
+[0.193s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/cmake/sec_descriptionConfig-version.cmake
+[0.194s] -- Up-to-date symlink: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/package.xml
+[0.204s] Invoked command in '/home/adenm/sec_test_dev_ws/build/sec_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/eloquent /home/adenm/.local/bin/cmake --install /home/adenm/sec_test_dev_ws/build/sec_description

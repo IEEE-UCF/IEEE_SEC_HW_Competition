@@ -20,7 +20,7 @@ def generate_launch_description():
 
     final_descriptor = os.path.join(get_package_share_directory(pkg_name),final_descriptor)
 
-    with open(final_descriptor, "w") as file:
+    with open(final_descriptor, "w+") as file:
         file.write(robot_description_raw)
 
     # Configure the node

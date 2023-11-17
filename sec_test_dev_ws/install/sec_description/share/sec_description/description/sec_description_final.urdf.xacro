@@ -7,7 +7,9 @@
 	<!-- Specify some standard inertial calculations https://en.wikipedia.org/wiki/List_of_moments_of_inertia -->
 	<!-- These make use of xacro's mathematical functionality -->
 	<!-- Base Footprint -->
-	<link name="base_link"/>
+	<link name="base_link">
+
+    </link>
 	<!-- Robot Base -->
 	<link name="chassis">
 		<visual>
@@ -36,7 +38,7 @@
 		<child link="chassis"/>
 		<origin rpy="0 0 0" xyz="0.0 0.0 0.05"/>
 	</joint>
-	<link name="drivewhl_l_link">
+	<link name="b_l_wheel_link">
 		<visual>
 			<origin rpy="1.5707963267948966 0 0" xyz="0 0 0"/>
 			<geometry>
@@ -58,13 +60,16 @@
 			<inertia ixx="0.03333333333333334" ixy="0.0" ixz="0.0" iyy="0.03333333333333334" iyz="0.0" izz="0.05000000000000001"/>
 		</inertial>
 	</link>
-	<joint name="drivewhl_lbase_joint" type="continuous">
+	<joint name="b_l_wheel_joint" type="continuous">
 		<parent link="chassis"/>
-		<child link="drivewhl_l_link"/>
+		<child link="b_l_wheel_link"/>
 		<origin rpy="0 0 0" xyz="-0.125 0.3 0.03"/>
 		<axis xyz="0 1 0"/>
 	</joint>
-	<link name="drivewhl_r_link">
+	<gazebo reference="b_l_wheel_link">
+		<material>Gazebo/Blue</material>
+	</gazebo>
+	<link name="b_r_wheel_link">
 		<visual>
 			<origin rpy="1.5707963267948966 0 0" xyz="0 0 0"/>
 			<geometry>
@@ -86,13 +91,16 @@
 			<inertia ixx="0.03333333333333334" ixy="0.0" ixz="0.0" iyy="0.03333333333333334" iyz="0.0" izz="0.05000000000000001"/>
 		</inertial>
 	</link>
-	<joint name="drivewhl_rbase_joint" type="continuous">
+	<joint name="b_r_wheel_joint" type="continuous">
 		<parent link="chassis"/>
-		<child link="drivewhl_r_link"/>
+		<child link="b_r_wheel_link"/>
 		<origin rpy="0 0 0" xyz="-0.125 -0.3 0.03"/>
 		<axis xyz="0 1 0"/>
 	</joint>
-	<link name="frontwhl_l_link">
+	<gazebo reference="b_r_wheel_link">
+		<material>Gazebo/Blue</material>
+	</gazebo>
+	<link name="f_l_wheel_link">
 		<visual>
 			<origin rpy="1.5707963267948966 0 0" xyz="0 0 0"/>
 			<geometry>
@@ -114,13 +122,16 @@
 			<inertia ixx="0.03333333333333334" ixy="0.0" ixz="0.0" iyy="0.03333333333333334" iyz="0.0" izz="0.05000000000000001"/>
 		</inertial>
 	</link>
-	<joint name="frontwhl_lbase_joint" type="continuous">
+	<joint name="f_l_wheel_joint" type="continuous">
 		<parent link="chassis"/>
-		<child link="frontwhl_l_link"/>
+		<child link="f_l_wheel_link"/>
 		<origin rpy="0 0 0" xyz="0.125 0.3 0.03"/>
 		<axis xyz="0 1 0"/>
 	</joint>
-	<link name="frontwhl_r_link">
+	<gazebo reference="f_l_wheel_link">
+		<material>Gazebo/Blue</material>
+	</gazebo>
+	<link name="f_r_wheel_link">
 		<visual>
 			<origin rpy="1.5707963267948966 0 0" xyz="0 0 0"/>
 			<geometry>
@@ -142,10 +153,39 @@
 			<inertia ixx="0.03333333333333334" ixy="0.0" ixz="0.0" iyy="0.03333333333333334" iyz="0.0" izz="0.05000000000000001"/>
 		</inertial>
 	</link>
-	<joint name="frontwhl_rbase_joint" type="continuous">
+	<joint name="f_r_wheel_joint" type="continuous">
 		<parent link="chassis"/>
-		<child link="frontwhl_r_link"/>
+		<child link="f_r_wheel_link"/>
 		<origin rpy="0 0 0" xyz="0.125 -0.3 0.03"/>
 		<axis xyz="0 1 0"/>
 	</joint>
+	<gazebo reference="f_r_wheel_link">
+		<material>Gazebo/Blue</material>
+	</gazebo>
+	<gazebo>
+		<plugin filename="libgazebo_ros_diff_drive.so" name="four_wheeled_robot_diff_drive">
+			<!-- Number of wheel pairs -->
+			<num_wheel_pairs>2</num_wheel_pairs>
+			<!-- wheels0 -->
+			<left_joint>f_l_wheel_joint</left_joint>
+			<right_joint>f_r_wheel_joint</right_joint>
+			<!-- wheels1-->
+			<left_joint>b_l_wheel_joint</left_joint>
+			<right_joint>b_r_wheel_joint</right_joint>
+			<!-- kinematics -->
+			<wheel_separation>&quot;0.5&quot;</wheel_separation>
+			<wheel_separation>&quot;0.5&quot;</wheel_separation>
+			<wheel_diameter>0.2</wheel_diameter>
+			<wheel_diameter>0.2</wheel_diameter>
+			<!-- limits -->
+			<max_wheel_torque>200</max_wheel_torque>
+			<max_wheel_acceleration>10.0</max_wheel_acceleration>
+			<!-- output -->
+			<publish_odom>true</publish_odom>
+			<publish_odom_tf>true</publish_odom_tf>
+			<publish_wheel_tf>true</publish_wheel_tf>
+			<odometry_frame>odom</odometry_frame>
+			<robot_base_frame>chassis</robot_base_frame>
+		</plugin>
+	</gazebo>
 </robot>
