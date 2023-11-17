@@ -1,0 +1,119 @@
+[0.000000] (-) TimerEvent: {}
+[0.000634] (sec_description) JobQueued: {'identifier': 'sec_description', 'dependencies': OrderedDict()}
+[0.000719] (sec_description) JobStarted: {'identifier': 'sec_description'}
+[0.014274] (sec_description) JobProgress: {'identifier': 'sec_description', 'progress': 'cmake'}
+[0.015002] (sec_description) Command: {'cmd': ['/home/adenm/.local/bin/cmake', '/home/adenm/sec_test_dev_ws/src/sec_description', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/adenm/sec_test_dev_ws/install/sec_description'], 'cwd': '/home/adenm/sec_test_dev_ws/build/sec_description', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'adenm'), ('OSPL_INFOFILE', '<stdout>'), ('LD_LIBRARY_PATH', '/opt/ros/eloquent/opt/yaml_cpp_vendor/lib:/opt/ros/eloquent/opt/rviz_ogre_vendor/lib:/opt/ros/eloquent/lib/x86_64-linux-gnu:/usr/lib:/opt/ros/eloquent/lib'), ('SHLVL', '1'), ('WT_PROFILE_ID', '{24a0533e-913b-5f8c-a5cb-6be85a4c9e70}'), ('OLDPWD', '/home/adenm'), ('OSPL_URI', 'file:///opt/ros/eloquent/share/opensplice_cmake_module/config/ros_ospl.xml'), ('HOME', '/home/adenm'), ('OSPL_VERBOSITY', '2'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('OSPL_TMPL_PATH', '/usr/etc/opensplice/idlpp'), ('WSL_DISTRO_NAME', 'Ubuntu-18.04'), ('_colcon_cd_root', '/home/adenm/ros2_install'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/adenm/sec_test_dev_ws/install'), ('ROS_DISTRO', 'eloquent'), ('LOGNAME', 'adenm'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('WSL_INTEROP', '/run/WSL/106895_interop'), ('NAME', 'TABLET-LRRB2K6O'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('OSPL_ERRORFILE', '<stderr>'), ('PATH', '/opt/ros/eloquent/bin:/home/adenm/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Python311/Scripts/:/mnt/c/Python311/:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Vim/vim90:/mnt/c/MinGW/bin:/mnt/c/Program Files (x86)/PDFtk/bin/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Users/adenm/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/adenm/Downloads/Desktop/Microsoft VS Code/bin:/mnt/c/Users/adenm/anaconda3/Library/bin:/mnt/c/Users/adenm/anaconda3/Scripts:/mnt/c/Users/adenm/anaconda3/condabin:/mnt/c/Program Files (x86)/Dr. Memory/bin/:/mnt/c/Users/adenm/AppData/Roaming/npm:/snap/bin'), ('WT_SESSION', '3b210b12-7df6-4033-a866-7c79a9978122'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('OSPL_HOME', '/usr'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/adenm/sec_test_dev_ws/install/sec_description:/opt/ros/eloquent'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/adenm/sec_test_dev_ws/build/sec_description'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/eloquent/lib/python3.6/site-packages'), ('COLCON', '1'), ('HOSTTYPE', 'x86_64'), ('WSL2_GUI_APPS_ENABLED', '1'), ('CMAKE_PREFIX_PATH', '/home/adenm/sec_test_dev_ws/install/sec_description:/opt/ros/eloquent'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:')]), 'shell': False}
+[0.099024] (-) TimerEvent: {}
+[0.199552] (-) TimerEvent: {}
+[0.300070] (-) TimerEvent: {}
+[0.400687] (-) TimerEvent: {}
+[0.501265] (-) TimerEvent: {}
+[0.599244] (sec_description) StdoutLine: {'line': b'-- The C compiler identification is GNU 7.5.0\n'}
+[0.601361] (-) TimerEvent: {}
+[0.701932] (-) TimerEvent: {}
+[0.802563] (-) TimerEvent: {}
+[0.903424] (-) TimerEvent: {}
+[1.004197] (-) TimerEvent: {}
+[1.104893] (-) TimerEvent: {}
+[1.205490] (-) TimerEvent: {}
+[1.306094] (-) TimerEvent: {}
+[1.406706] (-) TimerEvent: {}
+[1.507285] (-) TimerEvent: {}
+[1.607970] (-) TimerEvent: {}
+[1.708564] (-) TimerEvent: {}
+[1.809255] (-) TimerEvent: {}
+[1.910141] (-) TimerEvent: {}
+[1.923675] (sec_description) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 7.5.0\n'}
+[2.010444] (-) TimerEvent: {}
+[2.111018] (-) TimerEvent: {}
+[2.211601] (-) TimerEvent: {}
+[2.312094] (-) TimerEvent: {}
+[2.412817] (-) TimerEvent: {}
+[2.513432] (-) TimerEvent: {}
+[2.614014] (-) TimerEvent: {}
+[2.714576] (-) TimerEvent: {}
+[2.815264] (-) TimerEvent: {}
+[2.915803] (-) TimerEvent: {}
+[3.016329] (-) TimerEvent: {}
+[3.088152] (sec_description) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[3.116532] (-) TimerEvent: {}
+[3.217084] (-) TimerEvent: {}
+[3.317600] (-) TimerEvent: {}
+[3.418174] (-) TimerEvent: {}
+[3.494753] (sec_description) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[3.504718] (sec_description) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[3.505213] (sec_description) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[3.505444] (sec_description) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[3.518358] (-) TimerEvent: {}
+[3.619019] (-) TimerEvent: {}
+[3.679553] (sec_description) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[3.719165] (-) TimerEvent: {}
+[3.819713] (-) TimerEvent: {}
+[3.920426] (-) TimerEvent: {}
+[4.021088] (-) TimerEvent: {}
+[4.121586] (-) TimerEvent: {}
+[4.122581] (sec_description) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[4.133522] (sec_description) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[4.134080] (sec_description) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[4.134659] (sec_description) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[4.137224] (sec_description) StdoutLine: {'line': b'-- Found ament_cmake: 0.8.3 (/opt/ros/eloquent/share/ament_cmake/cmake)\n'}
+[4.140384] (sec_description) StderrLine: {'line': b'\x1b[33mCMake Warning (dev) at /opt/ros/eloquent/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):\n'}
+[4.140574] (sec_description) StderrLine: {'line': b'  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules\n'}
+[4.140641] (sec_description) StderrLine: {'line': b'  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use\n'}
+[4.140698] (sec_description) StderrLine: {'line': b'  the cmake_policy command to set the policy and suppress this warning.\n'}
+[4.140792] (sec_description) StderrLine: {'line': b'\n'}
+[4.140852] (sec_description) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[4.140912] (sec_description) StderrLine: {'line': b'  /opt/ros/eloquent/share/ament_cmake_core/cmake/core/all.cmake:53 (include)\n'}
+[4.140966] (sec_description) StderrLine: {'line': b'  /opt/ros/eloquent/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)\n'}
+[4.141019] (sec_description) StderrLine: {'line': b'  /opt/ros/eloquent/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:38 (include)\n'}
+[4.141072] (sec_description) StderrLine: {'line': b'  /opt/ros/eloquent/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)\n'}
+[4.141131] (sec_description) StderrLine: {'line': b'  /opt/ros/eloquent/share/ament_cmake/cmake/ament_cmakeConfig.cmake:38 (include)\n'}
+[4.141185] (sec_description) StderrLine: {'line': b'  CMakeLists.txt:19 (find_package)\n'}
+[4.141340] (sec_description) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[4.141463] (sec_description) StderrLine: {'line': b'\x1b[0m\n'}
+[4.164700] (sec_description) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.6.9", minimum required is "3") \n'}
+[4.164970] (sec_description) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[4.221781] (-) TimerEvent: {}
+[4.322348] (-) TimerEvent: {}
+[4.380640] (sec_description) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[4.422601] (-) TimerEvent: {}
+[4.432263] (sec_description) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.8.2 (/opt/ros/eloquent/share/ament_lint_auto/cmake)\n'}
+[4.520170] (sec_description) StdoutLine: {'line': b"-- Added test 'copyright' to check for copyright in CMake / C / C++ / Python code\n"}
+[4.522352] (sec_description) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[4.522797] (-) TimerEvent: {}
+[4.523247] (sec_description) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[4.523963] (sec_description) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the style conventions in PEP 257\n"}
+[4.524930] (sec_description) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[4.526544] (sec_description) StdoutLine: {'line': b'-- Configuring done (4.5s)\n'}
+[4.532085] (sec_description) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[4.533113] (sec_description) StdoutLine: {'line': b'-- Build files have been written to: /home/adenm/sec_test_dev_ws/build/sec_description\n'}
+[4.539616] (sec_description) CommandEnded: {'returncode': 0}
+[4.544774] (sec_description) JobProgress: {'identifier': 'sec_description', 'progress': 'build'}
+[4.545322] (sec_description) Command: {'cmd': ['/home/adenm/.local/bin/cmake', '--build', '/home/adenm/sec_test_dev_ws/build/sec_description', '--', '-j8', '-l8'], 'cwd': '/home/adenm/sec_test_dev_ws/build/sec_description', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'adenm'), ('OSPL_INFOFILE', '<stdout>'), ('LD_LIBRARY_PATH', '/opt/ros/eloquent/opt/yaml_cpp_vendor/lib:/opt/ros/eloquent/opt/rviz_ogre_vendor/lib:/opt/ros/eloquent/lib/x86_64-linux-gnu:/usr/lib:/opt/ros/eloquent/lib'), ('SHLVL', '1'), ('WT_PROFILE_ID', '{24a0533e-913b-5f8c-a5cb-6be85a4c9e70}'), ('OLDPWD', '/home/adenm'), ('OSPL_URI', 'file:///opt/ros/eloquent/share/opensplice_cmake_module/config/ros_ospl.xml'), ('HOME', '/home/adenm'), ('OSPL_VERBOSITY', '2'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('OSPL_TMPL_PATH', '/usr/etc/opensplice/idlpp'), ('WSL_DISTRO_NAME', 'Ubuntu-18.04'), ('_colcon_cd_root', '/home/adenm/ros2_install'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/adenm/sec_test_dev_ws/install'), ('ROS_DISTRO', 'eloquent'), ('LOGNAME', 'adenm'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('WSL_INTEROP', '/run/WSL/106895_interop'), ('NAME', 'TABLET-LRRB2K6O'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('OSPL_ERRORFILE', '<stderr>'), ('PATH', '/opt/ros/eloquent/bin:/home/adenm/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Python311/Scripts/:/mnt/c/Python311/:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Vim/vim90:/mnt/c/MinGW/bin:/mnt/c/Program Files (x86)/PDFtk/bin/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Users/adenm/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/adenm/Downloads/Desktop/Microsoft VS Code/bin:/mnt/c/Users/adenm/anaconda3/Library/bin:/mnt/c/Users/adenm/anaconda3/Scripts:/mnt/c/Users/adenm/anaconda3/condabin:/mnt/c/Program Files (x86)/Dr. Memory/bin/:/mnt/c/Users/adenm/AppData/Roaming/npm:/snap/bin'), ('WT_SESSION', '3b210b12-7df6-4033-a866-7c79a9978122'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('OSPL_HOME', '/usr'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/adenm/sec_test_dev_ws/install/sec_description:/opt/ros/eloquent'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/adenm/sec_test_dev_ws/build/sec_description'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/eloquent/lib/python3.6/site-packages'), ('COLCON', '1'), ('HOSTTYPE', 'x86_64'), ('WSL2_GUI_APPS_ENABLED', '1'), ('CMAKE_PREFIX_PATH', '/home/adenm/sec_test_dev_ws/install/sec_description:/opt/ros/eloquent'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:')]), 'shell': False}
+[4.573701] (sec_description) CommandEnded: {'returncode': 0}
+[4.605167] (sec_description) JobProgress: {'identifier': 'sec_description', 'progress': 'install'}
+[4.623128] (-) TimerEvent: {}
+[4.626378] (sec_description) Command: {'cmd': ['/home/adenm/.local/bin/cmake', '--install', '/home/adenm/sec_test_dev_ws/build/sec_description'], 'cwd': '/home/adenm/sec_test_dev_ws/build/sec_description', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'adenm'), ('OSPL_INFOFILE', '<stdout>'), ('LD_LIBRARY_PATH', '/opt/ros/eloquent/opt/yaml_cpp_vendor/lib:/opt/ros/eloquent/opt/rviz_ogre_vendor/lib:/opt/ros/eloquent/lib/x86_64-linux-gnu:/usr/lib:/opt/ros/eloquent/lib'), ('SHLVL', '1'), ('WT_PROFILE_ID', '{24a0533e-913b-5f8c-a5cb-6be85a4c9e70}'), ('OLDPWD', '/home/adenm'), ('OSPL_URI', 'file:///opt/ros/eloquent/share/opensplice_cmake_module/config/ros_ospl.xml'), ('HOME', '/home/adenm'), ('OSPL_VERBOSITY', '2'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('OSPL_TMPL_PATH', '/usr/etc/opensplice/idlpp'), ('WSL_DISTRO_NAME', 'Ubuntu-18.04'), ('_colcon_cd_root', '/home/adenm/ros2_install'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/adenm/sec_test_dev_ws/install'), ('ROS_DISTRO', 'eloquent'), ('LOGNAME', 'adenm'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('WSL_INTEROP', '/run/WSL/106895_interop'), ('NAME', 'TABLET-LRRB2K6O'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('OSPL_ERRORFILE', '<stderr>'), ('PATH', '/opt/ros/eloquent/bin:/home/adenm/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Python311/Scripts/:/mnt/c/Python311/:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Vim/vim90:/mnt/c/MinGW/bin:/mnt/c/Program Files (x86)/PDFtk/bin/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Users/adenm/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/adenm/Downloads/Desktop/Microsoft VS Code/bin:/mnt/c/Users/adenm/anaconda3/Library/bin:/mnt/c/Users/adenm/anaconda3/Scripts:/mnt/c/Users/adenm/anaconda3/condabin:/mnt/c/Program Files (x86)/Dr. Memory/bin/:/mnt/c/Users/adenm/AppData/Roaming/npm:/snap/bin'), ('WT_SESSION', '3b210b12-7df6-4033-a866-7c79a9978122'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('OSPL_HOME', '/usr'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/adenm/sec_test_dev_ws/install/sec_description:/opt/ros/eloquent'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/adenm/sec_test_dev_ws/build/sec_description'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/eloquent/lib/python3.6/site-packages'), ('COLCON', '1'), ('HOSTTYPE', 'x86_64'), ('WSL2_GUI_APPS_ENABLED', '1'), ('CMAKE_PREFIX_PATH', '/home/adenm/sec_test_dev_ws/install/sec_description:/opt/ros/eloquent'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:')]), 'shell': False}
+[4.640863] (sec_description) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[4.641370] (sec_description) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[4.642362] (sec_description) StdoutLine: {'line': b'-- Symlinking: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/description/sec_description.urdf.xacro\n'}
+[4.646602] (sec_description) StdoutLine: {'line': b'-- Symlinking: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/launch/display.launch.py\n'}
+[4.650019] (sec_description) StdoutLine: {'line': b'-- Symlinking: /home/adenm/sec_test_dev_ws/install/sec_description/share/ament_index/resource_index/package_run_dependencies/sec_description\n'}
+[4.653737] (sec_description) StdoutLine: {'line': b'-- Symlinking: /home/adenm/sec_test_dev_ws/install/sec_description/share/ament_index/resource_index/parent_prefix_path/sec_description\n'}
+[4.657598] (sec_description) StdoutLine: {'line': b'-- Symlinking: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/environment/ament_prefix_path.sh\n'}
+[4.661154] (sec_description) StdoutLine: {'line': b'-- Symlinking: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/environment/ament_prefix_path.dsv\n'}
+[4.664920] (sec_description) StdoutLine: {'line': b'-- Symlinking: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/environment/path.sh\n'}
+[4.667949] (sec_description) StdoutLine: {'line': b'-- Symlinking: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/environment/path.dsv\n'}
+[4.670573] (sec_description) StdoutLine: {'line': b'-- Symlinking: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/local_setup.bash\n'}
+[4.674182] (sec_description) StdoutLine: {'line': b'-- Symlinking: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/local_setup.sh\n'}
+[4.678093] (sec_description) StdoutLine: {'line': b'-- Symlinking: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/local_setup.zsh\n'}
+[4.681558] (sec_description) StdoutLine: {'line': b'-- Symlinking: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/local_setup.dsv\n'}
+[4.685598] (sec_description) StdoutLine: {'line': b'-- Symlinking: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/package.dsv\n'}
+[4.689851] (sec_description) StdoutLine: {'line': b'-- Symlinking: /home/adenm/sec_test_dev_ws/install/sec_description/share/ament_index/resource_index/packages/sec_description\n'}
+[4.694138] (sec_description) StdoutLine: {'line': b'-- Symlinking: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/cmake/sec_descriptionConfig.cmake\n'}
+[4.697610] (sec_description) StdoutLine: {'line': b'-- Symlinking: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/cmake/sec_descriptionConfig-version.cmake\n'}
+[4.701239] (sec_description) StdoutLine: {'line': b'-- Symlinking: /home/adenm/sec_test_dev_ws/install/sec_description/share/sec_description/package.xml\n'}
+[4.709011] (sec_description) CommandEnded: {'returncode': 0}
+[4.723718] (-) TimerEvent: {}
+[4.774218] (sec_description) JobEnded: {'identifier': 'sec_description', 'rc': 0}
+[4.777374] (-) EventReactorShutdown: {}

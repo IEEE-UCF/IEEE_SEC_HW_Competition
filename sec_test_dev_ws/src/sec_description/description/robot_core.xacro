@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <xacro:include filename="inertial_macros.xacro"/>
+
+    <!-- Define robot constants -->
+    <!-- Unit -->
+    <xacro:property name="chassis_length" value="0.5"/> <!--X-->
+    <xacro:property name="chassis_width" value="0.5"/> <!--Y-->
+    <xacro:property name="chassis_height" value="0.5"/> <!--Z-->
+    <xacro:property name="chassis_mass" value="10"/>
+
+    <xacro:property name="wheel_radius" value="0.1"/>
+    <xacro:property name="wheel_length" value="0.1"/>
+    <xacro:property name="wheel_height_offset" value="0.03"/>
+    <xacro:property name="wheel_mass" value="10"/>
+
+
+    <!-- The difference between bottom middle of chassis and wheel position(s)-->
+    <xacro:property name="wheel_x_displacement" value="${chassis_length/4}"/>
+    <xacro:property name="wheel_y_displacement" value="${chassis_width/2+wheel_radius/2}"/>
+    <xacro:property name="wheel_z_displacement" value="0.03"/>
+
+    <!-- Base Footprint -->
+    <link name="base_link">
+
+    </link>
+
+    <!-- Robot Base -->
+    <link name="chassis">
+        <visual>
+            <origin xyz="0 0 ${chassis_height/2}" rpy="0 0 0"/>
+            <geometry>
+                <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
+            </geometry>
+            <material name="Cyan">
+                <color rgba="0 1.0 1.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 ${chassis_height/2}" rpy="0 0 0"/>
+            <geometry>
+                <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="${chassis_mass}" x="${chassis_length}" y="${chassis_width}" z="${chassis_height}">
+            <origin xyz="0 0 ${chassis_height/2}" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
+
+    <joint name="base_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="chassis"/>
+        <origin xyz="0.0 0.0 ${wheel_radius/2}" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Wheels -->
+    <xacro:macro name="wheel" params="prefix l_r f_b">
+        <link name="${prefix}_wheel__link">
+            <visual>
+                <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+                <geometry>
+                    <cylinder radius="${wheel_radius}" length="${wheel_length}"/>
+                </geometry>
+                <material name="Gray">
+                    <color rgba="0.5 0.5 0.5 1.0"/>
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+                <geometry>
+                    <cylinder radius="${wheel_radius}" length="${wheel_length}"/>
+                </geometry>
+            </collision>
+            <xacro:inertial_cylinder mass="${wheel_mass}" length="${wheel_length}" radius="${wheel_radius}">
+                <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+            </xacro:inertial_cylinder>
+        </link>
+
+        <joint name="${prefix}_wheel_joint" type="continuous">
+            <parent link="chassis"/>
+            <child link="${prefix}_link"/>
+            <origin xyz="${l_r*wheel_x_displacement} ${f_b*wheel_y_displacement} ${wheel_z_displacement}" rpy="0 0 0"/>
+            <axis xyz="0 1 0"/>
+        </joint>
+
+        <gazebo reference="${prefix}_wheel">
+            <material>Gazebo/Blue</material>
+        </gazebo>
+    </xacro:macro>
+
+    <xacro:wheel prefix="b_l" l_r="-1" f_b="1" />
+    <xacro:wheel prefix="b_r" l_r="-1" f_b="-1" />
+    <xacro:wheel prefix="f_l" l_r="1"  f_b="1" />
+    <xacro:wheel prefix="f_r" l_r="1"  f_b="-1" />
+    
+</robot>
