@@ -1,0 +1,1 @@
+/home/adenm/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description/ament_cmake_environment_hooks/local_setup.zsh
