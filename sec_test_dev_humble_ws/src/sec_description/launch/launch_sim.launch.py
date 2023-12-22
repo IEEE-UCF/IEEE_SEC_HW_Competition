@@ -10,7 +10,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
 
-    package_name='sec_description' #<--- CHANGE ME
+    package_name='sec_description'
 
     rsp = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
@@ -26,9 +26,10 @@ def generate_launch_description():
 
     # Run the spawner node from the gazebo_ros package. The entity name doesn't really matter if you only have a single robot.
     spawn_entity = Node(package='gazebo_ros', 
-                        node_executable='spawn_entity.py',
+                        executable='spawn_entity.py',
                         arguments=['-topic', 'robot_description',
-                                   '-entity', 'sec_bot'],
+                                   '-entity', 'sec_bot',
+                                   '-timeout', '50'],
                         output='screen')
 
     return LaunchDescription([
@@ -36,3 +37,6 @@ def generate_launch_description():
         gazebo,
         spawn_entity,
     ])
+
+     modified:   src/sec_description/launch/launch_sim.launch.py
+        modified:   src/sec_description/launch/rsp.launch.py
