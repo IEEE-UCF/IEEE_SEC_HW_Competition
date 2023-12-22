@@ -17,9 +17,7 @@
 
             <!-- kinematics -->
             <wheel_separation>"${chassis_width}"</wheel_separation>
-            <wheel_separation>"${chassis_width}"</wheel_separation>
 
-            <wheel_diameter>${wheel_radius*2}</wheel_diameter>
             <wheel_diameter>${wheel_radius*2}</wheel_diameter>
 
             <!-- limits -->
@@ -36,4 +34,8 @@
         </plugin>
     </gazebo>
 
+
 </robot>
+
+modified:   src/sec_description/description/gazebo_control.xacro
+        modified:   src/sec_description/launch/launch_sim.launch.py

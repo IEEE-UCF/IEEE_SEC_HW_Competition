@@ -28,15 +28,15 @@ def generate_launch_description():
     spawn_entity = Node(package='gazebo_ros', 
                         executable='spawn_entity.py',
                         arguments=['-topic', 'robot_description',
-                                   '-entity', 'sec_bot',
-                                   '-timeout', '50'],
+                                   '-entity', 'sec_bot'],
                         output='screen')
+
+    # to control manually, run:
+    # ros2 run teleop_twist_keyboard teleop_twist_keyboard
+    # in separate terminal
 
     return LaunchDescription([
         rsp,
         gazebo,
         spawn_entity,
     ])
-
-     modified:   src/sec_description/launch/launch_sim.launch.py
-        modified:   src/sec_description/launch/rsp.launch.py
