@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <xacro:include filename="inertial_macros.xacro"/>
+
+    <!-- Base Footprint -->
+    <link name="base_link">
+
+    </link>
+
+    <!-- Robot Base -->
+    <link name="chassis">
+        <visual>
+            <origin xyz="0 0 ${chassis_height/2}" rpy="0 0 0"/>
+            <geometry>
+                <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
+            </geometry>
+            <material name="Cyan">
+                <color rgba="0 1.0 1.0 1.0"/>
+            </material>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 ${chassis_height/2}" rpy="0 0 0"/>
+            <geometry>
+                <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
+            </geometry>
+        </collision>
+
+        <xacro:inertial_box mass="${chassis_mass}" x="${chassis_length}" y="${chassis_width}" z="${chassis_height}">
+            <origin xyz="0 0 ${chassis_height/2}" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
+
+    <joint name="base_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="chassis"/>
+        <origin xyz="0.0 0.0 ${wheel_radius/2}" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Wheels -->
+    <xacro:macro name="wheel" params="prefix l_r f_b">
+
+        <link name="${prefix}_wheel_link">
+            <visual>
+                <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+                <geometry>
+                    <cylinder radius="${wheel_radius}" length="${wheel_length}"/>
+                </geometry>
+                <material name="Gray">
+                    <color rgba="0.5 0.5 0.5 1.0"/>
+                </material>
+            </visual>
+
+            <collision>
+                <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+                <geometry>
+                    <cylinder radius="${wheel_radius}" length="${wheel_length}"/>
+                </geometry>
+            </collision>
+
+            <xacro:inertial_cylinder mass="${wheel_mass}" length="${wheel_length}" radius="${wheel_radius}">
+                <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+            </xacro:inertial_cylinder>
+        </link>
+
+        <joint name="${prefix}_wheel_joint" type="continuous">
+            <parent link="chassis"/>
+            <child link="${prefix}_wheel_link"/>
+            <origin xyz="${l_r*wheel_x_displacement} ${f_b*wheel_y_displacement} ${wheel_z_displacement}" rpy="0 0 0"/>
+            <axis xyz="0 1 0"/>
+        </joint>
+
+        <gazebo reference="${prefix}_wheel_link">
+            <material>Gazebo/Blue</material>
+        </gazebo>
+
+    </xacro:macro>
+
+    <xacro:wheel prefix="b_l" l_r="-1" f_b="1" />
+    <xacro:wheel prefix="b_r" l_r="-1" f_b="-1" />
+    <xacro:wheel prefix="f_l" l_r="1"  f_b="1" />
+    <xacro:wheel prefix="f_r" l_r="1"  f_b="-1" />
+    
+</robot>
