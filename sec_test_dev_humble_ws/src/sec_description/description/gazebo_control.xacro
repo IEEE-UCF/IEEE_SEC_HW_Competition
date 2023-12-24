@@ -16,7 +16,7 @@
             <right_joint>b_r_wheel_joint</right_joint>
 
             <!-- kinematics -->
-            <wheel_separation>"${chassis_width}"</wheel_separation>
+            <wheel_separation>${chassis_width}</wheel_separation>
 
             <wheel_diameter>${wheel_radius*2}</wheel_diameter>
 
@@ -30,7 +30,7 @@
             <publish_wheel_tf>true</publish_wheel_tf>
 
             <odometry_frame>odom</odometry_frame>
-            <robot_base_frame>chassis</robot_base_frame>
+            <robot_base_frame>base_link</robot_base_frame>
         </plugin>
     </gazebo>
 

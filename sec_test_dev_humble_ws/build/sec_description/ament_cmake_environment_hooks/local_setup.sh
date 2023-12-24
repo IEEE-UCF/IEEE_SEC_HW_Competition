@@ -2,7 +2,7 @@
 
 # since this file is sourced use either the provided AMENT_CURRENT_PREFIX
 # or fall back to the destination set at configure time
-: ${AMENT_CURRENT_PREFIX:="/home/adenm/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description"}
+: ${AMENT_CURRENT_PREFIX:="/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description"}
 if [ ! -d "$AMENT_CURRENT_PREFIX" ]; then
   if [ -z "$COLCON_CURRENT_PREFIX" ]; then
     echo "The compile time prefix path '$AMENT_CURRENT_PREFIX' doesn't " \

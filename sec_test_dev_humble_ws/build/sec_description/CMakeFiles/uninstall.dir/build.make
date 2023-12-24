@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/adenm/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/src/sec_description
+CMAKE_SOURCE_DIR = /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/src/sec_description
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/adenm/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description
+CMAKE_BINARY_DIR = /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description
 
 # Utility rule file for uninstall.
 
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/adenm/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/adenm/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/src/sec_description /home/adenm/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/src/sec_description /home/adenm/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description /home/adenm/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description /home/adenm/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/src/sec_description /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/src/sec_description /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/uninstall.dir/depend
 
