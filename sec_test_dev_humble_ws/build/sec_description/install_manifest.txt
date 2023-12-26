@@ -6,6 +6,7 @@
 /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/sec_description.urdf.xacro
 /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/camera.xacro
 /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/gazebo_control_test.xacro
+/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/imu.xacro
 /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/robot_core.xacro
 /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/ament_index/resource_index/package_run_dependencies/sec_description
 /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/ament_index/resource_index/parent_prefix_path/sec_description
