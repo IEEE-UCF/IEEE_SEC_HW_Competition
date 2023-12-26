@@ -245,20 +245,6 @@
 			</material>
 		</visual>
 	</link>
-	<!--        <gazebo reference="imu_link">
-            <material>Gazebo/Red</material>
-            
-            <sensor name="imu_sensor" type="imu">
-                <pose>0 0 0 0 0 0</pose>
-                <visualize>true</visualize>
-                <update_rate>10</update_rate>
-                <always_on>true</always_on>
-                <topic>imu</topic>
-                <plugin name="imu_plugin" filename="libgazebo_ros_imu_sensor.so">
-                    <frame_name>imu_link</frame_name>
-                </plugin>
-            </sensor>   
-        </gazebo>-->
 	<gazebo reference="imu_link">
 		<sensor name="br_imu" type="imu">
 			<always_on>true</always_on>
@@ -310,7 +296,7 @@
 					<namespace>imu</namespace>
 					<remapping>~/out:=data</remapping>
 				</ros>
-				<initial_orientation_as_reference>false</initial_orientation_as_reference>
+				<initial_orientation_as_reference>true</initial_orientation_as_reference>
 			</plugin>
 		</sensor>
 	</gazebo>
