@@ -19,7 +19,15 @@
     <xacro:property name="wheel_y_displacement" value="${chassis_width/2+wheel_radius/2}"/>
     <xacro:property name="wheel_z_displacement" value="0.03"/>
 
+    <xacro:property name="camera_x" value="0.010"/>
+    <xacro:property name="camera_y" value="0.03"/>
+    <xacro:property name="camera_z" value="0.03"/>
+    <xacro:property name="camera_y" value="0.03"/>
+    <xacro:property name="camera_fov" value="1.089"/>
+
+
     <xacro:include filename="robot_core.xacro"/>
     <xacro:include filename="gazebo_control.xacro"/>
+    <xacro:include filename="camera.xacro"/>
     
 </robot>
