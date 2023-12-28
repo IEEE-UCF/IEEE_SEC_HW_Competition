@@ -50,9 +50,6 @@ def generate_launch_description():
         executable='robot_state_publisher',
         output='both',
         parameters=[params],
-        # remappings=[
-        #     ("/diff_drive_controller/cmd_vel_unstamped", "/cmd_vel"),
-        # ],
     )
 
     # Run the spawner node from the gazebo_ros package. The entity name doesn't really matter if you only have a single robot.
@@ -61,13 +58,6 @@ def generate_launch_description():
                         arguments=['-topic', 'robot_description',
                                    '-entity', 'sec_bot'],
                         output='screen')
-
-    control_node = Node(
-        package="controller_manager",
-        executable="ros2_control_node",
-        parameters=[robot_description, robot_controllers],
-        output="both",
-    )
 
     diff_drive_spawner = Node(
         package="controller_manager",
@@ -81,32 +71,17 @@ def generate_launch_description():
         arguments=["joint_state_broadcaster"],
     )
 
-    """
-    load_joint_state_controller = ExecuteProcess(
-        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
-             'joint_state_broadcaster'],
-        output='screen'
-    )
-
-    load_diff_drive_base_controller = ExecuteProcess(
-        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
-             'diff_drive_controller'],
-        output='screen'
-    )
-    """
-
     # to control manually:
     # gazebo_control.xacro
     #   ros2 run teleop_twist_keyboard teleop_twist_keyboard
     # ros2_control.xacro
-    #   ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
+    #   ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_drive_controller/cmd_vel_unstamped
     # in separate terminal
 
     return LaunchDescription([
         robot_state_publisher,
         gazebo,
         spawn_entity,
-        #control_node,
         diff_drive_spawner,
         joint_broad_spawner,
     ])
