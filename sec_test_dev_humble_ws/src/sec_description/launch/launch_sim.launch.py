@@ -49,7 +49,10 @@ def generate_launch_description():
         package='robot_state_publisher',
         executable='robot_state_publisher',
         output='both',
-        parameters=[params]
+        parameters=[params],
+        # remappings=[
+        #     ("/diff_drive_controller/cmd_vel_unstamped", "/cmd_vel"),
+        # ],
     )
 
     # Run the spawner node from the gazebo_ros package. The entity name doesn't really matter if you only have a single robot.
@@ -103,7 +106,7 @@ def generate_launch_description():
         robot_state_publisher,
         gazebo,
         spawn_entity,
-        control_node,
+        #control_node,
         diff_drive_spawner,
         joint_broad_spawner,
     ])
