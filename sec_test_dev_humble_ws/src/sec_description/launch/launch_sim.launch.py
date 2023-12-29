@@ -36,8 +36,6 @@ def generate_launch_description():
         ]
     )
 
-    params = {'robot_description': robot_description_raw}
-
     gazebo_params_path = os.path.join(
                   get_package_share_directory('sec_description'),'config','gazebo_params.yaml')
 
@@ -48,12 +46,10 @@ def generate_launch_description():
                 launch_arguments={'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_path }.items()
              )
 
-    # Configure the node
-    robot_state_publisher = Node(
-        package='robot_state_publisher',
-        executable='robot_state_publisher',
-        output='both',
-        parameters=[params],
+    robot_state_publisher = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory(package_name),'launch','rsp.launch.py'
+                )]), launch_arguments={'use_sim_time': 'true', 'use_ros2_control': 'true'}.items()
     )
 
     # Run the spawner node from the gazebo_ros package. The entity name doesn't really matter if you only have a single robot.

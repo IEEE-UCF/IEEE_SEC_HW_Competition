@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <robot name="sec_bot" xmlns:xacro="http://ros.org/wiki/xacro">
 
+    <xacro:arg name="use_ros2_control" default="true"/>
+
     <!-- Define robot constants -->
     <!-- Unit -->
     <xacro:property name="chassis_length" value="0.5"/> <!--X-->
@@ -20,7 +22,12 @@
     <xacro:property name="wheel_z_displacement" value="0.03"/>
 
     <xacro:include filename="robot_core.xacro"/>
-    <!-- xacro:include filename="gazebo_control.xacro"/ -->
-    <xacro:include filename="ros2_control.xacro"/>
     
+    <xacro:if value="$(arg use_ros2_control)">
+        <xacro:include filename="ros2_control.xacro" />
+    </xacro:if>
+    <xacro:unless value="$(arg use_ros2_control)">
+        <xacro:include filename="gazebo_control.xacro" />
+    </xacro:unless>
+
 </robot>
