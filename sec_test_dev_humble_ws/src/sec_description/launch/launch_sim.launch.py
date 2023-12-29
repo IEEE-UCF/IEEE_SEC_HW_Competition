@@ -38,10 +38,14 @@ def generate_launch_description():
 
     params = {'robot_description': robot_description_raw}
 
+    gazebo_params_path = os.path.join(
+                  get_package_share_directory('sec_description'),'config','gazebo_params.yaml')
+
     # Include the Gazebo launch file, provided by the gazebo_ros package
     gazebo = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
+                launch_arguments={'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_path }.items()
              )
 
     # Configure the node
