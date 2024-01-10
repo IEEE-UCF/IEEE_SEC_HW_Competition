@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <robot name="sec_bot" xmlns:xacro="http://ros.org/wiki/xacro">
 
+    <xacro:arg name="use_ros2_control" default="true"/>
+    <xacro:arg name="sim_mode" default="true"/>
+
     <!-- Define robot constants -->
     <!-- Unit -->
     <xacro:property name="chassis_length" value="0.5"/> <!--X-->
@@ -8,7 +11,7 @@
     <xacro:property name="chassis_height" value="0.5"/> <!--Z-->
     <xacro:property name="chassis_mass" value="10"/>
 
-    <xacro:property name="wheel_radius" value="0.1"/>
+    <xacro:property name="wheel_radius" value="0.1"/> <!-- Update wheel radius paramter in controllers.yaml as well-->
     <xacro:property name="wheel_length" value="0.1"/>
     <xacro:property name="wheel_height_offset" value="0.03"/>
     <xacro:property name="wheel_mass" value="10"/>
@@ -16,7 +19,7 @@
 
     <!-- The difference between bottom middle of chassis and wheel position(s)-->
     <xacro:property name="wheel_x_displacement" value="${chassis_length/4}"/>
-    <xacro:property name="wheel_y_displacement" value="${chassis_width/2+wheel_radius/2}"/>
+    <xacro:property name="wheel_y_displacement" value="${chassis_width/2+wheel_radius}"/> <!-- Update wheel separation paramter in controllers.yaml as well-->
     <xacro:property name="wheel_z_displacement" value="0.03"/>
 
     <xacro:property name="camera_x" value="0.010"/>
@@ -31,8 +34,14 @@
 
 
     <xacro:include filename="robot_core.xacro"/>
-    <xacro:include filename="gazebo_control.xacro"/>
     <xacro:include filename="camera.xacro"/>
     <xacro:include filename="imu.xacro"/>
     
+    <xacro:if value="$(arg use_ros2_control)">
+        <xacro:include filename="ros2_control.xacro" />
+    </xacro:if>
+    <xacro:unless value="$(arg use_ros2_control)">
+        <xacro:include filename="gazebo_control.xacro" />
+    </xacro:unless>
+
 </robot>

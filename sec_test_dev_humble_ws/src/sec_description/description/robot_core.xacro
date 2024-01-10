@@ -3,12 +3,27 @@
 
     <xacro:include filename="inertial_macros.xacro"/>
 
-    <!-- Base Footprint -->
+    <!-- Base Link -->
     <link name="base_link">
-
     </link>
 
-    <!-- Robot Base -->
+    <!-- Base Footprint Link-->
+    <joint name="base_footprint_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="base_footprint"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="base_footprint">
+    </link>
+
+    <!-- Chassis -->
+    <joint name="chassis_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="chassis"/>
+        <origin xyz="0.0 0.0 ${wheel_radius/2}" rpy="0 0 0"/>
+    </joint>
+
     <link name="chassis">
         <visual>
             <origin xyz="0 0 ${chassis_height/2}" rpy="0 0 0"/>
@@ -32,14 +47,15 @@
         </xacro:inertial_box>
     </link>
 
-    <joint name="base_joint" type="fixed">
-        <parent link="base_link"/>
-        <child link="chassis"/>
-        <origin xyz="0.0 0.0 ${wheel_radius/2}" rpy="0 0 0"/>
-    </joint>
-
     <!-- Wheels -->
     <xacro:macro name="wheel" params="prefix l_r f_b">
+
+        <joint name="${prefix}_wheel_joint" type="continuous">
+            <parent link="chassis"/>
+            <child link="${prefix}_wheel_link"/>
+            <origin xyz="${l_r*wheel_x_displacement} ${f_b*wheel_y_displacement} ${wheel_z_displacement}" rpy="0 0 0"/>
+            <axis xyz="0 1 0"/>
+        </joint>
 
         <link name="${prefix}_wheel_link">
             <visual>
@@ -55,7 +71,7 @@
             <collision>
                 <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
                 <geometry>
-                    <cylinder radius="${wheel_radius}" length="${wheel_length}"/>
+                    <sphere radius="${wheel_radius}"/>
                 </geometry>
             </collision>
 
@@ -63,13 +79,6 @@
                 <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
             </xacro:inertial_cylinder>
         </link>
-
-        <joint name="${prefix}_wheel_joint" type="continuous">
-            <parent link="chassis"/>
-            <child link="${prefix}_wheel_link"/>
-            <origin xyz="${l_r*wheel_x_displacement} ${f_b*wheel_y_displacement} ${wheel_z_displacement}" rpy="0 0 0"/>
-            <axis xyz="0 1 0"/>
-        </joint>
 
         <gazebo reference="${prefix}_wheel_link">
             <material>Gazebo/Blue</material>
