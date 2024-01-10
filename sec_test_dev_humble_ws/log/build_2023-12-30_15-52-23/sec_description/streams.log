@@ -1,0 +1,37 @@
+[0.053s] Invoking command in '/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description -- -j8 -l8
+[0.091s] [35m[1mConsolidate compiler generated dependencies of target listener[0m
+[0.113s] [ 50%] [32mBuilding CXX object CMakeFiles/listener.dir/src/tf_subscriber.cpp.o[0m
+[10.013s] [100%] [32m[1mLinking CXX executable listener[0m
+[10.524s] [100%] Built target listener
+[10.534s] Invoked command in '/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description -- -j8 -l8
+[10.569s] Invoking command in '/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description
+[10.576s] -- Install configuration: ""
+[10.576s] -- Installing: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/lib/sec_description/listener
+[10.581s] -- Set runtime path of "/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/lib/sec_description/listener" to ""
+[10.582s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/launch
+[10.582s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/launch/launch_sim.launch.py
+[10.582s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/launch/rsp.launch.py
+[10.582s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/launch/display.launch.py
+[10.582s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description
+[10.582s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/gazebo_control.xacro
+[10.583s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/inertial_macros.xacro
+[10.583s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/sec_description.urdf.xacro
+[10.583s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/camera.xacro
+[10.583s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/imu.xacro
+[10.584s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/robot_core.xacro
+[10.584s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/ament_index/resource_index/package_run_dependencies/sec_description
+[10.584s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/ament_index/resource_index/parent_prefix_path/sec_description
+[10.584s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/environment/ament_prefix_path.sh
+[10.584s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/environment/ament_prefix_path.dsv
+[10.584s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/environment/path.sh
+[10.584s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/environment/path.dsv
+[10.585s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/local_setup.bash
+[10.585s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/local_setup.sh
+[10.585s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/local_setup.zsh
+[10.585s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/local_setup.dsv
+[10.585s] -- Installing: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/package.dsv
+[10.585s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/ament_index/resource_index/packages/sec_description
+[10.585s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/cmake/sec_descriptionConfig.cmake
+[10.585s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/cmake/sec_descriptionConfig-version.cmake
+[10.585s] -- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/package.xml
+[10.586s] Invoked command in '/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description

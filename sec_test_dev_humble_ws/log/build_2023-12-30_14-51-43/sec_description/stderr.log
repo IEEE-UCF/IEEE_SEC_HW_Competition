@@ -1,0 +1,7 @@
+[01m[K/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/src/sec_description/src/tf_subscriber.cpp:4:10:[m[K [01;31m[Kfatal error: [m[Ktf2_msgs/msg/TFMessage: No such file or directory
+    4 | #include [01;31m[K"tf2_msgs/msg/TFMessage"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/listener.dir/build.make:76: CMakeFiles/listener.dir/src/tf_subscriber.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/listener.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

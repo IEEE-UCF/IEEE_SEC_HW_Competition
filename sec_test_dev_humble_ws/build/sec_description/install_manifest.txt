@@ -1,8 +1,10 @@
+/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/lib/sec_description/listener
 /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/launch/launch_sim.launch.py
 /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/launch/rsp.launch.py
 /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/launch/display.launch.py
 /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/gazebo_control.xacro
 /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/inertial_macros.xacro
+/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/lidar.xacro
 /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/sec_description.urdf.xacro
 /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/camera.xacro
 /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/imu.xacro

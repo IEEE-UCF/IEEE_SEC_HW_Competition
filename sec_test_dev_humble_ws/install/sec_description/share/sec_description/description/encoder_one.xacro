@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+    
+    <joint name="encoder_one_joint" type="fixed">
+        <parent link="chassis"/>
+        <child link="encoder_one_link"/>
+        <origin xyz="${(chassis_length/2)+(camera_x/2)} 0 ${(chassis_height/2)+0.1}" rpy="0 0 0"/>
+    </joint>
+
+    <link name="encoder_one_link">
+        <visual>
+            <geometry>
+                <box size="${camera_x} ${camera_y} ${camera_z}"/>
+            </geometry>
+            <material name="Gray">
+                <color rgba="0.5 0.5 0.5 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+        <gazebo reference="base_link">
+<!--                    <robot_Namespace></robot_Namespace>  -->
+                    <topicName></topicName>
+                    <updateRate>100</updateRate>
+            <plugin name="gazebo_ros_joint_pose_trajectory" filename="libgazebo_ros_joint_pose_trajectory">        
+                <ros>
+                    <namespace>encoder</namespace>
+                    <remapping>~/out:=data</remapping>
+                </ros>
+            </plugin>  
+        </gazebo>
+        
+</robot>

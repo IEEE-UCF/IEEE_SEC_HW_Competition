@@ -1,0 +1,113 @@
+[0.000000] (-) TimerEvent: {}
+[0.000676] (sec_description) JobQueued: {'identifier': 'sec_description', 'dependencies': OrderedDict()}
+[0.000760] (sec_description) JobStarted: {'identifier': 'sec_description'}
+[0.054448] (sec_description) JobProgress: {'identifier': 'sec_description', 'progress': 'cmake'}
+[0.055086] (sec_description) JobProgress: {'identifier': 'sec_description', 'progress': 'build'}
+[0.056042] (sec_description) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description', '--', '-j8', '-l8'], 'cwd': '/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'orion'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('WT_PROFILE_ID', '{e5a83caa-4c73-52b3-ae6b-bc438d721ef9}'), ('HOME', '/home/orion'), ('OLDPWD', '/home/orion/IEEE_SEC_HW_Competition'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'orion'), ('NAME', 'Meatball'), ('WSL_INTEROP', '/run/WSL/1120_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/Users/orion/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2022.1.3/bin:/mnt/c/Users/orion/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('WT_SESSION', '41185062-5d03-4133-a32f-3e61d222eb7e'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.096214] (sec_description) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target listener\x1b[0m\n'}
+[0.098484] (-) TimerEvent: {}
+[0.117373] (sec_description) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/listener.dir/src/tf_subscriber.cpp.o\x1b[0m\n'}
+[0.198658] (-) TimerEvent: {}
+[0.299054] (-) TimerEvent: {}
+[0.399571] (-) TimerEvent: {}
+[0.499977] (-) TimerEvent: {}
+[0.600355] (-) TimerEvent: {}
+[0.700761] (-) TimerEvent: {}
+[0.801190] (-) TimerEvent: {}
+[0.901644] (-) TimerEvent: {}
+[1.002246] (-) TimerEvent: {}
+[1.102638] (-) TimerEvent: {}
+[1.203108] (-) TimerEvent: {}
+[1.303496] (-) TimerEvent: {}
+[1.403878] (-) TimerEvent: {}
+[1.504344] (-) TimerEvent: {}
+[1.604738] (-) TimerEvent: {}
+[1.705176] (-) TimerEvent: {}
+[1.805635] (-) TimerEvent: {}
+[1.906059] (-) TimerEvent: {}
+[2.006497] (-) TimerEvent: {}
+[2.107174] (-) TimerEvent: {}
+[2.207701] (-) TimerEvent: {}
+[2.308148] (-) TimerEvent: {}
+[2.408635] (-) TimerEvent: {}
+[2.509070] (-) TimerEvent: {}
+[2.609490] (-) TimerEvent: {}
+[2.709935] (-) TimerEvent: {}
+[2.810322] (-) TimerEvent: {}
+[2.910752] (-) TimerEvent: {}
+[2.996766] (sec_description) StderrLine: {'line': b'\x1b[01m\x1b[K/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/src/sec_description/src/tf_subscriber.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid TFSubscriber::tf_callback(tf2_msgs::msg::TFMessage_<std::allocator<void> >::SharedPtr)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.996993] (sec_description) StderrLine: {'line': b'\x1b[01m\x1b[K/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/src/sec_description/src/tf_subscriber.cpp:35:64:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno matching function for call to \xe2\x80\x98\x1b[01m\x1b[Kstd::chrono::duration<long int>::duration(double)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.997076] (sec_description) StderrLine: {'line': b'   35 |           std::this_thread::sleep_for(std::chrono::seconds(0.25\x1b[01;31m\x1b[K)\x1b[m\x1b[K);\n'}
+[2.997130] (sec_description) StderrLine: {'line': b'      |                                                                \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.997814] (sec_description) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/src/sec_description/src/tf_subscriber.cpp:2\x1b[m\x1b[K:\n'}
+[2.997956] (sec_description) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/chrono:529:21:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Rep2, class _Period2, class> constexpr std::chrono::duration<_Rep, _Period>::duration(const std::chrono::duration<_Rep, _Period>&) [with _Rep2 = _Rep2; _Period2 = _Period2; <template-parameter-2-3> = <template-parameter-1-3>; _Rep = long int; _Period = std::ratio<1>]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.998018] (sec_description) StderrLine: {'line': b'  529 |           constexpr \x1b[01;36m\x1b[Kduration\x1b[m\x1b[K(const duration<_Rep2, _Period2>& __d)\n'}
+[2.998067] (sec_description) StderrLine: {'line': b'      |                     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.998116] (sec_description) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/chrono:529:21:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[2.998166] (sec_description) StderrLine: {'line': b'\x1b[01m\x1b[K/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/src/sec_description/src/tf_subscriber.cpp:35:64:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  mismatched types \xe2\x80\x98\x1b[01m\x1b[Kconst std::chrono::duration<_Rep1, _Period1>\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.998219] (sec_description) StderrLine: {'line': b'   35 |           std::this_thread::sleep_for(std::chrono::seconds(0.25\x1b[01;36m\x1b[K)\x1b[m\x1b[K);\n'}
+[2.998278] (sec_description) StderrLine: {'line': b'      |                                                                \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[2.998327] (sec_description) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/src/sec_description/src/tf_subscriber.cpp:2\x1b[m\x1b[K:\n'}
+[2.998376] (sec_description) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/chrono:521:30:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Rep2, class> constexpr std::chrono::duration<_Rep, _Period>::duration(const _Rep2&) [with _Rep2 = _Rep2; <template-parameter-2-2> = <template-parameter-1-2>; _Rep = long int; _Period = std::ratio<1>]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.998459] (sec_description) StderrLine: {'line': b'  521 |           constexpr explicit \x1b[01;36m\x1b[Kduration\x1b[m\x1b[K(const _Rep2& __rep)\n'}
+[2.998512] (sec_description) StderrLine: {'line': b'      |                              \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.998561] (sec_description) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/chrono:521:30:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[2.999471] (sec_description) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/bits/move.h:57\x1b[m\x1b[K,\n'}
+[2.999745] (sec_description) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/bits/stl_pair.h:59\x1b[m\x1b[K,\n'}
+[2.999846] (sec_description) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/bits/stl_algobase.h:64\x1b[m\x1b[K,\n'}
+[2.999917] (sec_description) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/memory:63\x1b[m\x1b[K,\n'}
+[2.999980] (sec_description) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/src/sec_description/src/tf_subscriber.cpp:1\x1b[m\x1b[K:\n'}
+[3.000083] (sec_description) StderrLine: {'line': b'/usr/include/c++/11/type_traits: In substitution of \xe2\x80\x98\x1b[01m\x1b[Ktemplate<bool _Cond, class _Tp> using __enable_if_t = typename std::enable_if::type [with bool _Cond = false; _Tp = void]\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.000149] (sec_description) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/type_traits:2209:11:\x1b[m\x1b[K   required by substitution of \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class ... _Cond> using _Require = std::__enable_if_t<std::__and_< <template-parameter-1-1> >::value> [with _Cond = {std::is_convertible<const double&, long int>, std::__or_<std::chrono::treat_as_floating_point<long int>, std::__not_<std::chrono::treat_as_floating_point<double> > >}]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.000232] (sec_description) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/chrono:518:27:\x1b[m\x1b[K   required from here\n'}
+[3.000334] (sec_description) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/type_traits:2205:11:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno type named \xe2\x80\x98\x1b[01m\x1b[Ktype\x1b[m\x1b[K\xe2\x80\x99 in \xe2\x80\x98\x1b[01m\x1b[Kstruct std::enable_if<false, void>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.000392] (sec_description) StderrLine: {'line': b' 2205 |     using \x1b[01;31m\x1b[K__enable_if_t\x1b[m\x1b[K = typename enable_if<_Cond, _Tp>::type;\n'}
+[3.000464] (sec_description) StderrLine: {'line': b'      |           \x1b[01;31m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.000523] (sec_description) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/src/sec_description/src/tf_subscriber.cpp:2\x1b[m\x1b[K:\n'}
+[3.000580] (sec_description) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/chrono:514:9:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Kconstexpr std::chrono::duration<_Rep, _Period>::duration(const std::chrono::duration<_Rep, _Period>&) [with _Rep = long int; _Period = std::ratio<1>]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.000635] (sec_description) StderrLine: {'line': b'  514 |         \x1b[01;36m\x1b[Kduration\x1b[m\x1b[K(const duration&) = default;\n'}
+[3.000685] (sec_description) StderrLine: {'line': b'      |         \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[3.000735] (sec_description) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/chrono:514:18:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  no known conversion for argument 1 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kconst std::chrono::duration<long int>&\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.000785] (sec_description) StderrLine: {'line': b'  514 |         duration(\x1b[01;36m\x1b[Kconst duration&\x1b[m\x1b[K) = default;\n'}
+[3.000833] (sec_description) StderrLine: {'line': b'      |                  \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.000881] (sec_description) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/chrono:512:19:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Kstd::chrono::duration<_Rep, _Period>::duration() [with _Rep = long int; _Period = std::ratio<1>]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.000932] (sec_description) StderrLine: {'line': b'  512 |         constexpr \x1b[01;36m\x1b[Kduration\x1b[m\x1b[K() = default;\n'}
+[3.000981] (sec_description) StderrLine: {'line': b'      |                   \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[3.001030] (sec_description) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/chrono:512:19:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  candidate expects 0 arguments, 1 provided\n'}
+[3.010957] (-) TimerEvent: {}
+[3.111444] (-) TimerEvent: {}
+[3.211826] (-) TimerEvent: {}
+[3.312225] (-) TimerEvent: {}
+[3.412636] (-) TimerEvent: {}
+[3.513035] (-) TimerEvent: {}
+[3.613546] (-) TimerEvent: {}
+[3.713938] (-) TimerEvent: {}
+[3.814437] (-) TimerEvent: {}
+[3.915000] (-) TimerEvent: {}
+[4.015472] (-) TimerEvent: {}
+[4.115845] (-) TimerEvent: {}
+[4.216270] (-) TimerEvent: {}
+[4.316761] (-) TimerEvent: {}
+[4.417196] (-) TimerEvent: {}
+[4.517678] (-) TimerEvent: {}
+[4.618072] (-) TimerEvent: {}
+[4.718506] (-) TimerEvent: {}
+[4.819033] (-) TimerEvent: {}
+[4.919472] (-) TimerEvent: {}
+[5.019881] (-) TimerEvent: {}
+[5.120290] (-) TimerEvent: {}
+[5.220700] (-) TimerEvent: {}
+[5.321142] (-) TimerEvent: {}
+[5.421846] (-) TimerEvent: {}
+[5.522272] (-) TimerEvent: {}
+[5.622755] (-) TimerEvent: {}
+[5.723230] (-) TimerEvent: {}
+[5.823634] (-) TimerEvent: {}
+[5.924049] (-) TimerEvent: {}
+[5.992654] (sec_description) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/listener.dir/build.make:76: CMakeFiles/listener.dir/src/tf_subscriber.cpp.o] Error 1\n'}
+[5.993061] (sec_description) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/listener.dir/all] Error 2\n'}
+[5.993181] (sec_description) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[5.995436] (sec_description) CommandEnded: {'returncode': 2}
+[6.025325] (-) TimerEvent: {}
+[6.104211] (sec_description) JobEnded: {'identifier': 'sec_description', 'rc': 2}
+[6.114893] (-) EventReactorShutdown: {}

@@ -1,0 +1,225 @@
+[0.000000] (-) TimerEvent: {}
+[0.000444] (sec_description) JobQueued: {'identifier': 'sec_description', 'dependencies': OrderedDict()}
+[0.000793] (sec_description) JobStarted: {'identifier': 'sec_description'}
+[0.045395] (sec_description) JobProgress: {'identifier': 'sec_description', 'progress': 'cmake'}
+[0.046190] (sec_description) JobProgress: {'identifier': 'sec_description', 'progress': 'build'}
+[0.047157] (sec_description) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description', '--', '-j8', '-l8'], 'cwd': '/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'orion'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('WT_PROFILE_ID', '{e5a83caa-4c73-52b3-ae6b-bc438d721ef9}'), ('HOME', '/home/orion'), ('OLDPWD', '/home/orion/IEEE_SEC_HW_Competition'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'orion'), ('NAME', 'Meatball'), ('WSL_INTEROP', '/run/WSL/1120_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/Users/orion/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2022.1.3/bin:/mnt/c/Users/orion/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('WT_SESSION', '41185062-5d03-4133-a32f-3e61d222eb7e'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.072201] (sec_description) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.097996] (-) TimerEvent: {}
+[0.198422] (-) TimerEvent: {}
+[0.250102] (sec_description) StdoutLine: {'line': b'-- Found rclcpp: 16.0.7 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.298637] (-) TimerEvent: {}
+[0.391575] (sec_description) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.394440] (sec_description) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.398767] (-) TimerEvent: {}
+[0.401864] (sec_description) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.415276] (sec_description) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.434401] (sec_description) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.498923] (-) TimerEvent: {}
+[0.510079] (sec_description) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.511704] (sec_description) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.5 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.599080] (-) TimerEvent: {}
+[0.699606] (-) TimerEvent: {}
+[0.800058] (-) TimerEvent: {}
+[0.900454] (-) TimerEvent: {}
+[1.000888] (-) TimerEvent: {}
+[1.101407] (-) TimerEvent: {}
+[1.201898] (-) TimerEvent: {}
+[1.302292] (-) TimerEvent: {}
+[1.402747] (-) TimerEvent: {}
+[1.503134] (-) TimerEvent: {}
+[1.603567] (-) TimerEvent: {}
+[1.704137] (-) TimerEvent: {}
+[1.804575] (-) TimerEvent: {}
+[1.904985] (-) TimerEvent: {}
+[2.005413] (-) TimerEvent: {}
+[2.105801] (-) TimerEvent: {}
+[2.206265] (-) TimerEvent: {}
+[2.306678] (-) TimerEvent: {}
+[2.407089] (-) TimerEvent: {}
+[2.507606] (-) TimerEvent: {}
+[2.608030] (-) TimerEvent: {}
+[2.708537] (-) TimerEvent: {}
+[2.809010] (-) TimerEvent: {}
+[2.909518] (-) TimerEvent: {}
+[3.010015] (-) TimerEvent: {}
+[3.110539] (-) TimerEvent: {}
+[3.211427] (-) TimerEvent: {}
+[3.311859] (-) TimerEvent: {}
+[3.412421] (-) TimerEvent: {}
+[3.512840] (-) TimerEvent: {}
+[3.613415] (-) TimerEvent: {}
+[3.713932] (-) TimerEvent: {}
+[3.814393] (-) TimerEvent: {}
+[3.914788] (-) TimerEvent: {}
+[4.015210] (-) TimerEvent: {}
+[4.115702] (-) TimerEvent: {}
+[4.216178] (-) TimerEvent: {}
+[4.316628] (-) TimerEvent: {}
+[4.417092] (-) TimerEvent: {}
+[4.517528] (-) TimerEvent: {}
+[4.617927] (-) TimerEvent: {}
+[4.718311] (-) TimerEvent: {}
+[4.818730] (-) TimerEvent: {}
+[4.919291] (-) TimerEvent: {}
+[4.964368] (sec_description) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[5.019490] (-) TimerEvent: {}
+[5.120038] (-) TimerEvent: {}
+[5.142071] (sec_description) StdoutLine: {'line': b'-- Found tf2_msgs: 0.25.5 (/opt/ros/humble/share/tf2_msgs/cmake)\n'}
+[5.220175] (-) TimerEvent: {}
+[5.320541] (-) TimerEvent: {}
+[5.348684] (sec_description) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.9 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[5.420769] (-) TimerEvent: {}
+[5.434581] (sec_description) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[5.434798] (sec_description) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[5.434882] (sec_description) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[5.435136] (sec_description) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[5.435520] (sec_description) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[5.435883] (sec_description) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[5.436544] (sec_description) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[5.436652] (sec_description) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[5.436864] (sec_description) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[5.437581] (sec_description) StdoutLine: {'line': b'-- Configuring done\n'}
+[5.450163] (sec_description) StdoutLine: {'line': b'-- Generating done\n'}
+[5.454171] (sec_description) StdoutLine: {'line': b'-- Build files have been written to: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description\n'}
+[5.481727] (sec_description) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target listener\x1b[0m\n'}
+[5.501034] (sec_description) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/listener.dir/src/tf_subscriber.cpp.o\x1b[0m\n'}
+[5.520895] (-) TimerEvent: {}
+[5.621285] (-) TimerEvent: {}
+[5.721730] (-) TimerEvent: {}
+[5.822224] (-) TimerEvent: {}
+[5.922643] (-) TimerEvent: {}
+[6.023139] (-) TimerEvent: {}
+[6.123604] (-) TimerEvent: {}
+[6.223974] (-) TimerEvent: {}
+[6.324323] (-) TimerEvent: {}
+[6.424721] (-) TimerEvent: {}
+[6.525092] (-) TimerEvent: {}
+[6.625481] (-) TimerEvent: {}
+[6.726022] (-) TimerEvent: {}
+[6.826597] (-) TimerEvent: {}
+[6.927181] (-) TimerEvent: {}
+[7.028931] (-) TimerEvent: {}
+[7.129542] (-) TimerEvent: {}
+[7.229961] (-) TimerEvent: {}
+[7.330445] (-) TimerEvent: {}
+[7.430948] (-) TimerEvent: {}
+[7.531326] (-) TimerEvent: {}
+[7.631729] (-) TimerEvent: {}
+[7.732419] (-) TimerEvent: {}
+[7.832789] (-) TimerEvent: {}
+[7.933211] (-) TimerEvent: {}
+[8.033775] (-) TimerEvent: {}
+[8.134187] (-) TimerEvent: {}
+[8.234745] (-) TimerEvent: {}
+[8.335227] (-) TimerEvent: {}
+[8.435673] (-) TimerEvent: {}
+[8.536079] (-) TimerEvent: {}
+[8.636525] (-) TimerEvent: {}
+[8.736916] (-) TimerEvent: {}
+[8.837277] (-) TimerEvent: {}
+[8.937726] (-) TimerEvent: {}
+[9.038143] (-) TimerEvent: {}
+[9.138530] (-) TimerEvent: {}
+[9.238974] (-) TimerEvent: {}
+[9.339479] (-) TimerEvent: {}
+[9.439839] (-) TimerEvent: {}
+[9.540337] (-) TimerEvent: {}
+[9.640746] (-) TimerEvent: {}
+[9.741104] (-) TimerEvent: {}
+[9.841516] (-) TimerEvent: {}
+[9.941909] (-) TimerEvent: {}
+[10.042352] (-) TimerEvent: {}
+[10.142743] (-) TimerEvent: {}
+[10.243128] (-) TimerEvent: {}
+[10.343489] (-) TimerEvent: {}
+[10.443869] (-) TimerEvent: {}
+[10.544315] (-) TimerEvent: {}
+[10.644794] (-) TimerEvent: {}
+[10.745141] (-) TimerEvent: {}
+[10.845598] (-) TimerEvent: {}
+[10.946135] (-) TimerEvent: {}
+[11.046577] (-) TimerEvent: {}
+[11.147173] (-) TimerEvent: {}
+[11.247761] (-) TimerEvent: {}
+[11.348157] (-) TimerEvent: {}
+[11.448614] (-) TimerEvent: {}
+[11.549219] (-) TimerEvent: {}
+[11.649679] (-) TimerEvent: {}
+[11.750140] (-) TimerEvent: {}
+[11.850550] (-) TimerEvent: {}
+[11.950907] (-) TimerEvent: {}
+[12.051296] (-) TimerEvent: {}
+[12.151663] (-) TimerEvent: {}
+[12.252035] (-) TimerEvent: {}
+[12.352534] (-) TimerEvent: {}
+[12.452975] (-) TimerEvent: {}
+[12.553351] (-) TimerEvent: {}
+[12.653814] (-) TimerEvent: {}
+[12.754188] (-) TimerEvent: {}
+[12.854614] (-) TimerEvent: {}
+[12.955027] (-) TimerEvent: {}
+[13.055441] (-) TimerEvent: {}
+[13.155836] (-) TimerEvent: {}
+[13.256301] (-) TimerEvent: {}
+[13.356699] (-) TimerEvent: {}
+[13.457115] (-) TimerEvent: {}
+[13.557551] (-) TimerEvent: {}
+[13.657937] (-) TimerEvent: {}
+[13.758393] (-) TimerEvent: {}
+[13.858872] (-) TimerEvent: {}
+[13.959356] (-) TimerEvent: {}
+[14.059772] (-) TimerEvent: {}
+[14.160177] (-) TimerEvent: {}
+[14.260583] (-) TimerEvent: {}
+[14.360947] (-) TimerEvent: {}
+[14.461320] (-) TimerEvent: {}
+[14.561764] (-) TimerEvent: {}
+[14.662155] (-) TimerEvent: {}
+[14.762520] (-) TimerEvent: {}
+[14.862919] (-) TimerEvent: {}
+[14.963370] (-) TimerEvent: {}
+[14.973575] (sec_description) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable listener\x1b[0m\n'}
+[15.063531] (-) TimerEvent: {}
+[15.163951] (-) TimerEvent: {}
+[15.264436] (-) TimerEvent: {}
+[15.364950] (-) TimerEvent: {}
+[15.457277] (sec_description) StdoutLine: {'line': b'[100%] Built target listener\n'}
+[15.465111] (-) TimerEvent: {}
+[15.472424] (sec_description) CommandEnded: {'returncode': 0}
+[15.495521] (sec_description) JobProgress: {'identifier': 'sec_description', 'progress': 'install'}
+[15.504038] (sec_description) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description'], 'cwd': '/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'orion'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('WT_PROFILE_ID', '{e5a83caa-4c73-52b3-ae6b-bc438d721ef9}'), ('HOME', '/home/orion'), ('OLDPWD', '/home/orion/IEEE_SEC_HW_Competition'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'orion'), ('NAME', 'Meatball'), ('WSL_INTEROP', '/run/WSL/1120_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/Users/orion/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2022.1.3/bin:/mnt/c/Users/orion/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('WT_SESSION', '41185062-5d03-4133-a32f-3e61d222eb7e'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/build/sec_description'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[15.510631] (sec_description) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[15.511114] (sec_description) StdoutLine: {'line': b'-- Installing: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/lib/sec_description/listener\n'}
+[15.518718] (sec_description) StdoutLine: {'line': b'-- Set runtime path of "/home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/lib/sec_description/listener" to ""\n'}
+[15.519026] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/launch\n'}
+[15.519284] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/launch/launch_sim.launch.py\n'}
+[15.519384] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/launch/rsp.launch.py\n'}
+[15.519731] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/launch/display.launch.py\n'}
+[15.519860] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description\n'}
+[15.520036] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/gazebo_control.xacro\n'}
+[15.520193] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/inertial_macros.xacro\n'}
+[15.520320] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/sec_description.urdf.xacro\n'}
+[15.520548] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/camera.xacro\n'}
+[15.520632] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/imu.xacro\n'}
+[15.520790] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/description/robot_core.xacro\n'}
+[15.520949] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/ament_index/resource_index/package_run_dependencies/sec_description\n'}
+[15.521184] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/ament_index/resource_index/parent_prefix_path/sec_description\n'}
+[15.521264] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/environment/ament_prefix_path.sh\n'}
+[15.521315] (sec_description) StdoutLine: {'line': b'-- Installing: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/environment/ament_prefix_path.dsv\n'}
+[15.521364] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/environment/path.sh\n'}
+[15.521416] (sec_description) StdoutLine: {'line': b'-- Installing: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/environment/path.dsv\n'}
+[15.521462] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/local_setup.bash\n'}
+[15.521510] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/local_setup.sh\n'}
+[15.521557] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/local_setup.zsh\n'}
+[15.521606] (sec_description) StdoutLine: {'line': b'-- Installing: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/local_setup.dsv\n'}
+[15.521674] (sec_description) StdoutLine: {'line': b'-- Installing: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/package.dsv\n'}
+[15.521748] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/ament_index/resource_index/packages/sec_description\n'}
+[15.521823] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/cmake/sec_descriptionConfig.cmake\n'}
+[15.521873] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/cmake/sec_descriptionConfig-version.cmake\n'}
+[15.521921] (sec_description) StdoutLine: {'line': b'-- Up-to-date: /home/orion/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/install/sec_description/share/sec_description/package.xml\n'}
+[15.523783] (sec_description) CommandEnded: {'returncode': 0}
+[15.565807] (-) TimerEvent: {}
+[15.666884] (-) TimerEvent: {}
+[15.678539] (sec_description) JobEnded: {'identifier': 'sec_description', 'rc': 0}
+[15.679931] (-) EventReactorShutdown: {}
