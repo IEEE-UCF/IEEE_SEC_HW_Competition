@@ -17,7 +17,6 @@
 
             <!-- kinematics -->
             <wheel_separation>"${chassis_width}"</wheel_separation>
-
             <wheel_diameter>${wheel_radius*2}</wheel_diameter>
 
             <!-- limits -->

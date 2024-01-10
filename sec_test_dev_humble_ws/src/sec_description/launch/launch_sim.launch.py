@@ -17,16 +17,6 @@ def generate_launch_description():
     # Specify the name of the package and path to xacro file within the package
     package_name='sec_description'
     file_subpath = 'description/sec_description.urdf.xacro'
-    robot_description = 'description/sec_description_final.urdf.xacro'
-
-    # Use xacro to process the file
-    xacro_file = os.path.join(get_package_share_directory(package_name),file_subpath)
-    robot_description_raw = xacro.process_file(xacro_file).toprettyxml()
-
-    robot_description = os.path.join(get_package_share_directory(package_name),robot_description)
-
-    with open(robot_description, "w") as file:
-        file.write(robot_description_raw)
 
     gazebo_params_path = os.path.join(
                   get_package_share_directory('sec_description'),'config','gazebo_params.yaml')
@@ -48,14 +38,14 @@ def generate_launch_description():
         description='Use ros2_control if true'
     )
 
-    # Include the Gazebo launch file, provided by the gazebo_ros package
-    gazebo = IncludeLaunchDescription(
+    # Process launchers
+    start_gazebo = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
                 launch_arguments={'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_path }.items()
              )
 
-    robot_state_publisher = IncludeLaunchDescription(
+    start_robot_state_publisher = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory(package_name),'launch','rsp.launch.py'
                 )]), launch_arguments={'use_sim_time': use_sim_time, 
@@ -63,19 +53,19 @@ def generate_launch_description():
     )
 
     # Run the spawner node from the gazebo_ros package. The entity name doesn't really matter if you only have a single robot.
-    spawn_entity = Node(package='gazebo_ros', 
+    start_spawn_entity = Node(package='gazebo_ros', 
                         executable='spawn_entity.py',
                         arguments=['-topic', 'robot_description',
                                    '-entity', 'sec_bot'],
                         output='screen')
 
-    diff_drive_spawner = Node(
+    start_diff_drive_spawner = Node(
         package="controller_manager",
         executable="spawner",
         arguments=["diff_drive_controller"],
     )
 
-    joint_broad_spawner = Node(
+    start_joint_broad_spawner = Node(
         package="controller_manager",
         executable="spawner",
         arguments=["joint_state_broadcaster"],
@@ -93,10 +83,10 @@ def generate_launch_description():
     ld.add_action(declare_use_sim_time_cmd)
     ld.add_action(declare_use_ros2_control_cmd)
 
-    ld.add_action(robot_state_publisher)
-    ld.add_action(gazebo)
-    ld.add_action(spawn_entity)
-    ld.add_action(diff_drive_spawner)
-    ld.add_action(joint_broad_spawner)
+    ld.add_action(start_robot_state_publisher)
+    ld.add_action(start_gazebo)
+    ld.add_action(start_spawn_entity)
+    ld.add_action(start_diff_drive_spawner)
+    ld.add_action(start_joint_broad_spawner)
 
     return ld
