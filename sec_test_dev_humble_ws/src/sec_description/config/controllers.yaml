@@ -68,9 +68,9 @@ diff_drive_controller:
     # angular.z.min_jerk: NAN
 
 imu_broadcaster:
-  ros_parameters:
+  ros__parameters:
 
-    sensor_name: # put hardware component name, must match name in ros2_control.xacro file
+    sensor_name: da_imu # put hardware component name, must match name in ros2_control.xacro file
     frame_id: imu_link
 
     # Need to figure out what these do

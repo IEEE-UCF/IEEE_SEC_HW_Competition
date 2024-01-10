@@ -28,16 +28,25 @@ def generate_launch_description():
     with open(robot_description, "w") as file:
         file.write(robot_description_raw)
 
-    robot_controllers = PathJoinSubstitution(
-        [
-            FindPackageShare("sec_description"),
-            "config",
-            "controllers.yaml",
-        ]
-    )
-
     gazebo_params_path = os.path.join(
                   get_package_share_directory('sec_description'),'config','gazebo_params.yaml')
+
+    # Launch config variables specific to sim
+    use_sim_time = LaunchConfiguration('use_sim_time')
+    use_ros2_control = LaunchConfiguration('use_ros2_control')
+
+    # Declare launch arguments
+    declare_use_sim_time_cmd = DeclareLaunchArgument(
+        name='use_sim_time',
+        default_value='true',
+        description='Use simulation (Gazebo) clock if true'
+    )
+
+    declare_use_ros2_control_cmd = DeclareLaunchArgument(
+        name='use_ros2_control',
+        default_value='true',
+        description='Use ros2_control if true'
+    )
 
     # Include the Gazebo launch file, provided by the gazebo_ros package
     gazebo = IncludeLaunchDescription(
@@ -49,7 +58,8 @@ def generate_launch_description():
     robot_state_publisher = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory(package_name),'launch','rsp.launch.py'
-                )]), launch_arguments={'use_sim_time': 'true', 'use_ros2_control': 'true'}.items()
+                )]), launch_arguments={'use_sim_time': use_sim_time, 
+                                       'use_ros2_control': use_ros2_control}.items()
     )
 
     # Run the spawner node from the gazebo_ros package. The entity name doesn't really matter if you only have a single robot.
@@ -78,10 +88,15 @@ def generate_launch_description():
     #   ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_drive_controller/cmd_vel_unstamped
     # in separate terminal
 
-    return LaunchDescription([
-        robot_state_publisher,
-        gazebo,
-        spawn_entity,
-        diff_drive_spawner,
-        joint_broad_spawner,
-    ])
+    ld = LaunchDescription()
+
+    ld.add_action(declare_use_sim_time_cmd)
+    ld.add_action(declare_use_ros2_control_cmd)
+
+    ld.add_action(robot_state_publisher)
+    ld.add_action(gazebo)
+    ld.add_action(spawn_entity)
+    ld.add_action(diff_drive_spawner)
+    ld.add_action(joint_broad_spawner)
+
+    return ld
