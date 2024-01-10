@@ -1,1 +1,0 @@
-/home/adenm/IEEE_SEC_HW_Competition/sec_test_dev_humble_ws/src/sec_description/launch/launch_sim.launch.py
