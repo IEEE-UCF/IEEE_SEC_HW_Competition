@@ -4,10 +4,9 @@
     <xacro:include filename="inertial_macros.xacro"/>
 
     <!-- Base Link -->
-    <link name="base_link">
-    </link>
+    <link name="base_link"/>
 
-    <!-- Base Footprint Link-->
+    <!--Base Footprint Link-->
     <joint name="base_footprint_joint" type="fixed">
         <parent link="base_link"/>
         <child link="base_footprint"/>
@@ -49,7 +48,6 @@
 
     <!-- Wheels -->
     <xacro:macro name="wheel" params="prefix l_r f_b">
-
         <joint name="${prefix}_wheel_joint" type="continuous">
             <parent link="chassis"/>
             <child link="${prefix}_wheel_link"/>
@@ -83,7 +81,6 @@
         <gazebo reference="${prefix}_wheel_link">
             <material>Gazebo/Blue</material>
         </gazebo>
-
     </xacro:macro>
 
     <xacro:wheel prefix="b_l" l_r="-1" f_b="1" />
