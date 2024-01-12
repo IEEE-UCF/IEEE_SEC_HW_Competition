@@ -12,7 +12,7 @@ from ament_index_python.packages import get_package_share_directory
 def generate_launch_description():
 
     # Specify the name of the package and path to xacro file within the package
-    pkg_name = 'sec_description'
+    package_name = 'sec_description'
     file_subpath = 'description/sec_description.urdf.xml'
     final_descriptor = 'description/sec_description_final.urdf.xml'
 
@@ -20,8 +20,8 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
 
     # Use xacro to process the file
-    pkg_path = os.path.join(get_package_share_directory('sec_description'))
-    xacro_file = os.path.join(pkg_path,'description','sec_description.urdf.xacro')
+    package_path = os.path.join(get_package_share_directory('sec_description'))
+    xacro_file = os.path.join(package_path,'description','sec_description.urdf.xacro')
     robot_description_config = xacro.process_file(xacro_file)
 
     # Configure the node
@@ -41,7 +41,7 @@ def generate_launch_description():
     node_rviz2 = Node(
         package='rviz2',
         executable='rviz2',
-        arguments=['-d', [os.path.join(get_package_share_directory(pkg_name), 'config', 'config.rviz')]]
+        arguments=['-d', [os.path.join(get_package_share_directory(package_name), 'config', 'config.rviz')]]
     )
 
     # Run the node
