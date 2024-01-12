@@ -68,10 +68,9 @@
                 </z>
             </linear_acceleration>
             </imu>
-            <plugin name="bytes_imu" filename="libgazebo_ros_imu_sensor.so">
+            <plugin name="imu_controller" filename="libgazebo_ros_imu_sensor.so">
                 <ros>
-                    <namespace>imu</namespace>
-                    <remapping>~/out:=data</remapping>
+                    <remapping>~/out:=imu_broadcaster/imu</remapping>
                 </ros>
                 <initial_orientation_as_reference>true</initial_orientation_as_reference>
             </plugin>
