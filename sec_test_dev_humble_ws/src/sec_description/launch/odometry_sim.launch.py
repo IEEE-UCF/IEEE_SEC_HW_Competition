@@ -32,7 +32,6 @@ def generate_launch_description():
     package_name ='sec_description'
 
     ekf_params_file = os.path.join(get_package_share_directory(package_name), 'config', 'ekf.yaml')
-    rviz_params_file = os.path.join(get_package_share_directory(package_name), 'config', 'config.rviz')
 
     # Launch config variables specific to sim
     use_sim_time = LaunchConfiguration('use_sim_time')
@@ -57,19 +56,17 @@ def generate_launch_description():
                 )]), launch_arguments={'use_sim_time': use_sim_time}.items()
     )
 
-    start_spawn_entity = Node(package='gazebo_ros', 
-                        executable='spawn_entity.py',
-                        arguments=['-topic', 'robot_description',
-                                   '-entity', 'sec_bot'],
-                        output='screen')
+    start_joint_state_publisher_gui = Node(
+        package='joint_state_publisher_gui',
+        executable='joint_state_publisher_gui',
+    )
 
-    start_rviz = Node(
-            package='rviz2',
-            namespace='',
-            executable='rviz2',
-            name='rviz2',
-            arguments=['-d', [rviz_params_file]]
-        )
+    start_rviz2 = Node(
+        package='rviz2',
+        executable='rviz2',
+        arguments=['-d', [os.path.join(get_package_share_directory(package_name), 'config', 'config.rviz')]]
+    )
+
 
     start_robot_localization = Node(
         condition=IfCondition(use_robot_localization),
@@ -84,8 +81,8 @@ def generate_launch_description():
     ld.add_action(declare_use_robot_localization)
 
     ld.add_action(start_robot_state_publisher)
-    ld.add_action(start_spawn_entity)
-    ld.add_action(start_rviz)
     ld.add_action(start_robot_localization)
+    ld.add_action(start_joint_state_publisher_gui)
+    ld.add_action(start_rviz2)
 
     return ld
