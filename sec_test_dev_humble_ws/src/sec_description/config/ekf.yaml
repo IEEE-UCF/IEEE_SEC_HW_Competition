@@ -33,7 +33,7 @@ ekf_filter_node:
         world_frame: odom           # Defaults to the value ofodom_frame if unspecified
 
         # will turn into diff_drive_controller/odom, need to implement sim command flag
-        odom0: demo/odom
+        odom0: diff_drive_controller/odom
         odom0_config: [true,  true,  true,
                        false, false, false,
                        false, false, false,
@@ -41,7 +41,7 @@ ekf_filter_node:
                        false, false, false]
 
         # will turn into imu_broadcaster/imu, need to implement sim command flag
-        imu0: demo/imu
+        imu0: imu_broadcaster/imu
         imu0_config: [false, false, false,
                       true,  true,  true,
                       false, false, false,
