@@ -4,6 +4,7 @@ import xacro
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
+from launch.conditions import IfCondition
 from launch.actions import ExecuteProcess, IncludeLaunchDescription, DeclareLaunchArgument, RegisterEventHandler
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
@@ -15,15 +16,15 @@ from launch_ros.substitutions import FindPackageShare
 def generate_launch_description():
 
     # Specify the name of the package and path to xacro file within the package
-    package_name='sec_description'
-    file_subpath = 'description/sec_description.urdf.xacro'
+    package_name ='sec_description'
 
-    gazebo_params_path = os.path.join(
-                  get_package_share_directory('sec_description'),'config','gazebo_params.yaml')
+    ekf_params_file = os.path.join(get_package_share_directory(package_name), 'config', 'ekf.yaml')
+    gazebo_params_path = os.path.join(get_package_share_directory(package_name),'config','gazebo_params.yaml')
 
     # Launch config variables specific to sim
     use_sim_time = LaunchConfiguration('use_sim_time')
     use_ros2_control = LaunchConfiguration('use_ros2_control')
+    use_robot_localization = LaunchConfiguration('use_robot_localization')
 
     # Declare launch arguments
     declare_use_sim_time_cmd = DeclareLaunchArgument(
@@ -36,6 +37,12 @@ def generate_launch_description():
         name='use_ros2_control',
         default_value='true',
         description='Use ros2_control if true'
+    )
+
+    declare_use_robot_localization = DeclareLaunchArgument(
+        name='use_robot_localization',
+        default_value='true',
+        description='Use robot_localization if true'
     )
 
     # Process launchers
@@ -71,6 +78,13 @@ def generate_launch_description():
         arguments=["joint_state_broadcaster"],
     )
 
+    start_robot_localization = Node(
+        condition=IfCondition(use_robot_localization),
+        package='robot_localization',
+        executable='ekf_node',
+        parameters=[ekf_params_file]
+    )
+
     # to control manually:
     # gazebo_control.xacro
     #   ros2 run teleop_twist_keyboard teleop_twist_keyboard
@@ -82,11 +96,13 @@ def generate_launch_description():
 
     ld.add_action(declare_use_sim_time_cmd)
     ld.add_action(declare_use_ros2_control_cmd)
+    ld.add_action(declare_use_robot_localization)
 
     ld.add_action(start_robot_state_publisher)
     ld.add_action(start_gazebo)
     ld.add_action(start_spawn_entity)
     ld.add_action(start_diff_drive_spawner)
     ld.add_action(start_joint_broad_spawner)
+    ld.add_action(start_robot_localization)
 
     return ld
