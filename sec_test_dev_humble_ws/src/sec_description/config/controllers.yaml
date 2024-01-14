@@ -40,7 +40,7 @@ diff_drive_controller:
 
     # Odometry fused with IMU is published by robot_localization, so no need to publish a TF
     # based on encoders alone (https://wiki.ros.org/diff_drive_controller)
-    enable_odom_tf: false 
+    enable_odom_tf: true 
 
     # cmd_vel_timeout: x
     # publish_limited_velocity: x
