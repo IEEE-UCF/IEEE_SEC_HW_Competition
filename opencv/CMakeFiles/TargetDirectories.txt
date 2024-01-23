@@ -1,0 +1,3 @@
+/home/patrickrizkalla/testing/CMakeFiles/buildFile.dir
+/home/patrickrizkalla/testing/CMakeFiles/edit_cache.dir
+/home/patrickrizkalla/testing/CMakeFiles/rebuild_cache.dir
