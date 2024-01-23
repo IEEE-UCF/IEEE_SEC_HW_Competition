@@ -32,4 +32,10 @@ install(DIRECTORY description
 install(DIRECTORY config
   DESTINATION share/${PROJECT_NAME})
 
+install(DIRECTORY models
+  DESTINATION share/${PROJECT_NAME})
+
+install(DIRECTORY worlds
+  DESTINATION share/${PROJECT_NAME})
+
 ament_package()
