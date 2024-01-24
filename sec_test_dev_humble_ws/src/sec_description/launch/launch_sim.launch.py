@@ -4,8 +4,8 @@ import xacro
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
-from launch.conditions import IfCondition
-from launch.actions import ExecuteProcess, IncludeLaunchDescription, DeclareLaunchArgument, RegisterEventHandler
+from launch.conditions import IfCondition, UnlessCondition
+from launch.actions import ExecuteProcess, IncludeLaunchDescription, DeclareLaunchArgument, RegisterEventHandler, SetEnvironmentVariable
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
 from launch.event_handlers import OnProcessExit
@@ -18,6 +18,11 @@ def generate_launch_description():
     # Specify the name of the package and path to xacro file within the package
     package_name ='sec_description'
 
+    world_file_name = 'comp_course.world'
+    world_file_path = os.path.join(get_package_share_directory(package_name), 'worlds', world_file_name)
+    gazebo_model_path = os.path.join(get_package_share_directory(package_name), 'models')
+    set_model_path = SetEnvironmentVariable('GAZEBO_MODEL_PATH', gazebo_model_path)
+
     ekf_params_file = os.path.join(get_package_share_directory(package_name), 'config', 'ekf.yaml')
     gazebo_params_path = os.path.join(get_package_share_directory(package_name),'config','gazebo_params.yaml')
 
@@ -25,6 +30,8 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
     use_ros2_control = LaunchConfiguration('use_ros2_control')
     use_robot_localization = LaunchConfiguration('use_robot_localization')
+    use_world_file = LaunchConfiguration('use_world_file')
+    world_file = LaunchConfiguration('world_file')
 
     # Declare launch arguments
     declare_use_sim_time_cmd = DeclareLaunchArgument(
@@ -45,11 +52,28 @@ def generate_launch_description():
         description='Use robot_localization if true'
     )
 
+    declare_use_world_file = DeclareLaunchArgument(
+        name='use_world_file',
+        default_value='false',
+        description='Whether to load the specified world file'
+    )
+
     # Process launchers
-    start_gazebo = IncludeLaunchDescription(
+    start_gazebo_world = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
-                launch_arguments={'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_path }.items()
+                condition=IfCondition(LaunchConfiguration('use_world_file')),
+                launch_arguments={
+                    'world': world_file_path,
+                    'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_path }.items()
+             )
+
+    start_gazebo_empty = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
+                condition=UnlessCondition(LaunchConfiguration('use_world_file')),
+                launch_arguments={
+                    'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_path }.items()
              )
 
     start_robot_state_publisher = IncludeLaunchDescription(
@@ -97,9 +121,13 @@ def generate_launch_description():
     ld.add_action(declare_use_sim_time_cmd)
     ld.add_action(declare_use_ros2_control_cmd)
     ld.add_action(declare_use_robot_localization)
+    ld.add_action(declare_use_world_file)
+
+    ld.add_action(set_model_path)
 
     ld.add_action(start_robot_state_publisher)
-    ld.add_action(start_gazebo)
+    ld.add_action(start_gazebo_world)
+    ld.add_action(start_gazebo_empty)
     ld.add_action(start_spawn_entity)
     ld.add_action(start_diff_drive_spawner)
     ld.add_action(start_joint_broad_spawner)
