@@ -90,15 +90,15 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <state world_name='default'>
-      <sim_time>340 150000000</sim_time>
-      <real_time>67 333297421</real_time>
-      <wall_time>1706063998 220954459</wall_time>
-      <iterations>64323</iterations>
+      <sim_time>464 850000000</sim_time>
+      <real_time>98 710871257</real_time>
+      <wall_time>1706117409 111347294</wall_time>
+      <iterations>93813</iterations>
       <model name='comp_course'>
-        <pose>-0.495889 0.062595 0 0 -0 0</pose>
+        <pose>-0.015685 -0.017826 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>-0.495889 0.062595 0 0 -0 0</pose>
+          <pose>-0.015685 -0.017826 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -120,7 +120,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>14.5356 2.29676 8.18701 0 0.5018 -3.00698</pose>
+        <pose>2.15055 1.58564 2.29113 -0 0.841796 -2.50298</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -132,7 +132,7 @@
           <geometry>
             <mesh>
               <uri>model://comp_course/meshes/Assem1.dae</uri>
-              <scale>0.001 0.001 0.001</scale>
+              <scale>1 1 1</scale>
               <pose>0 0 0 0 0 0</pose>
             </mesh>
           </geometry>
@@ -141,7 +141,7 @@
           <geometry>
             <mesh>
               <uri>model://comp_course/meshes/Assem1.dae</uri>
-              <scale>0.001 0.001 0.001</scale>
+              <scale>1 1 1</scale>
               <pose>0 0 0 0 0 0</pose>
             </mesh>
           </geometry>
@@ -163,7 +163,7 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>-0.495889 0.062595 0 0 -0 0</pose>
+      <pose>-0.015685 -0.017826 0 0 -0 0</pose>
     </model>
   </world>
 </sdf>

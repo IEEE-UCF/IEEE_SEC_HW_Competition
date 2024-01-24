@@ -5,15 +5,15 @@
     <xacro:arg name="sim_mode" default="true"/>
 
     <!-- Define robot constants -->
-    <!-- Unit -->
-    <xacro:property name="chassis_length" value="0.5"/> <!--X-->
-    <xacro:property name="chassis_width" value="0.5"/> <!--Y-->
-    <xacro:property name="chassis_height" value="0.5"/> <!--Z-->
-    <xacro:property name="chassis_mass" value="10"/>
+    <!-- Meters -->
+    <xacro:property name="chassis_length" value="0.205"/> <!--X-->
+    <xacro:property name="chassis_width" value="0.205"/> <!--Y-->
+    <xacro:property name="chassis_height" value="0.205"/> <!--Z-->
+    <xacro:property name="chassis_mass" value="10"/> <!--WHat is the unit for this?-->
+    <xacro:property name="chassis_z_offset" value="0.1"/> <!--Currently unused, going to try to implement for total height translation-->
 
-    <xacro:property name="wheel_radius" value="0.1"/> <!-- Update wheel radius paramter in controllers.yaml as well-->
-    <xacro:property name="wheel_length" value="0.1"/>
-    <xacro:property name="wheel_height_offset" value="0.03"/>
+    <xacro:property name="wheel_radius" value="0.05"/> <!-- Update wheel radius paramter in controllers.yaml as well-->
+    <xacro:property name="wheel_length" value="0.025"/>
     <xacro:property name="wheel_mass" value="10"/>
 
 
