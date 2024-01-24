@@ -65,46 +65,6 @@
         <falloff>0</falloff>
       </spot>
     </light>
-    <model name='comp_course'>
-      <static>1</static>
-      <link name='link'>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://comp_course/meshes/Assem1.dae</uri>
-              <scale>0.005 0.005 0.005</scale>
-              <pose>0 0 0 0 0 0</pose>
-            </mesh>
-          </geometry>
-        </visual>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>model://comp_course/meshes/Assem1.dae</uri>
-              <scale>0.005 0.005 0.005</scale>
-              <pose>0 0 0 0 0 0</pose>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose>0 0 0 0 -0 0</pose>
-    </model>
     <gravity>0 0 -9.8</gravity>
     <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
     <atmosphere type='adiabatic'/>
@@ -130,15 +90,15 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <state world_name='default'>
-      <sim_time>275 827000000</sim_time>
-      <real_time>278 436455920</real_time>
-      <wall_time>1705939905 573858605</wall_time>
-      <iterations>275827</iterations>
+      <sim_time>340 150000000</sim_time>
+      <real_time>67 333297421</real_time>
+      <wall_time>1706063998 220954459</wall_time>
+      <iterations>64323</iterations>
       <model name='comp_course'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>-0.495889 0.062595 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>-0.495889 0.062595 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -160,10 +120,50 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>-0.121891 0.00061 16.1571 1e-06 1.5698 3.0682</pose>
+        <pose>14.5356 2.29676 8.18701 0 0.5018 -3.00698</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
+    <model name='comp_course'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://comp_course/meshes/Assem1.dae</uri>
+              <scale>0.001 0.001 0.001</scale>
+              <pose>0 0 0 0 0 0</pose>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://comp_course/meshes/Assem1.dae</uri>
+              <scale>0.001 0.001 0.001</scale>
+              <pose>0 0 0 0 0 0</pose>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>-0.495889 0.062595 0 0 -0 0</pose>
+    </model>
   </world>
 </sdf>
