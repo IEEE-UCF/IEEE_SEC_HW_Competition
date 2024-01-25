@@ -2,7 +2,7 @@
 
 set -e
 
-source /opt/ros/humble/setup.bash
+source /opt/ros/humble/install/setup.bash
 
 echo "Provided arguments: $@"
 

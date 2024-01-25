@@ -1,5 +1,5 @@
-FROM osrf/ros:humble-desktop-full as base
-
+#FROM osrf/ros:humble-desktop-full as base
+FROM dustynv/ros:humble-ros-base-l4t-r36.2.0 as base
 
 # Example of installing programs
 RUN apt-get update \
@@ -10,7 +10,7 @@ RUN apt-get update \
 
 
 # Example of copying a file
-COPY config/ /site_config/
+#COPY config/ /site_config/
 
 
 # Create a non-root user
