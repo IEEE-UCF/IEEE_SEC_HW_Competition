@@ -30,7 +30,10 @@ RUN apt-get update \
   && chmod 0440 /etc/sudoers.d/$USERNAME \
   && rm -rf /var/lib/apt/lists/*
 
-RUN usermod -aG dialout ${USERNAME}
+RUN usermod -aG dialout ${USERNAME} 
+
+
+
 
 # Copy the entrypoint and bashrc scripts so we have 
 # our container's environment set up correctly
