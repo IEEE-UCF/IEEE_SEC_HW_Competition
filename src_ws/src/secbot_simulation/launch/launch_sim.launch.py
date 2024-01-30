@@ -15,16 +15,17 @@ from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
 
-    # Specify the name of the package and path to xacro file within the package
-    package_name ='sec_description'
+    description_package_name = 'secbot_description'
+    navigation_package_name = 'secbot_navigation'
+    simulation_package_name = 'secbot_simulation'
 
     world_file_name = 'comp_course.world'
-    world_file_path = os.path.join(get_package_share_directory(package_name), 'worlds', world_file_name)
-    gazebo_model_path = os.path.join(get_package_share_directory(package_name), 'models')
+    world_file_path = os.path.join(get_package_share_directory(description_package_name), 'worlds', world_file_name)
+    gazebo_model_path = os.path.join(get_package_share_directory(description_package_name), 'models')
     set_model_path = SetEnvironmentVariable('GAZEBO_MODEL_PATH', gazebo_model_path)
 
-    ekf_params_file = os.path.join(get_package_share_directory(package_name), 'config', 'ekf.yaml')
-    gazebo_params_path = os.path.join(get_package_share_directory(package_name),'config','gazebo_params.yaml')
+    ekf_params_file = os.path.join(get_package_share_directory(navigation_package_name), 'config', 'ekf.yaml')
+    gazebo_params_path = os.path.join(get_package_share_directory(simulation_package_name),'config','gazebo_params.yaml')
 
     # Launch config variables specific to sim
     use_sim_time = LaunchConfiguration('use_sim_time')
@@ -78,7 +79,7 @@ def generate_launch_description():
 
     start_robot_state_publisher = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory(package_name),'launch','rsp.launch.py'
+                    get_package_share_directory(description_package_name),'launch','rsp.launch.py'
                 )]), launch_arguments={'use_sim_time': use_sim_time, 
                                        'use_ros2_control': use_ros2_control}.items()
     )

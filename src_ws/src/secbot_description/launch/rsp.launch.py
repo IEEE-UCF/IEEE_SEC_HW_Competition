@@ -15,10 +15,10 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
     use_ros2_control = LaunchConfiguration('use_ros2_control')
 
-    pkg_name = 'sec_description'
+    description_package_name = 'secbot_description'
 
     # Process the URDF file
-    pkg_path = os.path.join(get_package_share_directory('sec_description'))
+    pkg_path = os.path.join(get_package_share_directory(description_package_name))
     xacro_file = os.path.join(pkg_path,'description','sec_description.urdf.xacro')
     robot_description_config = Command(['xacro ', xacro_file, ' use_ros2_control:=', use_ros2_control, ' sim_mode:=', use_sim_time])
     

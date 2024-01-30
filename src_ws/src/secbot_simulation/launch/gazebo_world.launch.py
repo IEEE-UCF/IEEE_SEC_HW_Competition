@@ -5,14 +5,16 @@ from ament_index_python.packages import get_package_share_directory
 import os
 
 def generate_launch_description():
-    pkg_name = 'sec_description'
-    world_file_name = 'comp_course.world'
+
+    description_package_name = 'secbot_description'
+    simulation_package_name = 'secbot_simulation'
+    world_file_name = 'secbot_comp_course.world'
 
     # Get the directory of your ROS 2 package
-    pkg_dir = get_package_share_directory(pkg_name)
+    pkg_dir = get_package_share_directory(description_package_name)
     world_file_path = os.path.join(pkg_dir, 'worlds', world_file_name)
 
-    gazebo_model_path = os.path.join(get_package_share_directory(pkg_name), 'models')
+    gazebo_model_path = os.path.join(get_package_share_directory(simulation_package_name), 'models')
     set_model_path = SetEnvironmentVariable('GAZEBO_MODEL_PATH', gazebo_model_path)
 
     # Launch Gazebo with the specified world file
