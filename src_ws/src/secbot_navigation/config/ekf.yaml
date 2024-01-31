@@ -40,12 +40,6 @@ ekf_filter_node:
 
         # will turn into diff_drive_controller/odom, need to implement sim command flag
         odom0: diff_drive_controller/odom
-        # odom0_config: [true,  true,  true,
-        #                false, false, false,
-        #                false, false, false,
-        #                false, false, true,
-        #                false, false, false]
-
         odom0_config: [false, false, false,
                        false, false, false,
                        true, true, false, 
@@ -59,9 +53,4 @@ ekf_filter_node:
                       false, false, false,
                       false, false, true, 
                       true, false, false]
-        # imu0_config: [false, false, false,
-        #               true,  true,  true,
-        #               false, false, false,
-        #               false, false, false,
-        #               false, false, false]
 
