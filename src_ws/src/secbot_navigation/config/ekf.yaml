@@ -32,18 +32,25 @@ ekf_filter_node:
         base_link_frame: base_link  # Defaults to "base_link" if unspecified
         world_frame: odom           # Defaults to the value ofodom_frame if unspecified
 
+        #        [x_pos   , y_pos    , z_pos,
+        #         roll    , pitch    , yaw,
+        #         x_vel   , y_vel    , z_vel,
+        #         roll_vel, pitch_vel, yaw_vel,
+        #         x_accel , y_accel  , z_accel]
+
         # will turn into diff_drive_controller/odom, need to implement sim command flag
         odom0: diff_drive_controller/odom
-        odom0_config: [true,  true,  true,
+        odom0_config: [false, false, false,
                        false, false, false,
-                       false, false, false,
+                       true, true, false, 
                        false, false, true,
                        false, false, false]
 
         # will turn into imu_broadcaster/imu, need to implement sim command flag
         imu0: imu_broadcaster/imu
-        imu0_config: [false, false, false,
-                      true,  true,  true,
+        imu0_config: [false, false, false, 
+                      false, false, false, 
                       false, false, false,
-                      false, false, false,
-                      false, false, false]
+                      false, false, true, 
+                      true, false, false]
+
