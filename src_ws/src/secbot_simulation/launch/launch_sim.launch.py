@@ -32,6 +32,7 @@ def generate_launch_description():
     use_ros2_control = LaunchConfiguration('use_ros2_control')
     use_robot_localization = LaunchConfiguration('use_robot_localization')
     use_world_file = LaunchConfiguration('use_world_file')
+    use_gazebo_gui = LaunchConfiguration('use_gazebo_gui')
     world_file = LaunchConfiguration('world_file')
 
     # Declare launch arguments
@@ -59,12 +60,19 @@ def generate_launch_description():
         description='Whether to load the specified world file'
     )
 
+    declare_use_gazebo_gui = DeclareLaunchArgument(
+        name='use_gazebo_gui',
+        default_value='0',
+        description='Whether to launch Gazebo with or without GUI, default is without gui'
+    )
+
     # Process launchers
     start_gazebo_world = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
                 condition=IfCondition(LaunchConfiguration('use_world_file')),
                 launch_arguments={
+                    'gui': use_gazebo_gui,
                     'world': world_file_path,
                     'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_path }.items()
              )
@@ -74,6 +82,7 @@ def generate_launch_description():
                     get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
                 condition=UnlessCondition(LaunchConfiguration('use_world_file')),
                 launch_arguments={
+                    'gui': use_gazebo_gui,
                     'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_path }.items()
              )
 
@@ -123,6 +132,7 @@ def generate_launch_description():
     ld.add_action(declare_use_ros2_control_cmd)
     ld.add_action(declare_use_robot_localization)
     ld.add_action(declare_use_world_file)
+    ld.add_action(declare_use_gazebo_gui)
 
     ld.add_action(set_model_path)
 
