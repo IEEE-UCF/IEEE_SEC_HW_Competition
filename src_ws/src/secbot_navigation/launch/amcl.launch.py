@@ -103,6 +103,12 @@ def generate_launch_description():
         'log_level', default_value='info',
         description='log level')
 
+    start_rviz2 = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(
+            get_package_share_directory(navigation_package_name), 'launch', 'rviz2.launch.py')
+        ])
+    )
+
     start_map_server = Node(
         package='nav2_map_server',
         executable='map_server',
@@ -151,6 +157,7 @@ def generate_launch_description():
     ld.add_action(declare_log_level_cmd)
 
     # Add the actions to launch all of the localization nodes
+    # ld.add_action(start_rviz2)
     ld.add_action(start_map_server)
     ld.add_action(start_amcl)
     ld.add_action(start_lifecycle_manager)
