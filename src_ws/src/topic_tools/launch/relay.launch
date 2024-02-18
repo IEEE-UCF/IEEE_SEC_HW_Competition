@@ -1,6 +1,6 @@
 <launch>
     <node pkg="topic_tools" exec="relay" name="relay">
-        <param name="input_topic" value="/relay_input"/>
-        <param name="output_topic" value="/relay_output"/>
+        <param name="input_topic" value="/cmd_vel"/>
+        <param name="output_topic" value="/diff_drive_controller/cmd_vel_unstamped"/>
     </node>
 </launch>
