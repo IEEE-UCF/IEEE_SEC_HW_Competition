@@ -40,6 +40,8 @@ def generate_launch_description():
     use_respawn = LaunchConfiguration('use_respawn')
     log_level = LaunchConfiguration('log_level')
 
+    waypoint_follower_yaml = os.path.join(get_package_share_directory('secbot_navigation'), 'config', 'follow_waypoints.yaml')
+
     lifecycle_nodes = ['controller_server',
                        'smoother_server',
                        'planner_server',
@@ -167,7 +169,7 @@ def generate_launch_description():
                 output='screen',
                 respawn=use_respawn,
                 respawn_delay=2.0,
-                parameters=[configured_params],
+                parameters=[configured_params, waypoint_follower_yaml],
                 arguments=['--ros-args', '--log-level', log_level],
                 remappings=remappings),
             Node(
@@ -231,7 +233,7 @@ def generate_launch_description():
                 package='nav2_waypoint_follower',
                 plugin='nav2_waypoint_follower::WaypointFollower',
                 name='waypoint_follower',
-                parameters=[configured_params],
+                parameters=[configured_params, waypoint_follower_yaml],
                 remappings=remappings),
             ComposableNode(
                 package='nav2_velocity_smoother',

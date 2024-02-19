@@ -62,3 +62,26 @@ def generate_launch_description():
             output='screen')]),
         launch_testing.actions.ReadyToTest()
     ])
+
+
+"""
+Using this launch file has errors: ros2 launch secbot_navigation complete.launch.py
+
+Instead, you can follow the below steps:
+
+Run this in 4 new tabs.
+cd IEEE_SEC_HW_Competition/src_ws/
+. install/setup.bash
+
+ros2 launch secbot_simulation launch_sim.launch.py
+
+ros2 launch secbot_navigation amcl.launch.py
+
+ros2 run rviz2 rviz2 -d src/secbot_navigation/config/amcl_config.rviz --ros-args -p use_sim_time:=true
+
+Manually Set Initial Pose
+
+ros2 launch nav2_bringup navigation_launch.py use_sim_time:=true map_subscribe_transient_local:=true
+
+
+"""
