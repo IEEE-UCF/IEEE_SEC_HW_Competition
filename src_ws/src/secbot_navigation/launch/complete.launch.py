@@ -1,5 +1,11 @@
 import os
 import xacro
+import time
+
+import launch
+import launch.actions
+import launch_ros.actions
+import launch_testing.actions
 
 from ament_index_python.packages import get_package_share_directory
 
@@ -31,16 +37,28 @@ def generate_launch_description():
         ])
     )
 
-    start_amcl = IncludeLaunchDescription(
+    start_nav2 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory(navigation_package_name), 'launch', 'amcl.launch.py')
+            get_package_share_directory(navigation_package_name), 'launch', 'navigation_launch.py')
         ])
-    )
+    )   
 
-    ld = LaunchDescription()
-
-    ld.add_action(start_full_sim)
-    ld.add_action(start_rviz2)
-    ld.add_action(start_amcl)
-
-    return ld
+    return LaunchDescription([
+        launch.actions.TimerAction(
+            period=0.0,
+            actions=[start_full_sim]),
+        launch.actions.TimerAction(
+            period=10.0,
+            actions=[ExecuteProcess(
+            cmd=['ros2', 'launch', 'secbot_navigation', 'amcl.launch.py'],
+            output='screen')]),        
+        launch.actions.TimerAction(
+            period=20.0,
+            actions=[start_rviz2]),
+        launch.actions.TimerAction(
+            period=30.0,
+            actions=[ExecuteProcess(
+            cmd=['ros2', 'launch', 'secbot_navigation', 'navigation_launch.py'],
+            output='screen')]),
+        launch_testing.actions.ReadyToTest()
+    ])
