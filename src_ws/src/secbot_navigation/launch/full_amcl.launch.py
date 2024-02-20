@@ -31,6 +31,12 @@ def generate_launch_description():
         ])
     )
 
+    start_amcl = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(
+            get_package_share_directory(navigation_package_name), 'launch', 'amcl.launch.py')
+        ])
+    )
+
     start_rviz2 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory(navigation_package_name), 'launch', 'rviz2.launch.py')
@@ -42,6 +48,17 @@ def generate_launch_description():
             get_package_share_directory(navigation_package_name), 'launch', 'navigation_launch.py')
         ])
     )   
+    ld=LaunchDescription()
+    
+    ld.add_action(start_full_sim)
+    ld.add_action(start_rviz2)
+    ld.add_action(start_amcl)
+    ld.add_action(start_nav2)
+
+    return ld
+
+'''
+If you want to add timers between starting certain processes, use the code below.
 
     return LaunchDescription([
         launch.actions.TimerAction(
@@ -62,14 +79,12 @@ def generate_launch_description():
             output='screen')]),
         launch_testing.actions.ReadyToTest()
     ])
-
+'''
 
 """
-Using this launch file has errors: ros2 launch secbot_navigation complete.launch.py
+Follow the below steps for full launch:
 
-Instead, you can follow the below steps:
-
-Run this in 4 new tabs.
+Run this in 4 new tabs:
 cd IEEE_SEC_HW_Competition/src_ws/
 . install/setup.bash
 
