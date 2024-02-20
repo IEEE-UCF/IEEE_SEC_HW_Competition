@@ -1,0 +1,16 @@
+/home/patrickrizkalla/opencv_ws/install/my_opencv_demo/lib/my_opencv_demo/minimal_opencv_ros2_node
+/home/patrickrizkalla/opencv_ws/install/my_opencv_demo/share/ament_index/resource_index/package_run_dependencies/my_opencv_demo
+/home/patrickrizkalla/opencv_ws/install/my_opencv_demo/share/ament_index/resource_index/parent_prefix_path/my_opencv_demo
+/home/patrickrizkalla/opencv_ws/install/my_opencv_demo/share/my_opencv_demo/environment/ament_prefix_path.sh
+/home/patrickrizkalla/opencv_ws/install/my_opencv_demo/share/my_opencv_demo/environment/ament_prefix_path.dsv
+/home/patrickrizkalla/opencv_ws/install/my_opencv_demo/share/my_opencv_demo/environment/path.sh
+/home/patrickrizkalla/opencv_ws/install/my_opencv_demo/share/my_opencv_demo/environment/path.dsv
+/home/patrickrizkalla/opencv_ws/install/my_opencv_demo/share/my_opencv_demo/local_setup.bash
+/home/patrickrizkalla/opencv_ws/install/my_opencv_demo/share/my_opencv_demo/local_setup.sh
+/home/patrickrizkalla/opencv_ws/install/my_opencv_demo/share/my_opencv_demo/local_setup.zsh
+/home/patrickrizkalla/opencv_ws/install/my_opencv_demo/share/my_opencv_demo/local_setup.dsv
+/home/patrickrizkalla/opencv_ws/install/my_opencv_demo/share/my_opencv_demo/package.dsv
+/home/patrickrizkalla/opencv_ws/install/my_opencv_demo/share/ament_index/resource_index/packages/my_opencv_demo
+/home/patrickrizkalla/opencv_ws/install/my_opencv_demo/share/my_opencv_demo/cmake/my_opencv_demoConfig.cmake
+/home/patrickrizkalla/opencv_ws/install/my_opencv_demo/share/my_opencv_demo/cmake/my_opencv_demoConfig-version.cmake
+/home/patrickrizkalla/opencv_ws/install/my_opencv_demo/share/my_opencv_demo/package.xml

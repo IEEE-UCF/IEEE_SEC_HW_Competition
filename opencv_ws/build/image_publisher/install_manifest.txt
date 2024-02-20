@@ -1,0 +1,17 @@
+/home/patrickrizkalla/opencv_ws/install/image_publisher/share/ament_index/resource_index/package_run_dependencies/image_publisher
+/home/patrickrizkalla/opencv_ws/install/image_publisher/share/ament_index/resource_index/parent_prefix_path/image_publisher
+/home/patrickrizkalla/opencv_ws/install/image_publisher/share/image_publisher/environment/ament_prefix_path.sh
+/home/patrickrizkalla/opencv_ws/install/image_publisher/share/image_publisher/environment/ament_prefix_path.dsv
+/home/patrickrizkalla/opencv_ws/install/image_publisher/share/image_publisher/environment/path.sh
+/home/patrickrizkalla/opencv_ws/install/image_publisher/share/image_publisher/environment/path.dsv
+/home/patrickrizkalla/opencv_ws/install/image_publisher/share/image_publisher/local_setup.bash
+/home/patrickrizkalla/opencv_ws/install/image_publisher/share/image_publisher/local_setup.sh
+/home/patrickrizkalla/opencv_ws/install/image_publisher/share/image_publisher/local_setup.zsh
+/home/patrickrizkalla/opencv_ws/install/image_publisher/share/image_publisher/local_setup.dsv
+/home/patrickrizkalla/opencv_ws/install/image_publisher/share/image_publisher/package.dsv
+/home/patrickrizkalla/opencv_ws/install/image_publisher/share/ament_index/resource_index/packages/image_publisher
+/home/patrickrizkalla/opencv_ws/install/image_publisher/share/image_publisher/cmake/ament_cmake_export_include_directories-extras.cmake
+/home/patrickrizkalla/opencv_ws/install/image_publisher/share/image_publisher/cmake/ament_cmake_export_dependencies-extras.cmake
+/home/patrickrizkalla/opencv_ws/install/image_publisher/share/image_publisher/cmake/image_publisherConfig.cmake
+/home/patrickrizkalla/opencv_ws/install/image_publisher/share/image_publisher/cmake/image_publisherConfig-version.cmake
+/home/patrickrizkalla/opencv_ws/install/image_publisher/share/image_publisher/package.xml

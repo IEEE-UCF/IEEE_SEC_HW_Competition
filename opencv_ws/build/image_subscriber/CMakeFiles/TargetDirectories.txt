@@ -1,0 +1,10 @@
+/home/patrickrizkalla/opencv_ws/build/image_subscriber/CMakeFiles/uninstall.dir
+/home/patrickrizkalla/opencv_ws/build/image_subscriber/CMakeFiles/image_subscriber_uninstall.dir
+/home/patrickrizkalla/opencv_ws/build/image_subscriber/CMakeFiles/image_subscriber.dir
+/home/patrickrizkalla/opencv_ws/build/image_subscriber/CMakeFiles/test.dir
+/home/patrickrizkalla/opencv_ws/build/image_subscriber/CMakeFiles/edit_cache.dir
+/home/patrickrizkalla/opencv_ws/build/image_subscriber/CMakeFiles/rebuild_cache.dir
+/home/patrickrizkalla/opencv_ws/build/image_subscriber/CMakeFiles/list_install_components.dir
+/home/patrickrizkalla/opencv_ws/build/image_subscriber/CMakeFiles/install.dir
+/home/patrickrizkalla/opencv_ws/build/image_subscriber/CMakeFiles/install/local.dir
+/home/patrickrizkalla/opencv_ws/build/image_subscriber/CMakeFiles/install/strip.dir
