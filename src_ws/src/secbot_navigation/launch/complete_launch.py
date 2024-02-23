@@ -9,6 +9,14 @@ import launch_testing.actions
 
 from ament_index_python.packages import get_package_share_directory
 
+
+
+# DO NOT LAUNCH THIS FILE YET. You cannot end it's proccesses,
+# meaning certain programs will continue on and mess up future launches!
+
+
+
+
 from launch import LaunchDescription
 from launch.conditions import IfCondition, UnlessCondition
 from launch.actions import ExecuteProcess, IncludeLaunchDescription, DeclareLaunchArgument, RegisterEventHandler, SetEnvironmentVariable
@@ -56,29 +64,18 @@ def generate_launch_description():
     ])
 
 '''
+
+
+Code for Waypoint Follower Implementation
         launch.actions.TimerAction(
         period=25.0,
         actions=[start_waypoint_follow]),
-    ld=LaunchDescription()
-    ExecuteProcess(
-        cmd=['ros2', 'launch', 'secbot_navigation', 'bringup_launch.py'],
-        output='screen')
-    launch.actions.TimerAction(
-        period=0.0,
-        actions=[ld.add_action(start_simulation)])
-#    launch.actions.TimerAction(
-#        period=15.0,
-#        actions=[ld.add_action(start_full_navigation)])
-
-    return ld
-
-'''
-'''    start_waypoint_follow = Node(
+        
+        start_waypoint_follow = Node(
             package='secbot_navigation',
             namespace='',
             executable='follow_waypoints.py',
-            name='follow_waypoints',
-        )
+            name='follow_waypoints')
 '''
 '''
 Follow the below steps for full launch:
@@ -89,9 +86,9 @@ cd IEEE_SEC_HW_Competition/src_ws/
 
 ros2 launch secbot_simulation launch_sim.launch.py
 
-ros2 run rviz2 rviz2 -d src/secbot_navigation/config/amcl_config.rviz --ros-args -p use_sim_time:=true
+ros2 launch secbot_navigation rviz2.launch.py
 
-ros2 launch secbot_navigation bringup_launch.py use_sim_time:=true map:=./src/secbot_navigation/maps/obstacles_map_save.yaml
+ros2 launch secbot_navigation bringup_launch.py
 
 ros2 run secbot_navigation follow_waypoints.py
 '''
