@@ -301,7 +301,7 @@ Visualization Manager:
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 607
+  Height: 500
   Hide Left Dock: false
   Hide Right Dock: false
   Image:
@@ -315,6 +315,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: false
-  Width: 907
+  Width: 800
   X: 511
   Y: 166

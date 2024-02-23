@@ -31,7 +31,8 @@ def generate_launch_description():
     bringup_dir = get_package_share_directory('secbot_navigation')
 
     namespace = LaunchConfiguration('namespace')
-    map_yaml_file = LaunchConfiguration('map')
+#    map_yaml_file = LaunchConfiguration('map')
+    map_yaml_file = os.path.join(bringup_dir, 'maps', 'obstacles_map_save.yaml')
     use_sim_time = LaunchConfiguration('use_sim_time')
     autostart = LaunchConfiguration('autostart')
     params_file = LaunchConfiguration('params_file')
@@ -73,9 +74,9 @@ def generate_launch_description():
         default_value='',
         description='Top-level namespace')
 
-    declare_map_yaml_cmd = DeclareLaunchArgument(
-        'map',
-        description='Full path to map yaml file to load')
+#    declare_map_yaml_cmd = DeclareLaunchArgument(
+#        'map',
+#        description='Full path to map yaml file to load')
 
     declare_use_sim_time_cmd = DeclareLaunchArgument(
         'use_sim_time',
@@ -176,7 +177,7 @@ def generate_launch_description():
 
     # Declare the launch options
     ld.add_action(declare_namespace_cmd)
-    ld.add_action(declare_map_yaml_cmd)
+#    ld.add_action(declare_map_yaml_cmd)
     ld.add_action(declare_use_sim_time_cmd)
     ld.add_action(declare_params_file_cmd)
     ld.add_action(declare_autostart_cmd)
