@@ -18,7 +18,6 @@ def generate_launch_description():
     description_package_name = 'secbot_description'
     navigation_package_name = 'secbot_navigation'
     simulation_package_name = 'secbot_simulation'
-    tool_package_name = 'topic_tools'
 
     world_file_name = 'obstacles.world'
     world_file_path = os.path.join(get_package_share_directory(description_package_name), 'worlds', world_file_name)
@@ -120,16 +119,6 @@ def generate_launch_description():
         parameters=[ekf_params_file]
     )
 
-    start_tool_node = Node(
-            package='topic_tools',
-            executable='relay',
-            name='relay_node',
-            output='screen',
-            parameters=[
-                {'input_topic': '/cmd_vel'},
-                {'output_topic': '/diff_drive_controller/cmd_vel_unstamped'}]
-    )
-
     # to control manually:
     # gazebo_control.xacro
     #   ros2 run teleop_twist_keyboard teleop_twist_keyboard
@@ -154,6 +143,5 @@ def generate_launch_description():
     ld.add_action(start_diff_drive_spawner)
     ld.add_action(start_joint_broad_spawner)
     ld.add_action(start_robot_localization)
-    ld.add_action(start_tool_node)
 
     return ld
