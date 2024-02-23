@@ -63,7 +63,7 @@ def generate_launch_description():
             root_key=namespace,
             param_rewrites=param_substitutions,
             convert_types=True),
-        allow_substs=True)
+            allow_substs=True)
 
     stdout_linebuf_envvar = SetEnvironmentVariable(
         'RCUTILS_LOGGING_BUFFERED_STREAM', '1')
@@ -79,7 +79,7 @@ def generate_launch_description():
 
     declare_use_sim_time_cmd = DeclareLaunchArgument(
         'use_sim_time',
-        default_value='false',
+        default_value='true',
         description='Use simulation (Gazebo) clock if true')
 
     declare_params_file_cmd = DeclareLaunchArgument(
@@ -97,7 +97,7 @@ def generate_launch_description():
 
     declare_container_name_cmd = DeclareLaunchArgument(
         'container_name', default_value='nav2_container',
-        description='the name of conatiner that nodes will load in if use composition')
+        description='the name of container that nodes will load in if use composition')
 
     declare_use_respawn_cmd = DeclareLaunchArgument(
         'use_respawn', default_value='False',
@@ -128,7 +128,7 @@ def generate_launch_description():
                 respawn=use_respawn,
                 respawn_delay=2.0,
                 parameters=[configured_params],
-                arguments=['--ros-args', '--log-level', log_level],
+                arguments=['--ros-args', '--log-level', log_level, ],
                 remappings=remappings),
             Node(
                 package='nav2_lifecycle_manager',

@@ -29,6 +29,9 @@ from nav2_common.launch import RewrittenYaml, ReplaceString
 
 
 def generate_launch_description():
+    
+    navigation_package_name = 'secbot_navigation'
+    
     # Get the launch directory
     bringup_dir = get_package_share_directory('secbot_navigation')
     launch_dir = os.path.join(bringup_dir, 'launch')
@@ -37,7 +40,8 @@ def generate_launch_description():
     namespace = LaunchConfiguration('namespace')
     use_namespace = LaunchConfiguration('use_namespace')
     slam = LaunchConfiguration('slam')
-    map_yaml_file = LaunchConfiguration('map')
+#    map_yaml_file = LaunchConfiguration('map')
+    map_yaml_file = os.path.join(get_package_share_directory(navigation_package_name), 'maps', 'obstacles_map_save.yaml' )
     use_sim_time = LaunchConfiguration('use_sim_time')
     params_file = LaunchConfiguration('params_file')
     autostart = LaunchConfiguration('autostart')
@@ -94,13 +98,13 @@ def generate_launch_description():
         default_value='False',
         description='Whether run a SLAM')
 
-    declare_map_yaml_cmd = DeclareLaunchArgument(
-        'map',
-        description='Full path to map yaml file to load')
+#    declare_map_yaml_cmd = DeclareLaunchArgument(
+#        'map',
+#        description='Full path to map yaml file to load')
 
     declare_use_sim_time_cmd = DeclareLaunchArgument(
         'use_sim_time',
-        default_value='false',
+        default_value='true',
         description='Use simulation (Gazebo) clock if true')
 
     declare_params_file_cmd = DeclareLaunchArgument(
@@ -170,7 +174,7 @@ def generate_launch_description():
                               'params_file': params_file,
                               'use_composition': use_composition,
                               'use_respawn': use_respawn,
-                              'container_name': 'nav2_container'}.items()),
+                              'container_name': 'nav2_container'}.items())
     ])
 
     # Create the launch description and populate
@@ -183,7 +187,7 @@ def generate_launch_description():
     ld.add_action(declare_namespace_cmd)
     ld.add_action(declare_use_namespace_cmd)
     ld.add_action(declare_slam_cmd)
-    ld.add_action(declare_map_yaml_cmd)
+#    ld.add_action(declare_map_yaml_cmd)
     ld.add_action(declare_use_sim_time_cmd)
     ld.add_action(declare_params_file_cmd)
     ld.add_action(declare_autostart_cmd)
