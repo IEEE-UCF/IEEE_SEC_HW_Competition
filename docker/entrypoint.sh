@@ -15,6 +15,8 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 sudo apt update
 
 sudo apt install -y ros-humble-rmw-cyclonedds-cpp
+cd /src_ws
+colcon build
 
 echo "Provided arguments: $@"
 

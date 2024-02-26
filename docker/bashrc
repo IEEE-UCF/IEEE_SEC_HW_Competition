@@ -1,5 +1,5 @@
 source /opt/ros/humble/install/setup.bash
 
-source /sec_test_dev_humble_ws/install/setup.bash
+source /src_ws/install/setup.bash
 export ROS_DOMAIN_ID=1
 export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
