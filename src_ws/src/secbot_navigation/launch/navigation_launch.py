@@ -163,7 +163,7 @@ def generate_launch_description():
                 arguments=['--ros-args', '--log-level', log_level],
                 remappings=remappings),
             Node(
-                package='nav2_waypoint_follower',
+                package='waypoint_action_follower',
                 executable='waypoint_follower',
                 name='waypoint_follower',
                 output='screen',
@@ -230,7 +230,7 @@ def generate_launch_description():
                 parameters=[configured_params],
                 remappings=remappings),
             ComposableNode(
-                package='nav2_waypoint_follower',
+                package='waypoint_action_follower',
                 plugin='nav2_waypoint_follower::WaypointFollower',
                 name='waypoint_follower',
                 parameters=[configured_params],
