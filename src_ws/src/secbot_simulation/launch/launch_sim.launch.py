@@ -56,7 +56,7 @@ def generate_launch_description():
 
     declare_use_world_file = DeclareLaunchArgument(
         name='use_world_file',
-        default_value='false',
+        default_value='true',
         description='Whether to load the specified world file'
     )
 

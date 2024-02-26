@@ -7,18 +7,30 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_python REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(rclpy REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
+
+include_directories(include)
 
 add_executable(secbot_navigation src/secbot_navigation.cpp)
 target_include_directories(secbot_navigation PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 target_compile_features(secbot_navigation PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-
 install(TARGETS secbot_navigation
   DESTINATION lib/${PROJECT_NAME})
+
+# Add your Python executable
+ament_python_install_package(${PROJECT_NAME})
+# Install Python executables
+install(PROGRAMS
+  scripts/follow_waypoints.py
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
