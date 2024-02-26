@@ -40,7 +40,7 @@ RUN usermod -aG dialout ${USERNAME}
 COPY docker/entrypoint.sh /entrypoint.sh
 COPY docker/bashrc /home/${USERNAME}/.bashrc
 
-COPY sec_test_dev_humble_ws /sec_test_dev_humble_ws
+COPY src_ws /src_ws
 
 # Set up entrypoint and default command
 ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
