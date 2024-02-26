@@ -1,16 +1,18 @@
-
-#include "turn_robot_at_waypoint.hpp"
+#include "waypoint_action_follower/plugins/turn_robot_at_waypoint.hpp"
 
 #include <string>
 #include <memory>
 
 #include "pluginlib/class_list_macros.hpp"
+#include "geometry_msgs/msg/pose_stamped.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 #include "nav2_util/node_utils.hpp"
 
 namespace nav2_waypoint_follower
 {
+
 TurnRobotAtWaypoint::TurnRobotAtWaypoint()
+: is_enabled_(true)
 {
 }
 
@@ -18,57 +20,50 @@ TurnRobotAtWaypoint::~TurnRobotAtWaypoint()
 {
 }
 
+  
+
 void TurnRobotAtWaypoint::initialize(
-  const rclcpp_lifecycle::LifecycleNode::WeakPtr & parent,
-  const std::string & plugin_name)
+    const rclcpp_lifecycle::LifecycleNode::WeakPtr &parent,
+    const std::string &plugin_name)
 {
-  auto node = parent.lock();
+  auto node_ = parent.lock();
+  if (!node_)
+  {
+    throw std::runtime_error("Failed to lock parent node");
+  }
+  
+  logger_ = node_->get_logger();
+  
+  std::string velocity_topic;
 
   nav2_util::declare_parameter_if_not_declared(
-    node, plugin_name + ".enabled",
+    node_, plugin_name + ".enabled",
     rclcpp::ParameterValue(true));
   nav2_util::declare_parameter_if_not_declared(
-    node, plugin_name + ".velocity_topic",
+    node_, plugin_name + ".velocity_topic",
     rclcpp::ParameterValue("/diff_drive_controller/cmd_vel_unstamped"));
+  node_->get_parameter(plugin_name + ".enabled", is_enabled_);
+  node_->get_parameter(plugin_name + ".velocity_topic", velocity_topic);
 
-  std::string velocity_topic;
-  node->get_parameter(plugin_name + ".enabled", is_enabled_);
-  node->get_parameter(plugin_name + ".velocity_topic", velocity_topic);
 
-  // Create a publisher to send velocity commands
-  velocity_publisher_ = node->create_publisher<geometry_msgs::msg::Twist>(
-    velocity_topic, rclcpp::QoS(10));
-
-  if (!is_enabled_) {
-    RCLCPP_INFO(
-      rclcpp::get_logger("nav2_waypoint_follower"),
-      "TurnRobotAtWaypoint plugin is disabled.");
-  } else {
-    RCLCPP_INFO(
-      rclcpp::get_logger("nav2_waypoint_follower"),
-      "Initializing TurnRobotAtWaypoint plugin, publishing velocities to topic: %s",
-      velocity_topic.c_str());
-  }
+  cmd_vel_publisher_ = node_->create_publisher<geometry_msgs::msg::Twist>(
+        velocity_topic, 1);
 }
 
 bool TurnRobotAtWaypoint::processAtWaypoint(
-  const geometry_msgs::msg::PoseStamped & curr_pose, const int & curr_waypoint_index)
+    const geometry_msgs::msg::PoseStamped & /*curr_pose*/,
+    const int & curr_waypoint_index)
 {
   if (!is_enabled_) {
-    RCLCPP_WARN(
-      rclcpp::get_logger("nav2_waypoint_follower"),
-      "TurnRobotAtWaypoint plugin is disabled. Not performing anything"
-    );
     return true;
-  }
-
+  }    
   try {
     // Create a Twist message to send desired velocities
     geometry_msgs::msg::Twist twist_cmd;
-    twist_cmd.angular.z = 1.0;  // Set the desired angular velocity, adjust as needed
+    twist_cmd.angular.z = 100.0;  // Set the desired angular velocity, adjust as needed
 
     // Publish the Twist message
-    velocity_publisher_->publish(twist_cmd);
+    cmd_vel_publisher_->publish(twist_cmd);
 
     RCLCPP_INFO(
       rclcpp::get_logger("nav2_waypoint_follower"),
@@ -80,12 +75,10 @@ bool TurnRobotAtWaypoint::processAtWaypoint(
       curr_waypoint_index, e.what());
     return false;
   }
-
   return true;
 }
-
 }  // namespace nav2_waypoint_follower
 
 PLUGINLIB_EXPORT_CLASS(
-  nav2_waypoint_follower::TurnRobotAtWaypoint,
-  nav2_core::WaypointTaskExecutor)
+    nav2_waypoint_follower::TurnRobotAtWaypoint,
+    nav2_core::WaypointTaskExecutor)

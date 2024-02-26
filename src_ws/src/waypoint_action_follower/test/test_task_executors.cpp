@@ -23,9 +23,11 @@
 #include "gtest/gtest.h"
 #include "rclcpp/rclcpp.hpp"
 #include "nav2_util/lifecycle_node.hpp"
+#include <geometry_msgs/msg/pose_stamped.hpp>
 #include "waypoint_action_follower/plugins/photo_at_waypoint.hpp"
 #include "waypoint_action_follower/plugins/wait_at_waypoint.hpp"
 #include "waypoint_action_follower/plugins/input_at_waypoint.hpp"
+#include "waypoint_action_follower/plugins/turn_robot_at_waypoint.hpp"
 
 
 class RclCppFixture
@@ -161,4 +163,47 @@ TEST(WaypointFollowerTest, PhotoAtWaypoint)
 
   // plugin is not enabled, should exit
   EXPECT_TRUE(paw->processAtWaypoint(pose, 0));
+}
+
+TEST(WaypointFollowerTest, TurnRobotAtWaypoint)
+{
+  auto node = std::make_shared<rclcpp_lifecycle::LifecycleNode>("testWaypointNode");
+  auto pub = node->create_publisher<geometry_msgs::msg::Twist>("/diff_drive_controller/cmd_vel_unstamped", 1);
+  pub->on_activate();
+
+  auto publish_message = [&]() -> void
+    {
+      rclcpp::Rate(5).sleep();
+      auto msg = std::make_unique<geometry_msgs::msg::Twist>();
+      // fill twist msg data.
+      msg->angular.z = 1.0;
+      pub->publish(std::move(msg));
+      rclcpp::spin_some(node->shared_from_this()->get_node_base_interface());
+    };
+
+  // Create and initialize the TurnRobotAtWaypoint instance
+  std::unique_ptr<nav2_waypoint_follower::TurnRobotAtWaypoint> traw(
+    new nav2_waypoint_follower::TurnRobotAtWaypoint
+  );
+  traw->initialize(node, std::string("TRAW"));
+
+  // Call processAtWaypoint with no twist published, should return false
+  geometry_msgs::msg::PoseStamped pose;
+  EXPECT_FALSE(traw->processAtWaypoint(pose, 0));
+
+  // Publish a twist message in a separate thread
+  std::thread t1(publish_message);
+
+  // Now, there is a twist available, processAtWaypoint should return true
+  EXPECT_TRUE(traw->processAtWaypoint(pose, 0));
+  t1.join();
+
+
+  // Reset the TurnRobotAtWaypoint instance and disable it
+  traw.reset(new nav2_waypoint_follower::TurnRobotAtWaypoint);
+  node->set_parameter(rclcpp::Parameter("TRAW.enabled", false));
+  traw->initialize(node, std::string("TRAW"));
+
+  // The plugin is not enabled, should exit and return true
+  EXPECT_TRUE(traw->processAtWaypoint(pose, 0));
 }

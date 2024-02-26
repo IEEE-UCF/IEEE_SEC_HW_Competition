@@ -42,6 +42,8 @@ void WaitAtWaypoint::initialize(
     throw std::runtime_error{"Failed to lock node in wait at waypoint plugin!"};
   }
   logger_ = node->get_logger();
+
+
   nav2_util::declare_parameter_if_not_declared(
     node,
     plugin_name + ".waypoint_pause_duration",
@@ -56,6 +58,8 @@ void WaitAtWaypoint::initialize(
   node->get_parameter(
     plugin_name + ".enabled",
     is_enabled_);
+  
+  
   if (waypoint_pause_duration_ == 0) {
     is_enabled_ = false;
     RCLCPP_INFO(
