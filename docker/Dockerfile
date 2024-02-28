@@ -38,9 +38,13 @@ RUN usermod -aG dialout ${USERNAME}
 # Copy the entrypoint and bashrc scripts so we have 
 # our container's environment set up correctly
 COPY docker/entrypoint.sh /entrypoint.sh
-COPY docker/bashrc /home/${USERNAME}/.bashrc
 
-COPY sec_test_dev_humble_ws /sec_test_dev_humble_ws
+
+COPY docker/bashrc /root/tmp/tmpbashrc
+RUN cat /root/tmp/tmpbashrc >> /root/.bashrc  && rm -f /root/tmp/tmpbashrc
+
+
+COPY src_ws /src_ws
 
 # Set up entrypoint and default command
 ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
