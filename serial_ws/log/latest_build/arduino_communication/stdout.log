@@ -1,0 +1,25 @@
+[ 66%] Built target serial
+[35m[1mConsolidate compiler generated dependencies of target arduino_communication[0m
+[ 83%] [32mBuilding CXX object CMakeFiles/arduino_communication.dir/src/arduino_communication.cpp.o[0m
+[100%] [32m[1mLinking CXX executable arduino_communication[0m
+[100%] Built target arduino_communication
+-- Install configuration: ""
+-- Installing: /home/jayboi/serial_ws/install/arduino_communication/lib/arduino_communication/arduino_communication
+-- Set runtime path of "/home/jayboi/serial_ws/install/arduino_communication/lib/arduino_communication/arduino_communication" to ""
+-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/ament_index/resource_index/package_run_dependencies/arduino_communication
+-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/ament_index/resource_index/parent_prefix_path/arduino_communication
+-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/environment/ament_prefix_path.sh
+-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/environment/path.sh
+-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/environment/path.dsv
+-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/local_setup.bash
+-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/local_setup.sh
+-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/local_setup.zsh
+-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/local_setup.dsv
+-- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/package.dsv
+-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/ament_index/resource_index/packages/arduino_communication
+-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/cmake/arduino_communicationConfig.cmake
+-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/cmake/arduino_communicationConfig-version.cmake
+-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/package.xml

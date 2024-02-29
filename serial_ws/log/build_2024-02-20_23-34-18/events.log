@@ -1,0 +1,345 @@
+[0.000000] (-) TimerEvent: {}
+[0.000185] (arduino_communication) JobQueued: {'identifier': 'arduino_communication', 'dependencies': OrderedDict()}
+[0.000901] (arduino_communication) JobStarted: {'identifier': 'arduino_communication'}
+[0.046447] (arduino_communication) JobProgress: {'identifier': 'arduino_communication', 'progress': 'cmake'}
+[0.047699] (arduino_communication) JobProgress: {'identifier': 'arduino_communication', 'progress': 'build'}
+[0.047773] (arduino_communication) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jayboi/serial_ws/build/arduino_communication', '--', '-j8', '-l8'], 'cwd': '/home/jayboi/serial_ws/build/arduino_communication', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jayboi'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('WT_PROFILE_ID', '{51855cb2-8cce-5362-8f54-464b92b32386}'), ('HOME', '/home/jayboi'), ('OLDPWD', '/home/jayboi/serial_ws/build'), ('NVM_BIN', '/home/jayboi/.nvm/versions/node/v20.4.0/bin'), ('NVM_INC', '/home/jayboi/.nvm/versions/node/v20.4.0/include/node'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu'), ('NVM_DIR', '/home/jayboi/.nvm'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'jayboi'), ('NAME', 'DESKTOP-LIPJTB3'), ('WSL_INTEROP', '/run/WSL/11120_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/jayboi/.nvm/versions/node/v20.4.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/iCLS/:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/iCLS/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files (x86)/Webex/Plugins:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/usbipd-win/:/mnt/c/Users/jayli/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/jayli/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/jayli/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/jayli/Documents/Flutter/flutter/bin:/snap/bin'), ('WT_SESSION', 'd000e1b4-216a-4f0f-b00e-e0689e1d5509'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/jayboi/serial_ws/build/arduino_communication'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.099478] (-) TimerEvent: {}
+[0.110489] (arduino_communication) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.7 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.199661] (-) TimerEvent: {}
+[0.300153] (-) TimerEvent: {}
+[0.349258] (arduino_communication) StdoutLine: {'line': b'-- Found rclcpp: 16.0.8 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.400298] (-) TimerEvent: {}
+[0.496849] (arduino_communication) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.499074] (arduino_communication) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.500369] (-) TimerEvent: {}
+[0.504502] (arduino_communication) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.514715] (arduino_communication) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.529392] (arduino_communication) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.600546] (-) TimerEvent: {}
+[0.621946] (arduino_communication) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.623346] (arduino_communication) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.6 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.700728] (-) TimerEvent: {}
+[0.801236] (-) TimerEvent: {}
+[0.901660] (-) TimerEvent: {}
+[1.002138] (-) TimerEvent: {}
+[1.102538] (-) TimerEvent: {}
+[1.202914] (-) TimerEvent: {}
+[1.303356] (-) TimerEvent: {}
+[1.403759] (-) TimerEvent: {}
+[1.504205] (-) TimerEvent: {}
+[1.604709] (-) TimerEvent: {}
+[1.705150] (-) TimerEvent: {}
+[1.805616] (-) TimerEvent: {}
+[1.906071] (-) TimerEvent: {}
+[2.006423] (-) TimerEvent: {}
+[2.106801] (-) TimerEvent: {}
+[2.207157] (-) TimerEvent: {}
+[2.307772] (-) TimerEvent: {}
+[2.408246] (-) TimerEvent: {}
+[2.508691] (-) TimerEvent: {}
+[2.609101] (-) TimerEvent: {}
+[2.709551] (-) TimerEvent: {}
+[2.809981] (-) TimerEvent: {}
+[2.910466] (-) TimerEvent: {}
+[3.010895] (-) TimerEvent: {}
+[3.111327] (-) TimerEvent: {}
+[3.211712] (-) TimerEvent: {}
+[3.312039] (-) TimerEvent: {}
+[3.412451] (-) TimerEvent: {}
+[3.512798] (-) TimerEvent: {}
+[3.613262] (-) TimerEvent: {}
+[3.713705] (-) TimerEvent: {}
+[3.814170] (-) TimerEvent: {}
+[3.914593] (-) TimerEvent: {}
+[4.015122] (-) TimerEvent: {}
+[4.115777] (-) TimerEvent: {}
+[4.216228] (-) TimerEvent: {}
+[4.316617] (-) TimerEvent: {}
+[4.417091] (-) TimerEvent: {}
+[4.517569] (-) TimerEvent: {}
+[4.618007] (-) TimerEvent: {}
+[4.718478] (-) TimerEvent: {}
+[4.819084] (-) TimerEvent: {}
+[4.919596] (-) TimerEvent: {}
+[5.020239] (-) TimerEvent: {}
+[5.120979] (-) TimerEvent: {}
+[5.221751] (-) TimerEvent: {}
+[5.322416] (-) TimerEvent: {}
+[5.423063] (-) TimerEvent: {}
+[5.523694] (-) TimerEvent: {}
+[5.624485] (-) TimerEvent: {}
+[5.725250] (-) TimerEvent: {}
+[5.825981] (-) TimerEvent: {}
+[5.871429] (arduino_communication) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[5.926101] (-) TimerEvent: {}
+[6.026534] (-) TimerEvent: {}
+[6.069261] (arduino_communication) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[6.126739] (-) TimerEvent: {}
+[6.154662] (arduino_communication) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[6.156193] (arduino_communication) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[6.156544] (arduino_communication) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/jayboi/serial_ws/src/arduino_communication/include;/home/jayboi/serial_ws/src/arduino_communication/third-party/include\n'}
+[6.156675] (arduino_communication) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[6.157902] (arduino_communication) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[6.158036] (arduino_communication) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[6.158799] (arduino_communication) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[6.159890] (arduino_communication) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[6.160019] (arduino_communication) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[6.160220] (arduino_communication) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[6.161347] (arduino_communication) StdoutLine: {'line': b'-- Configuring done\n'}
+[6.174335] (arduino_communication) StdoutLine: {'line': b'-- Generating done\n'}
+[6.176797] (arduino_communication) StdoutLine: {'line': b'-- Build files have been written to: /home/jayboi/serial_ws/build/arduino_communication\n'}
+[6.201964] (arduino_communication) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target serial\x1b[0m\n'}
+[6.216170] (arduino_communication) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding CXX object CMakeFiles/serial.dir/third-party/src/impl/unix.cc.o\x1b[0m\n'}
+[6.216690] (arduino_communication) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/serial.dir/third-party/src/serial.cc.o\x1b[0m\n'}
+[6.217377] (arduino_communication) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/serial.dir/third-party/src/impl/list_ports/list_ports_linux.cc.o\x1b[0m\n'}
+[6.226924] (-) TimerEvent: {}
+[6.327378] (-) TimerEvent: {}
+[6.427903] (-) TimerEvent: {}
+[6.528461] (-) TimerEvent: {}
+[6.629016] (-) TimerEvent: {}
+[6.693680] (arduino_communication) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jayboi/serial_ws/src/arduino_communication/third-party/src/impl/list_ports/list_ports_linux.cc:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<std::__cxx11::basic_string<char> > glob(const std::vector<std::__cxx11::basic_string<char> >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[6.694093] (arduino_communication) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jayboi/serial_ws/src/arduino_communication/third-party/src/impl/list_ports/list_ports_linux.cc:66:40:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Ksize_t\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[6.694295] (arduino_communication) StderrLine: {'line': b'   66 |     for(int path_index = 0; \x1b[01;35m\x1b[Kpath_index < glob_results.gl_pathc\x1b[m\x1b[K; path_index++)\n'}
+[6.694428] (arduino_communication) StderrLine: {'line': b'      |                             \x1b[01;35m\x1b[K~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.694592] (arduino_communication) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jayboi/serial_ws/src/arduino_communication/third-party/src/impl/list_ports/list_ports_linux.cc:57:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kvariable \xe2\x80\x98\x1b[01m\x1b[Kglob_retval\x1b[m\x1b[K\xe2\x80\x99 set but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable\x07-Wunused-but-set-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[6.694767] (arduino_communication) StderrLine: {'line': b'   57 |     int \x1b[01;35m\x1b[Kglob_retval\x1b[m\x1b[K = glob(patterns[0].c_str(), 0, NULL, &glob_results);\n'}
+[6.694896] (arduino_communication) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.700472] (arduino_communication) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jayboi/serial_ws/src/arduino_communication/third-party/src/impl/list_ports/list_ports_linux.cc:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kstd::string format(const char*, ...)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[6.700785] (arduino_communication) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jayboi/serial_ws/src/arduino_communication/third-party/src/impl/list_ports/list_ports_linux.cc:246:31:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Ksize_t\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[6.701010] (arduino_communication) StderrLine: {'line': b'  246 |         else if( \x1b[01;35m\x1b[Kreturn_value >= buffer_size_bytes\x1b[m\x1b[K )\n'}
+[6.701181] (arduino_communication) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.729162] (-) TimerEvent: {}
+[6.829633] (-) TimerEvent: {}
+[6.930109] (-) TimerEvent: {}
+[7.024421] (arduino_communication) StdoutLine: {'line': b'[ 66%] \x1b[32m\x1b[1mLinking CXX static library libserial.a\x1b[0m\n'}
+[7.030261] (-) TimerEvent: {}
+[7.049337] (arduino_communication) StdoutLine: {'line': b'[ 66%] Built target serial\n'}
+[7.056575] (arduino_communication) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target arduino_communication\x1b[0m\n'}
+[7.065775] (arduino_communication) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding CXX object CMakeFiles/arduino_communication.dir/src/arduino_communication.cpp.o\x1b[0m\n'}
+[7.130429] (-) TimerEvent: {}
+[7.230789] (-) TimerEvent: {}
+[7.331195] (-) TimerEvent: {}
+[7.431660] (-) TimerEvent: {}
+[7.532229] (-) TimerEvent: {}
+[7.632650] (-) TimerEvent: {}
+[7.733056] (-) TimerEvent: {}
+[7.833543] (-) TimerEvent: {}
+[7.933994] (-) TimerEvent: {}
+[8.034439] (-) TimerEvent: {}
+[8.134932] (-) TimerEvent: {}
+[8.235305] (-) TimerEvent: {}
+[8.335728] (-) TimerEvent: {}
+[8.436194] (-) TimerEvent: {}
+[8.536611] (-) TimerEvent: {}
+[8.637013] (-) TimerEvent: {}
+[8.737512] (-) TimerEvent: {}
+[8.837966] (-) TimerEvent: {}
+[8.938407] (-) TimerEvent: {}
+[9.038928] (-) TimerEvent: {}
+[9.139466] (-) TimerEvent: {}
+[9.239978] (-) TimerEvent: {}
+[9.340496] (-) TimerEvent: {}
+[9.440990] (-) TimerEvent: {}
+[9.541444] (-) TimerEvent: {}
+[9.641884] (-) TimerEvent: {}
+[9.742396] (-) TimerEvent: {}
+[9.842947] (-) TimerEvent: {}
+[9.943485] (-) TimerEvent: {}
+[10.043983] (-) TimerEvent: {}
+[10.144484] (-) TimerEvent: {}
+[10.244981] (-) TimerEvent: {}
+[10.345434] (-) TimerEvent: {}
+[10.445829] (-) TimerEvent: {}
+[10.546318] (-) TimerEvent: {}
+[10.557015] (arduino_communication) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jayboi/serial_ws/src/arduino_communication/src/arduino_communication.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kint movebih()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[10.557259] (arduino_communication) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jayboi/serial_ws/src/arduino_communication/src/arduino_communication.cpp:80:1:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kno return statement in function returning non-void [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type\x07-Wreturn-type\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[10.557372] (arduino_communication) StderrLine: {'line': b'   80 | \x1b[01;35m\x1b[K}\x1b[m\x1b[K\n'}
+[10.557437] (arduino_communication) StderrLine: {'line': b'      | \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[10.646487] (-) TimerEvent: {}
+[10.746880] (-) TimerEvent: {}
+[10.847403] (-) TimerEvent: {}
+[10.947912] (-) TimerEvent: {}
+[11.048478] (-) TimerEvent: {}
+[11.149019] (-) TimerEvent: {}
+[11.249591] (-) TimerEvent: {}
+[11.350084] (-) TimerEvent: {}
+[11.450537] (-) TimerEvent: {}
+[11.550987] (-) TimerEvent: {}
+[11.651472] (-) TimerEvent: {}
+[11.751949] (-) TimerEvent: {}
+[11.852489] (-) TimerEvent: {}
+[11.952938] (-) TimerEvent: {}
+[12.053333] (-) TimerEvent: {}
+[12.153713] (-) TimerEvent: {}
+[12.254237] (-) TimerEvent: {}
+[12.354667] (-) TimerEvent: {}
+[12.455057] (-) TimerEvent: {}
+[12.555548] (-) TimerEvent: {}
+[12.656028] (-) TimerEvent: {}
+[12.756467] (-) TimerEvent: {}
+[12.856975] (-) TimerEvent: {}
+[12.957438] (-) TimerEvent: {}
+[13.057856] (-) TimerEvent: {}
+[13.158309] (-) TimerEvent: {}
+[13.258724] (-) TimerEvent: {}
+[13.359121] (-) TimerEvent: {}
+[13.459605] (-) TimerEvent: {}
+[13.560036] (-) TimerEvent: {}
+[13.660452] (-) TimerEvent: {}
+[13.760902] (-) TimerEvent: {}
+[13.861363] (-) TimerEvent: {}
+[13.961798] (-) TimerEvent: {}
+[14.062256] (-) TimerEvent: {}
+[14.162709] (-) TimerEvent: {}
+[14.263158] (-) TimerEvent: {}
+[14.363586] (-) TimerEvent: {}
+[14.464000] (-) TimerEvent: {}
+[14.564428] (-) TimerEvent: {}
+[14.664854] (-) TimerEvent: {}
+[14.765284] (-) TimerEvent: {}
+[14.865759] (-) TimerEvent: {}
+[14.966154] (-) TimerEvent: {}
+[15.067214] (-) TimerEvent: {}
+[15.932352] (-) TimerEvent: {}
+[16.033337] (-) TimerEvent: {}
+[16.133872] (-) TimerEvent: {}
+[16.234337] (-) TimerEvent: {}
+[16.334818] (-) TimerEvent: {}
+[16.435263] (-) TimerEvent: {}
+[16.535742] (-) TimerEvent: {}
+[16.636214] (-) TimerEvent: {}
+[16.737122] (-) TimerEvent: {}
+[16.839876] (-) TimerEvent: {}
+[16.942054] (-) TimerEvent: {}
+[17.044559] (-) TimerEvent: {}
+[17.147158] (-) TimerEvent: {}
+[17.249416] (-) TimerEvent: {}
+[17.352008] (-) TimerEvent: {}
+[17.454481] (-) TimerEvent: {}
+[17.556691] (-) TimerEvent: {}
+[17.659471] (-) TimerEvent: {}
+[17.761850] (-) TimerEvent: {}
+[17.864305] (-) TimerEvent: {}
+[17.966893] (-) TimerEvent: {}
+[18.069428] (-) TimerEvent: {}
+[18.171870] (-) TimerEvent: {}
+[18.274253] (-) TimerEvent: {}
+[18.377069] (-) TimerEvent: {}
+[18.480205] (-) TimerEvent: {}
+[18.582827] (-) TimerEvent: {}
+[18.685659] (-) TimerEvent: {}
+[18.788157] (-) TimerEvent: {}
+[18.890463] (-) TimerEvent: {}
+[18.992971] (-) TimerEvent: {}
+[19.095607] (-) TimerEvent: {}
+[19.198012] (-) TimerEvent: {}
+[19.300392] (-) TimerEvent: {}
+[19.402887] (-) TimerEvent: {}
+[19.505420] (-) TimerEvent: {}
+[19.607746] (-) TimerEvent: {}
+[19.710368] (-) TimerEvent: {}
+[19.812836] (-) TimerEvent: {}
+[19.914751] (-) TimerEvent: {}
+[20.015456] (-) TimerEvent: {}
+[20.116223] (-) TimerEvent: {}
+[20.216904] (-) TimerEvent: {}
+[20.317667] (-) TimerEvent: {}
+[20.418316] (-) TimerEvent: {}
+[20.518978] (-) TimerEvent: {}
+[20.619615] (-) TimerEvent: {}
+[20.720269] (-) TimerEvent: {}
+[20.820882] (-) TimerEvent: {}
+[20.921568] (-) TimerEvent: {}
+[21.022217] (-) TimerEvent: {}
+[21.122837] (-) TimerEvent: {}
+[21.223488] (-) TimerEvent: {}
+[21.324185] (-) TimerEvent: {}
+[21.424754] (-) TimerEvent: {}
+[21.525414] (-) TimerEvent: {}
+[21.626008] (-) TimerEvent: {}
+[21.726722] (-) TimerEvent: {}
+[21.827424] (-) TimerEvent: {}
+[21.928057] (-) TimerEvent: {}
+[22.028720] (-) TimerEvent: {}
+[22.129386] (-) TimerEvent: {}
+[22.229972] (-) TimerEvent: {}
+[22.330522] (-) TimerEvent: {}
+[22.431157] (-) TimerEvent: {}
+[22.531724] (-) TimerEvent: {}
+[22.632280] (-) TimerEvent: {}
+[22.732852] (-) TimerEvent: {}
+[22.833447] (-) TimerEvent: {}
+[22.934042] (-) TimerEvent: {}
+[23.034641] (-) TimerEvent: {}
+[23.135229] (-) TimerEvent: {}
+[23.235721] (-) TimerEvent: {}
+[23.336247] (-) TimerEvent: {}
+[23.436733] (-) TimerEvent: {}
+[23.537148] (-) TimerEvent: {}
+[23.637585] (-) TimerEvent: {}
+[23.737994] (-) TimerEvent: {}
+[23.838497] (-) TimerEvent: {}
+[23.938924] (-) TimerEvent: {}
+[24.039416] (-) TimerEvent: {}
+[24.139877] (-) TimerEvent: {}
+[24.240336] (-) TimerEvent: {}
+[24.340991] (-) TimerEvent: {}
+[24.441579] (-) TimerEvent: {}
+[24.542112] (-) TimerEvent: {}
+[24.642620] (-) TimerEvent: {}
+[24.743117] (-) TimerEvent: {}
+[24.843544] (-) TimerEvent: {}
+[24.944091] (-) TimerEvent: {}
+[25.044565] (-) TimerEvent: {}
+[25.145055] (-) TimerEvent: {}
+[25.245616] (-) TimerEvent: {}
+[25.346205] (-) TimerEvent: {}
+[25.446685] (-) TimerEvent: {}
+[25.547157] (-) TimerEvent: {}
+[25.647677] (-) TimerEvent: {}
+[25.748136] (-) TimerEvent: {}
+[25.848512] (-) TimerEvent: {}
+[25.948991] (-) TimerEvent: {}
+[26.049565] (-) TimerEvent: {}
+[26.150043] (-) TimerEvent: {}
+[26.250493] (-) TimerEvent: {}
+[26.350932] (-) TimerEvent: {}
+[26.451416] (-) TimerEvent: {}
+[26.531620] (arduino_communication) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable arduino_communication\x1b[0m\n'}
+[26.551522] (-) TimerEvent: {}
+[26.651906] (-) TimerEvent: {}
+[26.752269] (-) TimerEvent: {}
+[26.852689] (-) TimerEvent: {}
+[26.953095] (-) TimerEvent: {}
+[27.053499] (-) TimerEvent: {}
+[27.129550] (arduino_communication) StdoutLine: {'line': b'[100%] Built target arduino_communication\n'}
+[27.139124] (arduino_communication) CommandEnded: {'returncode': 0}
+[27.153763] (-) TimerEvent: {}
+[27.169746] (arduino_communication) JobProgress: {'identifier': 'arduino_communication', 'progress': 'install'}
+[27.179267] (arduino_communication) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/jayboi/serial_ws/build/arduino_communication'], 'cwd': '/home/jayboi/serial_ws/build/arduino_communication', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jayboi'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('WT_PROFILE_ID', '{51855cb2-8cce-5362-8f54-464b92b32386}'), ('HOME', '/home/jayboi'), ('OLDPWD', '/home/jayboi/serial_ws/build'), ('NVM_BIN', '/home/jayboi/.nvm/versions/node/v20.4.0/bin'), ('NVM_INC', '/home/jayboi/.nvm/versions/node/v20.4.0/include/node'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu'), ('NVM_DIR', '/home/jayboi/.nvm'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'jayboi'), ('NAME', 'DESKTOP-LIPJTB3'), ('WSL_INTEROP', '/run/WSL/11120_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/jayboi/.nvm/versions/node/v20.4.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/iCLS/:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/iCLS/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files (x86)/Webex/Plugins:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/usbipd-win/:/mnt/c/Users/jayli/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/jayli/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/jayli/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/jayli/Documents/Flutter/flutter/bin:/snap/bin'), ('WT_SESSION', 'd000e1b4-216a-4f0f-b00e-e0689e1d5509'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/jayboi/serial_ws/build/arduino_communication'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[27.185747] (arduino_communication) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[27.186302] (arduino_communication) StdoutLine: {'line': b'-- Installing: /home/jayboi/serial_ws/install/arduino_communication/lib/arduino_communication/arduino_communication\n'}
+[27.190145] (arduino_communication) StdoutLine: {'line': b'-- Set runtime path of "/home/jayboi/serial_ws/install/arduino_communication/lib/arduino_communication/arduino_communication" to ""\n'}
+[27.190738] (arduino_communication) StdoutLine: {'line': b'-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/ament_index/resource_index/package_run_dependencies/arduino_communication\n'}
+[27.191305] (arduino_communication) StdoutLine: {'line': b'-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/ament_index/resource_index/parent_prefix_path/arduino_communication\n'}
+[27.191618] (arduino_communication) StdoutLine: {'line': b'-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/environment/ament_prefix_path.sh\n'}
+[27.191929] (arduino_communication) StdoutLine: {'line': b'-- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/environment/ament_prefix_path.dsv\n'}
+[27.192396] (arduino_communication) StdoutLine: {'line': b'-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/environment/path.sh\n'}
+[27.192714] (arduino_communication) StdoutLine: {'line': b'-- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/environment/path.dsv\n'}
+[27.193008] (arduino_communication) StdoutLine: {'line': b'-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/local_setup.bash\n'}
+[27.193385] (arduino_communication) StdoutLine: {'line': b'-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/local_setup.sh\n'}
+[27.193683] (arduino_communication) StdoutLine: {'line': b'-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/local_setup.zsh\n'}
+[27.194163] (arduino_communication) StdoutLine: {'line': b'-- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/local_setup.dsv\n'}
+[27.194429] (arduino_communication) StdoutLine: {'line': b'-- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/package.dsv\n'}
+[27.195032] (arduino_communication) StdoutLine: {'line': b'-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/ament_index/resource_index/packages/arduino_communication\n'}
+[27.195355] (arduino_communication) StdoutLine: {'line': b'-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[27.195682] (arduino_communication) StdoutLine: {'line': b'-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[27.196375] (arduino_communication) StdoutLine: {'line': b'-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/cmake/arduino_communicationConfig.cmake\n'}
+[27.199236] (arduino_communication) StdoutLine: {'line': b'-- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/cmake/arduino_communicationConfig-version.cmake\n'}
+[27.199465] (arduino_communication) StdoutLine: {'line': b'-- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/package.xml\n'}
+[27.199650] (arduino_communication) CommandEnded: {'returncode': 0}
+[27.254608] (-) TimerEvent: {}
+[27.354975] (-) TimerEvent: {}
+[27.362822] (arduino_communication) JobEnded: {'identifier': 'arduino_communication', 'rc': 0}
+[27.364258] (-) EventReactorShutdown: {}

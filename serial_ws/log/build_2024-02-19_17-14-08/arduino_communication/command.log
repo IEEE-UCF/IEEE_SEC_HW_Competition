@@ -1,0 +1,2 @@
+Invoking command in '/home/jayboi/serial_ws/build/arduino_communication': /usr/bin/cmake /home/jayboi/serial_ws/src/arduino_communication -DCMAKE_INSTALL_PREFIX=/home/jayboi/serial_ws/install/arduino_communication
+Invoked command in '/home/jayboi/serial_ws/build/arduino_communication' returned '1': /usr/bin/cmake /home/jayboi/serial_ws/src/arduino_communication -DCMAKE_INSTALL_PREFIX=/home/jayboi/serial_ws/install/arduino_communication

@@ -1,0 +1,4 @@
+Invoking command in '/home/jayboi/serial_ws/build/arduino_communication': /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8
+Invoked command in '/home/jayboi/serial_ws/build/arduino_communication' returned '0': /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8
+Invoking command in '/home/jayboi/serial_ws/build/arduino_communication': /usr/bin/cmake --install /home/jayboi/serial_ws/build/arduino_communication
+Invoked command in '/home/jayboi/serial_ws/build/arduino_communication' returned '0': /usr/bin/cmake --install /home/jayboi/serial_ws/build/arduino_communication

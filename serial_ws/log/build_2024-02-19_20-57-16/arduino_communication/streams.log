@@ -1,0 +1,22 @@
+[0.025s] Invoking command in '/home/jayboi/serial_ws/build/arduino_communication': /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8
+[0.044s] -- Found ament_cmake: 1.3.7 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.179s] Traceback (most recent call last):
+[0.179s]   File "/opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py", line 21, in <module>
+[0.179s]     from ament_package.templates import get_environment_hook_template_path
+[0.179s] ModuleNotFoundError: No module named 'ament_package'
+[0.189s] [31mCMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_package_templates-extras.cmake:41 (message):
+[0.189s]   execute_process(/usr/bin/python3.10
+[0.189s]   /opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py
+[0.189s]   /home/jayboi/serial_ws/build/arduino_communication/ament_cmake_package_templates/templates.cmake)
+[0.189s]   returned error code 1
+[0.189s] Call Stack (most recent call first):
+[0.190s]   /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+[0.190s]   /opt/ros/humble/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)
+[0.190s]   /opt/ros/humble/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)
+[0.190s]   CMakeLists.txt:18 (find_package)
+[0.190s] 
+[0.190s] [0m
+[0.190s] -- Configuring incomplete, errors occurred!
+[0.190s] See also "/home/jayboi/serial_ws/build/arduino_communication/CMakeFiles/CMakeOutput.log".
+[0.191s] gmake: *** [Makefile:362: cmake_check_build_system] Error 1
+[0.193s] Invoked command in '/home/jayboi/serial_ws/build/arduino_communication' returned '2': /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8

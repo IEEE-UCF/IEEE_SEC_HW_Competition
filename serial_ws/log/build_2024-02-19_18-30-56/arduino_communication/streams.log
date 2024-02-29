@@ -1,0 +1,36 @@
+[0.092s] Invoking command in '/home/jayboi/serial_ws/build/arduino_communication': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8
+[0.156s] -- Found ament_cmake: 1.3.7 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.321s] -- Found rclcpp: 16.0.8 (/opt/ros/humble/share/rclcpp/cmake)
+[0.598s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.600s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.605s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.615s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.628s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.688s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.689s] -- Found rmw_fastrtps_cpp: 6.2.6 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[11.537s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[11.804s] -- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[11.883s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[11.883s] -- Configured cppcheck include dirs: /home/jayboi/serial_ws/src/arduino_communication/third-party/include
+[11.883s] -- Configured cppcheck exclude dirs and/or files: 
+[11.884s] -- Added test 'lint_cmake' to check CMake code style
+[11.885s] -- Added test 'uncrustify' to check C / C++ code style
+[11.885s] -- Configured uncrustify additional arguments: 
+[11.885s] -- Added test 'xmllint' to check XML markup files
+[11.887s] -- Configuring done
+[11.890s] [31mCMake Error at CMakeLists.txt:14 (add_library):
+[11.890s]   Cannot find source file:
+[11.890s] 
+[11.890s]     third-party/src/serial.cc
+[11.890s] 
+[11.890s]   Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm .h
+[11.890s]   .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90 .f95 .f03 .hip .ispc
+[11.890s] 
+[11.890s] [0m
+[11.892s] [31mCMake Error at CMakeLists.txt:14 (add_library):
+[11.892s]   No SOURCES given to target: serial
+[11.892s] 
+[11.892s] [0m
+[11.892s] [0mCMake Generate step failed.  Build files cannot be regenerated correctly.[0m
+[11.899s] gmake: *** [Makefile:362: cmake_check_build_system] Error 1
+[11.903s] Invoked command in '/home/jayboi/serial_ws/build/arduino_communication' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8
