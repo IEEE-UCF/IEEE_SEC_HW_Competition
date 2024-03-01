@@ -39,18 +39,14 @@ RUN usermod -aG dialout ${USERNAME}
 # our container's environment set up correctly
 COPY docker/entrypoint.sh /entrypoint.sh
 COPY docker/bashrc /home/${USERNAME}/.bashrc
-
-<<<<<<< Updated upstream
-COPY sec_test_dev_humble_ws /sec_test_dev_humble_ws
-=======
+COPY docker/downloadDependencies.sh /downloadDependencies.sh
 
 COPY docker/bashrc /root/tmp/tmpbashrc
 RUN cat /root/tmp/tmpbashrc >> /root/.bashrc  && rm -f /root/tmp/tmpbashrc
 
 # might need to copy the script over first
-run ./downloadDependencies.sh
+run /downloadDependencies.sh
 #COPY src_ws /src_ws
->>>>>>> Stashed changes
 
 # Set up entrypoint and default command
 ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
