@@ -15,7 +15,7 @@ from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
 
-    lidar_package_name = 'rplidar_ros2'
+    lidar_package_name = 'rplidar_ros'
     imu_package_name = 'bno055'
     camera_package_name = ''
 
@@ -27,14 +27,14 @@ def generate_launch_description():
         PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(lidar_package_name), 'launch', 'rplidar.launch.py')])
     )
 
-    start_camera = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(), )])
-    )
+    #start_camera = IncludeLaunchDescription(
+    #    PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(), )])
+    #)
 
     ld = LaunchDescription()
 
     ld.add_action(start_imu)
     ld.add_action(start_rplidar)
-    ld.add_action(start_camera)
+    # ld.add_action(start_camera)
 
     return ld
