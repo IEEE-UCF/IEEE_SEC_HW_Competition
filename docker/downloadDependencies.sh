@@ -24,6 +24,7 @@ sudo apt install -y ros-humble-rmw-cyclonedds-cpp
 sudo apt install -y ros-humble-nav2-map-server
 sudo apt install -y ros-humble-nav2-amcl
 sudo apt install -y ros-humble-nav2-lifecycle-manager
+sudo apt install -y ros-humble-slam-toolbox
 
 
 
