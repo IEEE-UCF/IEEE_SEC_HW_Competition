@@ -25,20 +25,12 @@ ament_target_dependencies(server
   waypoint_interfaces  # Include any external dependencies here
 )
 
-add_executable(client
-  src/waypoint_index_client.cpp
-)
-ament_target_dependencies(client
-  rclcpp
-  waypoint_interfaces
-)
-
 add_executable(secbot_navigation src/secbot_navigation.cpp)
 target_include_directories(secbot_navigation PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 target_compile_features(secbot_navigation PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-install(TARGETS secbot_navigation server client
+install(TARGETS secbot_navigation server
   DESTINATION lib/${PROJECT_NAME})
 
 # Add your Python executable

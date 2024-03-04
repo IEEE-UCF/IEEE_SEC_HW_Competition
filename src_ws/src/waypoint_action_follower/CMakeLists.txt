@@ -23,6 +23,7 @@ find_package(tf2_ros REQUIRED)
 find_package(nav2_core REQUIRED)
 find_package(pluginlib REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(waypoint_interfaces REQUIRED)
 
 nav2_package()
 
@@ -34,6 +35,10 @@ set(executable_name waypoint_follower)
 
 add_executable(${executable_name}
   src/main.cpp
+)
+
+add_executable(client
+  src/waypoint_index_client.cpp
 )
 
 target_include_directories(waypoint_follower PUBLIC
@@ -61,9 +66,14 @@ set(dependencies
   cv_bridge
   OpenCV
   geometry_msgs
+  waypoint_interfaces
 )
 
 ament_target_dependencies(${executable_name}
+  ${dependencies}
+)
+
+ament_target_dependencies(client
   ${dependencies}
 )
 
@@ -93,7 +103,7 @@ install(TARGETS ${library_name} wait_at_waypoint photo_at_waypoint input_at_wayp
   RUNTIME DESTINATION bin
 )
 
-install(TARGETS ${executable_name}
+install(TARGETS ${executable_name} client
   RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
 
