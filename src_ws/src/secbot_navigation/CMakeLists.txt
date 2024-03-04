@@ -10,18 +10,35 @@ find_package(ament_cmake REQUIRED)
 find_package(ament_cmake_python REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclpy REQUIRED)
+find_package(waypoint_interfaces REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
 include_directories(include)
 
+add_executable(server
+  src/waypoint_index_server.cpp
+)
+ament_target_dependencies(server
+  rclcpp
+  waypoint_interfaces  # Include any external dependencies here
+)
+
+add_executable(client
+  src/waypoint_index_client.cpp
+)
+ament_target_dependencies(client
+  rclcpp
+  waypoint_interfaces
+)
+
 add_executable(secbot_navigation src/secbot_navigation.cpp)
 target_include_directories(secbot_navigation PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 target_compile_features(secbot_navigation PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-install(TARGETS secbot_navigation
+install(TARGETS secbot_navigation server client
   DESTINATION lib/${PROJECT_NAME})
 
 # Add your Python executable
