@@ -37,7 +37,7 @@ amcl:
     z_max: 0.05
     z_rand: 0.5
     z_short: 0.05
-    scan_topic: "scan"
+    scan_topic: "/scan"
     set_initial_pose: true
     initial_pose: 
       x: 0.01
@@ -328,26 +328,26 @@ robot_state_publisher:
   ros__parameters:
     use_sim_time: True
 
+waypoint_follower:
+ ros__parameters:
+   use_sim_time: True
+   loop_rate: 20
+   stop_on_failure: false
+   waypoint_task_executor_plugin: "turn_robot_at_waypoint"
+   turn_robot_at_waypoint:
+     plugin: "nav2_waypoint_follower::TurnRobotAtWaypoint"
+     enabled: True
+     velocity_topic: "/cmd_vel_teleop"
 #waypoint_follower:
 #  ros__parameters:
 #    use_sim_time: True
 #    loop_rate: 20
 #    stop_on_failure: false
-#    waypoint_task_executor_plugin: "turn_robot_at_waypoint"
-#    turn_robot_at_waypoint:
-#      plugin: "nav2_waypoint_follower::TurnRobotAtWaypoint"
+#    waypoint_task_executor_plugin: "wait_at_waypoint"
+#    wait_at_waypoint:
+#      plugin: "nav2_waypoint_follower::WaitAtWaypoint"
 #      enabled: True
-#      velocity_topic: "/cmd_vel_teleop"
-waypoint_follower:
-  ros__parameters:
-    use_sim_time: True
-    loop_rate: 20
-    stop_on_failure: false
-    waypoint_task_executor_plugin: "wait_at_waypoint"
-    wait_at_waypoint:
-      plugin: "nav2_waypoint_follower::WaitAtWaypoint"
-      enabled: True
-      waypoint_pause_duration: 10000
+#      waypoint_pause_duration: 10000
 
 velocity_smoother:
   ros__parameters:

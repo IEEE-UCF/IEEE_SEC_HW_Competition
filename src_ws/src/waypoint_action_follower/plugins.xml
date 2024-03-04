@@ -20,4 +20,9 @@
       <description>Lets robot turn at waypoint arrival</description>
     </class>
   </library>
+  <library path="actions_at_waypoint">
+    <class type="nav2_waypoint_follower::ActionsAtWaypoint" base_class_type="nav2_core::WaypointTaskExecutor">
+      <description>Lets robot call action at waypoint arrival</description>
+    </class>
+  </library>
 </class_libraries>

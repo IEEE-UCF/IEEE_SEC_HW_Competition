@@ -19,18 +19,16 @@ def generate_launch_description():
     navigation_package_name = 'secbot_navigation'
     simulation_package_name = 'secbot_simulation'
 
+    gazebo_params_path = os.path.join(get_package_share_directory(simulation_package_name),'config','gazebo_params.yaml')
+
     world_file_name = 'obstacles.world'
     world_file_path = os.path.join(get_package_share_directory(description_package_name), 'worlds', world_file_name)
     gazebo_model_path = os.path.join(get_package_share_directory(description_package_name), 'models')
     set_model_path = SetEnvironmentVariable('GAZEBO_MODEL_PATH', gazebo_model_path)
 
-    ekf_params_file = os.path.join(get_package_share_directory(navigation_package_name), 'config', 'ekf.yaml')
-    gazebo_params_path = os.path.join(get_package_share_directory(simulation_package_name),'config','gazebo_params.yaml')
-
     # Launch config variables specific to sim
     use_sim_time = LaunchConfiguration('use_sim_time')
     use_ros2_control = LaunchConfiguration('use_ros2_control')
-    use_robot_localization = LaunchConfiguration('use_robot_localization')
     use_world_file = LaunchConfiguration('use_world_file')
     use_gazebo_gui = LaunchConfiguration('use_gazebo_gui')
     world_file = LaunchConfiguration('world_file')
@@ -46,12 +44,6 @@ def generate_launch_description():
         name='use_ros2_control',
         default_value='true',
         description='Use ros2_control if true'
-    )
-
-    declare_use_robot_localization = DeclareLaunchArgument(
-        name='use_robot_localization',
-        default_value='true',
-        description='Use robot_localization if true'
     )
 
     declare_use_world_file = DeclareLaunchArgument(
@@ -100,24 +92,6 @@ def generate_launch_description():
                                    '-entity', 'sec_bot'],
                         output='screen')
 
-    start_diff_drive_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["diff_drive_controller"],
-    )
-
-    start_joint_broad_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["joint_state_broadcaster"],
-    )
-
-    start_robot_localization = Node(
-        condition=IfCondition(use_robot_localization),
-        package='robot_localization',
-        executable='ekf_node',
-        parameters=[ekf_params_file]
-    )
 
     # to control manually:
     # gazebo_control.xacro
@@ -130,7 +104,6 @@ def generate_launch_description():
 
     ld.add_action(declare_use_sim_time_cmd)
     ld.add_action(declare_use_ros2_control_cmd)
-    ld.add_action(declare_use_robot_localization)
     ld.add_action(declare_use_world_file)
     ld.add_action(declare_use_gazebo_gui)
 
@@ -140,8 +113,5 @@ def generate_launch_description():
     ld.add_action(start_gazebo_world)
     ld.add_action(start_gazebo_empty)
     ld.add_action(start_spawn_entity)
-    ld.add_action(start_diff_drive_spawner)
-    ld.add_action(start_joint_broad_spawner)
-    ld.add_action(start_robot_localization)
 
     return ld
