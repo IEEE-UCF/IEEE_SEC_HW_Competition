@@ -6,10 +6,10 @@
 void add(const std::shared_ptr<waypoint_interfaces::srv::WaypointIndex::Request> request,     
           std::shared_ptr<waypoint_interfaces::srv::WaypointIndex::Response>       response)  
 {
-  response->sum = request->a + request->b + request->c;                                      
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request\na: %ld" " b: %ld" " c: %ld",  
-                request->a, request->b, request->c);                                         
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response: [%ld]", (long int)response->sum);
+  response->recieved = request->index;                                      
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request\nindex: %ld",  
+                request->index);                                         
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response: [%ld]", (long int)response->recieved);
 }
 
 int main(int argc, char **argv)
@@ -21,7 +21,7 @@ int main(int argc, char **argv)
   rclcpp::Service<waypoint_interfaces::srv::WaypointIndex>::SharedPtr service =               
     node->create_service<waypoint_interfaces::srv::WaypointIndex>("waypoint_index",  &add);   
 
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to add three ints.");                     
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to recieve the index");                     
 
   rclcpp::spin(node);
   rclcpp::shutdown();
