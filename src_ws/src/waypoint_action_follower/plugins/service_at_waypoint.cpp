@@ -2,6 +2,8 @@
 #include "waypoint_interfaces/srv/waypoint_index.hpp"
 #include "waypoint_action_follower/plugins/service_at_waypoint.hpp"
 
+#include <chrono>
+#include <cstdlib>
 #include <string>
 #include <memory>
 
@@ -36,20 +38,12 @@ void ServiceAtWaypoint::initialize(
   
   logger_ = node_->get_logger();
   
-  std::string velocity_topic;
 
   nav2_util::declare_parameter_if_not_declared(
     node_, plugin_name + ".enabled",
     rclcpp::ParameterValue(true));
-  nav2_util::declare_parameter_if_not_declared(
-    node_, plugin_name + ".velocity_topic",
-    rclcpp::ParameterValue("/diff_drive_controller/cmd_vel_unstamped"));
   node_->get_parameter(plugin_name + ".enabled", is_enabled_);
-  node_->get_parameter(plugin_name + ".velocity_topic", velocity_topic);
 
-
-  cmd_vel_publisher_ = node_->create_publisher<geometry_msgs::msg::Twist>(
-        velocity_topic, 1);
 }
 
 bool ServiceAtWaypoint::processAtWaypoint(
@@ -60,13 +54,30 @@ bool ServiceAtWaypoint::processAtWaypoint(
     return true;
   }    
   try {
-    // Create a Twist message to send desired velocities
-    geometry_msgs::msg::Twist twist_cmd;
-    twist_cmd.angular.z = 100.0;  // Set the desired angular velocity, adjust as needed
+  std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("waypoint_index_client");  
+  rclcpp::Client<waypoint_interfaces::srv::WaypointIndex>::SharedPtr client =                
+    node->create_client<waypoint_interfaces::srv::WaypointIndex>("waypoint_index");          
 
-    // Publish the Twist message
-    cmd_vel_publisher_->publish(twist_cmd);
+  auto request = std::make_shared<waypoint_interfaces::srv::WaypointIndex::Request>();       
+  request->index = curr_waypoint_index;                                     // THIS NEED TO BE REPLACED WITH WAYPOINT INDEX                         
 
+  while (!client->wait_for_service(std::chrono::milliseconds(1000))) {
+    if (!rclcpp::ok()) {
+      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service. Exiting.");
+      return 0;
+    }
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
+  }
+
+  auto result = client->async_send_request(request);
+  // Wait for the result.
+  if (rclcpp::spin_until_future_complete(node, result) ==
+    rclcpp::FutureReturnCode::SUCCESS)
+  {
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "recieved: %ld", result.get()->recieved);
+  } else {
+    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service waypoint_index");    
+  }
     RCLCPP_INFO(
       rclcpp::get_logger("nav2_waypoint_follower"),
       "Turning the robot at waypoint %i", curr_waypoint_index);

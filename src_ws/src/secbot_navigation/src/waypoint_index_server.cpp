@@ -1,6 +1,8 @@
 #include "rclcpp/rclcpp.hpp"
 #include "waypoint_interfaces/srv/waypoint_index.hpp"                                        
 
+#include<thread>
+#include<chrono>
 #include <memory>
 
 void add(const std::shared_ptr<waypoint_interfaces::srv::WaypointIndex::Request> request,     
@@ -8,7 +10,10 @@ void add(const std::shared_ptr<waypoint_interfaces::srv::WaypointIndex::Request>
 {
   response->recieved = request->index;                                      
   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request\nindex: %ld",  
-                request->index);                                         
+                request->index);         
+
+//std::this_thread::sleep_for(std::chrono::seconds(10));   // Added for TESTING REMOVE IF FIND                        
+
   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response: [%ld]", (long int)response->recieved);
 }
 

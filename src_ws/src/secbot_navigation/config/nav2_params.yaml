@@ -324,9 +324,7 @@ behavior_server:
     min_rotational_vel: 0.4
     rotational_acc_lim: 3.2
 
-robot_state_publisher:
-  ros__parameters:
-    use_sim_time: True
+
 waypoint_follower:
  ros__parameters:
    use_sim_time: True
@@ -336,7 +334,6 @@ waypoint_follower:
    service_at_waypoint:
      plugin: "nav2_waypoint_follower::ServiceAtWaypoint"
      enabled: True
-     velocity_topic: "/cmd_vel_teleop"
 # waypoint_follower:
 #  ros__parameters:
 #    use_sim_time: True

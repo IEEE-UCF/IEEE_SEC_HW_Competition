@@ -55,7 +55,6 @@ protected:
    * @param msg Empty message
    */
   bool is_enabled_;
-  rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr cmd_vel_publisher_;
   rclcpp::Logger logger_{rclcpp::get_logger("waypoint_action_follower")};
 };
 
