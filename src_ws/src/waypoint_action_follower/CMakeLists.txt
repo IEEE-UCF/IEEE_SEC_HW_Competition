@@ -95,9 +95,12 @@ ament_target_dependencies(input_at_waypoint ${dependencies})
 add_library(turn_robot_at_waypoint SHARED plugins/turn_robot_at_waypoint.cpp)
 ament_target_dependencies(turn_robot_at_waypoint ${dependencies})
 
+add_library(service_at_waypoint SHARED plugins/service_at_waypoint.cpp)
+ament_target_dependencies(service_at_waypoint ${dependencies})
+
 rclcpp_components_register_nodes(${library_name} "nav2_waypoint_follower::WaypointFollower")
 
-install(TARGETS ${library_name} wait_at_waypoint photo_at_waypoint input_at_waypoint turn_robot_at_waypoint
+install(TARGETS ${library_name} wait_at_waypoint photo_at_waypoint input_at_waypoint turn_robot_at_waypoint service_at_waypoint
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
@@ -119,7 +122,7 @@ if(BUILD_TESTING)
 endif()
 
 ament_export_include_directories(include)
-ament_export_libraries(wait_at_waypoint photo_at_waypoint input_at_waypoint turn_robot_at_waypoint ${library_name})
+ament_export_libraries(wait_at_waypoint photo_at_waypoint input_at_waypoint turn_robot_at_waypoint service_at_waypoint ${library_name})
 ament_export_dependencies(${dependencies})
 pluginlib_export_plugin_description_file(waypoint_action_follower plugins.xml)
 

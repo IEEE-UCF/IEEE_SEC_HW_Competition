@@ -327,17 +327,26 @@ behavior_server:
 robot_state_publisher:
   ros__parameters:
     use_sim_time: True
-
 waypoint_follower:
  ros__parameters:
    use_sim_time: True
    loop_rate: 20
    stop_on_failure: false
-   waypoint_task_executor_plugin: "turn_robot_at_waypoint"
-   turn_robot_at_waypoint:
-     plugin: "nav2_waypoint_follower::TurnRobotAtWaypoint"
+   waypoint_task_executor_plugin: "service_at_waypoint"
+   service_at_waypoint:
+     plugin: "nav2_waypoint_follower::ServiceAtWaypoint"
      enabled: True
      velocity_topic: "/cmd_vel_teleop"
+# waypoint_follower:
+#  ros__parameters:
+#    use_sim_time: True
+#    loop_rate: 20
+#    stop_on_failure: false
+#    waypoint_task_executor_plugin: "turn_robot_at_waypoint"
+#    turn_robot_at_waypoint:
+#      plugin: "nav2_waypoint_follower::TurnRobotAtWaypoint"
+#      enabled: True
+#      velocity_topic: "/cmd_vel_teleop"
 #waypoint_follower:
 #  ros__parameters:
 #    use_sim_time: True

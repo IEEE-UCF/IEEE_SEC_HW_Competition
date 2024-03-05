@@ -6,7 +6,7 @@ ament_target_dependencies(test_task_executors
   ${dependencies}
 )
 target_link_libraries(test_task_executors
-  ${library_name} wait_at_waypoint photo_at_waypoint input_at_waypoint turn_robot_at_waypoint
+  ${library_name} wait_at_waypoint photo_at_waypoint input_at_waypoint turn_robot_at_waypoint service_at_waypoint
 )
 
 # Test dynamic parameters
