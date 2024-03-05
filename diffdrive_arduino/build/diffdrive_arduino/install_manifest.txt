@@ -1,0 +1,3 @@
+/home/marcus/diffdrive_arduino/install/diffdrive_arduino/lib/libdiffdrive_arduino.so
+/home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/cmake/export_diffdrive_arduinoExport.cmake
+/home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/cmake/export_diffdrive_arduinoExport-noconfig.cmake

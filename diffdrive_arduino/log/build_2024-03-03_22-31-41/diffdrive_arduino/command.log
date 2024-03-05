@@ -1,0 +1,2 @@
+Invoking command in '/home/marcus/diffdrive_arduino/build/diffdrive_arduino': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/marcus/diffdrive_arduino/build/diffdrive_arduino -- -j16 -l16
+Invoked command in '/home/marcus/diffdrive_arduino/build/diffdrive_arduino' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/marcus/diffdrive_arduino/build/diffdrive_arduino -- -j16 -l16

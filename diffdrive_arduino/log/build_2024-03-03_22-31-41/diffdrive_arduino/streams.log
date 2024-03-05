@@ -1,0 +1,13 @@
+[0.045s] Invoking command in '/home/marcus/diffdrive_arduino/build/diffdrive_arduino': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/marcus/diffdrive_arduino/build/diffdrive_arduino -- -j16 -l16
+[0.066s] [35m[1mConsolidate compiler generated dependencies of target diffdrive_arduino[0m
+[0.076s] [ 50%] [32mBuilding CXX object CMakeFiles/diffdrive_arduino.dir/hardware/diffbot_system.cpp.o[0m
+[0.562s] In file included from [01m[K/home/marcus/diffdrive_arduino/hardware/include/diffdrive_arduino/diffbot_system.hpp:34[m[K,
+[0.562s]                  from [01m[K/home/marcus/diffdrive_arduino/hardware/diffbot_system.cpp:15[m[K:
+[0.562s] [01m[K/home/marcus/diffdrive_arduino/hardware/include/diffdrive_arduino/arduino_comms.hpp:[m[K In member function ‘[01m[Kstd::string ArduinoComms::send_msg(const string&, bool)[m[K’:
+[0.562s] [01m[K/home/marcus/diffdrive_arduino/hardware/include/diffdrive_arduino/arduino_comms.hpp:60:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kserial[m[K’ was not declared in this scope
+[0.562s]    60 |     [01;31m[Kserial[m[K.flushOutput();
+[0.562s]       |     [01;31m[K^~~~~~[m[K
+[2.038s] gmake[2]: *** [CMakeFiles/diffdrive_arduino.dir/build.make:76: CMakeFiles/diffdrive_arduino.dir/hardware/diffbot_system.cpp.o] Error 1
+[2.039s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/diffdrive_arduino.dir/all] Error 2
+[2.039s] gmake: *** [Makefile:146: all] Error 2
+[2.041s] Invoked command in '/home/marcus/diffdrive_arduino/build/diffdrive_arduino' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/marcus/diffdrive_arduino/build/diffdrive_arduino -- -j16 -l16
