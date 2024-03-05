@@ -59,7 +59,7 @@ bool ServiceAtWaypoint::processAtWaypoint(
     node->create_client<waypoint_interfaces::srv::WaypointIndex>("waypoint_index");          
 
   auto request = std::make_shared<waypoint_interfaces::srv::WaypointIndex::Request>();       
-  request->index = curr_waypoint_index;                                     // THIS NEED TO BE REPLACED WITH WAYPOINT INDEX                         
+  request->index = curr_waypoint_index;                       
 
   while (!client->wait_for_service(std::chrono::milliseconds(1000))) {
     if (!rclcpp::ok()) {
@@ -69,22 +69,24 @@ bool ServiceAtWaypoint::processAtWaypoint(
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
   }
 
+  RCLCPP_INFO(
+    rclcpp::get_logger("nav2_waypoint_follower"),
+    "Passing index to server at waypoint %i", curr_waypoint_index);
+  
   auto result = client->async_send_request(request);
   // Wait for the result.
+
   if (rclcpp::spin_until_future_complete(node, result) ==
     rclcpp::FutureReturnCode::SUCCESS)
   {
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "recieved: %ld", result.get()->recieved);
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Server responded with: %ld", result.get()->recieved);
   } else {
     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service waypoint_index");    
-  }
-    RCLCPP_INFO(
-      rclcpp::get_logger("nav2_waypoint_follower"),
-      "Turning the robot at waypoint %i", curr_waypoint_index);
+  };
   } catch (const std::exception & e) {
     RCLCPP_ERROR(
       rclcpp::get_logger("nav2_waypoint_follower"),
-      "Failed to send velocity command at waypoint %i! Caught exception: %s",
+      "Failed at waypoint %i! Caught exception: %s",
       curr_waypoint_index, e.what());
     return false;
   }

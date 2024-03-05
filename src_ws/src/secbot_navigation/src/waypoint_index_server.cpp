@@ -8,13 +8,22 @@
 void add(const std::shared_ptr<waypoint_interfaces::srv::WaypointIndex::Request> request,     
           std::shared_ptr<waypoint_interfaces::srv::WaypointIndex::Response>       response)  
 {
-  response->recieved = request->index;                                      
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request\nindex: %ld",  
-                request->index);         
+  response->recieved = 0;                                               
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Recived Waypoint Index");
+  
+  switch ((request->index)+1)
+  {
+      case 1:
+          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "At first waypoint, sleeping for 5 seconds");
+          std::this_thread::sleep_for(std::chrono::seconds(5));
+          break;
+      case 2:
+          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "At second waypoint, sleeping for 10 seconds");
+          std::this_thread::sleep_for(std::chrono::seconds(10));
+          break;
+  }
 
-//std::this_thread::sleep_for(std::chrono::seconds(10));   // Added for TESTING REMOVE IF FIND                        
-
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response: [%ld]", (long int)response->recieved);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sending Back Response: [%ld]", (long int)response->recieved);
 }
 
 int main(int argc, char **argv)
