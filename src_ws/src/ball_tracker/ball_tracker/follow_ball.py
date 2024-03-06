@@ -28,6 +28,8 @@ class FollowBall(Node):
             self.listener_callback,
             10)
         self.publisher_ = self.create_publisher(Twist, '/cmd_vel', 10)
+        self.cmd_sub = self.create_subscription(Twist, "/diff_drive_controller/cmd_vel_unstamped", self.minimal_callback, 1)
+        self.angular_z_counter = 0
 
 
         self.declare_parameter("rcv_timeout_secs", 1.0)
@@ -71,6 +73,13 @@ class FollowBall(Node):
         self.target_dist = self.target_dist * f + msg.z * (1-f)
         self.lastrcvtime = time.time()
         # self.get_logger().info('Received: {} {}'.format(msg.x, msg.y))
+    
+    def minimal_callback(self, msg):
+        self.angular_z_counter += 1 if 0 <= msg.angular.z <= 0.05 else 0
+        print("Recjnscojwncodkcnodcwokcnceived message:")
+        if self.angular_z_counter >= 25:
+            self.get_logger().info("Condition met more than 50 times. Initiating shutdown.")
+            rclpy.shutdown()
 
 
 def main(args=None):

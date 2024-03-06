@@ -14,7 +14,7 @@
 
 import rclpy
 from rclpy.node import Node
-from geometry_msgs.msg      import Point
+from geometry_msgs.msg      import Point, Twist
 from visualization_msgs.msg import Marker
 import math
 
@@ -28,6 +28,8 @@ class DetectBall3d(Node):
         self.ball2d_sub  = self.create_subscription(Point,"/detected_ball",self.ball_rcv_callback, 10)
         self.ball3d_pub  = self.create_publisher(Point,"/detected_ball_3d",1)
         self.ball_marker_pub  = self.create_publisher(Marker,"/ball_3d_marker",1)
+        self.cmd_sub = self.create_subscription(Twist, "/diff_drive_controller/cmd_vel_unstamped", self.minimal_callback, 1)
+        self.angular_z_counter = 0
 
         self.declare_parameter("h_fov",1.089)
         self.declare_parameter("ball_radius",0.033)
@@ -82,6 +84,13 @@ class DetectBall3d(Node):
 
         self.ball_marker_pub.publish(m)
         print(m.pose.position)
+    
+    def minimal_callback(self, msg):
+        self.angular_z_counter += 1 if 0 <= msg.angular.z <= 0.05 else 0
+        print("Recjnscojwncodkcnodcwokcnceived message:")
+        if self.angular_z_counter >= 25:
+            self.get_logger().info("Condition met more than 50 times. Initiating shutdown.")
+            rclpy.shutdown()
 
 
 

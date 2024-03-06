@@ -15,9 +15,11 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg        import Image
-from geometry_msgs.msg      import Point
+from geometry_msgs.msg      import Point, Twist
 from cv_bridge              import CvBridge, CvBridgeError
 import ball_tracker.process_image as proc
+from geometry_msgs.msg import Twist
+import rclpy
 
 class DetectBall(Node):
 
@@ -29,6 +31,8 @@ class DetectBall(Node):
         self.image_out_pub = self.create_publisher(Image, "/image_out", 1)
         self.image_tuning_pub = self.create_publisher(Image, "/image_tuning", 1)
         self.ball_pub  = self.create_publisher(Point,"/detected_ball",1)
+        self.cmd_sub = self.create_subscription(Twist, "/diff_drive_controller/cmd_vel_unstamped", self.minimal_callback, 1)
+        self.angular_z_counter = 0
 
         self.declare_parameter('tuning_mode', False)
 
@@ -65,6 +69,12 @@ class DetectBall(Node):
 
         if(self.tuning_mode):
             proc.create_tuning_window(self.tuning_params)
+
+      # Additional functionality
+
+
+        # Create subscriber for the '/diff_drive_controller/cmd_vel_teleop' topic
+        
 
     def callback(self,data):
         try:
@@ -106,6 +116,13 @@ class DetectBall(Node):
                 self.ball_pub.publish(point_out) 
         except CvBridgeError as e:
             print(e)  
+
+    def minimal_callback(self, msg):
+        self.angular_z_counter += 1 if 0 <= msg.angular.z <= 0.05 else 0
+        print("Recjnscojwncodkcnodcwokcnceived message:")
+        if self.angular_z_counter >= 25:
+            self.get_logger().info("Condition met more than 50 times. Initiating shutdown.")
+            rclpy.shutdown()
 
 
 def main(args=None):
