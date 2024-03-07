@@ -27,27 +27,27 @@ class DetectBall(Node):
         super().__init__('detect_ball')
 
         self.get_logger().info('Looking for the ball...')
-        self.image_sub = self.create_subscription(Image,"/image_in",self.callback,rclpy.qos.QoSPresetProfiles.SENSOR_DATA.value)
+        self.image_sub = self.create_subscription(Image,"/camera/image_raw",self.callback,rclpy.qos.QoSPresetProfiles.SENSOR_DATA.value)
         self.image_out_pub = self.create_publisher(Image, "/image_out", 1)
         self.image_tuning_pub = self.create_publisher(Image, "/image_tuning", 1)
         self.ball_pub  = self.create_publisher(Point,"/detected_ball",1)
-        self.cmd_sub = self.create_subscription(Twist, "/diff_drive_controller/cmd_vel_unstamped", self.minimal_callback, 1)
+        self.cmd_sub = self.create_subscription(Twist, "/diff_drive_controller/cmd_vel_unstamped", self.minimal_callback1, 1)
         self.angular_z_counter = 0
 
         self.declare_parameter('tuning_mode', False)
 
         self.declare_parameter("x_min",0)
         self.declare_parameter("x_max",100)
-        self.declare_parameter("y_min",0)
+        self.declare_parameter("y_min",32)
         self.declare_parameter("y_max",100)
-        self.declare_parameter("h_min",0)
-        self.declare_parameter("h_max",180)
-        self.declare_parameter("s_min",0)
+        self.declare_parameter("h_min",25)
+        self.declare_parameter("h_max",37)
+        self.declare_parameter("s_min",42)
         self.declare_parameter("s_max",255)
         self.declare_parameter("v_min",0)
         self.declare_parameter("v_max",255)
         self.declare_parameter("sz_min",0)
-        self.declare_parameter("sz_max",100)
+        self.declare_parameter("sz_max",20)
         
         self.tuning_mode = self.get_parameter('tuning_mode').get_parameter_value().bool_value
         self.tuning_params = {
@@ -117,11 +117,11 @@ class DetectBall(Node):
         except CvBridgeError as e:
             print(e)  
 
-    def minimal_callback(self, msg):
+    def minimal_callback1(self, msg):
         self.angular_z_counter += 1 if 0 <= msg.angular.z <= 0.05 else 0
-        print("Recjnscojwncodkcnodcwokcnceived message:")
         if self.angular_z_counter >= 25:
-            self.get_logger().info("Condition met more than 50 times. Initiating shutdown.")
+            self.get_logger().info("The robot seems to be infront of it's target. Ending detect_ball..")
+            self.destroy_node()
             rclpy.shutdown()
 
 

@@ -28,7 +28,7 @@ class DetectBall3d(Node):
         self.ball2d_sub  = self.create_subscription(Point,"/detected_ball",self.ball_rcv_callback, 10)
         self.ball3d_pub  = self.create_publisher(Point,"/detected_ball_3d",1)
         self.ball_marker_pub  = self.create_publisher(Marker,"/ball_3d_marker",1)
-        self.cmd_sub = self.create_subscription(Twist, "/diff_drive_controller/cmd_vel_unstamped", self.minimal_callback, 1)
+        self.cmd_sub = self.create_subscription(Twist, "/diff_drive_controller/cmd_vel_unstamped", self.minimal_callback2, 1)
         self.angular_z_counter = 0
 
         self.declare_parameter("h_fov",1.089)
@@ -85,11 +85,11 @@ class DetectBall3d(Node):
         self.ball_marker_pub.publish(m)
         print(m.pose.position)
     
-    def minimal_callback(self, msg):
+    def minimal_callback2(self, msg):
         self.angular_z_counter += 1 if 0 <= msg.angular.z <= 0.05 else 0
-        print("Recjnscojwncodkcnodcwokcnceived message:")
         if self.angular_z_counter >= 25:
-            self.get_logger().info("Condition met more than 50 times. Initiating shutdown.")
+            self.get_logger().info("The robot seems to be infront of it's target. Ending detect_ball_3d..")
+            self.destroy_node()
             rclpy.shutdown()
 
 

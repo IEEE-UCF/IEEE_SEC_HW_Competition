@@ -27,8 +27,8 @@ class FollowBall(Node):
             '/detected_ball',
             self.listener_callback,
             10)
-        self.publisher_ = self.create_publisher(Twist, '/cmd_vel', 10)
-        self.cmd_sub = self.create_subscription(Twist, "/diff_drive_controller/cmd_vel_unstamped", self.minimal_callback, 1)
+        self.publisher_ = self.create_publisher(Twist, '/diff_drive_controller/cmd_vel_unstamped', 10)
+        self.cmd_sub = self.create_subscription(Twist, "/diff_drive_controller/cmd_vel_unstamped", self.minimal_callback3, 1)
         self.angular_z_counter = 0
 
 
@@ -74,11 +74,11 @@ class FollowBall(Node):
         self.lastrcvtime = time.time()
         # self.get_logger().info('Received: {} {}'.format(msg.x, msg.y))
     
-    def minimal_callback(self, msg):
+    def minimal_callback3(self, msg):
         self.angular_z_counter += 1 if 0 <= msg.angular.z <= 0.05 else 0
-        print("Recjnscojwncodkcnodcwokcnceived message:")
         if self.angular_z_counter >= 25:
-            self.get_logger().info("Condition met more than 50 times. Initiating shutdown.")
+            self.get_logger().info("The robot seems to be infront of it's target. Ending follow_ball..")
+            self.destroy_node()
             rclpy.shutdown()
 
 
