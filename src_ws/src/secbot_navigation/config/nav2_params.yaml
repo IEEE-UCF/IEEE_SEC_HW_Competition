@@ -324,6 +324,9 @@ behavior_server:
     min_rotational_vel: 0.4
     rotational_acc_lim: 3.2
 
+robot_state_publisher:
+  ros__parameters:
+    use_sim_time: True
 
 waypoint_follower:
  ros__parameters:
