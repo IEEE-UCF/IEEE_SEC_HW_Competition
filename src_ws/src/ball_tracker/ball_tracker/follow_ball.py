@@ -29,7 +29,7 @@ class FollowBall(Node):
             10)
         self.publisher_ = self.create_publisher(Twist, '/diff_drive_controller/cmd_vel_unstamped', 10)
         self.cmd_sub = self.create_subscription(Twist, "/diff_drive_controller/cmd_vel_unstamped", self.minimal_callback3, 1)
-        self.angular_z_counter = 0
+        self.vel_counter = 0
 
 
         self.declare_parameter("rcv_timeout_secs", 1.0)
@@ -75,8 +75,8 @@ class FollowBall(Node):
         # self.get_logger().info('Received: {} {}'.format(msg.x, msg.y))
     
     def minimal_callback3(self, msg):
-        self.angular_z_counter += 1 if 0 <= msg.angular.z <= 0.05 else 0
-        if self.angular_z_counter >= 25:
+        self.vel_counter += 1 if (0 <= msg.angular.z <= 0.05) and (0 <= msg.linear.x <= 0.1) else 0
+        if self.vel_counter >= 15:
             self.get_logger().info("The robot seems to be infront of it's target. Ending follow_ball..")
             self.destroy_node()
             rclpy.shutdown()
