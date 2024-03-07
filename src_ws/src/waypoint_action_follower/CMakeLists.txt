@@ -1,15 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 project(waypoint_action_follower)
 
-# Try for OpenCV 4.X, but settle for whatever is installed
-find_package(OpenCV 4 QUIET)
-if(NOT OpenCV_FOUND)
-  find_package(OpenCV REQUIRED)
-endif()
-message(STATUS "Found OpenCV version ${OpenCV_VERSION}")
-
-find_package(image_transport REQUIRED)
-find_package(cv_bridge REQUIRED)
 find_package(ament_cmake REQUIRED)
 find_package(nav2_common REQUIRED)
 find_package(rclcpp REQUIRED)
@@ -62,9 +53,6 @@ set(dependencies
   tf2_ros
   nav2_core
   pluginlib
-  image_transport
-  cv_bridge
-  OpenCV
   geometry_msgs
   waypoint_interfaces
 )
@@ -86,12 +74,6 @@ ament_target_dependencies(${library_name}
 add_library(wait_at_waypoint SHARED plugins/wait_at_waypoint.cpp)
 ament_target_dependencies(wait_at_waypoint ${dependencies})
 
-add_library(photo_at_waypoint SHARED plugins/photo_at_waypoint.cpp)
-ament_target_dependencies(photo_at_waypoint ${dependencies})
-
-add_library(input_at_waypoint SHARED plugins/input_at_waypoint.cpp)
-ament_target_dependencies(input_at_waypoint ${dependencies})
-
 add_library(turn_robot_at_waypoint SHARED plugins/turn_robot_at_waypoint.cpp)
 ament_target_dependencies(turn_robot_at_waypoint ${dependencies})
 
@@ -100,7 +82,7 @@ ament_target_dependencies(service_at_waypoint ${dependencies})
 
 rclcpp_components_register_nodes(${library_name} "nav2_waypoint_follower::WaypointFollower")
 
-install(TARGETS ${library_name} wait_at_waypoint photo_at_waypoint input_at_waypoint turn_robot_at_waypoint service_at_waypoint
+install(TARGETS ${library_name} wait_at_waypoint turn_robot_at_waypoint service_at_waypoint
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
@@ -122,7 +104,7 @@ if(BUILD_TESTING)
 endif()
 
 ament_export_include_directories(include)
-ament_export_libraries(wait_at_waypoint photo_at_waypoint input_at_waypoint turn_robot_at_waypoint service_at_waypoint ${library_name})
+ament_export_libraries(wait_at_waypoint turn_robot_at_waypoint service_at_waypoint ${library_name})
 ament_export_dependencies(${dependencies})
 pluginlib_export_plugin_description_file(waypoint_action_follower plugins.xml)
 

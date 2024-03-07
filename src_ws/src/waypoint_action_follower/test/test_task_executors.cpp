@@ -24,9 +24,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "nav2_util/lifecycle_node.hpp"
 #include <geometry_msgs/msg/pose_stamped.hpp>
-#include "waypoint_action_follower/plugins/photo_at_waypoint.hpp"
 #include "waypoint_action_follower/plugins/wait_at_waypoint.hpp"
-#include "waypoint_action_follower/plugins/input_at_waypoint.hpp"
 #include "waypoint_action_follower/plugins/turn_robot_at_waypoint.hpp"
 
 
@@ -65,104 +63,6 @@ TEST(WaypointFollowerTest, WaitAtWaypoint)
 
   // plugin is not enabled, should exit
   EXPECT_TRUE(waw->processAtWaypoint(pose, 0));
-}
-
-TEST(WaypointFollowerTest, InputAtWaypoint)
-{
-  auto node = std::make_shared<rclcpp_lifecycle::LifecycleNode>("testWaypointNode");
-  auto pub = node->create_publisher<std_msgs::msg::Empty>("input_at_waypoint/input", 1);
-  pub->on_activate();
-  auto publish_message =
-    [&]() -> void
-    {
-      rclcpp::Rate(5).sleep();
-      auto msg = std::make_unique<std_msgs::msg::Empty>();
-      pub->publish(std::move(msg));
-      rclcpp::spin_some(node->shared_from_this()->get_node_base_interface());
-    };
-
-  std::unique_ptr<nav2_waypoint_follower::InputAtWaypoint> iaw(
-    new nav2_waypoint_follower::InputAtWaypoint
-  );
-  iaw->initialize(node, std::string("IAW"));
-
-  auto start_time = node->now();
-
-  // no input, should timeout
-  geometry_msgs::msg::PoseStamped pose;
-  EXPECT_FALSE(iaw->processAtWaypoint(pose, 0));
-
-  auto end_time = node->now();
-
-  EXPECT_NEAR((end_time - start_time).seconds(), 10.0, 0.1);
-
-  // has input now, should work
-  std::thread t1(publish_message);
-  EXPECT_TRUE(iaw->processAtWaypoint(pose, 0));
-  t1.join();
-
-  iaw.reset(new nav2_waypoint_follower::InputAtWaypoint);
-  node->set_parameter(rclcpp::Parameter("IAW.enabled", false));
-  iaw->initialize(node, std::string("IAW"));
-
-  // plugin is not enabled, should exit
-  EXPECT_TRUE(iaw->processAtWaypoint(pose, 0));
-}
-
-TEST(WaypointFollowerTest, PhotoAtWaypoint)
-{
-  auto node = std::make_shared<rclcpp_lifecycle::LifecycleNode>("testWaypointNode");
-  auto pub = node->create_publisher<sensor_msgs::msg::Image>("/camera/color/image_raw", 1);
-  pub->on_activate();
-  std::condition_variable cv;
-  std::mutex mtx;
-  std::unique_lock<std::mutex> lck(mtx, std::defer_lock);
-  bool data_published = false;
-  auto publish_message =
-    [&]() -> void
-    {
-      rclcpp::Rate(5).sleep();
-      auto msg = std::make_unique<sensor_msgs::msg::Image>();
-      // fill image msg data.
-      msg->encoding = "rgb8";
-      msg->height = 240;
-      msg->width = 320;
-      msg->step = 960;
-      auto size = msg->height * msg->width * 3;
-      msg->data.reserve(size);
-      int fake_data = 0;
-      for (size_t i = 0; i < size; i++) {
-        msg->data.push_back(fake_data++);
-      }
-      pub->publish(std::move(msg));
-      rclcpp::spin_some(node->shared_from_this()->get_node_base_interface());
-      lck.lock();
-      data_published = true;
-      cv.notify_one();
-      lck.unlock();
-    };
-
-  std::unique_ptr<nav2_waypoint_follower::PhotoAtWaypoint> paw(
-    new nav2_waypoint_follower::PhotoAtWaypoint
-  );
-  paw->initialize(node, std::string("PAW"));
-
-  // no images, throws because can't write
-  geometry_msgs::msg::PoseStamped pose;
-  EXPECT_FALSE(paw->processAtWaypoint(pose, 0));
-
-  std::thread t1(publish_message);
-  cv.wait(lck);
-  // has image now, since we force waiting until image is published
-  EXPECT_TRUE(paw->processAtWaypoint(pose, 0));
-  t1.join();
-
-  paw.reset(new nav2_waypoint_follower::PhotoAtWaypoint);
-  node->set_parameter(rclcpp::Parameter("PAW.enabled", false));
-  paw->initialize(node, std::string("PAW"));
-
-  // plugin is not enabled, should exit
-  EXPECT_TRUE(paw->processAtWaypoint(pose, 0));
 }
 
 TEST(WaypointFollowerTest, TurnRobotAtWaypoint)
