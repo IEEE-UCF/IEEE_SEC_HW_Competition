@@ -91,10 +91,10 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <state world_name='default'>
-      <sim_time>827 721000000</sim_time>
-      <real_time>237 111714209</real_time>
-      <wall_time>1709786259 216969290</wall_time>
-      <iterations>235282</iterations>
+      <sim_time>0 0</sim_time>
+      <real_time>251 179488245</real_time>
+      <wall_time>1709772189 181437411</wall_time>
+      <iterations>249264</iterations>
       <model name='cardboard_box'>
         <pose>2.05743 -0.064444 0.149 0 -0 0</pose>
         <scale>1 1 1</scale>
