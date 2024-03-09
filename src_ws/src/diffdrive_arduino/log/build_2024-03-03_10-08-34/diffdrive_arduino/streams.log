@@ -1,0 +1,27 @@
+[0.019s] Invoking command in '/home/marcus/diffdrive_arduino/build/diffdrive_arduino': /usr/bin/cmake /home/marcus/diffdrive_arduino -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/marcus/diffdrive_arduino/install/diffdrive_arduino
+[0.108s] -- The CXX compiler identification is GNU 11.4.0
+[0.312s] -- Detecting CXX compiler ABI info
+[0.404s] -- Detecting CXX compiler ABI info - done
+[0.409s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.409s] -- Detecting CXX compile features
+[0.409s] -- Detecting CXX compile features - done
+[1.069s] [31mCMake Error at CMakeLists.txt:17 (find_package):
+[1.069s]   By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project
+[1.069s]   has asked CMake to find a package configuration file provided by
+[1.069s]   "ament_cmake", but CMake did not find one.
+[1.070s] 
+[1.070s]   Could not find a package configuration file provided by "ament_cmake" with
+[1.070s]   any of the following names:
+[1.070s] 
+[1.070s]     ament_cmakeConfig.cmake
+[1.070s]     ament_cmake-config.cmake
+[1.070s] 
+[1.070s]   Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set
+[1.070s]   "ament_cmake_DIR" to a directory containing one of the above files.  If
+[1.070s]   "ament_cmake" provides a separate development package or SDK, be sure it
+[1.070s]   has been installed.
+[1.070s] 
+[1.070s] [0m
+[1.070s] -- Configuring incomplete, errors occurred!
+[1.070s] See also "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/CMakeFiles/CMakeOutput.log".
+[1.071s] Invoked command in '/home/marcus/diffdrive_arduino/build/diffdrive_arduino' returned '1': /usr/bin/cmake /home/marcus/diffdrive_arduino -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/marcus/diffdrive_arduino/install/diffdrive_arduino

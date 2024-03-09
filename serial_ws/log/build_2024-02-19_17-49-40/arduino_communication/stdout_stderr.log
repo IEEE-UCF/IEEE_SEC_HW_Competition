@@ -1,0 +1,17 @@
+[ 33%] [32mBuilding CXX object CMakeFiles/arduino_communication.dir/src/arduino_communication.cpp.o[0m
+[ 83%] Built target serial
+[100%] [32m[1mLinking CXX executable arduino_communication[0m
+/usr/bin/ld: CMakeFiles/arduino_communication.dir/src/arduino_communication.cpp.o: in function `main':
+arduino_communication.cpp:(.text+0x9c): undefined reference to `serial::Serial::Serial(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, serial::Timeout, serial::bytesize_t, serial::parity_t, serial::stopbits_t, serial::flowcontrol_t)'
+/usr/bin/ld: arduino_communication.cpp:(.text+0xca): undefined reference to `serial::Serial::isOpen() const'
+/usr/bin/ld: arduino_communication.cpp:(.text+0x135): undefined reference to `serial::Serial::flushOutput()'
+/usr/bin/ld: arduino_communication.cpp:(.text+0x195): undefined reference to `serial::Serial::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+/usr/bin/ld: arduino_communication.cpp:(.text+0x25d): undefined reference to `serial::Serial::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+/usr/bin/ld: arduino_communication.cpp:(.text+0x32b): undefined reference to `serial::Serial::flushInput()'
+/usr/bin/ld: arduino_communication.cpp:(.text+0x346): undefined reference to `serial::Serial::read[abi:cxx11](unsigned long)'
+/usr/bin/ld: arduino_communication.cpp:(.text+0x3aa): undefined reference to `serial::Serial::~Serial()'
+/usr/bin/ld: arduino_communication.cpp:(.text+0x455): undefined reference to `serial::Serial::~Serial()'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/arduino_communication.dir/build.make:151: arduino_communication] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/arduino_communication.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

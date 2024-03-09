@@ -1,0 +1,11 @@
+/home/jayboi/serial_ws/build/arduino_communication/CMakeFiles/serial.dir
+/home/jayboi/serial_ws/build/arduino_communication/CMakeFiles/uninstall.dir
+/home/jayboi/serial_ws/build/arduino_communication/CMakeFiles/arduino_communication_uninstall.dir
+/home/jayboi/serial_ws/build/arduino_communication/CMakeFiles/arduino_communication.dir
+/home/jayboi/serial_ws/build/arduino_communication/CMakeFiles/test.dir
+/home/jayboi/serial_ws/build/arduino_communication/CMakeFiles/edit_cache.dir
+/home/jayboi/serial_ws/build/arduino_communication/CMakeFiles/rebuild_cache.dir
+/home/jayboi/serial_ws/build/arduino_communication/CMakeFiles/list_install_components.dir
+/home/jayboi/serial_ws/build/arduino_communication/CMakeFiles/install.dir
+/home/jayboi/serial_ws/build/arduino_communication/CMakeFiles/install/local.dir
+/home/jayboi/serial_ws/build/arduino_communication/CMakeFiles/install/strip.dir

@@ -1,0 +1,2 @@
+Invoking command in '/home/jayboi/serial_ws/build/arduino_communication': /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8
+Invoked command in '/home/jayboi/serial_ws/build/arduino_communication' returned '2': /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8

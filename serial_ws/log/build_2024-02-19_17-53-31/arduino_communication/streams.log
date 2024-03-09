@@ -1,0 +1,41 @@
+[0.084s] Invoking command in '/home/jayboi/serial_ws/build/arduino_communication': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8
+[0.124s] -- Found ament_cmake: 1.3.7 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.355s] -- Found rclcpp: 16.0.8 (/opt/ros/humble/share/rclcpp/cmake)
+[0.517s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.521s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.527s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.540s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.558s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.616s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.617s] -- Found rmw_fastrtps_cpp: 6.2.6 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[19.698s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[20.134s] -- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[20.207s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[20.208s] -- Configured cppcheck include dirs: /home/jayboi/serial_ws/src/arduino_communication/third-party/include
+[20.208s] -- Configured cppcheck exclude dirs and/or files: 
+[20.208s] -- Added test 'lint_cmake' to check CMake code style
+[20.209s] -- Added test 'uncrustify' to check C / C++ code style
+[20.209s] -- Configured uncrustify additional arguments: 
+[20.210s] -- Added test 'xmllint' to check XML markup files
+[20.211s] -- Configuring done
+[20.222s] -- Generating done
+[20.229s] -- Build files have been written to: /home/jayboi/serial_ws/build/arduino_communication
+[20.281s] [35m[1mConsolidate compiler generated dependencies of target arduino_communication[0m
+[20.282s] [35m[1mConsolidate compiler generated dependencies of target serial[0m
+[20.306s] [ 16%] [32m[1mLinking CXX executable arduino_communication[0m
+[20.312s] [ 83%] Built target serial
+[20.646s] /usr/bin/ld: CMakeFiles/arduino_communication.dir/src/arduino_communication.cpp.o: in function `main':
+[20.646s] arduino_communication.cpp:(.text+0x9c): undefined reference to `serial::Serial::Serial(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, serial::Timeout, serial::bytesize_t, serial::parity_t, serial::stopbits_t, serial::flowcontrol_t)'
+[20.646s] /usr/bin/ld: arduino_communication.cpp:(.text+0xca): undefined reference to `serial::Serial::isOpen() const'
+[20.646s] /usr/bin/ld: arduino_communication.cpp:(.text+0x135): undefined reference to `serial::Serial::flushOutput()'
+[20.646s] /usr/bin/ld: arduino_communication.cpp:(.text+0x195): undefined reference to `serial::Serial::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+[20.646s] /usr/bin/ld: arduino_communication.cpp:(.text+0x25d): undefined reference to `serial::Serial::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+[20.646s] /usr/bin/ld: arduino_communication.cpp:(.text+0x32b): undefined reference to `serial::Serial::flushInput()'
+[20.647s] /usr/bin/ld: arduino_communication.cpp:(.text+0x346): undefined reference to `serial::Serial::read[abi:cxx11](unsigned long)'
+[20.647s] /usr/bin/ld: arduino_communication.cpp:(.text+0x3aa): undefined reference to `serial::Serial::~Serial()'
+[20.647s] /usr/bin/ld: arduino_communication.cpp:(.text+0x455): undefined reference to `serial::Serial::~Serial()'
+[20.652s] collect2: error: ld returned 1 exit status
+[20.654s] gmake[2]: *** [CMakeFiles/arduino_communication.dir/build.make:151: arduino_communication] Error 1
+[20.654s] gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/arduino_communication.dir/all] Error 2
+[20.654s] gmake: *** [Makefile:146: all] Error 2
+[20.659s] Invoked command in '/home/jayboi/serial_ws/build/arduino_communication' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8

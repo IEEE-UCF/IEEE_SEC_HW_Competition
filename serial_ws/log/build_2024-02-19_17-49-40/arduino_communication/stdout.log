@@ -1,0 +1,3 @@
+[ 33%] [32mBuilding CXX object CMakeFiles/arduino_communication.dir/src/arduino_communication.cpp.o[0m
+[ 83%] Built target serial
+[100%] [32m[1mLinking CXX executable arduino_communication[0m

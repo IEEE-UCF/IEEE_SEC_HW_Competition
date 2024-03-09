@@ -1,0 +1,4 @@
+Invoking command in '/home/jayboi/serial_ws/build/arduino_communication': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/jayboi/serial_ws/src/arduino_communication -DCMAKE_INSTALL_PREFIX=/home/jayboi/serial_ws/install/arduino_communication
+Invoked command in '/home/jayboi/serial_ws/build/arduino_communication' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/jayboi/serial_ws/src/arduino_communication -DCMAKE_INSTALL_PREFIX=/home/jayboi/serial_ws/install/arduino_communication
+Invoking command in '/home/jayboi/serial_ws/build/arduino_communication': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8
+Invoked command in '/home/jayboi/serial_ws/build/arduino_communication' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8
