@@ -16,12 +16,13 @@ Contains all config and launch files relevant to the hardware implementation of 
 ### secbot_simulation
 Contains all config and launch files relevant to the complete simualtion of this workspace.  
 
+### Launch Commands
+cd IEEE_SEC_HW_Competition/src_ws/
+. install/setup.bash
 
-### Startup Commands:
+Run each in a different terminal:
 ros2 launch secbot_simulation launch_sim.launch.py
-
+ros2 launch secbot_simulation launch_sim2.launch.py
 ros2 launch secbot_navigation bringup_launch.py
-
 ros2 launch secbot_navigation rviz2.launch.py
-
-ros2 run secbot_navigation follow_waypoints.py
+ros2 launch secbot_navigation waypoint_launch.py
