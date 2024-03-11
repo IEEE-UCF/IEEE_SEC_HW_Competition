@@ -1,0 +1,56 @@
+[0.055s] Invoking command in '/home/marcus/diffdrive_arduino/build/diffdrive_arduino': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/marcus/diffdrive_arduino/build/diffdrive_arduino -- -j16 -l16
+[0.088s] [ 50%] [32mBuilding CXX object CMakeFiles/diffdrive_arduino.dir/hardware/diffbot_system.cpp.o[0m
+[0.561s] In file included from [01m[K/home/marcus/diffdrive_arduino/hardware/include/diffdrive_arduino/diffbot_system.hpp:34[m[K,
+[0.561s]                  from [01m[K/home/marcus/diffdrive_arduino/hardware/diffbot_system.cpp:15[m[K:
+[0.561s] [01m[K/home/marcus/diffdrive_arduino/hardware/include/diffdrive_arduino/arduino_comms.hpp:[m[K In member function ‘[01m[Kvoid ArduinoComms::read_encoder_values(int&, int&)[m[K’:
+[0.561s] [01m[K/home/marcus/diffdrive_arduino/hardware/include/diffdrive_arduino/arduino_comms.hpp:88:33:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kval_1[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[0.561s]    88 |   void read_encoder_values([01;35m[Kint &val_1[m[K, int &val_2)
+[0.561s]       |                            [01;35m[K~~~~~^~~~~[m[K
+[0.561s] [01m[K/home/marcus/diffdrive_arduino/hardware/include/diffdrive_arduino/arduino_comms.hpp:88:45:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kval_2[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[0.561s]    88 |   void read_encoder_values(int &val_1, [01;35m[Kint &val_2[m[K)
+[0.561s]       |                                        [01;35m[K~~~~~^~~~~[m[K
+[2.303s] [100%] [32m[1mLinking CXX shared library libdiffdrive_arduino.so[0m
+[2.446s] [100%] Built target diffdrive_arduino
+[2.453s] Invoked command in '/home/marcus/diffdrive_arduino/build/diffdrive_arduino' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/marcus/diffdrive_arduino/build/diffdrive_arduino -- -j16 -l16
+[2.473s] Invoking command in '/home/marcus/diffdrive_arduino/build/diffdrive_arduino': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/marcus/diffdrive_arduino/build/diffdrive_arduino
+[2.477s] -- Install configuration: ""
+[2.478s] -- Execute custom install script
+[2.478s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino//diffdrive_arduino.xml
+[2.478s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/include/diffdrive_arduino/diffdrive_arduino/arduino_comms.hpp
+[2.478s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/include/diffdrive_arduino/diffdrive_arduino/diffbot_system.hpp
+[2.478s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/include/diffdrive_arduino/diffdrive_arduino/visibility_control.h
+[2.478s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/include/diffdrive_arduino/diffdrive_arduino/wheel.hpp
+[2.478s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/launch/view_robot.launch.py
+[2.479s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/ros2_control/diffbot.ros2_control.xacro
+[2.479s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/urdf/diffbot.materials.xacro
+[2.479s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/urdf/diffbot.urdf.xacro
+[2.479s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/urdf/diffbot_description.urdf.xacro
+[2.479s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/rviz/diffbot.rviz
+[2.479s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/rviz/diffbot_view.rviz
+[2.479s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/launch/diffbot.launch.py
+[2.479s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/config/diffbot_controllers.yaml
+[2.480s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/environment/library_path.sh
+[2.480s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/environment/library_path.dsv
+[2.480s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/ament_index/resource_index/package_run_dependencies/diffdrive_arduino
+[2.480s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/ament_index/resource_index/parent_prefix_path/diffdrive_arduino
+[2.480s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/environment/ament_prefix_path.sh
+[2.480s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/environment/ament_prefix_path.dsv
+[2.480s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/environment/path.sh
+[2.480s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/environment/path.dsv
+[2.480s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/local_setup.bash
+[2.480s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/local_setup.sh
+[2.481s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/local_setup.zsh
+[2.481s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/local_setup.dsv
+[2.481s] -- Symlinking: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/package.dsv
+[2.485s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/ament_index/resource_index/packages/diffdrive_arduino
+[2.485s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/diffdrive_arduino
+[2.485s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/cmake/ament_cmake_export_targets-extras.cmake
+[2.486s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/cmake/ament_cmake_export_dependencies-extras.cmake
+[2.486s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/cmake/diffdrive_arduinoConfig.cmake
+[2.486s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/cmake/diffdrive_arduinoConfig-version.cmake
+[2.486s] -- Up-to-date symlink: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/package.xml
+[2.486s] -- Installing: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/lib/libdiffdrive_arduino.so
+[2.486s] -- Set runtime path of "/home/marcus/diffdrive_arduino/install/diffdrive_arduino/lib/libdiffdrive_arduino.so" to ""
+[2.487s] -- Up-to-date: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/cmake/export_diffdrive_arduinoExport.cmake
+[2.487s] -- Up-to-date: /home/marcus/diffdrive_arduino/install/diffdrive_arduino/share/diffdrive_arduino/cmake/export_diffdrive_arduinoExport-noconfig.cmake
+[2.488s] Invoked command in '/home/marcus/diffdrive_arduino/build/diffdrive_arduino' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/marcus/diffdrive_arduino/build/diffdrive_arduino

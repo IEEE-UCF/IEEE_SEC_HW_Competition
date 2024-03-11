@@ -1,0 +1,3 @@
+[35m[1mConsolidate compiler generated dependencies of target arduino_communication[0m
+[ 83%] [32mBuilding CXX object CMakeFiles/arduino_communication.dir/src/arduino_communication.cpp.o[0m
+[ 66%] Built target serial

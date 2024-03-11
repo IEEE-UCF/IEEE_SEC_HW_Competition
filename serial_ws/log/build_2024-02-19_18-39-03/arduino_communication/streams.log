@@ -1,0 +1,29 @@
+[0.049s] Invoking command in '/home/jayboi/serial_ws/build/arduino_communication': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8
+[0.104s] [35m[1mConsolidate compiler generated dependencies of target serial[0m
+[0.120s] [ 66%] Built target serial
+[0.141s] [ 83%] [32mBuilding CXX object CMakeFiles/arduino_communication.dir/src/arduino_communication.cpp.o[0m
+[0.667s] [100%] [32m[1mLinking CXX executable arduino_communication[0m
+[0.981s] [100%] Built target arduino_communication
+[0.990s] Invoked command in '/home/jayboi/serial_ws/build/arduino_communication' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8
+[1.026s] Invoking command in '/home/jayboi/serial_ws/build/arduino_communication': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/jayboi/serial_ws/build/arduino_communication
+[1.034s] -- Install configuration: ""
+[1.036s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/include/arduino_communication
+[1.037s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/include/arduino_communication/arduino_communication
+[1.038s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/ament_index/resource_index/package_run_dependencies/arduino_communication
+[1.038s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/ament_index/resource_index/parent_prefix_path/arduino_communication
+[1.038s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/environment/ament_prefix_path.sh
+[1.039s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/environment/ament_prefix_path.dsv
+[1.039s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/environment/path.sh
+[1.039s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/environment/path.dsv
+[1.039s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/local_setup.bash
+[1.039s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/local_setup.sh
+[1.040s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/local_setup.zsh
+[1.040s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/local_setup.dsv
+[1.040s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/package.dsv
+[1.040s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/ament_index/resource_index/packages/arduino_communication
+[1.040s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/cmake/ament_cmake_export_include_directories-extras.cmake
+[1.040s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.041s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/cmake/arduino_communicationConfig.cmake
+[1.041s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/cmake/arduino_communicationConfig-version.cmake
+[1.042s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/package.xml
+[1.044s] Invoked command in '/home/jayboi/serial_ws/build/arduino_communication' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/jayboi/serial_ws/build/arduino_communication

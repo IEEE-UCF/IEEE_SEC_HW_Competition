@@ -1,0 +1,14 @@
+[01m[K/home/jayboi/serial_ws/src/arduino_communication/src/arduino_communication.cpp:[m[K In member function ‘[01m[Kvoid MinimalSubscriber::topic_callback(const String&) const[m[K’:
+[01m[K/home/jayboi/serial_ws/src/arduino_communication/src/arduino_communication.cpp:25:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kmovebih[m[K’ was not declared in this scope
+   25 |       [01;31m[Kmovebih[m[K();
+      |       [01;31m[K^~~~~~~[m[K
+[01m[K/home/jayboi/serial_ws/src/arduino_communication/src/arduino_communication.cpp:22:55:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   22 |     void topic_callback([01;35m[Kconst std_msgs::msg::String & msg[m[K) const
+      |                         [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/jayboi/serial_ws/src/arduino_communication/src/arduino_communication.cpp:[m[K In function ‘[01m[Kint movebih()[m[K’:
+[01m[K/home/jayboi/serial_ws/src/arduino_communication/src/arduino_communication.cpp:81:1:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+   81 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K
+gmake[2]: *** [CMakeFiles/arduino_communication.dir/build.make:76: CMakeFiles/arduino_communication.dir/src/arduino_communication.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/arduino_communication.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

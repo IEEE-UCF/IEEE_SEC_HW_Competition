@@ -1,0 +1,2 @@
+Invoking command in '/home/marcus/diffdrive_arduino/build/diffdrive_arduino': /usr/bin/cmake /home/marcus/diffdrive_arduino -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/marcus/diffdrive_arduino/install/diffdrive_arduino
+Invoked command in '/home/marcus/diffdrive_arduino/build/diffdrive_arduino' returned '1': /usr/bin/cmake /home/marcus/diffdrive_arduino -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/marcus/diffdrive_arduino/install/diffdrive_arduino

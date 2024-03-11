@@ -1,0 +1,19 @@
+[0.073s] Invoking command in '/home/jayboi/serial_ws/build/arduino_communication': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8
+[0.138s] [ 33%] [32mBuilding CXX object CMakeFiles/arduino_communication.dir/src/arduino_communication.cpp.o[0m
+[0.139s] [ 83%] Built target serial
+[0.823s] [100%] [32m[1mLinking CXX executable arduino_communication[0m
+[1.211s] /usr/bin/ld: CMakeFiles/arduino_communication.dir/src/arduino_communication.cpp.o: in function `main':
+[1.212s] arduino_communication.cpp:(.text+0x9c): undefined reference to `serial::Serial::Serial(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, serial::Timeout, serial::bytesize_t, serial::parity_t, serial::stopbits_t, serial::flowcontrol_t)'
+[1.212s] /usr/bin/ld: arduino_communication.cpp:(.text+0xca): undefined reference to `serial::Serial::isOpen() const'
+[1.212s] /usr/bin/ld: arduino_communication.cpp:(.text+0x135): undefined reference to `serial::Serial::flushOutput()'
+[1.212s] /usr/bin/ld: arduino_communication.cpp:(.text+0x195): undefined reference to `serial::Serial::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+[1.212s] /usr/bin/ld: arduino_communication.cpp:(.text+0x25d): undefined reference to `serial::Serial::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+[1.213s] /usr/bin/ld: arduino_communication.cpp:(.text+0x32b): undefined reference to `serial::Serial::flushInput()'
+[1.213s] /usr/bin/ld: arduino_communication.cpp:(.text+0x346): undefined reference to `serial::Serial::read[abi:cxx11](unsigned long)'
+[1.213s] /usr/bin/ld: arduino_communication.cpp:(.text+0x3aa): undefined reference to `serial::Serial::~Serial()'
+[1.213s] /usr/bin/ld: arduino_communication.cpp:(.text+0x455): undefined reference to `serial::Serial::~Serial()'
+[1.220s] collect2: error: ld returned 1 exit status
+[1.222s] gmake[2]: *** [CMakeFiles/arduino_communication.dir/build.make:151: arduino_communication] Error 1
+[1.223s] gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/arduino_communication.dir/all] Error 2
+[1.223s] gmake: *** [Makefile:146: all] Error 2
+[1.226s] Invoked command in '/home/jayboi/serial_ws/build/arduino_communication' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8

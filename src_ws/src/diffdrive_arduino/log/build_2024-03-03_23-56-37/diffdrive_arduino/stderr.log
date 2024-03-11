@@ -1,0 +1,13 @@
+In file included from [01m[K/home/marcus/diffdrive_arduino/hardware/include/diffdrive_arduino/diffbot_system.hpp:34[m[K,
+                 from [01m[K/home/marcus/diffdrive_arduino/hardware/diffbot_system.cpp:15[m[K:
+[01m[K/home/marcus/diffdrive_arduino/hardware/include/diffdrive_arduino/arduino_comms.hpp:112:1:[m[K [01;31m[Kerror: [m[K‘[01m[Klll[m[K’ does not name a type
+  112 | [01;31m[Klll[m[K
+      | [01;31m[K^~~[m[K
+[01m[K/home/marcus/diffdrive_arduino/hardware/diffbot_system.cpp:[m[K In member function ‘[01m[Kvirtual hardware_interface::CallbackReturn diffdrive_arduino::DiffDriveArduinoHardware::on_activate(const rclcpp_lifecycle::State&)[m[K’:
+[01m[K/home/marcus/diffdrive_arduino/hardware/diffbot_system.cpp:183:12:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass ArduinoComms[m[K’ has no member named ‘[01m[Kset_pid_values[m[K’; did you mean ‘[01m[Kset_motor_values[m[K’?
+  183 |     comms_.[01;31m[Kset_pid_values[m[K(cfg_.pid_p,cfg_.pid_d,cfg_.pid_i,cfg_.pid_o);
+      |            [01;31m[K^~~~~~~~~~~~~~[m[K
+      |            [32m[Kset_motor_values[m[K
+gmake[2]: *** [CMakeFiles/diffdrive_arduino.dir/build.make:76: CMakeFiles/diffdrive_arduino.dir/hardware/diffbot_system.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/diffdrive_arduino.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

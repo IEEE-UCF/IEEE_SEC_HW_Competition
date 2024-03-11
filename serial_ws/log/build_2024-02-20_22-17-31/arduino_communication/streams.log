@@ -1,0 +1,49 @@
+[0.095s] Invoking command in '/home/jayboi/serial_ws/build/arduino_communication': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8
+[0.112s] -- Found ament_cmake: 1.3.7 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.276s] -- Found rclcpp: 16.0.8 (/opt/ros/humble/share/rclcpp/cmake)
+[0.790s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.800s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.814s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.839s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.869s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.938s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.939s] -- Found rmw_fastrtps_cpp: 6.2.6 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[14.845s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[15.012s] -- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[15.072s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[15.072s] -- Configured cppcheck include dirs: /home/jayboi/serial_ws/src/arduino_communication/third-party/include;/home/jayboi/serial_ws/src/arduino_communication/include
+[15.073s] -- Configured cppcheck exclude dirs and/or files: 
+[15.073s] -- Added test 'lint_cmake' to check CMake code style
+[15.074s] -- Added test 'uncrustify' to check C / C++ code style
+[15.074s] -- Configured uncrustify additional arguments: 
+[15.075s] -- Added test 'xmllint' to check XML markup files
+[15.075s] -- Configuring done
+[15.086s] -- Generating done
+[15.089s] -- Build files have been written to: /home/jayboi/serial_ws/build/arduino_communication
+[15.129s] [35m[1mConsolidate compiler generated dependencies of target serial[0m
+[15.164s] [ 16%] [32mBuilding CXX object CMakeFiles/serial.dir/third-party/src/serial.cc.o[0m
+[15.167s] [ 33%] [32mBuilding CXX object CMakeFiles/serial.dir/third-party/src/impl/list_ports/list_ports_linux.cc.o[0m
+[15.168s] [ 50%] [32mBuilding CXX object CMakeFiles/serial.dir/third-party/src/impl/unix.cc.o[0m
+[15.446s] [01m[K/home/jayboi/serial_ws/src/arduino_communication/third-party/src/impl/list_ports/list_ports_linux.cc:[m[K In function ‘[01m[Kstd::vector<std::__cxx11::basic_string<char> > glob(const std::vector<std::__cxx11::basic_string<char> >&)[m[K’:
+[15.446s] [01m[K/home/jayboi/serial_ws/src/arduino_communication/third-party/src/impl/list_ports/list_ports_linux.cc:66:40:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Ksize_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+[15.446s]    66 |     for(int path_index = 0; [01;35m[Kpath_index < glob_results.gl_pathc[m[K; path_index++)
+[15.446s]       |                             [01;35m[K~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[15.446s] [01m[K/home/jayboi/serial_ws/src/arduino_communication/third-party/src/impl/list_ports/list_ports_linux.cc:57:9:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kglob_retval[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+[15.447s]    57 |     int [01;35m[Kglob_retval[m[K = glob(patterns[0].c_str(), 0, NULL, &glob_results);
+[15.447s]       |         [01;35m[K^~~~~~~~~~~[m[K
+[15.450s] [01m[K/home/jayboi/serial_ws/src/arduino_communication/third-party/src/impl/list_ports/list_ports_linux.cc:[m[K In function ‘[01m[Kstd::string format(const char*, ...)[m[K’:
+[15.450s] [01m[K/home/jayboi/serial_ws/src/arduino_communication/third-party/src/impl/list_ports/list_ports_linux.cc:246:31:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Ksize_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+[15.450s]   246 |         else if( [01;35m[Kreturn_value >= buffer_size_bytes[m[K )
+[15.450s]       |                  [01;35m[K~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~[m[K
+[15.681s] [ 66%] [32m[1mLinking CXX static library libserial.a[0m
+[15.708s] [ 66%] Built target serial
+[15.723s] [35m[1mConsolidate compiler generated dependencies of target arduino_communication[0m
+[15.748s] [ 83%] [32mBuilding CXX object CMakeFiles/arduino_communication.dir/src/arduino_communication.cpp.o[0m
+[16.156s] [01m[K/home/jayboi/serial_ws/src/arduino_communication/src/arduino_communication.cpp:8:10:[m[K [01;31m[Kfatal error: [m[Kstd_msgs/msg/string.hpp: No such file or directory
+[16.156s]     8 | #include [01;31m[K"std_msgs/msg/string.hpp"[m[K
+[16.156s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[16.156s] compilation terminated.
+[16.158s] gmake[2]: *** [CMakeFiles/arduino_communication.dir/build.make:76: CMakeFiles/arduino_communication.dir/src/arduino_communication.cpp.o] Error 1
+[16.158s] gmake[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/arduino_communication.dir/all] Error 2
+[16.159s] gmake: *** [Makefile:146: all] Error 2
+[16.162s] Invoked command in '/home/jayboi/serial_ws/build/arduino_communication' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8

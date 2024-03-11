@@ -1,0 +1,27 @@
+[0.031s] Invoking command in '/home/jayboi/serial_ws/build/arduino_communication': /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8
+[0.125s] [35m[1mConsolidate compiler generated dependencies of target serial[0m
+[0.138s] [ 66%] Built target serial
+[0.151s] [35m[1mConsolidate compiler generated dependencies of target arduino_communication[0m
+[0.190s] [100%] Built target arduino_communication
+[0.199s] Invoked command in '/home/jayboi/serial_ws/build/arduino_communication' returned '0': /usr/bin/cmake --build /home/jayboi/serial_ws/build/arduino_communication -- -j8 -l8
+[0.232s] Invoking command in '/home/jayboi/serial_ws/build/arduino_communication': /usr/bin/cmake --install /home/jayboi/serial_ws/build/arduino_communication
+[0.239s] -- Install configuration: ""
+[0.241s] -- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/lib/arduino_communication/arduino_communication
+[0.241s] -- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/ament_index/resource_index/package_run_dependencies/arduino_communication
+[0.241s] -- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/ament_index/resource_index/parent_prefix_path/arduino_communication
+[0.242s] -- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/environment/ament_prefix_path.sh
+[0.242s] -- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/environment/ament_prefix_path.dsv
+[0.242s] -- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/environment/path.sh
+[0.242s] -- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/environment/path.dsv
+[0.243s] -- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/local_setup.bash
+[0.244s] -- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/local_setup.sh
+[0.244s] -- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/local_setup.zsh
+[0.244s] -- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/local_setup.dsv
+[0.245s] -- Installing: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/package.dsv
+[0.245s] -- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/ament_index/resource_index/packages/arduino_communication
+[0.245s] -- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.245s] -- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.246s] -- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/cmake/arduino_communicationConfig.cmake
+[0.246s] -- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/cmake/arduino_communicationConfig-version.cmake
+[0.246s] -- Up-to-date: /home/jayboi/serial_ws/install/arduino_communication/share/arduino_communication/package.xml
+[0.247s] Invoked command in '/home/jayboi/serial_ws/build/arduino_communication' returned '0': /usr/bin/cmake --install /home/jayboi/serial_ws/build/arduino_communication

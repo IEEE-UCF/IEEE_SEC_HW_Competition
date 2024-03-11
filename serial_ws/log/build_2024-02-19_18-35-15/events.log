@@ -1,0 +1,165 @@
+[0.000000] (-) TimerEvent: {}
+[0.001101] (arduino_communication) JobQueued: {'identifier': 'arduino_communication', 'dependencies': OrderedDict()}
+[0.001446] (arduino_communication) JobStarted: {'identifier': 'arduino_communication'}
+[0.057097] (arduino_communication) JobProgress: {'identifier': 'arduino_communication', 'progress': 'cmake'}
+[0.057828] (arduino_communication) JobProgress: {'identifier': 'arduino_communication', 'progress': 'build'}
+[0.058841] (arduino_communication) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jayboi/serial_ws/build/arduino_communication', '--', '-j8', '-l8'], 'cwd': '/home/jayboi/serial_ws/build/arduino_communication', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jayboi'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('WT_PROFILE_ID', '{51855cb2-8cce-5362-8f54-464b92b32386}'), ('HOME', '/home/jayboi'), ('OLDPWD', '/home/jayboi/serial_ws/src'), ('NVM_BIN', '/home/jayboi/.nvm/versions/node/v20.4.0/bin'), ('NVM_INC', '/home/jayboi/.nvm/versions/node/v20.4.0/include/node'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu'), ('NVM_DIR', '/home/jayboi/.nvm'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'jayboi'), ('NAME', 'DESKTOP-LIPJTB3'), ('WSL_INTEROP', '/run/WSL/5701_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/jayboi/.nvm/versions/node/v20.4.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/iCLS/:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/iCLS/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files (x86)/Webex/Plugins:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/usbipd-win/:/mnt/c/Users/jayli/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/jayli/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/jayli/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/jayli/Documents/Flutter/flutter/bin:/snap/bin'), ('WT_SESSION', '169e5d28-9b2c-4441-9918-48520f69cf6b'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/jayboi/serial_ws/build/arduino_communication'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.080081] (arduino_communication) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.7 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.098950] (-) TimerEvent: {}
+[0.199481] (-) TimerEvent: {}
+[0.300436] (-) TimerEvent: {}
+[0.401314] (-) TimerEvent: {}
+[0.453733] (arduino_communication) StdoutLine: {'line': b'-- Found rclcpp: 16.0.8 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.501513] (-) TimerEvent: {}
+[0.602093] (-) TimerEvent: {}
+[0.637168] (arduino_communication) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.639745] (arduino_communication) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.645317] (arduino_communication) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.669929] (arduino_communication) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.697522] (arduino_communication) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.702223] (-) TimerEvent: {}
+[0.752956] (arduino_communication) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.754030] (arduino_communication) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.6 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.802357] (-) TimerEvent: {}
+[0.903083] (-) TimerEvent: {}
+[1.004415] (-) TimerEvent: {}
+[1.105707] (-) TimerEvent: {}
+[1.206671] (-) TimerEvent: {}
+[1.307822] (-) TimerEvent: {}
+[1.409181] (-) TimerEvent: {}
+[1.510836] (-) TimerEvent: {}
+[1.611868] (-) TimerEvent: {}
+[1.712863] (-) TimerEvent: {}
+[1.814024] (-) TimerEvent: {}
+[1.915170] (-) TimerEvent: {}
+[2.015973] (-) TimerEvent: {}
+[2.116981] (-) TimerEvent: {}
+[2.218039] (-) TimerEvent: {}
+[2.319203] (-) TimerEvent: {}
+[2.420427] (-) TimerEvent: {}
+[2.521645] (-) TimerEvent: {}
+[2.622633] (-) TimerEvent: {}
+[2.723677] (-) TimerEvent: {}
+[2.824572] (-) TimerEvent: {}
+[2.925373] (-) TimerEvent: {}
+[3.026186] (-) TimerEvent: {}
+[3.126956] (-) TimerEvent: {}
+[3.227817] (-) TimerEvent: {}
+[3.328744] (-) TimerEvent: {}
+[3.429544] (-) TimerEvent: {}
+[3.530136] (-) TimerEvent: {}
+[3.631047] (-) TimerEvent: {}
+[3.731889] (-) TimerEvent: {}
+[3.832683] (-) TimerEvent: {}
+[3.933349] (-) TimerEvent: {}
+[4.034282] (-) TimerEvent: {}
+[4.135149] (-) TimerEvent: {}
+[4.235974] (-) TimerEvent: {}
+[4.336735] (-) TimerEvent: {}
+[4.437580] (-) TimerEvent: {}
+[4.538397] (-) TimerEvent: {}
+[4.639331] (-) TimerEvent: {}
+[4.740412] (-) TimerEvent: {}
+[4.841269] (-) TimerEvent: {}
+[4.942275] (-) TimerEvent: {}
+[5.043124] (-) TimerEvent: {}
+[5.144037] (-) TimerEvent: {}
+[5.244812] (-) TimerEvent: {}
+[5.345698] (-) TimerEvent: {}
+[5.446562] (-) TimerEvent: {}
+[5.547305] (-) TimerEvent: {}
+[5.648169] (-) TimerEvent: {}
+[5.749159] (-) TimerEvent: {}
+[5.850347] (-) TimerEvent: {}
+[5.951280] (-) TimerEvent: {}
+[6.052202] (-) TimerEvent: {}
+[6.153178] (-) TimerEvent: {}
+[6.253950] (-) TimerEvent: {}
+[6.354945] (-) TimerEvent: {}
+[6.455696] (-) TimerEvent: {}
+[6.556917] (-) TimerEvent: {}
+[6.658991] (-) TimerEvent: {}
+[6.761030] (-) TimerEvent: {}
+[6.863125] (-) TimerEvent: {}
+[6.965385] (-) TimerEvent: {}
+[7.067518] (-) TimerEvent: {}
+[7.169691] (-) TimerEvent: {}
+[7.272667] (-) TimerEvent: {}
+[7.375267] (-) TimerEvent: {}
+[7.477442] (-) TimerEvent: {}
+[7.579945] (-) TimerEvent: {}
+[7.682368] (-) TimerEvent: {}
+[7.784614] (-) TimerEvent: {}
+[7.886867] (-) TimerEvent: {}
+[7.989162] (-) TimerEvent: {}
+[8.091586] (-) TimerEvent: {}
+[8.194047] (-) TimerEvent: {}
+[8.296074] (-) TimerEvent: {}
+[8.398863] (-) TimerEvent: {}
+[8.500840] (-) TimerEvent: {}
+[8.602215] (-) TimerEvent: {}
+[8.703213] (-) TimerEvent: {}
+[8.804002] (-) TimerEvent: {}
+[8.904698] (-) TimerEvent: {}
+[9.005195] (-) TimerEvent: {}
+[9.105858] (-) TimerEvent: {}
+[9.206331] (-) TimerEvent: {}
+[9.306789] (-) TimerEvent: {}
+[9.407244] (-) TimerEvent: {}
+[9.507705] (-) TimerEvent: {}
+[9.608168] (-) TimerEvent: {}
+[9.708616] (-) TimerEvent: {}
+[9.809082] (-) TimerEvent: {}
+[9.909529] (-) TimerEvent: {}
+[10.009952] (-) TimerEvent: {}
+[10.110348] (-) TimerEvent: {}
+[10.210822] (-) TimerEvent: {}
+[10.311228] (-) TimerEvent: {}
+[10.411727] (-) TimerEvent: {}
+[10.512141] (-) TimerEvent: {}
+[10.612548] (-) TimerEvent: {}
+[10.713014] (-) TimerEvent: {}
+[10.813442] (-) TimerEvent: {}
+[10.913942] (-) TimerEvent: {}
+[11.014320] (-) TimerEvent: {}
+[11.114754] (-) TimerEvent: {}
+[11.215284] (-) TimerEvent: {}
+[11.315666] (-) TimerEvent: {}
+[11.416020] (-) TimerEvent: {}
+[11.516455] (-) TimerEvent: {}
+[11.616870] (-) TimerEvent: {}
+[11.717293] (-) TimerEvent: {}
+[11.817773] (-) TimerEvent: {}
+[11.918416] (-) TimerEvent: {}
+[12.018956] (-) TimerEvent: {}
+[12.071563] (arduino_communication) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[12.119117] (-) TimerEvent: {}
+[12.219557] (-) TimerEvent: {}
+[12.223502] (arduino_communication) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[12.282672] (arduino_communication) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[12.282949] (arduino_communication) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/jayboi/serial_ws/src/arduino_communication/third-party/include\n'}
+[12.283088] (arduino_communication) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[12.283481] (arduino_communication) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[12.284571] (arduino_communication) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[12.284723] (arduino_communication) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[12.285042] (arduino_communication) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[12.286066] (arduino_communication) StdoutLine: {'line': b'-- Configuring done\n'}
+[12.287912] (arduino_communication) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:14 (add_library):\n'}
+[12.288037] (arduino_communication) StderrLine: {'line': b'  Cannot find source file:\n'}
+[12.288096] (arduino_communication) StderrLine: {'line': b'\n'}
+[12.288148] (arduino_communication) StderrLine: {'line': b'    third-party/src/serial.cc\n'}
+[12.288198] (arduino_communication) StderrLine: {'line': b'\n'}
+[12.288246] (arduino_communication) StderrLine: {'line': b'  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm .h\n'}
+[12.288321] (arduino_communication) StderrLine: {'line': b'  .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90 .f95 .f03 .hip .ispc\n'}
+[12.288371] (arduino_communication) StderrLine: {'line': b'\n'}
+[12.288420] (arduino_communication) StderrLine: {'line': b'\x1b[0m\n'}
+[12.288715] (arduino_communication) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:14 (add_library):\n'}
+[12.288793] (arduino_communication) StderrLine: {'line': b'  No SOURCES given to target: serial\n'}
+[12.288849] (arduino_communication) StderrLine: {'line': b'\n'}
+[12.288902] (arduino_communication) StderrLine: {'line': b'\x1b[0m\n'}
+[12.288959] (arduino_communication) StderrLine: {'line': b'\x1b[0mCMake Generate step failed.  Build files cannot be regenerated correctly.\x1b[0m\n'}
+[12.293790] (arduino_communication) StderrLine: {'line': b'gmake: *** [Makefile:362: cmake_check_build_system] Error 1\n'}
+[12.295708] (arduino_communication) CommandEnded: {'returncode': 2}
+[12.319771] (-) TimerEvent: {}
+[12.367364] (arduino_communication) JobEnded: {'identifier': 'arduino_communication', 'rc': 2}
+[12.369499] (-) EventReactorShutdown: {}
