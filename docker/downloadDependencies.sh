@@ -14,5 +14,14 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 
 sudo apt update
 
+rosdep update --rosdistro=$ROS_DISTRO
+sudo apt-get update
+cd dependencies
+rosdep install --from-paths src --ignore-src -r -y
+. /opt/ros/${ROS_DISTRO}/setup.sh
+
 sudo apt install -y ros-humble-rmw-cyclonedds-cpp
+
+
+
 
