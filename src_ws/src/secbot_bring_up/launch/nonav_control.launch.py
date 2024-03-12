@@ -19,9 +19,6 @@ def generate_launch_description():
     navigation_package_name = 'secbot_navigation'
     simulation_package_name = 'secbot_simulation'
 
-    ekf_params_file = os.path.join(get_package_share_directory(navigation_package_name), 'config', 'ekf.yaml')
-    gazebo_params_path = os.path.join(get_package_share_directory(simulation_package_name),'config','gazebo_params.yaml')
-
     # Launch config variables specific to sim
     use_sim_time = LaunchConfiguration('use_sim_time')
     use_ros2_control = LaunchConfiguration('use_ros2_control')
@@ -55,7 +52,7 @@ def generate_launch_description():
 
     robot_description = Command(['ros2 param get --hide-type /robot_state_publisher robot_description'])
 
-    controller_params_file = os.path.join(get_package_share_directory(secbot_description), 'config', 'hw_controller_manager.yaml')
+    controller_params_file = os.path.join(get_package_share_directory(secbot_description), 'config', 'hw_controller_config.yaml')
 
     start_controller_manager = Node(
         package="controller_manager",
@@ -99,9 +96,6 @@ def generate_launch_description():
         parameters=[ekf_params_file]
     )
 
-    # to control manually:
-    # gazebo_control.xacro
-    #   ros2 run teleop_twist_keyboard teleop_twist_keyboard
     # ros2_control.xacro
     #   ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_drive_controller/cmd_vel_unstamped
     # in separate terminal
