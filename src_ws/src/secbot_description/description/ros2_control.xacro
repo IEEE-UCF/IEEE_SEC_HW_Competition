@@ -7,17 +7,17 @@
                 <plugin>diffdrive_arduino/DiffDriveArduinoHardware</plugin>
             </hardware>
 
-            <joint name="$l_wheel_joints" type="continuous">
+            <joint name="l_wheel_joints" type="continuous">
                 <parent link="chassis"/>
-                <child link="${prefix}_wheel_link"/>
-                <origin xyz="${l_r*wheel_x_displacement} ${f_b*wheel_y_displacement} ${wheel_z_displacement}" rpy="0 0 0"/>
+                <child link="l_wheel_link"/>
+                <origin xyz="${-1*wheel_x_displacement} ${0} ${wheel_z_displacement}" rpy="0 0 0"/>
                 <axis xyz="0 1 0"/>
             </joint>
 
-            <joint name="$r_wheel_joints" type="continuous">
+            <joint name="r_wheel_joints" type="continuous">
                 <parent link="chassis"/>
-                <child link="${prefix}_wheel_link"/>
-                <origin xyz="${l_r*wheel_x_displacement} ${f_b*wheel_y_displacement} ${wheel_z_displacement}" rpy="0 0 0"/>
+                <child link="r_wheel_link"/>
+                <origin xyz="${wheel_x_displacement} ${0} ${wheel_z_displacement}" rpy="0 0 0"/>
                 <axis xyz="0 1 0"/>
             </joint>
         </ros2_control>

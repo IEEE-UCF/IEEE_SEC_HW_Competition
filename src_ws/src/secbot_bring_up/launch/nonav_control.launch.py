@@ -19,6 +19,8 @@ def generate_launch_description():
     navigation_package_name = 'secbot_navigation'
     simulation_package_name = 'secbot_simulation'
 
+    ekf_params_file = os.path.join(get_package_share_directory(navigation_package_name), 'config', 'ekf.yaml')
+
     # Launch config variables specific to sim
     use_sim_time = LaunchConfiguration('use_sim_time')
     use_ros2_control = LaunchConfiguration('use_ros2_control')
@@ -27,7 +29,7 @@ def generate_launch_description():
     # Declare launch arguments
     declare_use_sim_time_cmd = DeclareLaunchArgument(
         name='use_sim_time',
-        default_value='false',
+        default_value='False',
         description='Use simulation (Gazebo) clock if true'
     )
 
@@ -52,7 +54,7 @@ def generate_launch_description():
 
     robot_description = Command(['ros2 param get --hide-type /robot_state_publisher robot_description'])
 
-    controller_params_file = os.path.join(get_package_share_directory(secbot_description), 'config', 'hw_controller_config.yaml')
+    controller_params_file = os.path.join(get_package_share_directory(description_package_name), 'config', 'hw_controller_config.yaml')
 
     start_controller_manager = Node(
         package="controller_manager",
@@ -61,7 +63,7 @@ def generate_launch_description():
                       controller_params_file]
     )
 
-    delayed_controller_manager = TimerAction(period=3.0, actions=[controller_manager])
+    delayed_controller_manager = TimerAction(period=3.0, actions=[start_controller_manager])
 
     start_diff_drive_spawner = Node(
         package="controller_manager",
@@ -71,7 +73,7 @@ def generate_launch_description():
 
     delayed_diff_drive_spawner = RegisterEventHandler(
         event_handler=OnProcessStart(
-            target_action=controller_manager,
+            target_action=start_controller_manager,
             on_start=[start_diff_drive_spawner]
         )
     )
@@ -84,7 +86,7 @@ def generate_launch_description():
 
     delayed_joint_state_spawner = RegisterEventHandler(
         event_handler=OnProcessStart(
-            target_action=controller_manager,
+            target_action=start_controller_manager,
             on_start=[start_joint_broad_spawner]
         )
     )
@@ -107,9 +109,9 @@ def generate_launch_description():
     ld.add_action(declare_use_robot_localization)
 
     ld.add_action(start_robot_state_publisher)
-    ld.add_action(start_robot_localization)
+    # ld.add_action(start_robot_localization)
     ld.add_action(delayed_controller_manager)
-    ld.add_action(delayed_diff_drive_spawner)
-    ld.add_action(delayed_joint_state_spawner)
+    # ld.add_action(delayed_diff_drive_spawner)
+    # ld.add_action(delayed_joint_state_spawner)
 
     return ld
