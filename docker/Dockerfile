@@ -45,9 +45,12 @@ COPY docker/downloadDependencies.sh /downloadDependencies.sh
 COPY docker/bashrc /root/tmp/tmpbashrc
 RUN cat /root/tmp/tmpbashrc >> /root/.bashrc  && rm -f /root/tmp/tmpbashrc
 
+#copy 
+
 # might need to copy the script over first
+COPY src_ws /dependencies
 run /downloadDependencies.sh
-#COPY src_ws /src_ws
+
 
 # Set up entrypoint and default command
 ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
