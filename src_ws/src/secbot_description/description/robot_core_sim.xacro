@@ -3,6 +3,23 @@
 
     <xacro:include filename="inertial_macros.xacro"/>
 
+    <!-- Meters -->
+    <xacro:property name="chassis_length" value="0.205"/> <!--X-->
+    <xacro:property name="chassis_width" value="0.205"/> <!--Y-->
+    <xacro:property name="chassis_height" value="0.205"/> <!--Z-->
+    <xacro:property name="chassis_mass" value="10"/> <!--WHat is the unit for this?-->
+    <xacro:property name="chassis_z_offset" value="0.1"/> <!--Currently unused, going to try to implement for total height translation-->
+
+    <xacro:property name="wheel_radius" value="0.05"/> <!-- Update wheel radius paramter in controllers.yaml as well-->
+    <xacro:property name="wheel_length" value="0.025"/>
+    <xacro:property name="wheel_mass" value="10"/>
+
+
+    <!-- The difference between bottom middle of chassis and wheel position(s)-->
+    <xacro:property name="wheel_x_displacement" value="${chassis_length/4}"/>
+    <xacro:property name="wheel_y_displacement" value="${chassis_width/2+wheel_radius}"/> <!-- Update wheel separation paramter in controllers.yaml as well-->
+    <xacro:property name="wheel_z_displacement" value="0.03"/>
+
     <!-- Base Link -->
     <link name="base_link"/>
 

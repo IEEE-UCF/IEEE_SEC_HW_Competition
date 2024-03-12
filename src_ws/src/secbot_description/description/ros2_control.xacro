@@ -45,16 +45,16 @@
         </ros2_control>
 
         <!-- IMU sensor--> 
-        <ros2_control name='da_imu' type='sensor'>
+        <!-- <ros2_control name='da_imu' type='sensor'>
             <hardware>
-                <plugin><!--IMU SENSOR PLUGIN HERE--></plugin>
-                <param name='sensor_name'><!-- SAME AS IN controllers.yaml--></param>
+                <plugin>IMU SENSOR PLUGIN HERE</plugin>
+                <param name='sensor_name'>SAME AS IN controllers.yaml</param>
                 <param name='frame_id'>imu_link</param>
             </hardware>
             <sensor name=''>
-                <!--STATE INTERFACES HERE-->
+                STATE INTERFACES HERE
             </sensor>
-        </ros2_control>
+        </ros2_control>  -->
     </xacro:unless>
 
     <xacro:if value="$(arg sim_mode)">
