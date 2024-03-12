@@ -63,9 +63,6 @@
         </xacro:inertial_box>
     </link>
 
-    left_wheel_names: ['l_wheel_joints']
-    right_wheel_names: ['r_wheel_joints']
-
     <!-- Wheels -->
     <joint name="$l_wheel_joints" type="continuous">
         <parent link="chassis"/>
