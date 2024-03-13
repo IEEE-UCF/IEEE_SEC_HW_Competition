@@ -6,8 +6,24 @@
 
 int main() {
 
-    std::system("ros2 launch secbot_simulation launch_sim.launch.py &");
+    std::system("ros2 run secbot_bringup node_checker");
 
+
+
+    std::cout<<"node_checker should've ended, go check";
+
+
+
+
+    return 0;
+
+}
+
+/*
+    
+    for(int i)
+    
+    
     run a node that listens to rosout. if rosout msgs doesnt match right msg, wait one second, and try again.
 
     Return 0 if msgs match, or try five times and return 1(while i<5, wait sec, check, i++).
@@ -23,7 +39,4 @@ int main() {
 
     non continuos topic that listens, then runs detsroy, rcl:shut, pkill
 
-
-    return 0;
-
-}
+*/
