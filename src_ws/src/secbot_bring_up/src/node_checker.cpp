@@ -2,27 +2,64 @@
 #include "rcl_interfaces/msg/log.hpp"
 #include <thread>
 
-void launch_gazebo_async(){
+int current_time = 0;
+int repeat_count = 0;
+
+// CHANGE THIS TO RESTART UPON FAILURE AN EXACT NUMBER OF TIMES
+const int repeat_tolerance = 4;
+
+//CHANGE THIS IF YOU WANT ALL PROCESSES TO END UPON SUCCESS
+const bool break_for_testing = true;
+
+
+
+
+void current_launch_async(){
 
   std::system("ros2 launch secbot_simulation launch_sim.launch.py &");
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Launching Gazebo Launch Now.");
 
 }
 
 
+void timerCallback(){
+  
+  //INCREASE MAX_WAIT IF THE FILE TAKES LONGER TO START
+  const int max_wait = 15;
+  current_time++;
+
+  if((current_time % max_wait) == 0){
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "STARTUP FAILED - TRYING AGAIN");
+    
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+
+    // CHANGE THIS DEPENDING ON NODES
+    std::system("pkill -2 -f 'robot_state_publisher'");
+    std::system("pkill -2 -f 'gzserver'");
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+
+    if(repeat_count < repeat_tolerance){
+    repeat_count++;
+    current_launch_async();
+    }
+    else{
+      rclcpp::shutdown();
+    }
+  }
+
+}
+
 auto checker_callback(const rcl_interfaces::msg::Log msg){
 
-  const bool break_for_testing = true;
 
-  static int times_called = 0;
-  times_called++;
 
-  const char* gud_msg[] = {"HAHAHAHHACalling service /spawn_entity","Loaded gazebo_ros2_control."};
+  //CHANGE ARRAY BASED ON MESSAGES YOU WISH TO SEE
+  const char* gud_msg[] = {"Calling service /spawn_entity","Loaded gazebo_ros2_control."};
   static int gud_msg_count = 0;
 
-  if (strcmp(msg.msg.c_str(), gud_msg[gud_msg_count]) == 0){
+  if (strcmp(msg.msg.c_str(), gud_msg[gud_msg_count % 2]) == 0){
     
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "It worked");
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "GOOD MESSAGE FOUND");
     
     gud_msg_count++;
 
@@ -30,35 +67,25 @@ auto checker_callback(const rcl_interfaces::msg::Log msg){
   
   if(gud_msg_count == static_cast<int>(sizeof(gud_msg)/sizeof(gud_msg[0]))){
     
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Full Startup Succesful");
-
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "times called: %d", times_called);
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "STARTUP WAS SUCCESFUL");
 
     if(break_for_testing == true){
       
-      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Destroying nodes since testing enabled");
+      //CHANGE THIS DEPENDING ON NODES
       std::system("pkill -2 -f 'robot_state_publisher'");
       std::system("pkill -2 -f 'gzserver'");
 
+      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "DESTROYED LAUNCH SINCE TESTING ENABLED");
     }
-
+    else{
+      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "ENDING PROCESS WITH NODES ACTIVE");
+    }
+    //IF THERE ARE MANY NODES TO KILL AND TESTING ENABLED - INCREASE TIME
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     rclcpp::shutdown();
 
   }
-
-  
-  if(times_called==18 && gud_msg_count != static_cast<int>(sizeof(gud_msg)/sizeof(gud_msg[0]))){
-      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Startup Failed, Rerunning Gazebo");
-      std::system("pkill -2 -f 'robot_state_publisher'");
-      std::system("pkill -2 -f 'gzserver'");
-
-      std::this_thread::sleep_for(std::chrono::milliseconds(300));
-
-      launch_gazebo_async();
-
-  }
-
-  
 
 }
 
@@ -71,10 +98,9 @@ int main(int argc, char ** argv)
 
   auto checknode = node->create_subscription<rcl_interfaces::msg::Log>(
     "/rosout", rclcpp::SystemDefaultsQoS(), &checker_callback);
-
-  (void)std::async(std::launch::async, launch_gazebo_async);
-
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "STARTING CHECKER NODE");
+  
+  auto timer = node->create_wall_timer(std::chrono::seconds(1), timerCallback);
+  (void)std::async(std::launch::async, current_launch_async);
 
   rclcpp::spin(node);
 
