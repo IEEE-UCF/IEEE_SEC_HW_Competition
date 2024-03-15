@@ -31,6 +31,8 @@ def generate_launch_description():
         parameters=[params]
     )
 
+    print(f"{use_sim_time}\n\n")
+
     # Run the node
     return LaunchDescription([
         DeclareLaunchArgument(
