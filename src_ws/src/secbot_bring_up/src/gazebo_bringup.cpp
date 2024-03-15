@@ -34,9 +34,12 @@ void timerCallback(){
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
     // CHANGE THIS DEPENDING ON NODES
-    std::system("pkill -2 -f 'robot_state_publisher'");
-    std::system("pkill -2 -f 'gzserver'");
-    std::system("pkill -2 -f 'ekf_node'");
+      std::system("pkill -2 -f 'robot_state_publisher'");
+      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+      std::system("pkill -2 -f 'gzserver'");
+      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+      std::system("pkill -2 -f 'ekf_node'");
+      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
@@ -75,12 +78,15 @@ auto checker_callback(const rcl_interfaces::msg::Log msg){
       
       //CHANGE THIS DEPENDING ON NODES
       std::system("pkill -2 -f 'robot_state_publisher'");
-      std::system("pkill -2 -f 'gzserver'");
-      std::system("pkill -2 -f 'ekf_node'");
-
-
       std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "DESTROYED LAUNCH SINCE TESTING ENABLED");
+      std::system("pkill -2 -f 'gzserver'");
+      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+      std::system("pkill -2 -f 'ekf_node'");
+      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+
+      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "DESTROYING LAUNCH SINCE TESTING ENABLED");
+      std::this_thread::sleep_for(std::chrono::seconds(2));
     }
     else{
       RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "ENDING PROCESS WITH NODES ACTIVE");
