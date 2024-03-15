@@ -32,7 +32,17 @@ RUN apt-get update \
 
 RUN usermod -aG dialout ${USERNAME} 
 
-
+#RUN apt-get update && mkdir -p ${ROS_ROOT}/src && cd ${ROS_ROOT}/src \
+#    && git config --global http.postBuffer 524288000 \
+#    && git clone https://github.com/ros-planning/navigation2.git && cd navigation2 && git checkout ec49c2772a0926c86ca83a4933c664744712e2e9 && cd .. \
+#    && git clone https://github.com/BehaviorTree/BehaviorTree.CPP.git && cd BehaviorTree.CPP && git checkout a363bdcae88350bc748598a7d2950e300859469c && cd .. \
+#    && source ${ROS_ROOT}/install/setup.bash && cd ${ROS_ROOT} \
+##    && git config http.postBuffer 524288000 \
+#    && rosdep install -y -r --ignore-src --from-paths src --rosdistro ${ROS_DISTRO} --skip-keys "gazebo_ros_pkgs" \
+#    && colcon build --merge-install --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo --packages-up-to-regex nav2* --packages-ignore nav2_system_tests \
+#    && rm -Rf src build log \
+##&& rm -rf /var/lib/apt/lists/* \
+##&& apt-get clean
 
 
 # Copy the entrypoint and bashrc scripts so we have 
