@@ -15,7 +15,8 @@ const bool break_for_testing = true;
 
 
 void current_launch_async(){
-
+  
+  //CHANGE THIS DEPENDING ON WHICH LAUNCH FILE YOU WANT
   std::system("ros2 launch secbot_simulation launch_sim.launch.py &");
 
 }
@@ -35,6 +36,7 @@ void timerCallback(){
     // CHANGE THIS DEPENDING ON NODES
     std::system("pkill -2 -f 'robot_state_publisher'");
     std::system("pkill -2 -f 'gzserver'");
+    std::system("pkill -2 -f 'ekf_node'");
 
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
@@ -54,10 +56,10 @@ auto checker_callback(const rcl_interfaces::msg::Log msg){
 
 
   //CHANGE ARRAY BASED ON MESSAGES YOU WISH TO SEE
-  const char* gud_msg[] = {"Calling service /spawn_entity","Loaded gazebo_ros2_control."};
+  const char* gud_msg[] = {"Calling service /spawn_entity","Loaded gazebo_ros2_control.","\033[92mConfigured and activated \033[1mjoint_state_broadcaster\033[0m","\033[92mConfigured and activated \033[1mdiff_drive_controller\033[0m"};
   static int gud_msg_count = 0;
 
-  if (strcmp(msg.msg.c_str(), gud_msg[gud_msg_count % 2]) == 0){
+  if (strcmp(msg.msg.c_str(), gud_msg[gud_msg_count % 4]) == 0){
     
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "GOOD MESSAGE FOUND");
     
@@ -74,6 +76,8 @@ auto checker_callback(const rcl_interfaces::msg::Log msg){
       //CHANGE THIS DEPENDING ON NODES
       std::system("pkill -2 -f 'robot_state_publisher'");
       std::system("pkill -2 -f 'gzserver'");
+      std::system("pkill -2 -f 'ekf_node'");
+
 
       std::this_thread::sleep_for(std::chrono::milliseconds(1000));
       RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "DESTROYED LAUNCH SINCE TESTING ENABLED");

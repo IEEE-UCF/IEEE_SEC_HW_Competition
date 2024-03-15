@@ -6,7 +6,12 @@
 
 int main() {
 
-    std::system("ros2 run secbot_bring_up node_checker");
+    // while(true){
+    // }    
+
+
+
+    std::system("ros2 run secbot_bring_up gazebo_bringup");
 
 
 
