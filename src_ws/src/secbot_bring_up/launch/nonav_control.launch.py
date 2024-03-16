@@ -18,6 +18,8 @@ def generate_launch_description():
     description_package_name = 'secbot_description'
     navigation_package_name = 'secbot_navigation'
     simulation_package_name = 'secbot_simulation'
+    
+    pkg_path = os.path.join(get_package_share_directory(description_package_name))
 
     ekf_params_file = os.path.join(get_package_share_directory(navigation_package_name), 'config', 'ekf.yaml')
 
@@ -41,7 +43,7 @@ def generate_launch_description():
 
     declare_use_robot_localization = DeclareLaunchArgument(
         name='use_robot_localization',
-        default_value='false',
+        default_value='true',
         description='Use robot_localization if true'
     )
 
@@ -52,23 +54,27 @@ def generate_launch_description():
                                        'use_ros2_control': use_ros2_control}.items()
     )
 
-    robot_description = Command(['ros2 param get --hide-type /robot_state_publisher robot_description'])
+    xacro_file = os.path.join(pkg_path,'description','sec_description.urdf.xacro')
+
+    robot_description_content = Command(['xacro ', xacro_file])
+    robot_description = {"robot_description": robot_description_content}
+    robot_controllers = os.path.join(get_package_share_directory(description_package_name), 'config', 'hw_controller_config.yaml')
+
 
     controller_params_file = os.path.join(get_package_share_directory(description_package_name), 'config', 'hw_controller_config.yaml')
 
     start_controller_manager = Node(
         package="controller_manager",
         executable="ros2_control_node",
-        parameters=[{'robot_description': robot_description},
-                      controller_params_file]
+        parameters=[robot_description, robot_controllers]
     )
 
     delayed_controller_manager = TimerAction(period=3.0, actions=[start_controller_manager])
 
     start_diff_drive_spawner = Node(
         package="controller_manager",
-        executable="spawner.py",
-        arguments=["diff_cont"]
+        executable="spawner",
+        arguments=["diff_drive_controller", "--controller-manager", "/controller_manager"]
     )
 
     delayed_diff_drive_spawner = RegisterEventHandler(
@@ -80,8 +86,8 @@ def generate_launch_description():
 
     start_joint_broad_spawner = Node(
         package="controller_manager",
-        executable="spawner.py",
-        arguments=["joint_broad"]
+        executable="spawner",
+        arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"]
     )
 
     delayed_joint_state_spawner = RegisterEventHandler(
@@ -115,9 +121,9 @@ def generate_launch_description():
     ld.add_action(declare_use_robot_localization)
 
     ld.add_action(start_robot_state_publisher)
-    # ld.add_action(start_robot_localization)
+    ld.add_action(start_robot_localization)
     ld.add_action(delayed_controller_manager)
-    # ld.add_action(delayed_diff_drive_spawner)
-    # ld.add_action(delayed_joint_state_spawner)
+    ld.add_action(delayed_diff_drive_spawner)
+    ld.add_action(delayed_joint_state_spawner)
 
     return ld
