@@ -122,7 +122,7 @@ class DetectBall(Node):
         self.vel_counter += 1 if (0 <= msg.angular.z <= 0.05) and (0 <= msg.linear.x <= 0.1) else 0
         if self.vel_counter >= 15:
             self.get_logger().info("The robot seems to be infront of it's target. Ending detect_ball..")
-            subprocess.call("pkill -f ball_tracker_launch.py", shell=True)
+            subprocess.call("pkill -2 -f ball_tracker_launch.py", shell=True)
             self.destroy_node()
             rclpy.shutdown()
 

@@ -9,7 +9,7 @@ int repeat_count = 0;
 const int repeat_tolerance = 4;
 
 //CHANGE THIS IF YOU WANT ALL PROCESSES TO END UPON SUCCESS
-const bool break_for_testing = true;
+const bool break_for_testing = false;
 
 
 

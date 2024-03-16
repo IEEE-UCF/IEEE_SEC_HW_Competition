@@ -6,12 +6,9 @@
 
 int main() {
 
-    // while(true){
-    // }    
-
-
-
     std::system("ros2 run secbot_bring_up gazebo_bringup");
+    std::system("ros2 run secbot_bring_up nav_bringup");
+    std::system("ros2 run secbot_bring_up waypoint_bringup");
 
 
 
