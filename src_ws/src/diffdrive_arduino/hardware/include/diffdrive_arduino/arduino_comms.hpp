@@ -67,12 +67,12 @@ public:
     }
     catch (const LibSerial::ReadTimeout&)
     {
-        std::cerr << "The ReadByte() call has timed out." << std::endl ;
+        std::cerr << "The ReadByte() call has timed out." << std::endl;
     }
 
     if (print_output)
     {
-      std::cout << "teteSent: " << msg_to_send << " Recv: " << response << std::endl;
+      std::cout << "Sent: " << msg_to_send << " Recv: " << response << std::endl;
     } 
 
     return response;
@@ -86,9 +86,8 @@ public:
 
   void read_encoder_values(int &val_1, int &val_2)
   {
-    // std::string response = send_msg("e\r");
-    std::string response ="";
-    serial_conn_.ReadLine(response, '\r\n', timeout_ms_);
+     std::string response = send_msg("e\r");
+    //std::string response ="";
 
     std::string delimiter = " ";
     size_t del_pos = response.find(delimiter);

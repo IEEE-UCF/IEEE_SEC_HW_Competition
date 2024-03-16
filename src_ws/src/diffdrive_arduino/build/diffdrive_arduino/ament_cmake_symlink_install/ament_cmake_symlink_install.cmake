@@ -23,7 +23,7 @@ function(ament_cmake_symlink_install_directory cmake_current_source_dir)
 
   # make destination absolute path and ensure that it exists
   if(NOT IS_ABSOLUTE "${ARG_DESTINATION}")
-    set(ARG_DESTINATION "/home/marcus/diffdrive_arduino/install/diffdrive_arduino/${ARG_DESTINATION}")
+    set(ARG_DESTINATION "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/install/diffdrive_arduino/${ARG_DESTINATION}")
   endif()
   if(NOT EXISTS "${ARG_DESTINATION}")
     file(MAKE_DIRECTORY "${ARG_DESTINATION}")
@@ -123,7 +123,7 @@ function(ament_cmake_symlink_install_files cmake_current_source_dir)
 
   # make destination an absolute path and ensure that it exists
   if(NOT IS_ABSOLUTE "${ARG_DESTINATION}")
-    set(ARG_DESTINATION "/home/marcus/diffdrive_arduino/install/diffdrive_arduino/${ARG_DESTINATION}")
+    set(ARG_DESTINATION "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/install/diffdrive_arduino/${ARG_DESTINATION}")
   endif()
   if(NOT EXISTS "${ARG_DESTINATION}")
     file(MAKE_DIRECTORY "${ARG_DESTINATION}")
@@ -181,7 +181,7 @@ function(ament_cmake_symlink_install_programs cmake_current_source_dir)
 
   # make destination an absolute path and ensure that it exists
   if(NOT IS_ABSOLUTE "${ARG_DESTINATION}")
-    set(ARG_DESTINATION "/home/marcus/diffdrive_arduino/install/diffdrive_arduino/${ARG_DESTINATION}")
+    set(ARG_DESTINATION "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/install/diffdrive_arduino/${ARG_DESTINATION}")
   endif()
   if(NOT EXISTS "${ARG_DESTINATION}")
     file(MAKE_DIRECTORY "${ARG_DESTINATION}")
@@ -251,7 +251,7 @@ function(ament_cmake_symlink_install_targets)
 
     # make destination an absolute path and ensure that it exists
     if(NOT IS_ABSOLUTE "${destination}")
-      set(destination "/home/marcus/diffdrive_arduino/install/diffdrive_arduino/${destination}")
+      set(destination "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/install/diffdrive_arduino/${destination}")
     endif()
     if(NOT EXISTS "${destination}")
       file(MAKE_DIRECTORY "${destination}")
@@ -311,70 +311,70 @@ message(STATUS "Execute custom install script")
 # begin of custom install code
 
 # install(FILES "diffdrive_arduino.xml" "DESTINATION" "share/diffdrive_arduino/")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "diffdrive_arduino.xml" "DESTINATION" "share/diffdrive_arduino/")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "diffdrive_arduino.xml" "DESTINATION" "share/diffdrive_arduino/")
 
 # install(DIRECTORY "hardware/include/" "DESTINATION" "include/diffdrive_arduino")
-ament_cmake_symlink_install_directory("/home/marcus/diffdrive_arduino" DIRECTORY "hardware/include/" "DESTINATION" "include/diffdrive_arduino")
+ament_cmake_symlink_install_directory("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" DIRECTORY "hardware/include/" "DESTINATION" "include/diffdrive_arduino")
 
 # install(DIRECTORY "description/launch" "description/ros2_control" "description/urdf" "description/rviz" "DESTINATION" "share/diffdrive_arduino")
-ament_cmake_symlink_install_directory("/home/marcus/diffdrive_arduino" DIRECTORY "description/launch" "description/ros2_control" "description/urdf" "description/rviz" "DESTINATION" "share/diffdrive_arduino")
+ament_cmake_symlink_install_directory("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" DIRECTORY "description/launch" "description/ros2_control" "description/urdf" "description/rviz" "DESTINATION" "share/diffdrive_arduino")
 
 # install(DIRECTORY "bringup/launch" "bringup/config" "DESTINATION" "share/diffdrive_arduino")
-ament_cmake_symlink_install_directory("/home/marcus/diffdrive_arduino" DIRECTORY "bringup/launch" "bringup/config" "DESTINATION" "share/diffdrive_arduino")
+ament_cmake_symlink_install_directory("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" DIRECTORY "bringup/launch" "bringup/config" "DESTINATION" "share/diffdrive_arduino")
 
 # install(FILES "/opt/ros/humble/lib/python3.10/site-packages/ament_package/template/environment_hook/library_path.sh" "DESTINATION" "share/diffdrive_arduino/environment")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "/opt/ros/humble/lib/python3.10/site-packages/ament_package/template/environment_hook/library_path.sh" "DESTINATION" "share/diffdrive_arduino/environment")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "/opt/ros/humble/lib/python3.10/site-packages/ament_package/template/environment_hook/library_path.sh" "DESTINATION" "share/diffdrive_arduino/environment")
 
-# install(FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/library_path.dsv" "DESTINATION" "share/diffdrive_arduino/environment")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/library_path.dsv" "DESTINATION" "share/diffdrive_arduino/environment")
+# install(FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/library_path.dsv" "DESTINATION" "share/diffdrive_arduino/environment")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/library_path.dsv" "DESTINATION" "share/diffdrive_arduino/environment")
 
-# install(FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/diffdrive_arduino" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/diffdrive_arduino" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
+# install(FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/diffdrive_arduino" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/diffdrive_arduino" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 
-# install(FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/diffdrive_arduino" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/diffdrive_arduino" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
+# install(FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/diffdrive_arduino" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/diffdrive_arduino" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
 
 # install(FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/diffdrive_arduino/environment")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/diffdrive_arduino/environment")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/diffdrive_arduino/environment")
 
-# install(FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/diffdrive_arduino/environment")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/diffdrive_arduino/environment")
+# install(FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/diffdrive_arduino/environment")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/diffdrive_arduino/environment")
 
 # install(FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/diffdrive_arduino/environment")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/diffdrive_arduino/environment")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/diffdrive_arduino/environment")
 
-# install(FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/diffdrive_arduino/environment")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/diffdrive_arduino/environment")
+# install(FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/diffdrive_arduino/environment")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/diffdrive_arduino/environment")
 
-# install(FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/diffdrive_arduino")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/diffdrive_arduino")
+# install(FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/diffdrive_arduino")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/diffdrive_arduino")
 
-# install(FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/diffdrive_arduino")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/diffdrive_arduino")
+# install(FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/diffdrive_arduino")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/diffdrive_arduino")
 
-# install(FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/diffdrive_arduino")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/diffdrive_arduino")
+# install(FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/diffdrive_arduino")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/diffdrive_arduino")
 
-# install(FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/diffdrive_arduino")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/diffdrive_arduino")
+# install(FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/diffdrive_arduino")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/diffdrive_arduino")
 
-# install(FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/diffdrive_arduino")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/diffdrive_arduino")
+# install(FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/diffdrive_arduino")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/diffdrive_arduino")
 
-# install(FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_index/share/ament_index/resource_index/packages/diffdrive_arduino" "DESTINATION" "share/ament_index/resource_index/packages")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_index/share/ament_index/resource_index/packages/diffdrive_arduino" "DESTINATION" "share/ament_index/resource_index/packages")
+# install(FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_index/share/ament_index/resource_index/packages/diffdrive_arduino" "DESTINATION" "share/ament_index/resource_index/packages")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_index/share/ament_index/resource_index/packages/diffdrive_arduino" "DESTINATION" "share/ament_index/resource_index/packages")
 
-# install(FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_index/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/diffdrive_arduino" "DESTINATION" "share/ament_index/resource_index/hardware_interface__pluginlib__plugin")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_index/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/diffdrive_arduino" "DESTINATION" "share/ament_index/resource_index/hardware_interface__pluginlib__plugin")
+# install(FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_index/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/diffdrive_arduino" "DESTINATION" "share/ament_index/resource_index/hardware_interface__pluginlib__plugin")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_index/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/diffdrive_arduino" "DESTINATION" "share/ament_index/resource_index/hardware_interface__pluginlib__plugin")
 
-# install(FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_export_targets/ament_cmake_export_targets-extras.cmake" "DESTINATION" "share/diffdrive_arduino/cmake")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_export_targets/ament_cmake_export_targets-extras.cmake" "DESTINATION" "share/diffdrive_arduino/cmake")
+# install(FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_export_targets/ament_cmake_export_targets-extras.cmake" "DESTINATION" "share/diffdrive_arduino/cmake")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_export_targets/ament_cmake_export_targets-extras.cmake" "DESTINATION" "share/diffdrive_arduino/cmake")
 
-# install(FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_export_dependencies/ament_cmake_export_dependencies-extras.cmake" "DESTINATION" "share/diffdrive_arduino/cmake")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_export_dependencies/ament_cmake_export_dependencies-extras.cmake" "DESTINATION" "share/diffdrive_arduino/cmake")
+# install(FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_export_dependencies/ament_cmake_export_dependencies-extras.cmake" "DESTINATION" "share/diffdrive_arduino/cmake")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_export_dependencies/ament_cmake_export_dependencies-extras.cmake" "DESTINATION" "share/diffdrive_arduino/cmake")
 
-# install(FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_core/diffdrive_arduinoConfig.cmake" "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_core/diffdrive_arduinoConfig-version.cmake" "DESTINATION" "share/diffdrive_arduino/cmake")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_core/diffdrive_arduinoConfig.cmake" "/home/marcus/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_core/diffdrive_arduinoConfig-version.cmake" "DESTINATION" "share/diffdrive_arduino/cmake")
+# install(FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_core/diffdrive_arduinoConfig.cmake" "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_core/diffdrive_arduinoConfig-version.cmake" "DESTINATION" "share/diffdrive_arduino/cmake")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_core/diffdrive_arduinoConfig.cmake" "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_core/diffdrive_arduinoConfig-version.cmake" "DESTINATION" "share/diffdrive_arduino/cmake")
 
-# install(FILES "/home/marcus/diffdrive_arduino/package.xml" "DESTINATION" "share/diffdrive_arduino")
-ament_cmake_symlink_install_files("/home/marcus/diffdrive_arduino" FILES "/home/marcus/diffdrive_arduino/package.xml" "DESTINATION" "share/diffdrive_arduino")
+# install(FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/package.xml" "DESTINATION" "share/diffdrive_arduino")
+ament_cmake_symlink_install_files("/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino" FILES "/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/package.xml" "DESTINATION" "share/diffdrive_arduino")
