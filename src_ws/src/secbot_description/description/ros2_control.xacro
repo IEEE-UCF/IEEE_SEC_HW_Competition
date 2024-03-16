@@ -80,11 +80,11 @@
     </xacro:if>
 -->
 
-<ros2_control name='RealRobot' type='system'>
+<ros2_control name="RealRobot" type="system">
             <hardware>
                 <plugin>diffdrive_arduino/DiffDriveArduinoHardware</plugin>
-                <param name="left_wheel_name">b_l_wheel_joint</param>
-                <param name="right_wheel_name">b_r_wheel_joint</param>
+                <param name="left_wheel_name">left_wheel_joint</param>
+                <param name="right_wheel_name">right_wheel_joint</param>
                 <param name="loop_rate">30</param>
                 <param name="device">/dev/ttyUSB1</param>
                 <param name="baud_rate">115200</param>
@@ -96,7 +96,7 @@
                 <param name="pid_o">50</param>
                 
             </hardware>
-            <joint name="b_l_wheel_joint">
+            <joint name="left_wheel_joint">
                 <command_interface name="velocity">
                     <param name="min">-10</param>
                     <param name="max">10</param>
@@ -105,7 +105,7 @@
                 <state_interface name="velocity" />
             </joint>
 
-            <joint name="b_r_wheel_joint">
+            <joint name="right_wheel_joint">
                 <command_interface name="velocity">
                     <param name="min">-10</param>
                     <param name="max">10</param>

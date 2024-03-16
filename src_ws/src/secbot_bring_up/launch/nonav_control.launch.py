@@ -9,6 +9,7 @@ from launch.actions import ExecuteProcess, IncludeLaunchDescription, DeclareLaun
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
 from launch.event_handlers import OnProcessStart
+from launch.event_handlers import OnProcessExit
 
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
@@ -61,12 +62,12 @@ def generate_launch_description():
     robot_controllers = os.path.join(get_package_share_directory(description_package_name), 'config', 'hw_controller_config.yaml')
 
 
-    controller_params_file = os.path.join(get_package_share_directory(description_package_name), 'config', 'hw_controller_config.yaml')
 
     start_controller_manager = Node(
         package="controller_manager",
         executable="ros2_control_node",
-        parameters=[robot_description, robot_controllers]
+        parameters=[robot_description, robot_controllers],
+        output="both",
     )
 
     delayed_controller_manager = TimerAction(period=3.0, actions=[start_controller_manager])
@@ -104,6 +105,7 @@ def generate_launch_description():
         parameters=[ekf_params_file]
     )
 
+
  #   start_imu
 
  #   start_lidar
@@ -121,9 +123,9 @@ def generate_launch_description():
     ld.add_action(declare_use_robot_localization)
 
     ld.add_action(start_robot_state_publisher)
-    ld.add_action(start_robot_localization)
+    ld.add_action(delayed_joint_state_spawner)
     ld.add_action(delayed_controller_manager)
     ld.add_action(delayed_diff_drive_spawner)
-    ld.add_action(delayed_joint_state_spawner)
-
+    ld.add_action(start_robot_localization)
+ 
     return ld
