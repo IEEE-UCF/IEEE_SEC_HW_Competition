@@ -9,6 +9,8 @@ int gud_msg_count = 0;
 //SHOULD BE LOWER THAN MAX_WAIT_BREAK
 const int max_wait_success = 40;
 
+const int max_wait_break = 8;
+
 //CHANGE THIS IF YOU WANT ALL PROCESSES TO END UPON SUCCESS
 const bool break_for_testing = true;
 
@@ -74,6 +76,13 @@ void timerCallback(){
   //IF CHECK CONDITIONS ARE MET
   if(current_time > max_wait_success && gud_msg_count == 1){
     succesful_startup();
+  }
+  if(current_time > max_wait_break && gud_msg_count == 0){
+    
+    end_all_nodes();
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "DIDNT FIND MESSAGE IN TIME - ENDING PROCCESSES");
+    rclcpp::shutdown();
+
   }
 
 }
