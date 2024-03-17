@@ -4,8 +4,6 @@
 #include <memory>
 
 #include "pluginlib/class_list_macros.hpp"
-#include "geometry_msgs/msg/pose_stamped.hpp"
-#include "geometry_msgs/msg/twist.hpp"
 #include "nav2_util/node_utils.hpp"
 
 namespace nav2_waypoint_follower

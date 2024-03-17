@@ -9,13 +9,7 @@ def generate_launch_description():
 
     waypoint_package = get_package_share_directory('secbot_navigation')
 
-    return LaunchDescription([
-        Node(
-            package='secbot_navigation',
-            namespace='',
-            executable='server',
-            name='server',
-        ),        
+    return LaunchDescription([        
         Node(
             package='secbot_navigation',
             namespace='',

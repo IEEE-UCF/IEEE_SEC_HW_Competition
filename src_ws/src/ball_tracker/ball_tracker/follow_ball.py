@@ -59,7 +59,8 @@ class FollowBall(Node):
     def timer_callback(self):
         msg = Twist()
         if (time.time() - self.lastrcvtime < self.rcv_timeout_secs):
-            self.get_logger().info('Target: {}'.format(self.target_val))
+            # UNCOMMENT THIS FOR DEBUGGING
+#            self.get_logger().info('Target: {}'.format(self.target_val))
             print(self.target_dist)
             if (self.target_dist < self.max_size_thresh):
                 msg.linear.x = self.forward_chase_speed
