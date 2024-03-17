@@ -26,6 +26,8 @@ void end_all_nodes(){
       std::this_thread::sleep_for(std::chrono::seconds(2));
       std::system("pkill -2 -f 'follow_waypoints.py'");
       std::this_thread::sleep_for(std::chrono::seconds(2));
+      std::system("pkill -15 -f 'follow_waypoints.py'");
+      std::this_thread::sleep_for(std::chrono::seconds(2));
       std::system("pkill -2 -f 'waypoint_launch.py'");
       std::this_thread::sleep_for(std::chrono::seconds(2));         
       std::system("pkill -2 -f 'component_container_isolated'");
