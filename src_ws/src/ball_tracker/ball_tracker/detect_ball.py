@@ -33,7 +33,9 @@ class DetectBall(Node):
         self.image_tuning_pub = self.create_publisher(Image, "/image_tuning", 1)
         self.ball_pub  = self.create_publisher(Point,"/detected_ball",1)
         self.cmd_sub = self.create_subscription(Twist, "/diff_drive_controller/cmd_vel_unstamped", self.minimal_callback1, 1)
+        self.timer = self.create_timer(1, self.end_timer_callback)
         self.vel_counter = 0
+        self.current_time = 0
 
         self.declare_parameter('tuning_mode', False)
 
@@ -120,12 +122,19 @@ class DetectBall(Node):
 
     def minimal_callback1(self, msg):
         self.vel_counter += 1 if (0 <= msg.angular.z <= 0.05) and (0 <= msg.linear.x <= 0.1) else 0
+
+    def end_timer_callback(self):
+        self.current_time+=1
         if self.vel_counter >= 15:
             self.get_logger().info("The robot seems to be infront of it's target. Ending detect_ball..")
-            subprocess.call("pkill -f ball_tracker_launch.py", shell=True)
+            subprocess.call("pkill -2 -f ball_tracker_launch.py", shell=True)
             self.destroy_node()
             rclpy.shutdown()
-
+        elif self.current_time > 45:
+            self.get_logger().info("Too much time has passed without success, breaking")
+            subprocess.call("pkill -2 -f ball_tracker_launch.py", shell=True)
+            self.destroy_node()
+            rclpy.shutdown()
 
 def main(args=None):
 

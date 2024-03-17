@@ -29,7 +29,9 @@ class FollowBall(Node):
             10)
         self.publisher_ = self.create_publisher(Twist, '/diff_drive_controller/cmd_vel_unstamped', 10)
         self.cmd_sub = self.create_subscription(Twist, "/diff_drive_controller/cmd_vel_unstamped", self.minimal_callback3, 1)
+        self.timer = self.create_timer(1, self.end_timer_callback)
         self.vel_counter = 0
+        self.current_time = 0
 
 
         self.declare_parameter("rcv_timeout_secs", 1.0)
@@ -76,8 +78,16 @@ class FollowBall(Node):
     
     def minimal_callback3(self, msg):
         self.vel_counter += 1 if (0 <= msg.angular.z <= 0.05) and (0 <= msg.linear.x <= 0.1) else 0
+
+
+    def end_timer_callback(self):
+        self.current_time+=1
         if self.vel_counter >= 15:
             self.get_logger().info("The robot seems to be infront of it's target. Ending follow_ball..")
+            self.destroy_node()
+            rclpy.shutdown()
+        elif self.current_time > 45:
+            self.get_logger().info("Too much time has passed without success, breaking")
             self.destroy_node()
             rclpy.shutdown()
 

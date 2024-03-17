@@ -25,4 +25,9 @@
       <description>Lets robot call service at waypoint arrival</description>
     </class>
   </library>
+  <library path="task_at_waypoint">
+    <class type="nav2_waypoint_follower::TaskAtWaypoint" base_class_type="nav2_core::WaypointTaskExecutor">
+      <description>Lets robot call task at waypoint arrival</description>
+    </class>
+  </library>
 </class_libraries>
