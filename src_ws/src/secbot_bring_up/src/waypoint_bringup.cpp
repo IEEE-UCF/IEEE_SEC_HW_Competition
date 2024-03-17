@@ -3,11 +3,11 @@
 #include <thread>
 
 int current_time = 0;
-int gud_msg_count = 0;
+int worry_msg_count = 0;
 
 //HOW LONG THE SYSTEM WILL WAIT FOR ERRORS - EVEN IF IT FINDS ALL GOOD MESSAGES
 //SHOULD BE LOWER THAN MAX_WAIT_BREAK
-const int max_wait_success = 40;
+const int max_wait_success = 200;
 
 const int max_wait_break = 8;
 
@@ -28,8 +28,12 @@ void end_all_nodes(){
       std::this_thread::sleep_for(std::chrono::seconds(2));
       std::system("pkill -2 -f 'waypoint_launch.py'");
       std::this_thread::sleep_for(std::chrono::seconds(2));         
+      std::system("pkill -2 -f 'component_container_isolated'");
+      std::this_thread::sleep_for(std::chrono::seconds(4));         
       std::system("pkill -9 -f 'component_container_isolated'");
-      std::this_thread::sleep_for(std::chrono::seconds(5));      
+      std::this_thread::sleep_for(std::chrono::seconds(5)); 
+      std::system("pkill -15 -f 'bringup_launch.py'");
+      std::this_thread::sleep_for(std::chrono::seconds(4));  
       std::system("pkill -2 -f 'ekf_node'");
       std::this_thread::sleep_for(std::chrono::milliseconds(1000));      
       std::system("pkill -2 -f 'gzserver'");
@@ -48,7 +52,7 @@ void current_launch_async(){
 
 void succesful_startup(){
     
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "STARTUP WAS SUCCESFUL");
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "ENDED NODE SINCE REACHED DESIRED TIME");
 
     if(break_for_testing == true){
       RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "DESTROYING SUCCESSFULL LAUNCH SINCE TESTING ENABLED");
@@ -62,7 +66,7 @@ void succesful_startup(){
     }
     //IF THERE ARE MANY NODES TO KILL AND TESTING ENABLED - INCREASE TIME
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "NODE SHUTDOWN IS ALMOST OVER");
-    std::this_thread::sleep_for(std::chrono::seconds(2));
+    std::this_thread::sleep_for(std::chrono::seconds(6));
     rclcpp::shutdown();
 
 }
@@ -74,13 +78,13 @@ void timerCallback(){
   // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "TIME: %d", current_time);
   
   //IF CHECK CONDITIONS ARE MET
-  if(current_time > max_wait_success && gud_msg_count == 1){
+  if(current_time > max_wait_success){
     succesful_startup();
   }
-  if(current_time > max_wait_break && gud_msg_count == 0){
-    
+  if(current_time > max_wait_break && worry_msg_count > 4){
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "FAILED TO CONNECT TO AMCL - ENDING PROCCESSES");
     end_all_nodes();
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "DIDNT FIND MESSAGE IN TIME - ENDING PROCCESSES");
+    std::this_thread::sleep_for(std::chrono::seconds(6));
     rclcpp::shutdown();
 
   }
@@ -91,16 +95,16 @@ auto checker_callback(const rcl_interfaces::msg::Log msg){
 
   //CHANGE ARRAY BASED ON MESSAGES YOU WISH TO SEE
   const char* bad_msg[] = {"Message Filter dropping message: frame 'lidar_link' at time 75.246 for reason 'the timestamp on the message is earlier than all the data in the transform cache'"};
-  const char* gud_msg[] = {"Nav2 is ready for use!"};
+  const char* worry_msg[] = {"amcl/get_state service not available, waiting..."};
   
 
 //  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "SEARCHING");
 
-  if (strcmp(msg.msg.c_str(), gud_msg[0]) == 0){
+  if (strcmp(msg.msg.c_str(), worry_msg[0]) == 0){
     
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "GOOD MESSAGE FOUND");
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "WORRY MESSAGE FOUND");
     
-    gud_msg_count++;
+    worry_msg_count++;
 
   }
 
@@ -112,6 +116,7 @@ auto checker_callback(const rcl_interfaces::msg::Log msg){
     end_all_nodes();
 
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "FOUND ERRORS - RESETTING PROCESS");
+    std::this_thread::sleep_for(std::chrono::seconds(6));
     rclcpp::shutdown();
   }
 

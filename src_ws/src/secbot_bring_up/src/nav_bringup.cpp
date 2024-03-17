@@ -4,6 +4,10 @@
 
 int current_time = 0;
 int gud_msg_count = 0;
+int times_failed = 0;
+
+//CHANGE THIS IF YOU WANT NAV2 TO GIVE UP AFTER CERTAIN NUMBER OF FAILURES
+const int reset_max = 3;
 
 //INCREASE MAX_WAIT IF THE FILE TAKES LONGER TO START
 const int max_wait_break = 25;
@@ -16,14 +20,18 @@ const int max_wait_success = 15;
 const bool break_for_testing = false;
 
 //CHANGE THIS DEPENDING ON HOW MANY GOOD MSGS YOU PUT GUD_MSGS
-int max_good_msgs = 1;
+int max_good_msgs = 2;
+
+
 
 void end_all_nodes(){
       // CHANGE THIS DEPENDING ON NODES
       std::system("pkill -2 -f 'component_container_isolated'");
       std::this_thread::sleep_for(std::chrono::seconds(4));         
       std::system("pkill -9 -f 'component_container_isolated'");
-      std::this_thread::sleep_for(std::chrono::seconds(5));      
+      std::this_thread::sleep_for(std::chrono::seconds(5)); 
+      std::system("pkill -15 -f 'bringup_launch.py'");
+      std::this_thread::sleep_for(std::chrono::seconds(4));  
       std::system("pkill -2 -f 'ekf_node'");
       std::this_thread::sleep_for(std::chrono::milliseconds(1000));      
       std::system("pkill -2 -f 'gzserver'");
@@ -33,12 +41,45 @@ void end_all_nodes(){
 }
 
 
+
 void current_launch_async(){
 
   //CHANGE THIS DEPENDING ON WHICH LAUNCH FILE YOU WANT
   std::system("ros2 launch secbot_navigation bringup_launch.py &");
 
 }
+
+
+void gazebo_reset(){
+
+  times_failed++;
+
+  if(times_failed < reset_max){
+
+  std::this_thread::sleep_for(std::chrono::milliseconds(500));
+  end_all_nodes();
+  std::this_thread::sleep_for(std::chrono::seconds(6));
+
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "ALL PROCESSES ENDED - RESTARTING GAZEBO NOW");
+  
+  std::this_thread::sleep_for(std::chrono::seconds(2));
+  std::system("ros2 run secbot_bring_up gazebo_bringup");
+
+  current_time = 0;
+  gud_msg_count = 0;
+  current_launch_async();
+    
+  }
+  else{
+    end_all_nodes();
+    
+    std::this_thread::sleep_for(std::chrono::seconds(6));
+    rclcpp::shutdown();
+    
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "NAVIGATION FAILED TOO MANY TIMES - SHUT SYSTEM DOWN");
+  }
+}
+
 
 void succesful_startup(){
     
@@ -54,9 +95,10 @@ void succesful_startup(){
     else{
       RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "ENDING PROCESS WITH NODES ACTIVE");
     }
-    //IF THERE ARE MANY NODES TO KILL AND TESTING ENABLED - INCREASE TIME
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "NODE SHUTDOWN IS ALMOST OVER");
-    std::this_thread::sleep_for(std::chrono::seconds(2));
+
+    //IF THERE ARE MANY NODES TO KILL AND TESTING ENABLED - INCREASE TIME
+    std::this_thread::sleep_for(std::chrono::seconds(6));
     rclcpp::shutdown();
 
 }
@@ -66,31 +108,19 @@ void timerCallback(){
   
   current_time++;
   // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "TIME: %d", current_time);
-  // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "TIME: %d", gud_msg_count);
+  // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "MSGS: %d", gud_msg_count);
 
 
   
   //IF CHECK CONDITIONS ARE MET
-  if(current_time > max_wait_success && gud_msg_count == 2){
+  if(current_time > max_wait_success && gud_msg_count >= 1){
     succesful_startup();
   }
   //IF WANTED MSGS AND CONDITIONS ARENT MET
-  else if(((current_time % max_wait_break) == 0) && (gud_msg_count != max_good_msgs)){
-    
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "NO GOOD MSGS FOUND - STARTUP FAILED - RESTARTING ALL PROCESSES");
-
-    std::this_thread::sleep_for(std::chrono::milliseconds(500));
-
-    end_all_nodes();
-
-    std::this_thread::sleep_for(std::chrono::milliseconds(500));
-
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "NO GOOD MSGS FOUND - STARTUP FAILED - RESTARTING ALL PROCESSES");
-
-    rclcpp::shutdown();
-
+  else if(current_time > max_wait_break && gud_msg_count == 0){
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "NO GOOD MSGS FOUND - STARTUP FAILED - RESETING PROCESSES");
+    gazebo_reset();
   }
-
 }
 
 auto checker_callback(const rcl_interfaces::msg::Log msg){
@@ -110,9 +140,8 @@ auto checker_callback(const rcl_interfaces::msg::Log msg){
   //IF EITHER ERROR MSG IS FOUND
   else if(strcmp(msg.msg.c_str(), gud_msg[1]) == 0 || 
    (msg.name == "amcl" && msg.msg.size() > 158 && msg.msg.size() < 164 )){
-    end_all_nodes();
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "FOUND ERRORS - RESETTING");
-    rclcpp::shutdown();
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "FOUND ERRORS - RESETTING PROCESSES");
+    gazebo_reset();
   }
 
 }
