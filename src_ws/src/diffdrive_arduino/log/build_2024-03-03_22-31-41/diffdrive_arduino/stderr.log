@@ -1,9 +1,0 @@
-In file included from [01m[K/home/marcus/diffdrive_arduino/hardware/include/diffdrive_arduino/diffbot_system.hpp:34[m[K,
-                 from [01m[K/home/marcus/diffdrive_arduino/hardware/diffbot_system.cpp:15[m[K:
-[01m[K/home/marcus/diffdrive_arduino/hardware/include/diffdrive_arduino/arduino_comms.hpp:[m[K In member function ‘[01m[Kstd::string ArduinoComms::send_msg(const string&, bool)[m[K’:
-[01m[K/home/marcus/diffdrive_arduino/hardware/include/diffdrive_arduino/arduino_comms.hpp:60:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kserial[m[K’ was not declared in this scope
-   60 |     [01;31m[Kserial[m[K.flushOutput();
-      |     [01;31m[K^~~~~~[m[K
-gmake[2]: *** [CMakeFiles/diffdrive_arduino.dir/build.make:76: CMakeFiles/diffdrive_arduino.dir/hardware/diffbot_system.cpp.o] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/diffdrive_arduino.dir/all] Error 2
-gmake: *** [Makefile:146: all] Error 2
