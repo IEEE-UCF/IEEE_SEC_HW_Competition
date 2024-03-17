@@ -1,1 +1,0 @@
-/home/parallels/IEEE_SEC_HW_Competition/src_ws/src/diffdrive_arduino/build/diffdrive_arduino/ament_cmake_core/diffdrive_arduinoConfig.cmake
