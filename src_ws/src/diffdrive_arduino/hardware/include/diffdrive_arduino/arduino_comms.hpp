@@ -63,17 +63,17 @@ public:
     try
     {
       // Responses end with \r\n so we will read up to (and including) the \n.
-      serial_conn_.ReadLine(response, '\r\n', timeout_ms_);
+      serial_conn_.ReadLine(response, '\n', timeout_ms_);
     }
     catch (const LibSerial::ReadTimeout&)
     {
         std::cerr << "The ReadByte() call has timed out." << std::endl;
     }
 
-    if (print_output)
-    {
-      std::cout << "Sent: " << msg_to_send << " Recv: " << response << std::endl;
-    } 
+    // if (print_output)
+    // {
+    //   std::cout << "Sent: " << msg_to_send << " Recv: " << response << std::endl;
+    // } 
 
     return response;
   }
@@ -86,7 +86,7 @@ public:
 
   void read_encoder_values(int &val_1, int &val_2)
   {
-     std::string response = send_msg("e\r");
+    std::string response = send_msg("e");
     //std::string response ="";
 
     std::string delimiter = " ";
@@ -97,13 +97,13 @@ public:
     val_1 = std::atoi(token_1.c_str());
     val_2 = std::atoi(token_2.c_str());
 
-    std::cout << "val1 = " << val_1 << "val2 = " << val_2 << std::endl;
+    //std::cout << "val1 = " << val_1 << "val2 = " << val_2 << std::endl;
   }
   void set_motor_values(int val_1, int val_2)
   {
     //std::cout << "val1 = " << val_1 << "val2 = " << val_2 << std::endl;
     std::stringstream ss;
-    ss << "m " << val_1 << " " << val_2 << "\n";
+    ss << "m " << val_1 << " " << val_2 << "\r";
     send_msg(ss.str());
   }
 
