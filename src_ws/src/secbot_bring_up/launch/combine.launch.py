@@ -110,16 +110,11 @@ def generate_launch_description():
     )
 
 
- #   start_imu
-
- #   start_lidar
-
- #   start_camera
 
     # ros2_control.xacro
     #   ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_drive_controller/cmd_vel_unstamped
     # in separate terminal
-
+ 
     ld = LaunchDescription()
 
     ld.add_action(declare_use_sim_time_cmd)
