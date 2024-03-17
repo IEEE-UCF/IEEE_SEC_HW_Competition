@@ -45,9 +45,12 @@ void timerCallback(){
 
     if(repeat_count < repeat_tolerance){
     repeat_count++;
+    std::this_thread::sleep_for(std::chrono::seconds(3));
+    current_time = 0;
     current_launch_async();
     }
     else{
+      std::this_thread::sleep_for(std::chrono::seconds(6));
       rclcpp::shutdown();
     }
   }
@@ -84,15 +87,13 @@ auto checker_callback(const rcl_interfaces::msg::Log msg){
       std::system("pkill -2 -f 'ekf_node'");
       std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
-
       RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "DESTROYING LAUNCH SINCE TESTING ENABLED");
-      std::this_thread::sleep_for(std::chrono::seconds(2));
     }
     else{
       RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "ENDING PROCESS WITH NODES ACTIVE");
     }
     //IF THERE ARE MANY NODES TO KILL AND TESTING ENABLED - INCREASE TIME
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::this_thread::sleep_for(std::chrono::seconds(6));
     rclcpp::shutdown();
 
   }

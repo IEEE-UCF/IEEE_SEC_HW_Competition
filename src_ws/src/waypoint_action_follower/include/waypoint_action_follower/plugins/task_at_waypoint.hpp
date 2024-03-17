@@ -5,8 +5,6 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_components/register_node_macro.hpp"
-#include "geometry_msgs/msg/pose_stamped.hpp"
-#include "geometry_msgs/msg/twist.hpp"
 #include "nav2_core/waypoint_task_executor.hpp"
 
 namespace nav2_waypoint_follower

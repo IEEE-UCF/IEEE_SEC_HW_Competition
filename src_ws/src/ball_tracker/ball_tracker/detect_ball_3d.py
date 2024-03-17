@@ -93,11 +93,11 @@ class DetectBall3d(Node):
 
     def end_timer_callback(self):
         self.current_time+=1
-        if self.vel_counter >= 15:
+        if self.vel_counter >= 30:
             self.get_logger().info("The robot seems to be infront of it's target. Ending detect_ball_3d..")
             self.destroy_node()
             rclpy.shutdown()
-        elif self.current_time > 45:
+        elif self.current_time > 25:
             self.get_logger().info("Too much time has passed without success, breaking")
             self.destroy_node()
             rclpy.shutdown()

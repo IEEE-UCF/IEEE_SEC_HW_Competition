@@ -32,6 +32,7 @@ class FollowBall(Node):
         self.timer = self.create_timer(1, self.end_timer_callback)
         self.vel_counter = 0
         self.current_time = 0
+        self.target_status = 0
 
 
         self.declare_parameter("rcv_timeout_secs", 1.0)
@@ -59,13 +60,17 @@ class FollowBall(Node):
     def timer_callback(self):
         msg = Twist()
         if (time.time() - self.lastrcvtime < self.rcv_timeout_secs):
-            self.get_logger().info('Target: {}'.format(self.target_val))
+            # UNCOMMENT THIS FOR DEBUGGING
+#            self.get_logger().info('Target: {}'.format(self.target_val))
+            self.target_status = 1
             print(self.target_dist)
             if (self.target_dist < self.max_size_thresh):
                 msg.linear.x = self.forward_chase_speed
             msg.angular.z = -self.angular_chase_multiplier*self.target_val
         else:
-            self.get_logger().info('Target lost')
+            # UNCOMMENT THIS FOR DEBUGGING
+#            self.get_logger().info('Target lost')
+            self.target_status = 0
             msg.angular.z = self.search_angular_speed
         self.publisher_.publish(msg)
 
@@ -82,11 +87,15 @@ class FollowBall(Node):
 
     def end_timer_callback(self):
         self.current_time+=1
-        if self.vel_counter >= 15:
+
+        if self.target_status == 1: self.get_logger().info('Target Found - Closing In')
+        else: self.get_logger().info('Target Not Yet Found - Searching')
+
+        if self.vel_counter >= 30:
             self.get_logger().info("The robot seems to be infront of it's target. Ending follow_ball..")
             self.destroy_node()
             rclpy.shutdown()
-        elif self.current_time > 45:
+        elif self.current_time > 25:
             self.get_logger().info("Too much time has passed without success, breaking")
             self.destroy_node()
             rclpy.shutdown()

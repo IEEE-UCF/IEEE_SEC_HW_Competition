@@ -136,14 +136,10 @@ def generate_launch_description():
         declare_use_robot_localization, declare_use_world_file, declare_use_gazebo_gui,
         set_model_path, start_robot_state_publisher, start_gazebo_world, 
         start_gazebo_empty, start_spawn_entity, 
-        launch.actions.TimerAction(
-        period=8.0,
-        actions=[start_joint_broad_spawner]),
-        launch.actions.TimerAction(
-        period=10.0,
-        actions=[start_diff_drive_spawner]),
-        launch.actions.TimerAction(
-        period=12.0,
-        actions=[start_robot_localization]),
-        launch_testing.actions.ReadyToTest()
+        RegisterEventHandler(event_handler=OnProcessExit(target_action=start_spawn_entity,
+        on_exit=[start_joint_broad_spawner])),
+        RegisterEventHandler(event_handler=OnProcessExit(target_action=start_joint_broad_spawner,
+        on_exit=[start_diff_drive_spawner])),
+        RegisterEventHandler(event_handler=OnProcessExit(target_action=start_diff_drive_spawner,
+        on_exit=[start_robot_localization]))
     ])
