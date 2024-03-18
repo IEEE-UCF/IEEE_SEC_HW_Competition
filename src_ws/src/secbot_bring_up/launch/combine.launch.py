@@ -104,18 +104,17 @@ def generate_launch_description():
         executable='ekf_node',
         parameters=[ekf_params_file]
     )
+    bring_up_dir = 'secbot_bring_up'
+    start_hw = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(bring_up_dir), 'launch', 'hardware.launch.py')])
+    )
 
 
- #   start_imu
-
- #   start_lidar
-
- #   start_camera
 
     # ros2_control.xacro
     #   ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_drive_controller/cmd_vel_unstamped
     # in separate terminal
-
+ 
     ld = LaunchDescription()
 
     ld.add_action(declare_use_sim_time_cmd)
@@ -127,5 +126,5 @@ def generate_launch_description():
     ld.add_action(delayed_controller_manager)
     ld.add_action(delayed_diff_drive_spawner)
     ld.add_action(start_robot_localization)
- 
+    ld.add_action(start_hw)
     return ld
