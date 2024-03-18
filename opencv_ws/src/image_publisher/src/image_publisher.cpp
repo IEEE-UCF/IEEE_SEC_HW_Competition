@@ -4,7 +4,6 @@
 #include "opencv2/imgcodecs.hpp"
 #include <opencv2/opencv.hpp> 
 #include <iostream>
-#include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
 #include "rclcpp/rclcpp.hpp"
 
@@ -14,7 +13,7 @@ int main(int argc, char ** argv)
   rclcpp::NodeOptions options;
   rclcpp::Node::SharedPtr node = rclcpp::Node::make_shared("image_publisher", options);
   image_transport::ImageTransport it(node);
-  image_transport::Publisher pub = it.advertise("camera/image", 1);
+  image_transport::Publisher pub = it.advertise("camera/image_raw", 1);
 
   //cv::Mat image = cv::imread(argv[1], cv::IMREAD_COLOR);
 
@@ -28,19 +27,12 @@ int main(int argc, char ** argv)
 
   std_msgs::msg::Header hdr;
   cv::Mat image;
-  sensor_msgs::msg::Image::SharedPtr msg;
-  //sensor_msgs::msg::Image::SharedPtr msg = cv_bridge::CvImage(hdr, "bgr8", image).toImageMsg();
+  sensor_msgs::msg::Image::SharedPtr msg = cv_bridge::CvImage(hdr, "bgr8", image).toImageMsg();
 
-  rclcpp::WallRate loop_rate(5);
-  while (rclcpp::ok()) {
-    std::cout << "hi" << std::endl;
-    cv::cap.read(image);
-    std::cout << "Cannot open the web cam" << std::endl;
+    //std::cout << "Cannot open the web cam" << std::endl;
+    cap.read(image);
+    //std::cout << "hey" << std::endl;
     msg = cv_bridge::CvImage(hdr, "bgr8", image).toImageMsg();
-    std::cout << "wow" << std::endl;
     pub.publish(msg);
-    std::cout << "maybe here?" << std::endl;
-    rclcpp::spin_some(node);
-    loop_rate.sleep();
-  }
+
 }
