@@ -60,7 +60,10 @@ def generate_launch_description():
     description='Enables the 3D tracker node')
 
 
-
+    image_publisher = Node(
+            package='ball_tracker',
+            executable='image_publisher'
+        )
 
     detect_node = Node(
             package='ball_tracker',

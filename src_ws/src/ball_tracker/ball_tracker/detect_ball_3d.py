@@ -71,7 +71,7 @@ class DetectBall3d(Node):
         m.header.frame_id = self.camera_frame
 
         m.id = 0
-        m.type = Marker.SPHERE
+        m.type = Marker.CUBE
         m.action = Marker.ADD
         m.pose.position.x = x
         m.pose.position.y = y
