@@ -8,19 +8,19 @@ import rclpy
 import time
 import subprocess
 
-class ImagePublisher(object):
+class ImagePublisher(Node):
 
   def __init__(self):
-
+    super().__init__('image_publisher')
     self.node_rate = 1
 
-    self.image_pub = rospy.Publisher("camera/image_raw", Image)
+    self.image_pub = self.create_publisher(Image, "/camera/image_raw", 1)
     self.bridge = CvBridge()
 
     global cap
     cap = cv2.VideoCapture("nvarguscamerasrc ! video/x-raw(memory:NVMM), width=(int)1920, height=(int)1080,format=(string)NV12, framerate=(fraction)30/1 ! nvvidconv ! video/x-raw, format=(string)BGRx ! videoconvert !  appsink")
     if not cap.isOpened():
-      rospy.logerr("Error opening video stream")
+      self.get_logger().info("Error opening video stream")
       return
 
     global cv_image
@@ -35,7 +35,7 @@ class ImagePublisher(object):
     self.image_pub.publish(self.image_message)
 
   def publishImg(self):
-    rospy.loginfo('publishing image!')
+    self.get_logger().info('publishing image!')
     
     cv_image = cap.read()
     if cv_image is not None:
@@ -43,8 +43,8 @@ class ImagePublisher(object):
         self.image_pub.publish(self.image_message)
 
   def run(self):
-    loop = rospy.Rate(self.node_rate)
-    while not rospy.is_shutdown():
+    loop = rclpy.Rate(self.node_rate)
+    while not rclpy.is_shutdown():
       self.publishImg()
       loop.sleep()
 
