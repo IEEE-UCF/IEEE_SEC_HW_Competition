@@ -16,8 +16,8 @@
 
 
     <!-- The difference between bottom middle of chassis and wheel position(s)-->
-    <xacro:property name="wheel_x_displacement" value="${chassis_length/4}"/>
-    <xacro:property name="wheel_y_displacement" value="${chassis_width/2+wheel_radius}"/> <!-- Update wheel separation paramter in controllers.yaml as well-->
+    <xacro:property name="wheel_x_displacement" value="${chassis_length/3}"/>
+    <xacro:property name="wheel_y_displacement" value="${chassis_width/2+wheel_length}"/> <!-- Update wheel separation paramter in controllers.yaml as well-->
     <xacro:property name="wheel_z_displacement" value="0.03"/>
 
     <!-- Base Link -->
