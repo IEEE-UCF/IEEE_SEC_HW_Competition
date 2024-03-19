@@ -17,7 +17,7 @@
 
     <!-- The difference between bottom middle of chassis and wheel position(s)-->
     <xacro:property name="wheel_x_displacement" value="0.0"/>
-    <xacro:property name="wheel_y_displacement" value="${chassis_width/2+wheel_radius}"/> <!-- Update wheel separation paramter in controllers.yaml as well-->
+    <xacro:property name="wheel_y_displacement" value="0.115"/> <!-- Update wheel separation paramter in controllers.yaml as well-->
     <xacro:property name="wheel_z_displacement" value="0.03"/>
 
     <!-- Base Link -->
@@ -67,7 +67,7 @@
     <joint name="left_wheel_joint" type="continuous">
         <parent link="chassis"/>
         <child link="left_wheel"/>
-        <origin xyz="${-1*wheel_x_displacement} ${0} ${wheel_z_displacement}" rpy="0 0 0"/>
+        <origin xyz="${-1*wheel_x_displacement} ${-1*wheel_y_displacement} ${wheel_z_displacement}" rpy="0 0 0"/>
         <axis xyz="0 1 0"/>
     </joint>
 
@@ -97,7 +97,7 @@
     <joint name="right_wheel_joint" type="continuous">
         <parent link="chassis"/>
         <child link="right_wheel"/>
-        <origin xyz="${wheel_x_displacement} ${0} ${wheel_z_displacement}" rpy="0 0 0"/>
+        <origin xyz="${wheel_x_displacement} ${wheel_y_displacement} ${wheel_z_displacement}" rpy="0 0 0"/>
         <axis xyz="0 1 0"/>
     </joint>
 

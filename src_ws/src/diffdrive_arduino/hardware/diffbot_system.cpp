@@ -230,7 +230,7 @@ hardware_interface::return_type diffdrive_arduino ::DiffDriveArduinoHardware::wr
   int motor_l_counts_per_loop = wheel_l_.cmd / wheel_l_.rads_per_count / cfg_.loop_rate;
   int motor_r_counts_per_loop = wheel_r_.cmd / wheel_r_.rads_per_count / cfg_.loop_rate;
   comms_.set_motor_values(motor_l_counts_per_loop, motor_r_counts_per_loop);
-  RCLCPP_INFO(rclcpp::get_logger("DiffDriveArduinoHardware"), "motorl count = %d\n", motor_l_counts_per_loop);
+  //RCLCPP_INFO(rclcpp::get_logger("DiffDriveArduinoHardware"), "motorl count = %d\n", motor_l_counts_per_loop);
   return hardware_interface::return_type::OK;
 }
 
