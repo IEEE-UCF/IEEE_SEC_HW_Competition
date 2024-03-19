@@ -32,7 +32,7 @@ def generate_launch_description():
 
     namespace = LaunchConfiguration('namespace')
 #    map_yaml_file = LaunchConfiguration('map')
-    map_yaml_file = os.path.join(bringup_dir, 'maps', 'obstacles_map_save.yaml')
+    map_yaml_file = os.path.join(bringup_dir, 'maps', 'comp_map_save.yaml')
     use_sim_time = LaunchConfiguration('use_sim_time')
     autostart = LaunchConfiguration('autostart')
     params_file = LaunchConfiguration('params_file')
