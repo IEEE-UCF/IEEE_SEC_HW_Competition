@@ -15,7 +15,8 @@ from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
-
+    
+    bring_up_package_name = 'secbot_bring_up'
     description_package_name = 'secbot_description'
     navigation_package_name = 'secbot_navigation'
     simulation_package_name = 'secbot_simulation'
@@ -23,6 +24,11 @@ def generate_launch_description():
     pkg_path = os.path.join(get_package_share_directory(description_package_name))
 
     ekf_params_file = os.path.join(get_package_share_directory(navigation_package_name), 'config', 'ekf.yaml')
+    xacro_file = os.path.join(pkg_path,'description','sec_description.urdf.xacro')
+
+    robot_description_content = Command(['xacro ', xacro_file])
+    robot_description = {"robot_description": robot_description_content}
+    robot_controllers = os.path.join(get_package_share_directory(description_package_name), 'config', 'hw_controller_config.yaml')
 
     # Launch config variables specific to sim
     use_sim_time = LaunchConfiguration('use_sim_time')
@@ -47,6 +53,10 @@ def generate_launch_description():
         default_value='true',
         description='Use robot_localization if true'
     )
+    
+    start_hw = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(bring_up_package_name), 'launch', 'hardware.launch.py')])
+    )
 
     start_robot_state_publisher = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
@@ -55,35 +65,14 @@ def generate_launch_description():
                                        'use_ros2_control': use_ros2_control}.items()
     )
 
-    xacro_file = os.path.join(pkg_path,'description','sec_description.urdf.xacro')
-
-    robot_description_content = Command(['xacro ', xacro_file])
-    robot_description = {"robot_description": robot_description_content}
-    robot_controllers = os.path.join(get_package_share_directory(description_package_name), 'config', 'hw_controller_config.yaml')
-
-
-
     start_controller_manager = Node(
         package="controller_manager",
         executable="ros2_control_node",
         parameters=[robot_description, robot_controllers],
         output="both",
-    )
+    ) 
 
     delayed_controller_manager = TimerAction(period=3.0, actions=[start_controller_manager])
-
-    start_diff_drive_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["diff_drive_controller", "--controller-manager", "/controller_manager"]
-    )
-
-    delayed_diff_drive_spawner = RegisterEventHandler(
-        event_handler=OnProcessStart(
-            target_action=start_controller_manager,
-            on_start=[start_diff_drive_spawner]
-        )
-    )
 
     start_joint_broad_spawner = Node(
         package="controller_manager",
@@ -91,11 +80,10 @@ def generate_launch_description():
         arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"]
     )
 
-    delayed_joint_state_spawner = RegisterEventHandler(
-        event_handler=OnProcessStart(
-            target_action=start_controller_manager,
-            on_start=[start_joint_broad_spawner]
-        )
+    start_diff_drive_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["diff_drive_controller", "--controller-manager", "/controller_manager"]
     )
 
     start_robot_localization = Node(
@@ -104,27 +92,18 @@ def generate_launch_description():
         executable='ekf_node',
         parameters=[ekf_params_file]
     )
-    bring_up_dir = 'secbot_bring_up'
-    start_hw = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(bring_up_dir), 'launch', 'hardware.launch.py')])
-    )
-
-
 
     # ros2_control.xacro
     #   ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_drive_controller/cmd_vel_unstamped
     # in separate terminal
- 
-    ld = LaunchDescription()
 
-    ld.add_action(declare_use_sim_time_cmd)
-    ld.add_action(declare_use_ros2_control_cmd)
-    ld.add_action(declare_use_robot_localization)
-
-    ld.add_action(start_robot_state_publisher)
-    ld.add_action(delayed_joint_state_spawner)
-    ld.add_action(delayed_controller_manager)
-    ld.add_action(delayed_diff_drive_spawner)
-    ld.add_action(start_robot_localization)
-    ld.add_action(start_hw)
-    return ld
+    return LaunchDescription([
+        declare_use_sim_time_cmd, declare_use_ros2_control_cmd, declare_use_robot_localization,
+        start_hw, start_robot_state_publisher, delayed_controller_manager,
+        RegisterEventHandler(event_handler=OnProcessExit(target_action=start_controller_manager,
+        on_exit=[start_joint_broad_spawner])),
+        RegisterEventHandler(event_handler=OnProcessExit(target_action=start_joint_broad_spawner,
+        on_exit=[start_diff_drive_spawner])),
+        RegisterEventHandler(event_handler=OnProcessExit(target_action=start_diff_drive_spawner,
+        on_exit=[start_robot_localization]))
+    ])

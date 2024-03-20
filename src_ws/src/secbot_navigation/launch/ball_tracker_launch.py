@@ -12,7 +12,7 @@ def generate_launch_description():
 
     ball_package_name='ball_tracker'
     sim_mode = LaunchConfiguration('sim_mode')
-    sim_mode_dec = DeclareLaunchArgument('sim_mode', default_value='true')
+    use_sim_time = DeclareLaunchArgument('sim_mode', default_value='false')
 
     tracker_params_sim = os.path.join(get_package_share_directory(ball_package_name),'config','ball_tracker_params_sim.yaml')
     tracker_params_robot = os.path.join(get_package_share_directory(ball_package_name),'config','ball_tracker_params_robot.yaml')
@@ -28,6 +28,6 @@ def generate_launch_description():
                                     'enable_3d_tracker': 'true'}.items())
 
     return LaunchDescription([
-        sim_mode_dec,
+        use_sim_time,
         tracker_launch,
     ])

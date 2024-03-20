@@ -33,8 +33,7 @@ def main():
     inspection_route = [ # simulation points
         [-1.5, 0.0],
         [-1.0, 0.0],
-        [1.0, 0.0],
-        [1.3, 0.3]]
+        [1.0, 0.0]]
 
 
     # Set our demo's initial pose
