@@ -28,8 +28,9 @@ def generate_launch_description():
     world_file_path = os.path.join(get_package_share_directory(description_package_name), 'worlds', world_file_name)
     gazebo_model_path = os.path.join(get_package_share_directory(description_package_name), 'models')
     set_model_path = SetEnvironmentVariable('GAZEBO_MODEL_PATH', gazebo_model_path)
+    ekf_sw_params_file = os.path.join(get_package_share_directory(navigation_package_name), 'config', 'ekf_sw.yaml')
+    ekf_hw_params_file = os.path.join(get_package_share_directory(navigation_package_name), 'config', 'ekf_hw.yaml')
 
-    ekf_params_file = os.path.join(get_package_share_directory(navigation_package_name), 'config', 'ekf.yaml')
     gazebo_params_path = os.path.join(get_package_share_directory(simulation_package_name),'config','gazebo_params.yaml')
 
     # Launch config variables specific to sim
@@ -39,6 +40,7 @@ def generate_launch_description():
     use_world_file = LaunchConfiguration('use_world_file')
     use_gazebo_gui = LaunchConfiguration('use_gazebo_gui')
     world_file = LaunchConfiguration('world_file')
+
 
     # Declare launch arguments
     declare_use_sim_time_cmd = DeclareLaunchArgument(
@@ -117,11 +119,18 @@ def generate_launch_description():
         arguments=["joint_state_broadcaster"],
     )
 
-    start_robot_localization = Node(
-        condition=IfCondition(use_robot_localization),
+    start_sw_robot_localization = Node(
+        condition=IfCondition(use_sim_time),
         package='robot_localization',
         executable='ekf_node',
-        parameters=[ekf_params_file]
+        parameters=[ekf_sw_params_file]
+    )
+
+    start_hw_robot_localization = Node(
+        condition=UnlessCondition(use_sim_time),
+        package='robot_localization',
+        executable='ekf_node',
+        parameters=[ekf_hw_params_file]
     )
 
     # to control manually:
@@ -141,5 +150,5 @@ def generate_launch_description():
         RegisterEventHandler(event_handler=OnProcessExit(target_action=start_joint_broad_spawner,
         on_exit=[start_diff_drive_spawner])),
         RegisterEventHandler(event_handler=OnProcessExit(target_action=start_diff_drive_spawner,
-        on_exit=[start_robot_localization]))
+        on_exit=[start_hw_robot_localization, start_sw_robot_localization]))
     ])

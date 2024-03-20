@@ -51,11 +51,11 @@ bool TaskAtWaypoint::processAtWaypoint(
     //START THE WAYPOINT PROCCESS DEPENDING ON THE WAYPOINT INDEX    
     switch (curr_waypoint_index){
       case 0:          
-          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "AT FIRST WAYPOINT: Initiating Drive Over..");
+          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "AT FIRST WAYPOINT: Initiating Ball Tracker..");
 
           //STARTS BALL TRACKER - SET i EQUAL TO THE NUMBER OF CUBES OR BALLS
           for(int i=0;i<1;i++){
-            int SuccessValue = std::system("ros2 launch secbot_navigation ball_tracker_launch.py");
+            int SuccessValue = std::system("ros2 launch secbot_navigation ball_tracker_launch.py use_sim_time:=true");
           
             //BREAKS IF LAUNCH CONTINUES SOMEWHOW
             if(SuccessValue != 0){throw std::runtime_error("LAUNCH STILL GOING SOMEHOW"); break;}
@@ -67,7 +67,7 @@ bool TaskAtWaypoint::processAtWaypoint(
           RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "PROCESS COMPLETE");
           break;
       case 1:
-          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "AT SECOND WAYPOINT: Initiating Ball Tracker..");
+          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "AT SECOND WAYPOINT: Initiating Drive Over..");
 
           //CHANGE ANGULAR Z TO DETERMINE ADJUSTMENT VALUE BEFORE PASSING RAMP
           int SuccessValue = std::system("ros2 topic pub -r 5 -t 3 /diff_drive_controller/cmd_vel_unstamped geometry_msgs/msg/Twist '{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.3}}'");
