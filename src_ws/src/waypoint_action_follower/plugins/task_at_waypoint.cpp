@@ -18,7 +18,6 @@ TaskAtWaypoint::TaskAtWaypoint()
 TaskAtWaypoint::~TaskAtWaypoint()
 {
 }
-
   
 
 void TaskAtWaypoint::initialize(
@@ -49,31 +48,35 @@ bool TaskAtWaypoint::processAtWaypoint(
   }    
 
   try {
-    int ReturnValue = 0;
-
-//  CHANGE THIS TO READJUST AFTER EACH WAYPOINT MORE OR LESS    
-    const int turn_value = 5;
-    
+    //START THE WAYPOINT PROCCESS DEPENDING ON THE WAYPOINT INDEX    
     switch (curr_waypoint_index){
-      case 0:
+      case 0:          
           RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "AT FIRST WAYPOINT: Initiating Drive Over..");
+
+          //STARTS BALL TRACKER - SET i EQUAL TO THE NUMBER OF CUBES OR BALLS
           for(int i=0;i<1;i++){
-          ReturnValue = std::system("ros2 launch secbot_navigation ball_tracker_launch.py");
-          //BREAKS IF LAUNCH CONTINUES SOMEWHOW
-          if(ReturnValue == 0){throw std::runtime_error("LAUNCH STILL GOING SOMEHOW"); break;}
+            int SuccessValue = std::system("ros2 launch secbot_navigation ball_tracker_launch.py");
           
-          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "BALL TRACKER FINISHED - GRABBING BALL");
-          std::this_thread::sleep_for(std::chrono::seconds(3));
+            //BREAKS IF LAUNCH CONTINUES SOMEWHOW
+            if(SuccessValue != 0){throw std::runtime_error("LAUNCH STILL GOING SOMEHOW"); break;}
+          
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "BALL TRACKER FINISHED - GRABBING BALL");
+            std::this_thread::sleep_for(std::chrono::seconds(3));
           }
 
           RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "PROCESS COMPLETE");
           break;
       case 1:
-          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "AT SECOND WAYPOINT: Readjusting & Initiating Ball Tracker..");
-                    
-          ReturnValue = std::system("ros2 topic pub -r 5 -t 10 /diff_drive_controller/cmd_vel_unstamped geometry_msgs/msg/Twist '{linear: {x: 1.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'");
+          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "AT SECOND WAYPOINT: Initiating Ball Tracker..");
+
+          //CHANGE ANGULAR Z TO DETERMINE ADJUSTMENT VALUE BEFORE PASSING RAMP
+          int SuccessValue = std::system("ros2 topic pub -r 5 -t 3 /diff_drive_controller/cmd_vel_unstamped geometry_msgs/msg/Twist '{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.3}}'");
           //BREAKS IF LAUNCH CONTINUES SOMEWHOW
-          if(ReturnValue == 0){throw std::runtime_error("LAUNCH STILL GOING SOMEHOW"); break;}
+          if(SuccessValue != 0){throw std::runtime_error("MOVE STILL GOING SOMEHOW"); break;}
+
+          SuccessValue = std::system("ros2 topic pub -r 5 -t 15 /diff_drive_controller/cmd_vel_unstamped geometry_msgs/msg/Twist '{linear: {x: 1.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'");
+          //BREAKS IF LAUNCH CONTINUES SOMEWHOW
+          if(SuccessValue != 0){throw std::runtime_error("MOVE STILL GOING SOMEHOW"); break;}
           
           RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "PROCESS COMPLETE");
           break;

@@ -91,9 +91,9 @@
     </spherical_coordinates>
     <state world_name='default'>
       <sim_time>0 0</sim_time>
-      <real_time>46 498726399</real_time>
-      <wall_time>1710816803 905674108</wall_time>
-      <iterations>45028</iterations>
+      <real_time>117 986909174</real_time>
+      <wall_time>1710885478 922944402</wall_time>
+      <iterations>116450</iterations>
       <model name='comp_course'>
         <pose>-0.015685 -0.017826 0 0 -0 0</pose>
         <scale>2 2 2</scale>
@@ -115,10 +115,10 @@
         </link>
       </model>
       <model name='tennis_ball_clone_1'>
-        <pose>0.408312 0.420773 0.070722 0.058205 0.008463 0.000247</pose>
+        <pose>0.408441 0.494854 0.070915 0.078104 0.011351 0.000444</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>0.408312 0.420773 0.070722 0.058205 0.008463 0.000247</pose>
+          <pose>0.408441 0.494854 0.070915 0.078104 0.011351 0.000444</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>4.5e-05 -0.000309 -1e-06 0.008827 0.001284 0</acceleration>
           <wrench>4.5e-05 -0.000309 -1e-06 0 -0 0</wrench>
@@ -130,7 +130,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>1.46894 0.867836 1.33177 -0 0.841796 -2.50298</pose>
+        <pose>1.60359 0.648679 1.35189 -0 0.841796 -2.50298</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>

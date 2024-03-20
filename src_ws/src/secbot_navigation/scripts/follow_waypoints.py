@@ -33,8 +33,8 @@ def main():
     inspection_route = [ # simulation points
         [-1.5, 0.0],
         [-1.0, 0.0],
-        [-1.5, 0.0],
-        [-1.5, 0.0]]
+        [1.0, 0.0],
+        [1.3, 0.3]]
 
 
     # Set our demo's initial pose
@@ -56,9 +56,9 @@ def main():
         inspection_points = []
         inspection_pose = PoseStamped()
         inspection_pose.header.frame_id = 'map'
-        inspection_pose.header.stamp = navigator.get_clock().now().to_msg()
-        inspection_pose.pose.orientation.z = 1.0
-        inspection_pose.pose.orientation.w = 0
+        inspection_pose.header.stamp = navigator.get_clock().now().to_msg() 
+        inspection_pose.pose.orientation.z = 0.0
+        inspection_pose.pose.orientation.w = 1.0
         for pt in inspection_route:
             inspection_pose.pose.position.x = pt[0]
             inspection_pose.pose.position.y = pt[1]
