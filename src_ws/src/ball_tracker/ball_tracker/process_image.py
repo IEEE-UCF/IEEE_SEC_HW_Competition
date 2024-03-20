@@ -39,6 +39,9 @@ def find_circles(image, tuning_params):
     thresh_max = (tuning_params["h_max"], tuning_params["s_max"], tuning_params["v_max"])
     working_image    = cv2.inRange(working_image, thresh_min, thresh_max)
 
+    # Blur image to remove noise
+    working_blur = cv2.GaussianBlur(working_image, (5, 5), 0)
+
 
     # Dilate and Erode
     working_image = cv2.dilate(working_image, None, iterations=2)
@@ -54,42 +57,34 @@ def find_circles(image, tuning_params):
     # Invert the image to suit the blob detector
     working_image = 255-working_image
 
+    # Detect edges using Canny edge detection
+    edges = cv2.Canny(working_blur, 50, 150)
 
+    # Find contours
+    contours = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-    # Set up the SimpleBlobdetector with default parameters.
-    params = cv2.SimpleBlobDetector_Params()
-        
-    # Change thresholds
-    params.minThreshold = 0
-    params.maxThreshold = 100
-        
-    # Filter by Area.
-    params.filterByArea = True
-    params.minArea = 30
-    params.maxArea = 20000
-        
-    # Filter by Circularity
-    params.filterByCircularity = True
-    params.minCircularity = 0.1
-        
-    # Filter by Convexity
-    params.filterByConvexity = True
-    params.minConvexity = 0.5
-        
-    # Filter by Inertia
-    params.filterByInertia =True
-    params.minInertiaRatio = 0.5
+    squares = []
+    for contour in contours:
+        perimeter = cv2.arcLength(contour, True)
+        # Approximate the contour to a polygon
+        approx = cv2.approxPolyDP(contour, 0.04 * perimeter, True)
+        if len(approx) == 4:  # Check if the contour has 4 corners (a square)
+            squares.append(approx)
 
-    detector = cv2.SimpleBlobDetector_create(params)
-
-    # Run detection!
-    keypoints = detector.detect(working_image)
+    # Extract keypoints from squares 
+    keypoints = []
+    for square in squares:
+        # Calculate the center of the square
+        M = cv2.moments(square)
+        if M["m00"] != 0:
+            center_x = int(M["m10"] / M["m00"])
+            center_y = int(M["m01"] / M["m00"])
+            keypoints.append(cv2.KeyPoint(center_x, center_y, 1))  # Create a keypoint at the center of the square
 
     size_min_px = tuning_params['sz_min']*working_image.shape[1]/100.0
     size_max_px = tuning_params['sz_max']*working_image.shape[1]/100.0
 
     keypoints = [k for k in keypoints if k.size > size_min_px and k.size < size_max_px]
-
     
     # Set up main output image
     line_color=(0,0,255)
