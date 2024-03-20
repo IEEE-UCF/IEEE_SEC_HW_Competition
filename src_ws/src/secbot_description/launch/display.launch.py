@@ -2,8 +2,9 @@ import os
 import xacro
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 
 from ament_index_python.packages import get_package_share_directory
@@ -12,27 +13,29 @@ from ament_index_python.packages import get_package_share_directory
 def generate_launch_description():
 
     description_package_name = 'secbot_description'
-    simulation_package_name = 'secbot_simulation'
-    navigation_package_name = 'secbot_navigation'
-
-    file_subpath = 'description/sec_description.urdf.xml'
-    final_descriptor = 'description/sec_description_final.urdf.xml'
 
     # use_sim_time = LaunchConfiguration('use_sim_time', default='false')
-    use_sim_time = LaunchConfiguration('use_sim_time', default='false')
+    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
+    use_ros2_control = LaunchConfiguration('use_ros2_control')
 
-    # Use xacro to process the file
-    package_path = os.path.join(get_package_share_directory(description_package_name))
-    xacro_file = os.path.join(package_path,'description','sec_description.urdf.xacro')
-    robot_description_config = xacro.process_file(xacro_file)
+    declare_use_sim_time = DeclareLaunchArgument(
+            'use_sim_time',
+            default_value='true',
+            description='Use simulation (Gazebo) clock if true')
 
-    # Configure the node
-    node_robot_state_publisher = Node(
-            package='robot_state_publisher',
-            executable='robot_state_publisher',
-            name='robot_state_publisher',
-            output='screen',
-            parameters=[{'use_sim_time': use_sim_time, 'robot_description': robot_description_config.toxml()}],
+    declare_use_ros2_control = DeclareLaunchArgument(
+            name='use_ros2_control',
+            default_value='true',
+            description='Use ros2_control if true'
+        )
+
+    start_robot_state_publisher = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            os.path.join(get_package_share_directory(description_package_name), 'launch', 'rsp.launch.py')]),
+        launch_arguments={
+            'use_sim_time': use_sim_time,
+            'use_ros2_control': use_ros2_control
+        }.items()
     )
 
     node_joint_state_publisher_gui = Node(
@@ -48,11 +51,9 @@ def generate_launch_description():
 
     # Run the node
     return LaunchDescription([
-        DeclareLaunchArgument(
-            'use_sim_time',
-            default_value='false',
-            description='Use simulation (Gazebo) clock if true'),
-        node_robot_state_publisher,
+        declare_use_sim_time,
+        declare_use_ros2_control,
+        start_robot_state_publisher,
         node_joint_state_publisher_gui,
         node_rviz2
     ])

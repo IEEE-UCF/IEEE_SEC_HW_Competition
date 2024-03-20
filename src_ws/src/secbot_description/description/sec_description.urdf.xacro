@@ -4,15 +4,38 @@
     <xacro:arg name="use_ros2_control" default="true"/>
     <xacro:arg name="sim_mode" default="false"/>
 
-    <xacro:property name="camera_x" value="0.010"/>
-    <xacro:property name="camera_y" value="0.03"/>
-    <xacro:property name="camera_z" value="0.03"/>
+    <!-- Meters -->
+    <xacro:property name="chassis_length" value="0.3048"/> <!--X-->
+    <xacro:property name="chassis_width" value="0.3048"/> <!--Y-->
+    <xacro:property name="chassis_height" value="0.2838"/> <!--Z-->
+    <xacro:property name="chassis_mass" value="10"/> <!--What is the unit for this?-->
+    <xacro:property name="chassis_z_offset" value="0.021"/> <!--Currently unused, going to try to implement for total height translation-->
+
+    <xacro:property name="wheel_radius" value="0.0381"/> <!-- Update wheel radius paramter in controllers.yaml as well-->
+    <xacro:property name="wheel_length" value="0.0254"/>
+    <xacro:property name="wheel_mass" value="10"/>
+
+    <xacro:property name="wheel_y_displacement" value="0.12065"/> <!-- Update wheel separation paramter in controllers.yaml as well-->
+    <xacro:property name="wheel_z_displacement" value="${wheel_radius/2}"/>
+
+    <xacro:property name="camera_x" value="${-chassis_width/2}"/>
+    <xacro:property name="camera_y" value="0"/>
+    <xacro:property name="camera_z" value="${chassis_z_offset+chassis_height/2}"/>
+    <xacro:property name="camera_length" value="0.05"/>
+    <xacro:property name="camera_width" value="0.05"/>
+    <xacro:property name="camera_height" value="0.02"/>
     <xacro:property name="camera_fov" value="1.089"/>
 
+    <xacro:property name="imu_x" value="0"/>
+    <xacro:property name="imu_y" value="0"/>
+    <xacro:property name="imu_z" value="${chassis_z_offset+chassis_height}"/>
     <xacro:property name="imu_length" value="0.05"/>
     <xacro:property name="imu_width" value="0.05"/>
     <xacro:property name="imu_height" value="0.02"/>
 
+    <xacro:property name="lidar_x" value="${chassis_width/2}"/>
+    <xacro:property name="lidar_y" value="0"/>
+    <xacro:property name="lidar_z" value="${chassis_z_offset+chassis_height/2}"/>
     <xacro:property name="lidar_radius" value="0.05"/>
     <xacro:property name="lidar_length" value="0.04"/>
 

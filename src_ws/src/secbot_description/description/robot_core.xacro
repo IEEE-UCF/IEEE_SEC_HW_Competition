@@ -3,9 +3,6 @@
 
     <xacro:include filename="inertial_macros.xacro"/>
 
-    <!-- The difference between bottom middle of chassis and wheel position(s)-->
-    <xacro:property name="wheel_x_displacement" value="0.08255"/>
-
     <!-- Base Link -->
     <link name="base_link"/>
 
@@ -23,7 +20,7 @@
     <joint name="chassis_joint" type="fixed">
         <parent link="base_link"/>
         <child link="chassis"/>
-        <origin xyz="0.0 0.0 ${chassis_z_offset}" rpy="0 0 0"/>
+        <origin xyz="0.0 0.0 ${wheel_radius/2 + chassis_z_offset}" rpy="0 0 0"/>
     </joint>
 
     <link name="chassis">
@@ -86,9 +83,9 @@
         </gazebo>
     </xacro:macro>
 
-    <xacro:wheel prefix="b_l" l_r="-1" f_b="1" />
-    <xacro:wheel prefix="b_r" l_r="-1" f_b="-1" />
-    <xacro:wheel prefix="f_l" l_r="1"  f_b="1" />
-    <xacro:wheel prefix="f_r" l_r="1"  f_b="-1" />
+    <xacro:wheel prefix="b_l" l_r="-1" f_b="-1" />
+    <xacro:wheel prefix="b_r" l_r="1" f_b="-1" />
+    <xacro:wheel prefix="f_l" l_r="-1"  f_b="1" />
+    <xacro:wheel prefix="f_r" l_r="1"  f_b="1" />
     
 </robot>
