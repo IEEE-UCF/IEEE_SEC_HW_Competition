@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
     
-    
     <joint name="lidar_joint" type="fixed">
             <parent link="chassis"/>
             <child link="lidar_link"/>
-            <origin xyz="0 0 ${chassis_height+(imu_height/2)}" rpy="0 0 0"/>
+            <origin xyz="${lidar_x} ${lidar_y} ${lidar_z}" rpy="0 0 0"/>
     </joint>
 
     <link name="lidar_link">
