@@ -5,6 +5,7 @@
             <parent link="chassis"/>
             <child link="lidar_link"/>
             <origin xyz="${lidar_x} ${lidar_y} ${lidar_z}" rpy="0 0 0"/>
+
     </joint>
 
     <link name="lidar_link">
@@ -33,8 +34,8 @@
                     <horizontal>
                     <samples>360</samples>
                     <resolution>1</resolution>
-                    <min_angle>-1.57</min_angle>
-                    <max_angle>1.57</max_angle>
+                    <min_angle>-3.14</min_angle>
+                    <max_angle>3.14</max_angle>
                     </horizontal>
                 </scan>
                 <range>

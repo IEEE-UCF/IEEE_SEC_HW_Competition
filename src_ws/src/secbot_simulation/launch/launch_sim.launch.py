@@ -43,7 +43,7 @@ def generate_launch_description():
     # Declare launch arguments
     declare_use_sim_time_cmd = DeclareLaunchArgument(
         name='use_sim_time',
-        default_value='true',
+        default_value='false',
         description='Use simulation (Gazebo) clock if true'
     )
 
@@ -67,7 +67,7 @@ def generate_launch_description():
 
     declare_use_gazebo_gui = DeclareLaunchArgument(
         name='use_gazebo_gui',
-        default_value='0',
+        default_value='false',
         description='Whether to launch Gazebo with or without GUI, default is without gui'
     )
 
