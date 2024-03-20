@@ -4,13 +4,13 @@
     <joint name="camera_joint" type="fixed">
             <parent link="chassis"/>
             <child link="camera_link"/>
-            <origin xyz="${(chassis_length/2)+(camera_x/2)} 0 ${chassis_height/2}" rpy="0 0 0"/>
+            <origin xyz="${camera_x} ${camera_y} ${camera_z}" rpy="0 0 0"/>
         </joint>
 
         <link name="camera_link">
             <visual>
                 <geometry>
-                    <box size="${camera_x} ${camera_y} ${camera_z}"/>
+                    <box size="${camera_length} ${camera_width} ${camera_height}"/>
                 </geometry>
                 <material name="Gray">
                     <color rgba="0.5 0.5 0.5 1.0"/>

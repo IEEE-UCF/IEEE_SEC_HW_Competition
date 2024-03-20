@@ -67,13 +67,10 @@ public:
     }
     catch (const LibSerial::ReadTimeout&)
     {
-        std::cerr << "The ReadByte() call has timed out." << std::endl ;
+        std::cerr << "The ReadByte() call has timed out." << std::endl;
     }
 
-    if (print_output)
-    {
-      std::cout << "teteSent: " << msg_to_send << " Recv: " << response << std::endl;
-    }
+     
 
     return response;
   }
@@ -81,31 +78,29 @@ public:
 
   void send_empty_msg()
   {
-    std::string response = send_msg("\n");
+    std::string response = send_msg("\r");
   }
 
   void read_encoder_values(int &val_1, int &val_2)
   {
-    // std::string response = send_msg("e\r");
+    std::string response = send_msg("e\r");
+    //std::string response ="";
 
-    // std::string delimiter = " ";
-    // size_t del_pos = response.find(delimiter);
-    // std::string token_1 = response.substr(0, del_pos);
-    // std::string token_2 = response.substr(del_pos + delimiter.length());
+    std::string delimiter = " ";
+    size_t del_pos = response.find(delimiter);
+    std::string token_1 = response.substr(0, del_pos);
+    std::string token_2 = response.substr(del_pos + delimiter.length());
 
-    // val_1 = std::atoi(token_1.c_str());
-    // val_2 = std::atoi(token_2.c_str());
+    val_1 = std::atoi(token_1.c_str());
+    val_2 = std::atoi(token_2.c_str());
+
+    //std::cout << "encoder encore = " << val_1 << "val2 = " << val_2 << std::endl;
   }
   void set_motor_values(int val_1, int val_2)
   {
-    //std::cout << "val1 = " << val_1 << "val2 = " << val_2 << std::endl;
+    //std::cout << "motor music = " << val_1 << "val2 = " << val_2 << std::endl;
     std::stringstream ss;
-    if (val_1 > val_2) {
-      ss << "move_left(" << val_1 << ")";
-    }
-    else {
-      ss << "m " << val_1 << " " << val_2 << "\n";
-    }
+    ss << "m " << val_1 << " " << val_2 << "\r";
     send_msg(ss.str());
   }
 
