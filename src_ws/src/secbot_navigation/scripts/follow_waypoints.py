@@ -31,9 +31,10 @@ def main():
     # Inspection route, probably read in from a file for a real application
     # from either a map or drive and repeat.
     inspection_route = [ # simulation points
-        [1.0, 0.0],
-        [-2.0, -1.0],
-        [0.0, 1.0]]
+        [-1.5, 0.0],
+        [-1.0, 0.0],
+        [-1.5, 0.0],
+        [-1.5, 0.0]]
 
 
     # Set our demo's initial pose
@@ -57,7 +58,7 @@ def main():
         inspection_pose.header.frame_id = 'map'
         inspection_pose.header.stamp = navigator.get_clock().now().to_msg()
         inspection_pose.pose.orientation.z = 1.0
-        inspection_pose.pose.orientation.w = 0.0
+        inspection_pose.pose.orientation.w = 0
         for pt in inspection_route:
             inspection_pose.pose.position.x = pt[0]
             inspection_pose.pose.position.y = pt[1]

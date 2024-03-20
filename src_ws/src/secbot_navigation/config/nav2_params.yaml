@@ -40,7 +40,7 @@ amcl:
     scan_topic: "/scan"
     set_initial_pose: true
     initial_pose: 
-      x: 0.01
+      x: -1.5
       y: 0.01
       yaw: 0.01
 
