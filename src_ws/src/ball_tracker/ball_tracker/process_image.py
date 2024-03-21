@@ -37,11 +37,7 @@ def find_circles(image, tuning_params):
     #- Apply HSV threshold
     thresh_min = (tuning_params["h_min"], tuning_params["s_min"], tuning_params["v_min"])
     thresh_max = (tuning_params["h_max"], tuning_params["s_max"], tuning_params["v_max"])
-    working_image    = cv2.inRange(working_image, thresh_min, thresh_max)
-
-    # Blur image to remove noise
-    working_blur = cv2.GaussianBlur(working_image, (5, 5), 0)
-
+    working_image = cv2.inRange(working_image, thresh_min, thresh_max)
 
     # Dilate and Erode
     working_image = cv2.dilate(working_image, None, iterations=2)
@@ -54,14 +50,11 @@ def find_circles(image, tuning_params):
     # Apply the search window
     working_image = apply_search_window(working_image, search_window)
 
-    # Invert the image to suit the blob detector
-    working_image = 255-working_image
-
     # Detect edges using Canny edge detection
-    edges = cv2.Canny(working_blur, 50, 150)
+    edges = cv2.Canny(working_image, 50, 150)
 
     # Find contours
-    contours = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contours, hierarchy = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
     squares = []
     for contour in contours:

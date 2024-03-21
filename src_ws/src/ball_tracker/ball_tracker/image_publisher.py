@@ -4,7 +4,6 @@ from sensor_msgs.msg        import Image
 from geometry_msgs.msg      import Point, Twist
 from cv_bridge              import CvBridge, CvBridgeError
 from geometry_msgs.msg import Twist
-import rclpy
 import cv2
 import time
 import subprocess
