@@ -31,9 +31,14 @@ def main():
     # Inspection route, probably read in from a file for a real application
     # from either a map or drive and repeat.
     inspection_route = [ # simulation points
-        [-1.5, 0.0],
-        [-1.0, 0.0],
-        [1.0, 0.0]]
+        [-1.5, 0.0, 0.0, 1.0],    #ORIENT FACING RAMP :: ACTIVATE INTAKE
+        [-1.0, 0.0, -1.0, 0.0],    #DRIVE FORWARDS AND ORIENT BACKWARDS
+        [-1.5, 0.0, 0.7, 0.7],    #DRIVE FORWARDS AND ORIENT FACING BLOCKS
+        [-1.5, 0.2, 0.7, 0.7],    #DRIVE FORWARDS :: CMD_VEL BACK UP
+        [-1.5, 0.0, 0.0, 1.0],    #ORIENT FACING RAMP
+        [-1.2, 0.0, 0.7, 0.7],    #DRIVE FORWARDS AND ORIENT FACING BLOCKS
+        [-1.2, 0.2, 0.7, 0.7],    #DRIVE FORWARDS :: CMD_VEL BACK UP
+        [-1.2, 0.0, 0.0, 1.0]]    #ORIENT FACING RAMPS :: ACTIVATE HAUL
 
 
     # Set our demo's initial pose
@@ -49,6 +54,9 @@ def main():
     # Wait for navigation to fully activate
     navigator.waitUntilNav2Active()
 
+#inspection_pose.pose.orientation.z = 0.0
+#inspection_pose.pose.orientation.w = 1.0
+
     while rclpy.ok():
 
         # Send our route
@@ -56,11 +64,11 @@ def main():
         inspection_pose = PoseStamped()
         inspection_pose.header.frame_id = 'map'
         inspection_pose.header.stamp = navigator.get_clock().now().to_msg() 
-        inspection_pose.pose.orientation.z = 0.0
-        inspection_pose.pose.orientation.w = 1.0
         for pt in inspection_route:
             inspection_pose.pose.position.x = pt[0]
             inspection_pose.pose.position.y = pt[1]
+            inspection_pose.pose.orientation.z = pt[2]
+            inspection_pose.pose.orientation.w = pt[3]
             inspection_points.append(deepcopy(inspection_pose))
         nav_start = navigator.get_clock().now()
         navigator.followWaypoints(inspection_points)

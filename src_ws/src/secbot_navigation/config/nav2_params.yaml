@@ -41,8 +41,8 @@ amcl:
     set_initial_pose: true
     initial_pose: 
       x: -1.5
-      y: 0.01
-      yaw: 0.01
+      y: 0.0
+      yaw: 0.0
 
 bt_navigator:
   ros__parameters:
