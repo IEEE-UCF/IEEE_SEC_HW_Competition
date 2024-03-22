@@ -40,9 +40,9 @@ amcl:
     scan_topic: "/scan"
     set_initial_pose: true
     initial_pose: 
-      x: -1.5
-      y: 0.0
-      yaw: 0.0
+      x: 0.01
+      y: 0.01
+      yaw: 0.01
 
 bt_navigator:
   ros__parameters:
@@ -138,8 +138,8 @@ controller_server:
     general_goal_checker:
       stateful: True
       plugin: "nav2_controller::SimpleGoalChecker"
-      xy_goal_tolerance: 0.05                      #CHECK was .25
-      yaw_goal_tolerance: 0.05                      #CHECK was .25
+      xy_goal_tolerance: 0.1                      #CHECK was .25
+      yaw_goal_tolerance: 0.1                      #CHECK was .25
     # DWB parameters
     FollowPath:
       plugin: "dwb_core::DWBLocalPlanner"
@@ -167,7 +167,7 @@ controller_server:
       linear_granularity: 0.05
       angular_granularity: 0.025
       transform_tolerance: 0.2
-      xy_goal_tolerance: 0.05               #CHECK WAS .25
+      xy_goal_tolerance: 0.1               #CHECK WAS .25
       trans_stopped_velocity: 0.25
       short_circuit_trajectory_evaluation: True
       stateful: True

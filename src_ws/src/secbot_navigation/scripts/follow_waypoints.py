@@ -31,15 +31,19 @@ def main():
     # Inspection route, probably read in from a file for a real application
     # from either a map or drive and repeat.
     inspection_route = [ # simulation points
-        [-1.5, 0.0, 0.0, 1.0],    #ORIENT FACING RAMP :: ACTIVATE INTAKE
-        [-1.1, 0.0, -1.0, 0.0],    #DRIVE FORWARDS AND ORIENT BACKWARDS
-        [-1.5, 0.0, 0.7, 0.7],    #DRIVE FORWARDS AND ORIENT FACING BLOCKS
-        [-1.5, 0.1, 0.7, 0.7],    #DRIVE FORWARDS :: CMD_VEL BACK UP
-        [-1.5, 0.0, 0.0, 1.0],    #ORIENT FACING RAMP
-        [-1.25, 0.0, 0.7, 0.7],    #DRIVE FORWARDS AND ORIENT FACING BLOCKS
-        [-1.25, 0.1, 0.7, 0.7],    #DRIVE FORWARDS :: CMD_VEL BACK UP
-        [-1.1, 0.0, 0.0, 1.0]]    #ORIENT FACING RAMPS :: ACTIVATE HAUL
+        [0.0, 0.0, 0.0, 1.0],    #ORIENT FACING RAMP :: ACTIVATE INTAKE
+        [0.35, 0.0, 0.0, 1.0],   #DRIVE FORWARDS
+        [0.35, 0.0, -1.0, 0.0],   #ORIENT BACKWARDS
+        [0.0, 0.0, -1.0, 0.0],    #DRIVE FORWARDS
+        [0.0, 0.0, -0.705, 0.705],   #ORIENT BACKWARDS
+        [0.0, -0.1, -0.705, 0.705],    #DRIVE FORWARDS :: CMD_VEL BACK UP
+        [0.0, 0.0, 0.0, 1.0],    #ORIENT FACING RAMP
+        [0.3, 0.0, 0.0, 1.0],   #DRIVE FORWARDS
+        [0.3, 0.0, -0.705, 0.705],   #ORIENT FACING BLOCKS
+        [0.3, -0.1, -0.705, 0.705],   #DRIVE FORWARDS :: CMD_VEL BACK UP
+        [0.3, 0.0, 0.0, 1.0]]    #ORIENT FACING RAMPS :: ACTIVATE HAUL
 
+#-1
 
     # Set our demo's initial pose
     # initial_pose = PoseStamped()
