@@ -36,14 +36,12 @@ def main():
         [0.35, 0.0, -1.0, 0.0],   #ORIENT BACKWARDS
         [0.0, 0.0, -1.0, 0.0],    #DRIVE FORWARDS
         [0.0, 0.0, -0.705, 0.705],   #ORIENT BACKWARDS
-        [0.0, -0.1, -0.705, 0.705],    #DRIVE FORWARDS :: CMD_VEL BACK UP
+        [0.0, -0.15, -0.705, 0.705],    #DRIVE FORWARDS :: CMD_VEL BACK UP     (change second value to get closer to wall)
         [0.0, 0.0, 0.0, 1.0],    #ORIENT FACING RAMP
         [0.3, 0.0, 0.0, 1.0],   #DRIVE FORWARDS
         [0.3, 0.0, -0.705, 0.705],   #ORIENT FACING BLOCKS
-        [0.3, -0.1, -0.705, 0.705],   #DRIVE FORWARDS :: CMD_VEL BACK UP
+        [0.3, -0.15, -0.705, 0.705],   #DRIVE FORWARDS :: CMD_VEL BACK UP    (change second value to get closer to wall)
         [0.3, 0.0, 0.0, 1.0]]    #ORIENT FACING RAMPS :: ACTIVATE HAUL
-
-#-1
 
     # Set our demo's initial pose
     # initial_pose = PoseStamped()

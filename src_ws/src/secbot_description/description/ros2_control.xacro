@@ -82,7 +82,7 @@
         </ros2_control>
         <gazebo>
             <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-                <parameters>$(find secbot_description)/config/controllers.yaml</parameters>
+                <parameters>$(find secbot_description)/config/sw_controller_config.yaml</parameters>
             </plugin>
         </gazebo>
     </xacro:if>

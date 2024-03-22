@@ -61,7 +61,8 @@ bool TaskAtWaypoint::processAtWaypoint(
       case 5:
           RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "AT SIXTH WAYPOINT: Initiating Backup..");
 
-          SuccessValue = std::system("ros2 topic pub -r 5 -t 10 /diff_drive_controller/cmd_vel_unstamped geometry_msgs/msg/Twist '{linear: {x: -0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'");
+          //CHANGE -t VALUE TO BACK UP MORE OR LESS
+          SuccessValue = std::system("ros2 topic pub -r 5 -t 7 /diff_drive_controller/cmd_vel_unstamped geometry_msgs/msg/Twist '{linear: {x: -0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'");
           //BREAKS IF LAUNCH CONTINUES SOMEWHOW
           if(SuccessValue != 0){throw std::runtime_error("MOVE STILL GOING SOMEHOW"); break;}
           
@@ -70,7 +71,8 @@ bool TaskAtWaypoint::processAtWaypoint(
       case 9:
           RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "AT NINTH WAYPOINT: Initiating Backup..");
 
-          SuccessValue = std::system("ros2 topic pub -r 5 -t 10 /diff_drive_controller/cmd_vel_unstamped geometry_msgs/msg/Twist '{linear: {x: -0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'");
+          //CHANGE -t VALUE TO BACK UP MORE OR LESS
+          SuccessValue = std::system("ros2 topic pub -r 5 -t 7 /diff_drive_controller/cmd_vel_unstamped geometry_msgs/msg/Twist '{linear: {x: -0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'");
           //BREAKS IF LAUNCH CONTINUES SOMEWHOW
           if(SuccessValue != 0){throw std::runtime_error("MOVE STILL GOING SOMEHOW"); break;}
           
