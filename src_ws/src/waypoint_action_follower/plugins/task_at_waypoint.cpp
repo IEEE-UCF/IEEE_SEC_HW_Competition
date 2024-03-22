@@ -49,28 +49,40 @@ bool TaskAtWaypoint::processAtWaypoint(
 
   try {
     //START THE WAYPOINT PROCCESS DEPENDING ON THE WAYPOINT INDEX    
+    int SuccessValue;
     switch (curr_waypoint_index){
       case 0:          
-          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "AT FIRST WAYPOINT: Initiating Ball Tracker..");
+          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "AT FIRST WAYPOINT: Initiating Intake");
 
-          //STARTS BALL TRACKER - SET i EQUAL TO THE NUMBER OF CUBES OR BALLS
-          for(int i=0;i<1;i++){
-            int SuccessValue = std::system("ros2 launch secbot_navigation ball_tracker_launch.py use_sim_time:=true");
-          
-            //BREAKS IF LAUNCH CONTINUES SOMEWHOW
-            if(SuccessValue != 0){throw std::runtime_error("LAUNCH STILL GOING SOMEHOW"); break;}
-          
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "BALL TRACKER FINISHED - GRABBING BALL");
-            std::this_thread::sleep_for(std::chrono::seconds(3));
-          }
+          std::this_thread::sleep_for(std::chrono::seconds(4));
 
           RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "PROCESS COMPLETE");
           break;
-      case 1:
-          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "AT SECOND WAYPOINT: Initiating Drive Over..");
+      case 5:
+          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "AT SIXTH WAYPOINT: Initiating Backup..");
+
+          //CHANGE -t VALUE TO BACK UP MORE OR LESS
+          SuccessValue = std::system("ros2 topic pub -r 5 -t 7 /diff_drive_controller/cmd_vel_unstamped geometry_msgs/msg/Twist '{linear: {x: -0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'");
+          //BREAKS IF LAUNCH CONTINUES SOMEWHOW
+          if(SuccessValue != 0){throw std::runtime_error("MOVE STILL GOING SOMEHOW"); break;}
+          
+          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "PROCESS COMPLETE");
+          break;
+      case 9:
+          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "AT NINTH WAYPOINT: Initiating Backup..");
+
+          //CHANGE -t VALUE TO BACK UP MORE OR LESS
+          SuccessValue = std::system("ros2 topic pub -r 5 -t 7 /diff_drive_controller/cmd_vel_unstamped geometry_msgs/msg/Twist '{linear: {x: -0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'");
+          //BREAKS IF LAUNCH CONTINUES SOMEWHOW
+          if(SuccessValue != 0){throw std::runtime_error("MOVE STILL GOING SOMEHOW"); break;}
+          
+          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "PROCESS COMPLETE");
+          break;
+      case 10:
+          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "AT TENTH WAYPOINT: Disabling Intake and Initiating Haul Forwards..");
 
           //CHANGE ANGULAR Z TO DETERMINE ADJUSTMENT VALUE BEFORE PASSING RAMP
-          int SuccessValue = std::system("ros2 topic pub -r 5 -t 3 /diff_drive_controller/cmd_vel_unstamped geometry_msgs/msg/Twist '{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.3}}'");
+          SuccessValue = std::system("ros2 topic pub -r 5 -t 3 /diff_drive_controller/cmd_vel_unstamped geometry_msgs/msg/Twist '{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.3}}'");
           //BREAKS IF LAUNCH CONTINUES SOMEWHOW
           if(SuccessValue != 0){throw std::runtime_error("MOVE STILL GOING SOMEHOW"); break;}
 

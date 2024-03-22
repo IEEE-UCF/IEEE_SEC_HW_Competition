@@ -24,7 +24,7 @@ def generate_launch_description():
     navigation_package_name = 'secbot_navigation'
     simulation_package_name = 'secbot_simulation'
 
-    world_file_name = 'comp_course.world'
+    world_file_name = 'course_no_blocks.world'
     world_file_path = os.path.join(get_package_share_directory(description_package_name), 'worlds', world_file_name)
     gazebo_model_path = os.path.join(get_package_share_directory(description_package_name), 'models')
     set_model_path = SetEnvironmentVariable('GAZEBO_MODEL_PATH', gazebo_model_path)

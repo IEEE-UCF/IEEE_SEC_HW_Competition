@@ -35,7 +35,7 @@
 
     <xacro:property name="lidar_x" value="${chassis_width/2}"/>
     <xacro:property name="lidar_y" value="0"/>
-    <xacro:property name="lidar_z" value="${chassis_z_offset+chassis_height/2}"/>
+    <xacro:property name="lidar_z" value="${wheel_radius/2}"/>
     <xacro:property name="lidar_radius" value="0.05"/>
     <xacro:property name="lidar_length" value="0.04"/>
 

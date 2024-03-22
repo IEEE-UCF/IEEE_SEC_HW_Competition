@@ -31,10 +31,17 @@ def main():
     # Inspection route, probably read in from a file for a real application
     # from either a map or drive and repeat.
     inspection_route = [ # simulation points
-        [-1.5, 0.0],
-        [-1.0, 0.0],
-        [1.0, 0.0]]
-
+        [0.0, 0.0, 0.0, 1.0],    #ORIENT FACING RAMP :: ACTIVATE INTAKE
+        [0.35, 0.0, 0.0, 1.0],   #DRIVE FORWARDS
+        [0.35, 0.0, -1.0, 0.0],   #ORIENT BACKWARDS
+        [0.0, 0.0, -1.0, 0.0],    #DRIVE FORWARDS
+        [0.0, 0.0, -0.705, 0.705],   #ORIENT BACKWARDS
+        [0.0, -0.15, -0.705, 0.705],    #DRIVE FORWARDS :: CMD_VEL BACK UP     (change second value to get closer to wall)
+        [0.0, 0.0, 0.0, 1.0],    #ORIENT FACING RAMP
+        [0.3, 0.0, 0.0, 1.0],   #DRIVE FORWARDS
+        [0.3, 0.0, -0.705, 0.705],   #ORIENT FACING BLOCKS
+        [0.3, -0.15, -0.705, 0.705],   #DRIVE FORWARDS :: CMD_VEL BACK UP    (change second value to get closer to wall)
+        [0.3, 0.0, 0.0, 1.0]]    #ORIENT FACING RAMPS :: ACTIVATE HAUL
 
     # Set our demo's initial pose
     # initial_pose = PoseStamped()
@@ -49,6 +56,9 @@ def main():
     # Wait for navigation to fully activate
     navigator.waitUntilNav2Active()
 
+#inspection_pose.pose.orientation.z = 0.0
+#inspection_pose.pose.orientation.w = 1.0
+
     while rclpy.ok():
 
         # Send our route
@@ -56,11 +66,11 @@ def main():
         inspection_pose = PoseStamped()
         inspection_pose.header.frame_id = 'map'
         inspection_pose.header.stamp = navigator.get_clock().now().to_msg() 
-        inspection_pose.pose.orientation.z = 0.0
-        inspection_pose.pose.orientation.w = 1.0
         for pt in inspection_route:
             inspection_pose.pose.position.x = pt[0]
             inspection_pose.pose.position.y = pt[1]
+            inspection_pose.pose.orientation.z = pt[2]
+            inspection_pose.pose.orientation.w = pt[3]
             inspection_points.append(deepcopy(inspection_pose))
         nav_start = navigator.get_clock().now()
         navigator.followWaypoints(inspection_points)
