@@ -34,12 +34,12 @@ void timerCallback(){
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
     // CHANGE THIS DEPENDING ON NODES
-      std::system("pkill -2 -f 'robot_state_publisher'");
-      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-      std::system("pkill -2 -f 'gzserver'");
-      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-      std::system("pkill -2 -f 'ekf_node'");
-      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::system("pkill -2 -f 'robot_state_publisher'");
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::system("pkill -2 -f 'gzserver'");
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::system("pkill -2 -f 'ekf_node'");
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
 

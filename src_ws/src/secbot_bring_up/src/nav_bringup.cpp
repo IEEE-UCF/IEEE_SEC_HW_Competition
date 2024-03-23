@@ -7,7 +7,7 @@ int gud_msg_count = 0;
 int times_failed = 0;
 
 //CHANGE THIS IF YOU WANT NAV2 TO GIVE UP AFTER CERTAIN NUMBER OF FAILURES
-const int reset_max = 3;
+const int reset_max = 1;
 
 //INCREASE MAX_WAIT IF THE FILE TAKES LONGER TO START
 const int max_wait_break = 25;

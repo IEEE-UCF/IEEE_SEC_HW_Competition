@@ -3,6 +3,7 @@
 
 #include <string>
 
+#include "std_msgs/msg/string.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_components/register_node_macro.hpp"
 #include "nav2_core/waypoint_task_executor.hpp"
@@ -54,6 +55,8 @@ protected:
    */
   bool is_enabled_;
   rclcpp::Logger logger_{rclcpp::get_logger("waypoint_action_follower")};
+  rclcpp::Publisher<std_msgs::msg::String>::SharedPtr subsystem_pub_;
+
 };
 
 } // namespace nav2_waypoint_follower
