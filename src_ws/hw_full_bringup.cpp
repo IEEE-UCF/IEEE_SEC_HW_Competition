@@ -25,14 +25,11 @@ int main() {
 
     std::cout<< "Recived green light signal, starting ros2..\n";
 
-    // //CHECK THAT EACH BRINGUP USES SIM TIME IF NEEDED IN std::system LAUNCHES FUNCTIONS
+    //CHECK THAT EACH BRINGUP USES SIM TIME IF NEEDED IN std::system LAUNCHES FUNCTIONS
 
-    // std::system("ros2 run secbot_bring_up hw_launch_bringup");
-    // std::system("ros2 run secbot_bring_up hw_nav_bringup");
-    // std::system("ros2 run secbot_bring_up hw_waypoint_bringup");
-
-
-    std::cout<< "node_checker should've ended, go check\n";
+    std::system("ros2 run secbot_bring_up hw_launch_bringup");
+    std::system("ros2 run secbot_bring_up hw_nav_bringup");
+    std::system("ros2 run secbot_bring_up hw_waypoint_bringup");
 
 
     return 0;
