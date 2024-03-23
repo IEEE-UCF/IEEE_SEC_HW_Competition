@@ -63,7 +63,7 @@ void gazebo_reset(){
   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "ALL PROCESSES ENDED - RESTARTING GAZEBO NOW");
   
   std::this_thread::sleep_for(std::chrono::seconds(2));
-  std::system("ros2 run secbot_bring_up gazebo_bringup");
+  std::system("ros2 run secbot_bring_up sw_launch_bringup");
 
   current_time = 0;
   gud_msg_count = 0;

@@ -1,6 +1,0 @@
-cmake_minimum_required(VERSION 2.8)
-project( green_detector )
-find_package( OpenCV REQUIRED )
-include_directories( ${OpenCV_INCLUDE_DIRS} )
-add_executable( green_detector green_detector.cpp )
-target_link_libraries( green_detector ${OpenCV_LIBS} )
