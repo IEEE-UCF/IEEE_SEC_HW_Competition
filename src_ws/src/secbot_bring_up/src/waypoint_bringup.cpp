@@ -47,8 +47,8 @@ void end_all_nodes(){
 
 void current_launch_async(){
 
-  //CHANGE THIS DEPENDING ON WHICH LAUNCH FILE YOU WANT
-  std::system("ros2 launch secbot_navigation waypoint_launch.py &");
+  //CHANGE THIS DEPENDING ON WHICH LAUNCH FILE YOU WANT - HW WILL HAVE EXTRA NODES
+  std::system("ros2 launch secbot_navigation waypoint_launch.py&");
 
 }
 

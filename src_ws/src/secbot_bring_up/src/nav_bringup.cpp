@@ -25,7 +25,7 @@ int max_good_msgs = 2;
 
 
 void end_all_nodes(){
-      // CHANGE THIS DEPENDING ON NODES
+      // CHANGE THIS DEPENDING ON NODES - HW WILL HAVE EXTRA NODES
       std::system("pkill -2 -f 'component_container_isolated'");
       std::this_thread::sleep_for(std::chrono::seconds(4));         
       std::system("pkill -9 -f 'component_container_isolated'");
@@ -44,8 +44,8 @@ void end_all_nodes(){
 
 void current_launch_async(){
 
-  //CHANGE THIS DEPENDING ON WHICH LAUNCH FILE YOU WANT
-  std::system("ros2 launch secbot_navigation bringup_launch.py &");
+  //CHANGE THIS DEPENDING ON WHICH LAUNCH FILE YOU WANT - use_sim_time:=true may be needed
+  std::system("ros2 launch secbot_navigation bringup_launch.py use_sim_time:=true &");
 
 }
 
