@@ -38,6 +38,10 @@ void end_all_nodes(){
       std::this_thread::sleep_for(std::chrono::milliseconds(1000));      
       std::system("pkill -2 -f 'robot_state_publisher'");
       std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+      std::system("pkill -2 -f 'bno055'");
+      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+      std::system("pkill -2 -f 'rplidar_composition'");
+      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 }
 
 

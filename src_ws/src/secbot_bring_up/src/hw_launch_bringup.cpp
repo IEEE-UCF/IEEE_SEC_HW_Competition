@@ -34,6 +34,10 @@ void timerCallback(){
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
     // CHANGE THIS DEPENDING ON NODES- ADD MORE NODES FOR HW
+    std::system("pkill -2 -f 'bno055'");
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::system("pkill -2 -f 'rplidar_composition'");
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     std::system("pkill -2 -f 'robot_state_publisher'");
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     std::system("pkill -2 -f 'gzserver'");
@@ -63,6 +67,7 @@ auto checker_callback(const rcl_interfaces::msg::Log msg){
 
   //CHANGE ARRAY BASED ON MESSAGES YOU WISH TO SEE
   const char* gud_msg[] = {"Calling service /spawn_entity","Loaded gazebo_ros2_control.","\033[92mConfigured and activated \033[1mjoint_state_broadcaster\033[0m","\033[92mConfigured and activated \033[1mdiff_drive_controller\033[0m"};
+  const char* lidar_msg[] = {"current scan mode: Sensitivity"};
   static int gud_msg_count = 0;
 
   if (strcmp(msg.msg.c_str(), gud_msg[gud_msg_count % 4]) == 0){
@@ -72,14 +77,26 @@ auto checker_callback(const rcl_interfaces::msg::Log msg){
     gud_msg_count++;
 
   }
+
+  if(msg.msg.size() > 25 && msg.msg.size() < 250 && msg.msg.at(4) == bad_msg[0][4]){
   
-  if(gud_msg_count == static_cast<int>(sizeof(gud_msg)/sizeof(gud_msg[0]))){
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "FOUND LIDAR MESSAGE FOUND LIDAR MESSAGE");
+
+    gud_msg_count++;
+
+  }
+  
+  if(gud_msg_count == static_cast<int>(5)){
     
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "STARTUP WAS SUCCESFUL");
 
     if(break_for_testing == true){
       
       //CHANGE THIS DEPENDING ON NODES - HW WILL HAVE EXTRA HW NODES
+      std::system("pkill -2 -f 'bno055'");
+      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+      std::system("pkill -2 -f 'rplidar_composition'");
+      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
       std::system("pkill -2 -f 'robot_state_publisher'");
       std::this_thread::sleep_for(std::chrono::milliseconds(1000));
       std::system("pkill -2 -f 'gzserver'");
