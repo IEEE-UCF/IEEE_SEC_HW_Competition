@@ -16,8 +16,8 @@ const bool break_for_testing = false;
 
 void current_launch_async(){
   
-  //CHANGE THIS DEPENDING ON WHICH LAUNCH FILE YOU WANT
-  std::system("ros2 launch secbot_simulation launch_sim.launch.py &");
+  //CHANGE THIS DEPENDING ON WHICH LAUNCH FILE YOU WANT - use_sim_time:=true may be needed
+  std::system("ros2 launch secbot_simulation launch_sim.launch.py use_sim_time:=true &");
 
 }
 
@@ -34,12 +34,12 @@ void timerCallback(){
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
     // CHANGE THIS DEPENDING ON NODES
-      std::system("pkill -2 -f 'robot_state_publisher'");
-      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-      std::system("pkill -2 -f 'gzserver'");
-      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-      std::system("pkill -2 -f 'ekf_node'");
-      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::system("pkill -2 -f 'robot_state_publisher'");
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::system("pkill -2 -f 'gzserver'");
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::system("pkill -2 -f 'ekf_node'");
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
@@ -79,7 +79,7 @@ auto checker_callback(const rcl_interfaces::msg::Log msg){
 
     if(break_for_testing == true){
       
-      //CHANGE THIS DEPENDING ON NODES
+      //CHANGE THIS DEPENDING ON NODES - HW WILL HAVE EXTRA HW NODES
       std::system("pkill -2 -f 'robot_state_publisher'");
       std::this_thread::sleep_for(std::chrono::milliseconds(1000));
       std::system("pkill -2 -f 'gzserver'");

@@ -6,6 +6,8 @@
 
 #include "pluginlib/class_list_macros.hpp"
 #include "nav2_util/node_utils.hpp"
+#include "std_msgs/msg/string.hpp"
+#include "rclcpp/rclcpp.hpp"
 
 namespace nav2_waypoint_follower
 {
@@ -29,8 +31,10 @@ void TaskAtWaypoint::initialize(
   {
     throw std::runtime_error("Failed to lock parent node");
   }
-  
+
   logger_ = node_->get_logger();
+  subsystem_pub_ = node_->create_publisher<std_msgs::msg::String>("SubsystemComms",10);
+
 
   nav2_util::declare_parameter_if_not_declared(
     node_, plugin_name + ".enabled",
@@ -48,12 +52,21 @@ bool TaskAtWaypoint::processAtWaypoint(
   }    
 
   try {
+    
     //START THE WAYPOINT PROCCESS DEPENDING ON THE WAYPOINT INDEX    
+    
     int SuccessValue;
+    std_msgs::msg::String message;
+
+    // PUBLISH VALUES FOR SUBSYSTEMS: 4 intake : 5 outake : 6 disable
+
     switch (curr_waypoint_index){
       case 0:          
           RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "AT FIRST WAYPOINT: Initiating Intake");
 
+          //SEND MESSAGE TO TURN ON INTAKE
+          message.data = "4"; 
+          subsystem_pub_->publish(message);
           std::this_thread::sleep_for(std::chrono::seconds(4));
 
           RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "PROCESS COMPLETE");
@@ -81,6 +94,13 @@ bool TaskAtWaypoint::processAtWaypoint(
       case 10:
           RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "AT TENTH WAYPOINT: Disabling Intake and Initiating Haul Forwards..");
 
+          
+          //SEND MESSAGE TO TURN OFF INTAKE
+          message.data = "5"; 
+          subsystem_pub_->publish(message);
+          std::this_thread::sleep_for(std::chrono::seconds(4));
+          
+          
           //CHANGE ANGULAR Z TO DETERMINE ADJUSTMENT VALUE BEFORE PASSING RAMP
           SuccessValue = std::system("ros2 topic pub -r 5 -t 3 /diff_drive_controller/cmd_vel_unstamped geometry_msgs/msg/Twist '{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.3}}'");
           //BREAKS IF LAUNCH CONTINUES SOMEWHOW
