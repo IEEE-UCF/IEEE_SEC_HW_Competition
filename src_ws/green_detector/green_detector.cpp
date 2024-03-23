@@ -9,8 +9,8 @@ using namespace std;
 
  int main( int argc, char** argv )
  {
-    //VideoCapture cap("nvarguscamerasrc ! video/x-raw(memory:NVMM), width=(int)1920, height=(int)1080,format=(string)NV12, framerate=(fraction)30/1 ! nvvidconv ! video/x-raw, format=(string)BGRx ! videoconvert !  appsink")
-    VideoCapture cap(-1); //capture the video from webcam
+    VideoCapture cap("nvarguscamerasrc ! video/x-raw(memory:NVMM), width=(int)1920, height=(int)1080,format=(string)NV12, framerate=(fraction)30/1 ! nvvidconv ! video/x-raw, format=(string)BGRx ! videoconvert !  appsink")
+    //VideoCapture cap(-1); //capture the video from webcam
 
     if ( !cap.isOpened() )  // if not success, exit program
     {
