@@ -78,7 +78,7 @@ auto checker_callback(const rcl_interfaces::msg::Log msg){
 
   }
 
-  if(msg.msg.size() > 25 && msg.msg.size() < 250 && msg.msg.at(4) == bad_msg[0][4]){
+  if(msg.msg.size() > 25 && msg.msg.size() < 250 && msg.msg.at(4) == lidar_msg[0][4]){
   
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "FOUND LIDAR MESSAGE FOUND LIDAR MESSAGE");
 
