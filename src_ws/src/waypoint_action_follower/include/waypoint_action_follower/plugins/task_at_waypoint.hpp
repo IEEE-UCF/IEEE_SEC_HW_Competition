@@ -52,6 +52,8 @@ protected:
   /**
    * @brief Processor callback
    * @param msg Empty message
+   * This should be the only area you change for new plugins.
+   * This is where you declare your variables. We made a publisher for subsystems, a logger, and a parameter.
    */
   bool is_enabled_;
   rclcpp::Logger logger_{rclcpp::get_logger("waypoint_action_follower")};

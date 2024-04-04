@@ -1,5 +1,24 @@
 # Nav2 Waypoint Follower
 
+
+This package is called by the navigation package when the waypoint_launch.py file is launched. The main
+changes that would be necessary are additions/changes to this packages plugins, which are basically executables that are called once the robot reaches one of the waypoints listed inside of the secbot_navigation/scripts/follow_waypoints.py file. Changes to this package would be done throughout the following directories/files:
+
+plugins.xml(Define any new plugins("reached waypoint" files) and define their purpose)
+package.xml(If your plugin has implementation that requires new packages(dependencies), add them here)
+CMakeLists.txt(Link these new dependencies to your plugin files so the plugin can use them)
+plugins/(plugin_name.cpp) (this is where you put your "reached waypoint" executable files)
+include/plugins/(plugin_name.hpp) (this is where you declare alot of the members/methods of your plugin)
+
+Plugin implementation should follow the same general format of the plugins currently in this package.
+
+
+
+
+
+
+COMMUNITY MADE DOCUMENTATION IS BELOW
+
 The Nav2 waypoint follower is an example application of how to use the navigation action to complete some sort of orchestrated task. In this example, that task is to take a given set of waypoints and navigate to a set of positions in the order provided in the action request. The last waypoint in the waypoint array is the final position. It was built by [Steve Macenski](https://www.linkedin.com/in/steve-macenski-41a985101/) while at [Samsung Research](https://www.sra.samsung.com/).
 
 See its [Configuration Guide Page](https://navigation.ros.org/configuration/packages/configuring-waypoint-follower.html) for additional parameter descriptions.

@@ -17,7 +17,7 @@ const bool break_for_testing = false;
 void current_launch_async(){
   
   //CHANGE THIS DEPENDING ON WHICH LAUNCH FILE YOU WANT - use_sim_time:=true may be needed
-  std::system("ros2 launch secbot_simulation launch_sim.launch.py &");
+  std::system("ros2 launch secbot_bring_up combine_launch.py &");
 
 }
 
