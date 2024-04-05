@@ -21,4 +21,4 @@ A launch file that is referenced by the secbot_navigation package is included. R
 
 ## Known issues
 - Can't easily detect red due to hue wrap. If you need to detect red robustly you'll need to go in and mess with the HSV filtering.
-- Can only balls.
+- Can only track and follow balls.
