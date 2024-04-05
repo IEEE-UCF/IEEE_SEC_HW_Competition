@@ -10,17 +10,15 @@
 - Plugin implementation should follow the same general format of the plugins currently in this package.
 - Example plugins are found via the Waypoint_Follower [GitHub](https://github.com/ros-planning/navigation2/tree/main/nav2_waypoint_follower).
 
-### Changes to this package would be done throughout the following directories/files:
-
-### plugins.xml
-- Define any new plugins("reached waypoint" files) and define their purpose.
-### package.xml
+### `plugins.xml`
+- Define any new plugins("reached waypoint" files) and define their purpose here.
+### `package.xml`
 - If your plugin has implementation that requires new packages(dependencies), add them here.
-### CMakeLists.txt
-- Link these new dependencies to your plugin files so the plugin can use them.
-### plugins/*plugin_name.cpp*
+### `CMakeLists.txt`
+- Link new dependencies to your plugin files here so the plugin can use them.
+### `plugins/<plugin_name>.cpp`
 - Put your plugin's c++ implementation here.
-### include/plugins/*plugin_name.hpp*
+### `include/plugins/<plugin_name>.hpp`
 - Put your plugin's header file here.
 - These files should declare alot of the members/methods of your plugin.
 

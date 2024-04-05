@@ -1,15 +1,15 @@
 # `secbot_bringup` Documentation
-- Holds launches and files for the bringup of the robot.
+This package holds the launches and files for the bringup of the robot. It also contains some of the bringups for the simulation.
 ## Directory: `src`
-- Contains c++ executables that are called by the src_ws/full_bringup files.
+- Contains c++ executables that are called by the `src_ws/full_bringup` files.
 - **ALL** current src files depend on the topic `/rosout` to listen for succesful startup and error msgs.
-### launch_bringup
+### `launch_bringups`
 - Starts everything pre-nav2.
 - It will reset itself until it believes that the system has started correctly.
-### nav_bringup
+### `nav_bringups`
 - Starts localization and navigation.
 - It will reset itself and launch_bringup until it believes that navigation and localization have started correctly.
-### waypoint_bringup
+### `waypoint_bringups`
 - Starts waypoint following.
 - It will endlessely listen for implementation-defined errors, and will end all processes if an error is found.
 - Ends all proccess if amcl takes too long to start, allowing the system to restart if the user puts **all** bringup calls in a while loop.
