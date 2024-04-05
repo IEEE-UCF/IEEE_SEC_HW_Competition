@@ -30,3 +30,7 @@
 
 ### Worlds
  - Usable world files for `launch_sim`
+
+---
+
+![godzilla](https://github.com/IEEE-UCF/IEEE_SEC_HW_Competition/assets/61072840/fa9b2af4-b728-4498-912e-8faebd2ddd91)
