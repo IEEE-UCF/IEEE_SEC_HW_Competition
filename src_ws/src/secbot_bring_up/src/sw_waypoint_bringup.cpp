@@ -7,7 +7,7 @@ int worry_msg_count = 0;
 
 //HOW LONG THE SYSTEM WILL WAIT FOR ERRORS - EVEN IF IT FINDS ALL GOOD MESSAGES
 //SHOULD BE LOWER THAN MAX_WAIT_BREAK
-const int max_wait_success = 200;
+const int max_wait_success = 40;
 
 const int max_wait_break = 8;
 
@@ -100,8 +100,7 @@ auto checker_callback(const rcl_interfaces::msg::Log msg){
   const char* worry_msg[] = {"amcl/get_state service not available, waiting..."};
   
 
-//  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "SEARCHING");
-
+//counts how many times worry messages are found
   if (strcmp(msg.msg.c_str(), worry_msg[0]) == 0){
     
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "WORRY MESSAGE FOUND");
@@ -110,7 +109,7 @@ auto checker_callback(const rcl_interfaces::msg::Log msg){
 
   }
 
-  //IF EITHER ERROR MSG IS FOUND
+//checks for error message and ends all processes if found
   if(msg.name == "amcl" && msg.msg.size() > 158 && msg.msg.size() < 164 && msg.msg.at(40) == bad_msg[0][40]){
     
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "FOUND BAD MESSAGE FOUND BAD MESSAGE");

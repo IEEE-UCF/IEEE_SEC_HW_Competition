@@ -1,4 +1,4 @@
-# Nav2 AMCL SLAM Robot_Localization
+# secbot_navigation
 
 
 This package has six subdirectories. 

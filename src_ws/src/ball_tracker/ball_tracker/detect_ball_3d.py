@@ -87,16 +87,22 @@ class DetectBall3d(Node):
         self.ball_marker_pub.publish(m)
         print(m.pose.position)
     
+#This adds to vel_counter if the robot is moving especially slowly toward the ball.
     def minimal_callback2(self, msg):
         self.vel_counter += 1 if (0 <= msg.angular.z <= 0.05) and (0 <= msg.linear.x <= 0.1) else 0
 
-
+#This prevents this node from infinitely approaching the ball by checking two conditions every one second. 
+#It's seeing if vel_counter(referenced above) is high enough to say that the robot has reached the ball.
     def end_timer_callback(self):
         self.current_time+=1
+
+        #Increase this if you want the robot to get closer
         if self.vel_counter >= 30:
             self.get_logger().info("The robot seems to be infront of it's target. Ending detect_ball_3d..")
             self.destroy_node()
             rclpy.shutdown()
+        
+        #Increase this if the robot will take lots of time to approach the ball
         elif self.current_time > 25:
             self.get_logger().info("Too much time has passed without success, breaking")
             self.destroy_node()
