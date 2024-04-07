@@ -28,9 +28,10 @@ def main():
 
     navigator = BasicNavigator()
 
-    # Inspection route, probably read in from a file for a real application
-    # from either a map or drive and repeat.
-    inspection_route = [ # simulation points
+    # Inspection route, each array contains a position x/y and orientation z/w.
+    # The robot will move to/orient at each waypoint in correspondance with where it believes it is.
+    # Common 90 degree -orientations- are: 0.0,1.0 :: -1.0,0.0 :: -0.705,0.705 :: 0.705,0.705(maybe)
+    inspection_route = [
         [0.0, 0.0, 0.0, 1.0],    #ORIENT FACING RAMP :: ACTIVATE INTAKE
         [0.35, 0.0, 0.0, 1.0],   #DRIVE FORWARDS
         [0.35, 0.0, -1.0, 0.0],   #ORIENT BACKWARDS
@@ -52,12 +53,8 @@ def main():
     # initial_pose.pose.orientation.z = 1.0
     # initial_pose.pose.orientation.w = 0.0
     # navigator.setInitialPose(initial_pose)
-
     # Wait for navigation to fully activate
     navigator.waitUntilNav2Active()
-
-#inspection_pose.pose.orientation.z = 0.0
-#inspection_pose.pose.orientation.w = 1.0
 
     while rclpy.ok():
 
@@ -75,8 +72,7 @@ def main():
         nav_start = navigator.get_clock().now()
         navigator.followWaypoints(inspection_points)
 
-        # Do something during our route (e.x. AI to analyze stock information or upload to the cloud)
-        # Simply print the current waypoint ID for the demonstation
+        # This comminicates with the waypoint_plugins and actually activates tasks at the waypoints
         i = 0
         while not navigator.isTaskComplete():
             i = i + 1
@@ -87,12 +83,12 @@ def main():
 
         result = navigator.getResult()
         if result == TaskResult.SUCCEEDED:
-            print('Inspection of shelves complete! Returning to start...')
+            print('Waypoint Tasks Complete! Returning to Start...')
         elif result == TaskResult.CANCELED:
-            print('Inspection of shelving was canceled. Returning to start...')
+            print('Waypoint Tasks Canceled! Returning to Start...')
             exit(1)
         elif result == TaskResult.FAILED:
-            print('Inspection of shelving failed! Returning to start...')
+            print('Waypoint Tasks Failed! Returning to Start...')
 
         # go back to start
         # initial_pose.header.stamp = navigator.get_clock().now().to_msg()

@@ -55,11 +55,14 @@ ament_target_dependencies(${library_name}
   ${dependencies}
 )
 
+
+#To incorporate new plugins, copy the two lines below and replace with name and filename of your new plugin
 add_library(task_at_waypoint SHARED plugins/task_at_waypoint.cpp)
 ament_target_dependencies(task_at_waypoint ${dependencies})
 
 rclcpp_components_register_nodes(${library_name} "nav2_waypoint_follower::WaypointFollower")
 
+#Add the new plugin name like so: task_at_waypoint plugin_name_at_waypoint
 install(TARGETS ${library_name} task_at_waypoint
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
@@ -83,6 +86,7 @@ if(BUILD_TESTING)
 endif()
 
 ament_export_include_directories(include)
+#Add the name of you new waypoint to the right of task_at_waypoint
 ament_export_libraries(task_at_waypoint ${library_name})
 ament_export_dependencies(${dependencies})
 pluginlib_export_plugin_description_file(waypoint_action_follower plugins.xml)

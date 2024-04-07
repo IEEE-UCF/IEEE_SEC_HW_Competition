@@ -1,3 +1,4 @@
+
 #include "waypoint_action_follower/plugins/task_at_waypoint.hpp"
 
 #include <string>
@@ -21,7 +22,7 @@ TaskAtWaypoint::~TaskAtWaypoint()
 {
 }
   
-
+//Define variables that were mentioned in the header file in the TaskAtWaypoint function below
 void TaskAtWaypoint::initialize(
     const rclcpp_lifecycle::LifecycleNode::WeakPtr &parent,
     const std::string &plugin_name)
@@ -32,10 +33,12 @@ void TaskAtWaypoint::initialize(
     throw std::runtime_error("Failed to lock parent node");
   }
 
+  //We declared a logging variable and a publisher node.
   logger_ = node_->get_logger();
   subsystem_pub_ = node_->create_publisher<std_msgs::msg::String>("SubsystemComms",10);
 
-
+  //When interfacing with configs in secbot_navigation/configs/nav2_params, you will make parameters
+  //to set plugin features in the area below. For now, we only made a "is_enabled" parameter.
   nav2_util::declare_parameter_if_not_declared(
     node_, plugin_name + ".enabled",
     rclcpp::ParameterValue(true));
@@ -51,6 +54,9 @@ bool TaskAtWaypoint::processAtWaypoint(
     return true;
   }    
 
+  //Your plugin implementation should begin at this line. This plugin calls to the ball_tracker package.
+
+
   try {
     
     //START THE WAYPOINT PROCCESS DEPENDING ON THE WAYPOINT INDEX    
@@ -58,7 +64,7 @@ bool TaskAtWaypoint::processAtWaypoint(
     int SuccessValue;
     std_msgs::msg::String message;
 
-    // PUBLISH VALUES FOR SUBSYSTEMS: 4 intake : 5 outake : 6 disable
+    // MESSAGE VALUES TO ENABLE SUBSYSTEMS: 4 intake : 5 outake : 6 disable
 
     switch (curr_waypoint_index){
       case 0:          
@@ -126,6 +132,9 @@ bool TaskAtWaypoint::processAtWaypoint(
       curr_waypoint_index, e.what());
     return false;
   }
+
+  //Your plugin would generally end upon reaching this point
+
   return true;
 }
 }  // namespace nav2_waypoint_follower

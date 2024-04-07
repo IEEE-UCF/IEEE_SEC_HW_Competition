@@ -1,4 +1,5 @@
-#include "waypoint_action_follower/plugins/task_at_waypoint.hpp"
+
+#include "waypoint_action_follower/plugins/track_ball_at_waypoint.hpp"
 
 #include <string>
 #include <memory>
@@ -10,17 +11,22 @@
 namespace nav2_waypoint_follower
 {
 
-TaskAtWaypoint::TaskAtWaypoint()
+TrackBallAtWaypoint::TrackBallAtWaypoint()
 : is_enabled_(true)
 {
 }
 
-TaskAtWaypoint::~TaskAtWaypoint()
+TrackBallAtWaypoint::~TrackBallAtWaypoint()
 {
 }
   
 
-void TaskAtWaypoint::initialize(
+/*
+THIS PLUGIN DOES NOT HAVE A HEADER FILE MADE FOR IT. Make one by reading the documentation at th bottom of
+the task_at_waypoint.hpp file.
+Define variables that were mentioned in the header file in the TrackBallAtWaypoint function below
+*/
+void TrackBallAtWaypoint::initialize(
     const rclcpp_lifecycle::LifecycleNode::WeakPtr &parent,
     const std::string &plugin_name)
 {
@@ -29,9 +35,12 @@ void TaskAtWaypoint::initialize(
   {
     throw std::runtime_error("Failed to lock parent node");
   }
-  
+
+  //This was the only variable needed
   logger_ = node_->get_logger();
 
+  //When interfacing with configs in secbot_navigation/configs/nav2_params, you will make parameters
+  //to set plugin features in the area below. For now, we only made a "is_enabled" parameter.
   nav2_util::declare_parameter_if_not_declared(
     node_, plugin_name + ".enabled",
     rclcpp::ParameterValue(true));
@@ -39,7 +48,7 @@ void TaskAtWaypoint::initialize(
 
 }
 
-bool TaskAtWaypoint::processAtWaypoint(
+bool TrackBallAtWaypoint::processAtWaypoint(
     const geometry_msgs::msg::PoseStamped & /*curr_pose*/,
     const int & curr_waypoint_index)
 {
@@ -47,8 +56,10 @@ bool TaskAtWaypoint::processAtWaypoint(
     return true;
   }    
 
+  //Your plugin implementation should begin at this line. This plugin calls to the ball_tracker package.
+
   try {
-    //START THE WAYPOINT PROCCESS DEPENDING ON THE WAYPOINT INDEX    
+    //START THE WAYPOINT PROCCESS DEPENDING ON THE WAYPOINT INDEX. INDEX BEGINS AT 0.
     switch (curr_waypoint_index){
       case 0:          
           RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "AT FIRST WAYPOINT: Initiating Ball Tracker..");
@@ -85,19 +96,21 @@ bool TaskAtWaypoint::processAtWaypoint(
 
     RCLCPP_INFO(
       rclcpp::get_logger("nav2_waypoint_follower"),
-      "Completed task at waypoint %i, returning to navigation..", curr_waypoint_index);
+      "Completed TrackBall at waypoint %i, returning to navigation..", curr_waypoint_index);
 
   } catch (const std::exception & e) {
     RCLCPP_ERROR(
       rclcpp::get_logger("nav2_waypoint_follower"),
-      "Failed to start task at waypoint %i! Caught exception: %s",
+      "Failed to start TrackBall at waypoint %i! Caught exception: %s",
       curr_waypoint_index, e.what());
     return false;
-  }
+
+  } //Your plugin would generally end upon reaching this point
+
   return true;
 }
 }  // namespace nav2_waypoint_follower
 
 PLUGINLIB_EXPORT_CLASS(
-    nav2_waypoint_follower::TaskAtWaypoint,
+    nav2_waypoint_follower::TrackBallAtWaypoint,
     nav2_core::WaypointTaskExecutor)
