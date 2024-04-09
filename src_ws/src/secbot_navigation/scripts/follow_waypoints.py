@@ -31,17 +31,10 @@ def main():
     # Inspection route, probably read in from a file for a real application
     # from either a map or drive and repeat.
     inspection_route = [ # simulation points
-        [0.0, 0.0, 0.0, 1.0],    #ORIENT FACING RAMP :: ACTIVATE INTAKE
-        [0.35, 0.0, 0.0, 1.0],   #DRIVE FORWARDS
-        [0.35, 0.0, -1.0, 0.0],   #ORIENT BACKWARDS
-        [0.0, 0.0, -1.0, 0.0],    #DRIVE FORWARDS
-        [0.0, 0.0, -0.705, 0.705],   #ORIENT BACKWARDS
-        [0.0, -0.15, -0.705, 0.705],    #DRIVE FORWARDS :: CMD_VEL BACK UP     (change second value to get closer to wall)
-        [0.0, 0.0, 0.0, 1.0],    #ORIENT FACING RAMP
-        [0.3, 0.0, 0.0, 1.0],   #DRIVE FORWARDS
-        [0.3, 0.0, -0.705, 0.705],   #ORIENT FACING BLOCKS
-        [0.3, -0.15, -0.705, 0.705],   #DRIVE FORWARDS :: CMD_VEL BACK UP    (change second value to get closer to wall)
-        [0.3, 0.0, 0.0, 1.0]]    #ORIENT FACING RAMPS :: ACTIVATE HAUL
+        [5.5, 1.12, 1.0, 0.2],
+        [0.5, 2.1, 0.0, 1.0],
+        [5.5, 1.12, 1.0, 0.0],
+        [0.0, 0.0, 0.0, -1.0]]
 
     # Set our demo's initial pose
     # initial_pose = PoseStamped()
