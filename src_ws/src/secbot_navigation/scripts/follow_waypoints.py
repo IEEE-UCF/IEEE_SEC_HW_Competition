@@ -31,18 +31,11 @@ def main():
     # Inspection route, each array contains a position x/y and orientation z/w.
     # The robot will move to/orient at each waypoint in correspondance with where it believes it is.
     # Common 90 degree -orientations- are: 0.0,1.0 :: -1.0,0.0 :: -0.705,0.705 :: 0.705,0.705(maybe)
-    inspection_route = [
-        [0.0, 0.0, 0.0, 1.0],    #ORIENT FACING RAMP :: ACTIVATE INTAKE
-        [0.35, 0.0, 0.0, 1.0],   #DRIVE FORWARDS
-        [0.35, 0.0, -1.0, 0.0],   #ORIENT BACKWARDS
-        [0.0, 0.0, -1.0, 0.0],    #DRIVE FORWARDS
-        [0.0, 0.0, -0.705, 0.705],   #ORIENT BACKWARDS
-        [0.0, -0.15, -0.705, 0.705],    #DRIVE FORWARDS :: CMD_VEL BACK UP     (change second value to get closer to wall)
-        [0.0, 0.0, 0.0, 1.0],    #ORIENT FACING RAMP
-        [0.3, 0.0, 0.0, 1.0],   #DRIVE FORWARDS
-        [0.3, 0.0, -0.705, 0.705],   #ORIENT FACING BLOCKS
-        [0.3, -0.15, -0.705, 0.705],   #DRIVE FORWARDS :: CMD_VEL BACK UP    (change second value to get closer to wall)
-        [0.3, 0.0, 0.0, 1.0]]    #ORIENT FACING RAMPS :: ACTIVATE HAUL
+    inspection_route = [ # simulation points
+        [5.5, 1.12, 1.0, 0.2],
+        [0.5, 2.1, 0.0, 1.0],
+        [5.5, 1.12, 1.0, 0.0],
+        [0.0, 0.0, 0.0, -1.0]]
 
     # Set our demo's initial pose
     # initial_pose = PoseStamped()
