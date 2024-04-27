@@ -1,7 +1,9 @@
 <class_libraries>
   <library path="task_at_waypoint">
     <class type="nav2_waypoint_follower::TaskAtWaypoint" base_class_type="nav2_core::WaypointTaskExecutor">
-      <description>Lets robot call task at waypoint arrival</description>
+      <description>Enables the robot to complete an action upon reaching a waypoint</description>
     </class>
   </library>
+  <!--To add a new plugin, copy the 5 lines above and place them within the class_libraries 
+  scope with new plugin information-->
 </class_libraries>

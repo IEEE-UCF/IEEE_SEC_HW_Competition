@@ -17,8 +17,22 @@ const bool break_for_testing = false;
 void current_launch_async(){
   
   //CHANGE THIS DEPENDING ON WHICH LAUNCH FILE YOU WANT - use_sim_time:=true may be needed
-  std::system("ros2 launch secbot_simulation launch_sim.launch.py &");
+  std::system("ros2 launch secbot_bring_up combine_launch.py &");
 
+}
+
+void end_all_nodes(){
+      // CHANGE THIS DEPENDING ON NODES
+    std::system("pkill -2 -f 'ekf_node'");
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000)); 
+    std::system("pkill -2 -f 'gzserver'");
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::system("pkill -2 -f 'robot_state_publisher'");
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::system("pkill -2 -f 'rplidar_composition'");
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));    
+    std::system("pkill -2 -f 'bno055'");
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));    
 }
 
 
@@ -33,17 +47,7 @@ void timerCallback(){
     
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
-    // CHANGE THIS DEPENDING ON NODES- ADD MORE NODES FOR HW
-    std::system("pkill -2 -f 'bno055'");
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-    std::system("pkill -2 -f 'rplidar_composition'");
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-    std::system("pkill -2 -f 'robot_state_publisher'");
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-    std::system("pkill -2 -f 'gzserver'");
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-    std::system("pkill -2 -f 'ekf_node'");
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    end_all_nodes();
 
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
@@ -92,17 +96,7 @@ auto checker_callback(const rcl_interfaces::msg::Log msg){
 
     if(break_for_testing == true){
       
-      //CHANGE THIS DEPENDING ON NODES - HW WILL HAVE EXTRA HW NODES
-      std::system("pkill -2 -f 'bno055'");
-      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-      std::system("pkill -2 -f 'rplidar_composition'");
-      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-      std::system("pkill -2 -f 'robot_state_publisher'");
-      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-      std::system("pkill -2 -f 'gzserver'");
-      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-      std::system("pkill -2 -f 'ekf_node'");
-      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    end_all_nodes();
 
       RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "DESTROYING LAUNCH SINCE TESTING ENABLED");
     }

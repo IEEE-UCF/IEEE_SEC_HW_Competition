@@ -1,5 +1,30 @@
 # Nav2 Waypoint Follower
 
+
+## SEC Documentation
+
+- Called by the navigation package when the waypoint_launch.py file is executed. 
+
+## Changing Plugins
+- Changes would be to this packages plugins, which are basically executables that are called once the robot reaches one of the waypoints listed inside of the secbot_navigation/scripts/follow_waypoints.py file.
+- Plugin implementation should follow the same general format of the plugins currently in this package.
+- Example plugins are found via the Waypoint_Follower [GitHub](https://github.com/ros-planning/navigation2/tree/main/nav2_waypoint_follower).
+
+### `plugins.xml`
+- Define any new plugins("reached waypoint" files) and define their purpose here.
+### `package.xml`
+- If your plugin has implementation that requires new packages(dependencies), add them here.
+### `CMakeLists.txt`
+- Link new dependencies to your plugin files here so the plugin can use them.
+### `plugins/<plugin_name>.cpp`
+- Put your plugin's c++ implementation here.
+### `include/plugins/<plugin_name>.hpp`
+- Put your plugin's header file here.
+- These files should declare alot of the members/methods of your plugin.
+
+
+## Community-Made Documentation
+
 The Nav2 waypoint follower is an example application of how to use the navigation action to complete some sort of orchestrated task. In this example, that task is to take a given set of waypoints and navigate to a set of positions in the order provided in the action request. The last waypoint in the waypoint array is the final position. It was built by [Steve Macenski](https://www.linkedin.com/in/steve-macenski-41a985101/) while at [Samsung Research](https://www.sra.samsung.com/).
 
 See its [Configuration Guide Page](https://navigation.ros.org/configuration/packages/configuring-waypoint-follower.html) for additional parameter descriptions.
@@ -11,7 +36,7 @@ It also hosts a waypoint task executor plugin which can be used to perform custo
 
 There is a parameterization `stop_on_failure` whether to stop processing the waypoint following action on a single waypoint failure. When false, it will continue onto the next waypoint when the current waypoint fails. The action will exist when either all the waypoint navigation tasks have terminated or when `stop_on_failure`, a single waypoint as failed.
 
-## An aside on autonomy / waypoint following
+### An aside on autonomy / waypoint following
 
 The ``nav2_waypoint_follower`` contains a waypoint following program with a plugin interface for specific **task executors**.
 This is useful if you need to go to a given location and complete a specific task like take a picture, pick up a box, or wait for user input.

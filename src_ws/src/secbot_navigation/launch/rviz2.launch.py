@@ -15,6 +15,6 @@ def generate_launch_description():
             namespace='',
             executable='rviz2',
             name='rviz2',
-            arguments=['-d', [os.path.join(get_package_share_directory(navigation_package_name), 'config', 'amcl_config.rviz')], '--ros-args', '-p', 'use_sim_time:=true']
+            arguments=['-d', [os.path.join(get_package_share_directory(navigation_package_name), 'config', 'navigation.rviz')], '--ros-args', '-p', 'use_sim_time:=true']
         )
     ])
